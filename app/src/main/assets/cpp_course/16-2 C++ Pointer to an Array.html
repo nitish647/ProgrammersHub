@@ -1,0 +1,55 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Pointer to an Array</h1>
+
+<p>It is most likely that you would not understand this chapter until you go through the chapter related C++ Pointers.</p>
+<p>So assuming you have bit understanding on pointers in C++, let us start: An array name is a constant pointer to the first element of the array. Therefore, in the declaration &minus;</p>
+<pre class="result notranslate">double balance[50];
+</pre>
+<p><strong>balance</strong> is a pointer to &amp;balance[0], which is the address of the first element of the array balance. Thus, the following program fragment assigns <strong>p</strong> the address of the first element of <strong>balance</strong> &minus;</p>
+<pre class="result notranslate">double *p;
+double balance[10];
+
+p = balance;
+</pre>
+<p>It is legal to use array names as constant pointers, and vice versa. Therefore, *(balance + 4) is a legitimate way of accessing the data at balance[4].</p>
+<p>Once you store the address of first element in p, you can access array elements using *p, *(p+1), *(p+2) and so on. Below is the example to show all the concepts discussed above &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// an array with 5 elements.</span>
+   <span class="kwd">double</span><span class="pln"> balance</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">1000.0</span><span class="pun">,</span> <span class="lit">2.0</span><span class="pun">,</span> <span class="lit">3.4</span><span class="pun">,</span> <span class="lit">17.0</span><span class="pun">,</span> <span class="lit">50.0</span><span class="pun">};</span>
+   <span class="kwd">double</span> <span class="pun">*</span><span class="pln">p</span><span class="pun">;</span><span class="pln">
+
+   p </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span>
+ 
+   <span class="com">// output each array element's value </span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Array values using pointer "</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"*(p + "</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">") : "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*(</span><span class="pln">p </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Array values using balance as address "</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"*(balance + "</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">") : "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*(</span><span class="pln">balance </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Array values using pointer
+*(p + 0) : 1000
+*(p + 1) : 2
+*(p + 2) : 3.4
+*(p + 3) : 17
+*(p + 4) : 50
+Array values using balance as address
+*(balance + 0) : 1000
+*(balance + 1) : 2
+*(balance + 2) : 3.4
+*(balance + 3) : 17
+*(balance + 4) : 50
+</pre>
+<p>In the above example, p is a pointer to double which means it can store address of a variable of double type. Once we have address in p, then <strong>*p</strong> will give us value available at the address stored in p, as we have shown in the above example.</p>

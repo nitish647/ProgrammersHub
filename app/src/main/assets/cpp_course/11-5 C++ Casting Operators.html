@@ -1,0 +1,42 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Casting Operators</h1>
+
+<p>A cast is a special operator that forces one data type to be converted into another. As an operator, a cast is unary and has the same precedence as any other unary operator.</p>
+<p>The most general cast supported by most of the C++ compilers is as follows &minus;</p>
+<pre class="result notranslate">(type) expression 
+</pre>
+<p>Where type is the desired data type. There are other casting operators supported by C++, they are listed below &minus;</p>
+<ul class="list">
+<li>
+<p><strong>const_cast&lt;type&gt; (expr)</strong> &minus; The const_cast operator is used to explicitly override const and/or volatile in a cast. The target type must be the same as the source type except for the alteration of its const or volatile attributes. This type of casting manipulates the const attribute of the passed object, either to be set or removed.</p>
+</li>
+<li>
+<p><strong>dynamic_cast&lt;type&gt; (expr)</strong> &minus; The dynamic_cast performs a runtime cast that verifies the validity of the cast. If the cast cannot be made, the cast fails and the expression evaluates to null. A dynamic_cast performs casts on polymorphic types and can cast a A* pointer into a B* pointer only if the object being pointed to actually is a B object.</p>
+</li>
+<li>
+<p><strong>reinterpret_cast&lt;type&gt; (expr)</strong> &minus; The reinterpret_cast operator changes a pointer to any other type of pointer. It also allows casting from pointer to an integer type and vice versa.</p>
+</li>
+<li>
+<p><strong>static_cast&lt;type&gt; (expr)</strong> &minus; The static_cast operator performs a nonpolymorphic cast. For example, it can be used to cast a base class pointer into a derived class pointer.</p>
+</li>
+</ul>
+<p>All of the above-mentioned casting operators will be used while working with classes and objects. For now, try the following example to understand a simple cast operators available in C++. Copy and paste the following C++ program in test.cpp file and compile and run this program.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+ 
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">double</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21.09399</span><span class="pun">;</span>
+   <span class="kwd">float</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10.20</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">;</span><span class="pln">
+ 
+   c </span><span class="pun">=</span> <span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - Value of (int)a is :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span> <span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - Value of (int)b is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - Value of (int)a is :21
+Line 2 - Value of (int)b is  :10
+</pre>

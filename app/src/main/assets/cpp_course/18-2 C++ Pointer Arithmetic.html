@@ -1,0 +1,115 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Pointer Arithmetic</h1>
+
+<p>As you understood pointer is an address which is a numeric value; therefore, you can perform arithmetic operations on a pointer just as you can a numeric value. There are four arithmetic operators that can be used on pointers: ++, --, +, and -</p>
+<p>To understand pointer arithmetic, let us consider that <strong>ptr</strong> is an integer pointer which points to the address 1000. Assuming 32-bit integers, let us perform the following arithmetic operation on the pointer &minus;</p>
+<pre class="result notranslate">ptr++
+</pre>
+<p>the <strong>ptr</strong> will point to the location 1004 because each time ptr is incremented, it will point to the next integer. This operation will move the pointer to next memory location without impacting actual value at the memory location. If ptr points to a character whose address is 1000, then above operation will point to the location 1001 because next character will be available at 1001.</p>
+<h2>Incrementing a Pointer</h2>
+<p>We prefer using a pointer in our program instead of an array because the variable pointer can be incremented, unlike the array name which cannot be incremented because it is a constant pointer. The following program increments the variable pointer to access each succeeding element of the array &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+
+   <span class="com">// let us have array address in pointer.</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">var</span><span class="pun">;</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+      <span class="com">// point to the next location</span><span class="pln">
+      ptr</span><span class="pun">++;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">Address of var[0] = 0xbfa088b0
+Value of var[0] = 10
+Address of var[1] = 0xbfa088b4
+Value of var[1] = 100
+Address of var[2] = 0xbfa088b8
+Value of var[2] = 200
+</pre>
+<h2>Decrementing a Pointer</h2>
+<p>The same considerations apply to decrementing a pointer, which decreases its value by the number of bytes of its data type as shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+
+   <span class="com">// let us have address of the last element in pointer.</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="pun">&amp;</span><span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">-</span><span class="lit">1</span><span class="pun">];</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+      <span class="com">// point to the previous location</span><span class="pln">
+      ptr</span><span class="pun">--;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">Address of var[3] = 0xbfdb70f8
+Value of var[3] = 200
+Address of var[2] = 0xbfdb70f4
+Value of var[2] = 100
+Address of var[1] = 0xbfdb70f0
+Value of var[1] = 10
+</pre>
+<h2>Pointer Comparisons</h2>
+<p>Pointers may be compared by using relational operators, such as ==, &lt;, and &gt;. If p1 and p2 point to variables that are related to each other, such as elements of the same array, then p1 and p2 can be meaningfully compared.</p>
+<p>The following program modifies the previous example one by incrementing the variable pointer so long as the address to which it points is either less than or equal to the address of the last element of the array, which is &amp;var[MAX - 1] &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+
+   <span class="com">// let us have address of the first element in pointer.</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">var</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+   
+   <span class="kwd">while</span> <span class="pun">(</span><span class="pln"> ptr </span><span class="pun">&lt;=</span> <span class="pun">&amp;</span><span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX </span><span class="pun">-</span> <span class="lit">1</span><span class="pun">]</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+      <span class="com">// point to the previous location</span><span class="pln">
+      ptr</span><span class="pun">++;</span><span class="pln">
+      i</span><span class="pun">++;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">Address of var[0] = 0xbfce42d0
+Value of var[0] = 10
+Address of var[1] = 0xbfce42d4
+Value of var[1] = 100
+Address of var[2] = 0xbfce42d8
+Value of var[2] = 200
+</pre>

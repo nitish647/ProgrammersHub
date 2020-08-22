@@ -1,0 +1,37 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include&lt;iostream&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Account</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #f8f8f2">private:</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">balance;</span>
+   <span style="color: #f8f8f2">public:</span>
+     <span style="color: #f8f8f2">Account(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
+     <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">balance</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">deposit(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">amount)</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">balance</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">amount;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">withdraw(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">amount)</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">balance</span><span style="color: #f92672">-=</span><span style="color: #f8f8f2">amount;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">getBalance()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">balance;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Account</span> <span style="color: #f8f8f2">a1(</span><span style="color: #ae81ff">300</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Initial Balance : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">a1.getBalance()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">a1.deposit(</span><span style="color: #ae81ff">700</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Balance after deposit : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">a1.getBalance()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">a1.withdraw(</span><span style="color: #ae81ff">500</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Balance after withdraw : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">a1.getBalance()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Initial</span> <span style="color: #f8f8f2">Balance</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">300</span>
+<span style="color: #f8f8f2">Balance</span> <span style="color: #f8f8f2">after</span> <span style="color: #f8f8f2">deposit</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">1000</span>
+<span style="color: #f8f8f2">Balance</span> <span style="color: #f8f8f2">after</span> <span style="color: #f8f8f2">withdraw</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span>
+</pre></div>

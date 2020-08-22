@@ -1,0 +1,908 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Regular Expressions</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Regular Expressions</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A&nbsp;<b>regular expression</b>&nbsp;is a pattern that could be
+matched against an input text. The .Net framework provides a regular expression
+engine that allows such matching. A pattern consists of one or more character
+literals, operators, or constructs.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Constructs for Defining Regular
+Expressions</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>There are various categories of characters, operators, and
+constructs that lets you to define regular expressions. Click the following
+links to find these constructs.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Character escapes</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Character classes</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Anchors</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Grouping constructs</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Quantifiers</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Backreference constructs</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Alternation constructs</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Substitutions</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:#313131'>Miscellaneous constructs</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>The Regex Class</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The Regex class is used for representing a regular expression. It
+has the following commonly used methods:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=604
+ style='width:453.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid #DDDDDD 1.0pt;
+  background:#EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Sr.No</span></b></p>
+  </td>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-left:none;background:
+  #EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Methods</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>1</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>public
+  bool IsMatch(string input)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>Indicates
+  whether the regular expression specified in the Regex constructor finds a
+  match in a specified input string.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>2</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>public bool IsMatch(string input, int startat)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>Indicates
+  whether the regular expression specified in the Regex constructor finds a
+  match in the specified input string, beginning at the specified starting
+  position in the string.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>3</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>public static bool IsMatch(string input, string pattern)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>Indicates
+  whether the specified regular expression finds a match in the specified input
+  string.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>4</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>public MatchCollection Matches(string input)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>Searches
+  the specified input string for all occurrences of a regular expression.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>5</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>public string Replace(string input, string replacement)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>In
+  a specified input string, replaces all strings that match a regular
+  expression pattern with a specified replacement string.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>6</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>public string[] Split(string input)</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>Splits
+  an input string into an array of substrings at the positions defined by a
+  regular expression pattern specified in the Regex constructor.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>For the complete list of methods and properties, please read the
+Microsoft documentation on C#.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+14.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example 1</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example matches words that start with 'S':</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Text</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>RegularExpressions</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>namespace</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>RegExApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>class</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Program</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>privatestaticvoid</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> showMatch</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+text</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> expr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;The
+Expression: &quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>+</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> expr</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>MatchCollection</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> mc </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Regex</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Matches</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>text</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+expr</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>foreach</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Match</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+m </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>in</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> mc</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>m</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>staticvoid</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>Main</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+args</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>string</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> str </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;A
+Thousand Splendid Suns&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Matching
+words that start with 'S': &quot;</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>         showMatch</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>str</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,@</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;\bS\S*&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Matching
+words that start with 'S':</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+Expression: \bS\S*</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Splendid</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Suns</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+14.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example 2</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example matches words that start with 'm' and ends
+with 'e':</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Text</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>RegularExpressions</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>namespace</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>RegExApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>class</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Program</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>privatestaticvoid</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> showMatch</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+text</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> expr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;The
+Expression: &quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>+</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> expr</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>MatchCollection</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> mc </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Regex</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Matches</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>text</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+expr</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>foreach</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Match</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+m </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>in</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> mc</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>m</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>staticvoid</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>Main</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+args</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>string</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> str </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;make
+maze and manage to measure it&quot;</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Matching
+words start with 'm' and ends with 'e':&quot;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>         showMatch</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>str</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,@</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;\bm\S*e\b&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Matching
+words start with 'm' and ends with 'e':</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+Expression: \bm\S*e\b</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>make</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>maze</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>manage</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>measure</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+14.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example 3</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>This example replaces extra white space:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>using</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>using</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Text</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>RegularExpressions</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>namespace</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>RegExApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>class</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#7F0055'>Program</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>staticvoid</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+args</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> input </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Hello  
+World   &quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> pattern </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;\\s+&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+replacement </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#008800'>&quot; &quot;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Regex</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> rgx </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Regex</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>pattern</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>string</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> result </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+rgx</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Replace</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>input</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+replacement</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Console</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Original
+String: {0}&quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>,</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> input</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Console</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Replacement
+String: {0}&quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>,</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> result</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Console</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Original
+String: Hello World   </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Replacement
+String: Hello World   </span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,554 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Lists</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Lists</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>C# has a range of
+classes for dealing with lists. They implement the IList interface and the most
+popular implementation is the generic list, often referred to as List&lt;T&gt;.
+The T specifies the type of objects contained in the list, which has the added
+benefit that the compiler will check and make sure that you only add objects of
+the correct type to the list - in other words, the List&lt;T&gt; is type-safe.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>List&nbsp;is much
+like the ArrayList class, which was the go-to List choice before C# supported
+generic lists. Therefore you will also see that the List&nbsp;can do a lot of
+the same stuff as an Array (which also implements the IList interface by the
+way), but in a lot of situations, List&nbsp;is simpler and easier to work with.
+For instance, you don't have to create a List with a specific size - instead,
+you can just create it and .NET will automatically expand it to fit the amount
+of items as you add them.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>As mentioned, the T
+stands for type and is used to specify the type of objects you want the list to
+contain. In our first example, I will show you how to create a list which
+should contain strings:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfStrings = new List&lt;string&gt;();</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>This creates an
+empty list, but adding stuff to it afterwards is very easy with the&nbsp;<i>Add</i>&nbsp;method:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>listOfStrings.Add(&quot;a
+string&quot;);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>However, if you try
+to add something that is not a string, the compiler will immediately complain
+about it:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>listOfStrings.Add(2);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>Error &nbsp; CS1503
+&nbsp;Argument 1: cannot convert from 'int' to 'string'</span></p>
+
+</div>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Initializing a list with items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>In the above
+example, we just created a list and then we added an item to it. However, C#
+actually allows you to create a list AND add items to it within the same statement,
+using a technique called collection initializers. Let's see how it's done:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfNames = new List&lt;string&gt;()<br>
+{<br>
+&nbsp; &nbsp; &quot;John Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Jane Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Joe Doe&quot;<br>
+};</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The syntax is quite
+simple: Before the usual ending semicolon, we have a set of curly brackets,
+which in turn holds a list of the values we want to be present in the list from
+the start. Since this is a list of strings, the initial objects we provide
+should of course be of the string type. However, the exact same can be
+accomplished for list of other types, even if we're using our own classes, as I
+will demonstrate in the next example.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Working with the items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>There are several
+ways to work with the items of a generic list and to show you some of them, I
+have created a larger example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>using System;<br>
+using System.Collections.Generic;<br>
+<br>
+namespace Lists<br>
+{<br>
+&nbsp; &nbsp; class Program<br>
+&nbsp; &nbsp; {<br>
+    static void Main(string[] args)<br>
+    {<br>
+    &nbsp; &nbsp; List&lt;User&gt; listOfUsers = new List&lt;User&gt;()<br>
+    &nbsp; &nbsp; {<br>
+        new User() { Name = &quot;John Doe&quot;, Age = 42 },<br>
+        new User() { Name = &quot;Jane Doe&quot;, Age = 34 },<br>
+        new User() { Name = &quot;Joe Doe&quot;, Age = 8 },<br>
+    &nbsp; &nbsp; };<br>
+<br>
+    &nbsp; &nbsp; for(int i = 0; i &lt; listOfUsers.Count; i++)<br>
+    &nbsp; &nbsp; {<br>
+        Console.WriteLine(listOfUsers[i].Name + &quot; is &quot; +
+listOfUsers[i].Age + &quot; years old&quot;);<br>
+    &nbsp; &nbsp; }<br>
+    &nbsp; &nbsp; Console.ReadKey();<br>
+    }<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; class User<br>
+&nbsp; &nbsp; {<br>
+    public string Name { get; set; }<br>
+<br>
+    public int Age { get; set; }<br>
+&nbsp; &nbsp; }<br>
+}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Let's start from
+the bottom, where we define a simple class for holding information about a User
+- just a name and an age. Back to the top part of the example, where I have
+changed our list to use this User class instead of simple strings. I use a
+collection initializer to populate the list with users - notice how the syntax
+is the same as before, just a bit more complex because we're dealing with a
+more complex object than a string.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Once we have the
+list ready, I use a&nbsp;<i>for</i>&nbsp;loop to run through it - to know how
+many iterations we're going to do, I use the&nbsp;<i>Count</i>&nbsp;property of
+the List. On each iteration, I access the user in question through the indexer
+of the list, using the square bracket syntax (e.g. listOfUsers[i]). Once I have
+the user, I output name and age.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Adding, Inserting &amp; Removing items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We already tried
+adding a single item to a list, but there are more options for doing this.
+First of all, you can Insert an item instead of adding it - the difference is
+that while the&nbsp;<i>Add</i>&nbsp;method always adds to the end of the list,
+the&nbsp;<i>Insert</i>&nbsp;method allows you to insert an item at a specific
+position. Here's an example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfNames = new List&lt;string&gt;()<br>
+{<br>
+&nbsp; &nbsp; &quot;Joe Doe&quot;<br>
+};<br>
+// Insert at the top (index 0)<br>
+listOfNames.Insert(0, &quot;John Doe&quot;);<br>
+// Insert in the middle (index 1)<br>
+listOfNames.Insert(1, &quot;Jane Doe&quot;);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We start the list
+of with just one item, but then we insert two more items, first at the top of
+the list and then in the middle. The first parameter of the Insert method is
+the index where we want to insert the item. Be careful though - an exception
+will be thrown if you try to insert an item at index 3, if the list has less
+items!</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Adding multiple items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Just like we have
+the Add and Insert methods for adding a single item, there are also
+corresponding methods for adding and inserting multiple items. They are
+called&nbsp;<i>AddRange()</i>&nbsp;and&nbsp;<i>InsertRange()</i>&nbsp;and
+accepts any type of collection which implements the&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:gray'>IEnumerable</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:#212529'>&nbsp;interface as a parameter -
+this could be e.g. an array of items or another list, which items you want to
+add or insert into the current list.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>As an example on
+the Range methods, let's do something fun - we combine the AddRange method with
+a collection initializer to add several new names to an existing list in a
+single statement:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>listOfNames.AddRange(new
+string[]<br>
+    &nbsp; &nbsp; {<br>
+        &quot;Jenna Doe&quot;,<br>
+        &quot;Another Doe&quot;<br>
+    &nbsp; &nbsp; });</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We simply create an
+array of strings on-the-fly and immediately append its items to our list of
+names from the previous example.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Removing items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>There are currently
+three methods at your disposal when you want to remove one or several items
+from a list:&nbsp;<i>Remove()</i>,&nbsp;<i>RemoveAt()</i>&nbsp;and&nbsp;<i>RemoveAll()</i>.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The&nbsp;<b>Remove()</b>&nbsp;method
+takes just one parameter: The item you want to remove. This is great for e.g. a
+list of strings or integers, because you can simply just write the item you
+want to remove. On the other hand, if you have a list of complex objects, you
+would have to find that object first, to have a reference you could pass to the
+Remove() method.¨Let's deal with that later - here's a very basic example on
+how you can remove a single item with the Remove() method:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfNames = new List&lt;string&gt;()<br>
+{<br>
+&nbsp; &nbsp; &quot;John Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Jane Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Joe Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Another Doe&quot;<br>
+};<br>
+<br>
+listOfNames.Remove(&quot;Joe Doe&quot;);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The Remove() method
+simply iterates through the list until it finds the first instance of the
+object you specified for removal, and them removes it - it only removes one
+instance, and if you specify an item in the list which doesn't exist, no error
+is thrown. The method returns&nbsp;<i>true</i>&nbsp;if it was able to remove an
+item and&nbsp;<i>false</i>&nbsp;if it wasn't.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The&nbsp;<b>RemoveAt()</b>&nbsp;method
+takes advantage of the fact that the generic list is index based by allowing
+you to remove an item based on its index/position in the list. For instance,
+you could remove the first item from the list like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>listOfNames.RemoveAt(0);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Or the last item in
+the list like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>listOfNames.RemoveAt(listOfNames.Count
+- 1);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Again, this only
+removes a single item and this time, you should be careful when providing the
+index of the item to be removed - if you use an index that falls out of bounds
+(lower than 0 or higher than the amount of items) an exception will be thrown!
+So, unless you're sure of what you're doing, you might want to wrap the
+RemoveAt() method in a try-catch block for handling the exception (explained in
+detail elsewhere in this tutorial). The RemoveAt() method doesn't return
+anything, so you will have to check the amount of items in the list before and
+after the call, to decide if it was successful - on the other hand, if you know
+that you have an index that exists in the list, which you should always make
+sure of, then you can always expect RemoveAt() to be successful.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The&nbsp;<b>RemoveAll()</b>&nbsp;is
+the most complex of the remove-methods, but definitely also the most powerful.
+It takes a delegate to a method as its parameter and this method then decides
+whether an item should be removed or not by returning true or false. This
+allows you to apply your own logic when removing items and it also allows you
+to remove more than one item at a time. Delegates will be treated elsewhere in
+this tutorial, because it's a big and complex subject, but I still want you to
+get a feel of how cool the RemoveAll method is, so here's an example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfNames = new List&lt;string&gt;()<br>
+{<br>
+&nbsp; &nbsp; &quot;John Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Jane Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Joe Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Another Doe&quot;<br>
+};<br>
+<br>
+listOfNames.RemoveAll(name =&gt; <br>
+{<br>
+&nbsp; &nbsp; if (name.StartsWith(&quot;J&quot;))<br>
+    return true;<br>
+&nbsp; &nbsp; else<br>
+    return false;<br>
+});</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>In this example, we
+use an anonymous method (again too complex to be explained here, but it will be
+treated in another chapter) as a parameter for the RemoveAll method. Our anonymous
+method is pretty simple - it will be called for each item in the list and have
+a parameter called&nbsp;<i>name</i>, which is of course the current item in the
+iteration. It looks at this name and if it starts with &quot;J&quot;,&nbsp;<i>true</i>&nbsp;is
+returned - otherwise&nbsp;<i>false</i>. The RemoveAll() method uses this
+response (true or false) to decide if each item should be removed or not. In
+the end, this leaves our initial list with just one Doe member left: Another
+Doe.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Sorting List Items</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>So far, the items
+in the list we have worked with has just been used in the order in which they
+were added to the list. However, you may want to have the items sorted in a
+specific way, e.g. alphabetically in the case of our list-of-names. The
+List&lt;T&gt; has a Sort() method which we can use for this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>List&lt;string&gt;
+listOfNames = new List&lt;string&gt;()<br>
+{<br>
+&nbsp; &nbsp; &quot;John Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Jane Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Joe Doe&quot;,<br>
+&nbsp; &nbsp; &quot;Another Doe&quot;<br>
+};<br>
+listOfNames.Sort();<br>
+foreach (string name in listOfNames)<br>
+&nbsp; &nbsp; Console.WriteLine(name);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>As you will see
+from the output, the items in the list have now been sorted alphabetically, and
+if you want it in descending order instead (from Z to A), simply call the&nbsp;<b>Reverse()</b>&nbsp;method
+after you perform the sort:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>listOfNames.Sort();<br>
+listOfNames.Reverse();</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>So sorting a list
+was pretty easy, right? Well, it was mainly so easy because we have a list of
+strings and the .NET framework knows exactly how to compare two strings. If you
+have a list of numbers, .NET will, of course, know how to sort that as well. On
+the other hand, you might have a list of custom objects (since the
+List&lt;T&gt; can contain any object) which .NET doesn't have a chance of
+knowing how to compare. There are several solutions to this problem, e.g.
+implementing the IComparable interface or using LINQ (we'll look into both
+later in this tutorial), but as a quick-fix, we can also just provide a method
+for the Sort() method to call, to learn how two items stack up against each
+other, like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'>using System;<br>
+using System.Collections.Generic;<br>
+<br>
+namespace ListSort<br>
+{<br>
+&nbsp; &nbsp; class Program<br>
+&nbsp; &nbsp; {<br>
+    static void Main(string[] args)<br>
+    {<br>
+    &nbsp; &nbsp; List&lt;User&gt; listOfUsers = new List&lt;User&gt;()<br>
+    &nbsp; &nbsp; {<br>
+        new User() { Name = &quot;John Doe&quot;, Age = 42 },<br>
+        new User() { Name = &quot;Jane Doe&quot;, Age = 39 },<br>
+        new User() { Name = &quot;Joe Doe&quot;, Age = 13 },<br>
+    &nbsp; &nbsp; };<br>
+    &nbsp; &nbsp; listOfUsers.Sort(CompareUsers);<br>
+    &nbsp; &nbsp; foreach (User user in listOfUsers)<br>
+        Console.WriteLine(user.Name + &quot;: &quot; + user.Age + &quot; years
+old&quot;);<br>
+    }<br>
+<br>
+    public static int CompareUsers(User user1, User user2)<br>
+    {<br>
+    &nbsp; &nbsp; return user1.Age.CompareTo(user2.Age);<br>
+    }<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; public class User<br>
+&nbsp; &nbsp; {<br>
+    public string Name { get; set; }<br>
+    public int Age { get; set; }<br>
+&nbsp; &nbsp; }<br>
+}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>This added quite a
+bit of code to our example, but it's actually not too complicated. If we start
+from the bottom, I have created a very simple User class, consisting of a name and
+an age. In the middle, I have declared a method called&nbsp;<i>CompareUsers()</i>&nbsp;-
+it takes two users as parameters and then returns an integer, which will
+indicate whether one item is &quot;smaller&quot;, &quot;the same&quot; or
+&quot;larger&quot; (-1, 0 or 1). These values will be used by the Sort() method
+to move the items around so that the order of items will match what we want. In
+this case, I simply use the Age property for comparison, essentially leaving us
+with a list of users sorted by their age.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#33393E'>Summary</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>This article is one
+of the longer ones in this tutorial, but hopefully you learned a lot about
+lists, because the more programming you do, the more you will realize how
+important lists and dictionaries are. Speaking of dictionaries, we'll discuss
+them in the next article.</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="p31" style="overflow: hidden; position: relative; background-color: white; width: 909px; height: 1286px;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	-webkit-transform-origin: bottom left;
+	-ms-transform-origin: bottom left;
+	transform-origin: bottom left;
+	-webkit-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	transform: scale(0.25);
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_31{left:110px;bottom:1156px;}
+#t2_31{left:183px;bottom:1139px;}
+#t3_31{left:183px;bottom:1122px;}
+#t4_31{left:183px;bottom:1087px;}
+#t5_31{left:193px;bottom:1070px;}
+#t6_31{left:110px;bottom:1052px;}
+#t7_31{left:110px;bottom:1035px;}
+#t8_31{left:183px;bottom:1000px;}
+#t9_31{left:220px;bottom:983px;}
+#ta_31{left:220px;bottom:966px;}
+#tb_31{left:220px;bottom:948px;}
+#tc_31{left:183px;bottom:914px;}
+#td_31{left:220px;bottom:896px;}
+#te_31{left:220px;bottom:879px;}
+#tf_31{left:183px;bottom:862px;}
+#tg_31{left:183px;bottom:809px;}
+#th_31{left:229px;bottom:792px;}
+#ti_31{left:220px;bottom:758px;}
+#tj_31{left:220px;bottom:740px;}
+#tk_31{left:257px;bottom:723px;}
+#tl_31{left:257px;bottom:705px;}
+#tm_31{left:220px;bottom:688px;}
+#tn_31{left:257px;bottom:671px;}
+#to_31{left:220px;bottom:653px;}
+#tp_31{left:183px;bottom:619px;}
+#tq_31{left:183px;bottom:601px;}
+#tr_31{left:220px;bottom:584px;}
+#ts_31{left:183px;bottom:567px;}
+
+.s1_31{
+	FONT-SIZE: 61.1px;
+	FONT-FAMILY: LiberationMono_19a;
+	color: rgb(0,0,0);
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts31" type="text/css" >
+
+@font-face {
+	font-family: LiberationMono_19a;
+	src: url("fonts/LiberationMono_19a.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg31Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg31" style="-webkit-user-select: none;"><object width="909" height="1286" data="31/31.svg" type="image/svg+xml" id="pdf31" style="width:909px; height:1286px; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_31" class="t s1_31">31)</div>
+<div id="t2_31" class="t s1_31">let fileNameToDelete = "myFileName.txt"</div>
+<div id="t3_31" class="t s1_31">var filePath = ""</div>
+<div id="t4_31" class="t s1_31">// Fine documents directory on device</div>
+<div id="t5_31" class="t s1_31">let dirs : [String] = </div>
+<div id="t6_31" class="t s1_31">NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documen</div>
+<div id="t7_31" class="t s1_31">tDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)</div>
+<div id="t8_31" class="t s1_31">if dirs.count &gt; 0 {</div>
+<div id="t9_31" class="t s1_31">let dir = dirs[0] //documents directory</div>
+<div id="ta_31" class="t s1_31">filePath = dir.appendingFormat("/" + fileNameToDelete)</div>
+<div id="tb_31" class="t s1_31">print("Local path = \(filePath)")</div>
+<div id="tc_31" class="t s1_31">} else {</div>
+<div id="td_31" class="t s1_31">print("Could not find local directory to store file")</div>
+<div id="te_31" class="t s1_31">return</div>
+<div id="tf_31" class="t s1_31">}</div>
+<div id="tg_31" class="t s1_31">do {</div>
+<div id="th_31" class="t s1_31">let fileManager = FileManager.default</div>
+<div id="ti_31" class="t s1_31">// Check if file exists</div>
+<div id="tj_31" class="t s1_31">if fileManager.fileExists(atPath: filePath) {</div>
+<div id="tk_31" class="t s1_31">// Delete file</div>
+<div id="tl_31" class="t s1_31">try fileManager.removeItem(atPath: filePath)</div>
+<div id="tm_31" class="t s1_31">} else {</div>
+<div id="tn_31" class="t s1_31">print("File does not exist")</div>
+<div id="to_31" class="t s1_31">}</div>
+<div id="tp_31" class="t s1_31">}</div>
+<div id="tq_31" class="t s1_31">catch let error as NSError {</div>
+<div id="tr_31" class="t s1_31">print("An error took place: \(error)")</div>
+<div id="ts_31" class="t s1_31">}</div>
+
+<!-- End text definitions -->
+
+
+</div>
+</body>
+</html>

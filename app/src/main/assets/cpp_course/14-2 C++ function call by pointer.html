@@ -1,0 +1,46 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ function call by pointer</h1>
+
+<p>The <strong>call by pointer</strong> method of passing arguments to a function copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the passed argument.</p>
+<p>To pass the value by pointer, argument pointers are passed to the functions just like any other value. So accordingly you need to declare the function parameters as pointer types as in the following function <strong> swap()</strong>, which exchanges the values of the two integer variables pointed to by its arguments.</p>
+<pre id="swap" class="prettyprint notranslate prettyprinted"><span class="com">// function definition to swap the values.</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span> <span class="pun">*</span><span class="pln">x</span><span class="pun">,</span> <span class="kwd">int</span> <span class="pun">*</span><span class="pln">y</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> temp</span><span class="pun">;</span><span class="pln">
+   temp </span><span class="pun">=</span> <span class="pun">*</span><span class="pln">x</span><span class="pun">;</span> <span class="com">/* save the value at address x */</span>
+   <span class="pun">*</span><span class="pln">x </span><span class="pun">=</span> <span class="pun">*</span><span class="pln">y</span><span class="pun">;</span> <span class="com">/* put y into x */</span>
+   <span class="pun">*</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> temp</span><span class="pun">;</span> <span class="com">/* put x into y */</span>
+  
+   <span class="kwd">return</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+
+<p>For now, let us call the function <strong>swap()</strong> by passing values by pointer as in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;" title="swap"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="com">// function declaration</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span> <span class="pun">*</span><span class="pln">x</span><span class="pun">,</span> <span class="kwd">int</span> <span class="pun">*</span><span class="pln">y</span><span class="pun">);</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">/* calling a function to swap the values.
+      * &amp;a indicates pointer to a ie. address of variable a and 
+      * &amp;b indicates pointer to b ie. address of variable b.
+   */</span><span class="pln">
+   swap</span><span class="pun">(&amp;</span><span class="pln">a</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">b</span><span class="pun">);</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is put together in a file, compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Before swap, value of a :100
+Before swap, value of b :200
+After swap, value of a :200
+After swap, value of b :100
+</pre>

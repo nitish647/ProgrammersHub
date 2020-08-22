@@ -1,0 +1,64 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Passing Pointers to Functions in C++</h1>
+
+<p>C++ allows you to pass a pointer to a function. To do so, simply declare the function parameter as a pointer type.</p>
+<p>Following a simple example where we pass an unsigned long pointer to a function and change the value inside the function which reflects back in the calling function &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;ctime&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">void</span><span class="pln"> getSeconds</span><span class="pun">(</span><span class="kwd">unsigned</span> <span class="kwd">long</span> <span class="pun">*</span><span class="pln">par</span><span class="pun">);</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">unsigned</span> <span class="kwd">long</span><span class="pln"> sec</span><span class="pun">;</span><span class="pln">
+   getSeconds</span><span class="pun">(</span> <span class="pun">&amp;</span><span class="pln">sec </span><span class="pun">);</span>
+
+   <span class="com">// print the actual value</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Number of seconds :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> sec </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">void</span><span class="pln"> getSeconds</span><span class="pun">(</span><span class="kwd">unsigned</span> <span class="kwd">long</span> <span class="pun">*</span><span class="pln">par</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">// get the current number of seconds</span>
+   <span class="pun">*</span><span class="pln">par </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">(</span><span class="pln"> NULL </span><span class="pun">);</span>
+   
+   <span class="kwd">return</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Number of seconds :1294450468
+</pre>
+<p>The function which can accept a pointer, can also accept an array as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// function declaration:</span>
+<span class="kwd">double</span><span class="pln"> getAverage</span><span class="pun">(</span><span class="kwd">int</span> <span class="pun">*</span><span class="pln">arr</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> size</span><span class="pun">);</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// an int array with 5 elements.</span>
+   <span class="kwd">int</span><span class="pln"> balance</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">1000</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">,</span> <span class="lit">17</span><span class="pun">,</span> <span class="lit">50</span><span class="pun">};</span>
+   <span class="kwd">double</span><span class="pln"> avg</span><span class="pun">;</span>
+ 
+   <span class="com">// pass pointer to the array as an argument.</span><span class="pln">
+   avg </span><span class="pun">=</span><span class="pln"> getAverage</span><span class="pun">(</span><span class="pln"> balance</span><span class="pun">,</span> <span class="lit">5</span> <span class="pun">)</span> <span class="pun">;</span>
+ 
+   <span class="com">// output the returned value </span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Average value is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> avg </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span> 
+    
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">double</span><span class="pln"> getAverage</span><span class="pun">(</span><span class="kwd">int</span> <span class="pun">*</span><span class="pln">arr</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> size</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> sum </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>       
+   <span class="kwd">double</span><span class="pln"> avg</span><span class="pun">;</span>          
+ 
+   <span class="kwd">for</span> <span class="pun">(</span><span class="pln">i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> size</span><span class="pun">;</span> <span class="pun">++</span><span class="pln">i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      sum </span><span class="pun">+=</span><span class="pln"> arr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span>
+   <span class="pun">}</span><span class="pln">
+   avg </span><span class="pun">=</span> <span class="kwd">double</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">)</span> <span class="pun">/</span><span class="pln"> size</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span><span class="pln"> avg</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled together and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Average value is: 214.4
+</pre>

@@ -1,0 +1,184 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Closures</h1>
+
+<p>Closures in Swift are similar to that of self-contained functions organized as blocks and called anywhere like C and Objective C languages. Constants and variable references defined inside the functions are captured and stored in closures. Functions are considered as special cases of closures and it takes the following three forms &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Global Functions</th><th>Nested Functions</th><th>Closure Expressions</th></tr>
+<tr>
+<td>Have a name. Do not capture any values</td>
+<td>Have a name. Capture values from enclosing function</td>
+<td>Unnamed Closures capture values from the adjacent blocks</td>
+</tr>
+</tbody>
+</table>
+<p>Closure expressions in Swift language follow crisp, optimization and lightweight syntax styles which includes.</p>
+<ul class="list">
+<li>Inferring parameter and return value types from context.</li>
+<li>Implicit returns from single-expression closures.</li>
+<li>Shorthand argument names and</li>
+<li>Trailing closure syntax</li>
+</ul>
+<h2>Syntax</h2>
+<p>Following is a generic syntax to define closure which accepts parameters and returns a data type &minus;</p>
+<pre class="result notranslate">{(parameters) -&gt; return type in
+   statements
+}
+</pre>
+<p>Following is a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">let</span><span class="pln"> studname </span><span class="pun">=</span> <span class="pun">{</span><span class="pln"> println</span><span class="pun">(</span><span class="str">"Welcome to Swift Closures"</span><span class="pun">)</span> <span class="pun">}</span><span class="pln">
+studname</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Welcome to Swift Closures
+</pre>
+<p>The following closure accepts two parameters and returns a Bool value &minus;</p>
+<pre class="result notranslate">{(Int, Int) -&gt; Bool in
+   Statement1
+   Statement 2
+    ---
+   Statement n
+}
+</pre>
+<p>Following is a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">let</span><span class="pln"> divide </span><span class="pun">=</span> <span class="pun">{(</span><span class="pln">val1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> val2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="kwd">in</span> 
+   <span class="kwd">return</span><span class="pln"> val1 </span><span class="pun">/</span><span class="pln"> val2 
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> divide</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">)</span><span class="pln">
+println </span><span class="pun">(</span><span class="pln">result</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">10
+</pre>
+<h2>Expressions in Closures</h2>
+<p>Nested functions provide a convenient way of naming and defining blocks of code. Instead of representing the whole function declaration and name constructs are used to denote shorter functions. Representing the function in a clear brief statement with focused syntax is achieved through closure expressions.</p>
+<h3>Ascending Order Program</h3>
+<p>Sorting a string is achieved by the Swifts key reserved function "sorted" which is already available in the standard library. The function will sort the given strings in the ascending order and returns the elements in a new array with same size and data type mentioned in the old array. The old array remains the same.</p>
+<p>Two arguments are represented inside the sorted function &minus;</p>
+<ul class="list">
+<li>
+<p>Values of Known type represented as arrays.</p>
+</li>
+<li>
+<p>Array contents (Int, Int) and returns a Boolean value (Bool) if the array is sorted properly it will return true value otherwise it will return false.</p>
+</li>
+</ul>
+<p>A normal function with input string is written and passed to the sorted function to get the strings sorted to new array which is shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func ascend</span><span class="pun">(</span><span class="pln">s1</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> s2</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Bool</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> s1 </span><span class="pun">&gt;</span><span class="pln"> s2
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> stringcmp </span><span class="pun">=</span><span class="pln"> ascend</span><span class="pun">(</span><span class="str">"swift"</span><span class="pun">,</span> <span class="str">"great"</span><span class="pun">)</span><span class="pln">
+println </span><span class="pun">(</span><span class="pln">stringcmp</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">true
+</pre>
+<p>The initial array to be sorted for icecream is given as "Swift" and "great". Function to sort the array is declared as string datatype and its return type is mentioned as Boolean. Both the strings are compared and sorted in ascending order and stored in a new array. If the sorting is performed successful the function will return a true value else it will return false.</p>
+<p>Closure expression syntax uses &minus;</p>
+<ul class="list">
+<li>constant parameters,</li>
+<li>variable parameters, and</li>
+<li>inout parameters.</li>
+</ul>
+<p>Closure expression did not support default values. Variadic parameters and Tuples can also be used as parameter types and return types.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">let</span><span class="pln"> sum </span><span class="pun">=</span> <span class="pun">{(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="kwd">in</span> 
+   <span class="kwd">return</span><span class="pln"> no1 </span><span class="pun">+</span><span class="pln"> no2 
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> digits </span><span class="pun">=</span><span class="pln"> sum</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">digits</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">30
+</pre>
+<p>The parameters and return type declarations mentioned in the function statement can also be represented by the inline closure expression function with 'in' keyword. Once declaring parameter and return types 'in' keyword is used to denote that the body of the closure.</p>
+<h2>Single Expression Implicit Returns</h2>
+<p>Here, the function type of the sorted function's second argument makes it clear that a Bool value must be returned by the closure. Because the closure's body contains a single expression (s1 &gt; s2) that returns a Bool value, there is no ambiguity, and the return keyword can be omitted.</p>
+<p>To return a Single expression statement in expression closures 'return' keyword is omitted in its declaration part.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">let</span><span class="pln"> count </span><span class="pun">=</span> <span class="pun">[</span><span class="lit">5</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">,</span> <span class="pun">-</span><span class="lit">6</span><span class="pun">,</span> <span class="lit">75</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">]</span>
+<span class="kwd">var</span> <span class="kwd">descending</span> <span class="pun">=</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">count</span><span class="pun">,</span> <span class="pun">{</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> n2 </span><span class="kwd">in</span><span class="pln"> n1 </span><span class="pun">&gt;</span><span class="pln"> n2 </span><span class="pun">})</span>
+<span class="kwd">var</span><span class="pln"> ascending </span><span class="pun">=</span><span class="pln"> sorted</span><span class="pun">(</span><span class="pln">count</span><span class="pun">,</span> <span class="pun">{</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> n2 </span><span class="kwd">in</span><span class="pln"> n1 </span><span class="pun">&lt;</span><span class="pln"> n2 </span><span class="pun">})</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="kwd">descending</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">ascending</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[75, 20, 10, 5, -6]
+[-6, 5, 10, 20, 75]
+</pre>
+<p>The statement itself clearly defines that when string1 is greater than string 2 return true otherwise false hence return statement is omitted here.</p>
+<h2>Known Type Closures</h2>
+<p>Consider the addition of two numbers. We know that addition will return the integer datatype. Hence known type closures are declared as &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">let</span> <span class="kwd">sub</span> <span class="pun">=</span> <span class="pun">{(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="kwd">in</span> 
+   <span class="kwd">return</span><span class="pln"> no1 </span><span class="pun">-</span><span class="pln"> no2 
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> digits </span><span class="pun">=</span> <span class="kwd">sub</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">digits</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">-10
+</pre>
+<h2>Declaring Shorthand Argument Names as Closures</h2>
+<p>Swift automatically provides shorthand argument names to inline closures, which can be used to refer to the values of the closure's arguments by the names $0, $1, $2, and so on.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">var</span><span class="pln"> shorthand</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">String</span><span class="pun">,</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pln">
+shorthand </span><span class="pun">=</span> <span class="pun">{</span><span class="pln"> $1 </span><span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">shorthand</span><span class="pun">(</span><span class="str">"100"</span><span class="pun">,</span> <span class="str">"200"</span><span class="pun">))</span></pre>
+<p>Here, $0 and $1 refer to the closure's first and second String arguments.</p>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">200
+</pre>
+<p>Swift facilitates the user to represent Inline closures as shorthand argument names by representing $0, $1, $2 --- $n.</p>
+<p>Closures argument list is omitted in definition section when we represent shorthand argument names inside closure expressions. Based on the function type the shorthand argument names will be derived. Since the shorthand argument is defined in expression body the 'in' keyword is omitted.</p>
+<h2>Closures as Operator Functions</h2>
+<p>Swift provides an easy way to access the members by just providing operator functions as closures. In the previous examples keyword 'Bool' is used to return either 'true' when the strings are equal otherwise it returns 'false'.</p>
+<p>The expression is made even simpler by operator function in closure as &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">let</span><span class="pln"> numb </span><span class="pun">=</span> <span class="pun">[</span><span class="lit">98</span><span class="pun">,</span> <span class="pun">-</span><span class="lit">20</span><span class="pun">,</span> <span class="pun">-</span><span class="lit">30</span><span class="pun">,</span> <span class="lit">42</span><span class="pun">,</span> <span class="lit">18</span><span class="pun">,</span> <span class="lit">35</span><span class="pun">]</span>
+<span class="kwd">var</span><span class="pln"> sortedNumbers </span><span class="pun">=</span><span class="pln"> numb</span><span class="pun">.</span><span class="pln">sorted</span><span class="pun">({</span>
+   <span class="pun">(</span><span class="pln">left</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> right</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Bool</span> <span class="kwd">in</span>
+   <span class="kwd">return</span><span class="pln"> left </span><span class="pun">&lt;</span><span class="pln"> right
+</span><span class="pun">})</span>
+<span class="kwd">let</span><span class="pln"> asc </span><span class="pun">=</span><span class="pln"> numb</span><span class="pun">.</span><span class="pln">sorted</span><span class="pun">(&lt;)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">asc</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[-30, -20, 18, 35, 42, 98]
+</pre>
+<h2>Closures as Trailers</h2>
+<p>Passing the function's final argument to a closure expression is declared with the help of 'Trailing Closures'. It is written outside the function () with {}. Its usage is needed when it is not possible to write the function inline on a single line.</p>
+<pre class="result notranslate">reversed = sorted(names) { $0 &gt; $1}
+</pre>
+<p>where {$0 &gt; $1} are represented as trailing closures declared outside (names).</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Foundation</span>
+<span class="kwd">var</span><span class="pln"> letters </span><span class="pun">=</span> <span class="pun">[</span><span class="str">"North"</span><span class="pun">,</span> <span class="str">"East"</span><span class="pun">,</span> <span class="str">"West"</span><span class="pun">,</span> <span class="str">"South"</span><span class="pun">]</span>
+ 
+<span class="kwd">let</span><span class="pln"> twoletters </span><span class="pun">=</span><span class="pln"> letters</span><span class="pun">.</span><span class="pln">map</span><span class="pun">({</span> <span class="pun">(</span><span class="pln">state</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="kwd">in</span>
+   <span class="kwd">return</span><span class="pln"> state</span><span class="pun">.</span><span class="pln">substringToIndex</span><span class="pun">(</span><span class="pln">advance</span><span class="pun">(</span><span class="pln">state</span><span class="pun">.</span><span class="pln">startIndex</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">)).</span><span class="pln">uppercaseString
+</span><span class="pun">})</span>
+<span class="kwd">let</span><span class="pln"> stletters </span><span class="pun">=</span><span class="pln"> letters</span><span class="pun">.</span><span class="pln">map</span><span class="pun">()</span> <span class="pun">{</span><span class="pln"> $0</span><span class="pun">.</span><span class="pln">substringToIndex</span><span class="pun">(</span><span class="pln">advance</span><span class="pun">(</span><span class="pln">$0</span><span class="pun">.</span><span class="pln">startIndex</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">)).</span><span class="pln">uppercaseString </span><span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">stletters</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[NO, EA, WE, SO]
+</pre>
+<h2>Capturing Values and Reference Types</h2>
+<p>In Swift, capturing constants and variables values is done with the help of closures. It further refers and modify the values for those constants and variables inside the closure body even though the variables no longer exists.</p>
+<p>Capturing constant and variable values is achieved by using nested function by writing function with in the body of other function.</p>
+<p>A nested function captures &minus;</p>
+<ul class="list">
+<li>Outer function arguments.</li>
+<li>Capture constants and variables defined within the Outer function.</li>
+</ul>
+<p>In Swift, when a constant or a variable is declared inside a function, reference to that variables are also automatically created by the closure. It also provides the facility to refer more than two variables as the same closure as follows &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">let</span><span class="pln"> decrem </span><span class="pun">=</span><span class="pln"> calcDecrement</span><span class="pun">(</span><span class="pln">forDecrement</span><span class="pun">:</span> <span class="lit">18</span><span class="pun">)</span><span class="pln">
+decrem</span><span class="pun">()</span></pre>
+<p>Here <strong>oneDecrement</strong> and Decrement variables will both point the same memory block as closure reference.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func calcDecrement</span><span class="pun">(</span><span class="pln">forDecrement total</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> overallDecrement </span><span class="pun">=</span> <span class="lit">100</span><span class="pln">
+   func decrementer</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span><span class="pln">
+      overallDecrement </span><span class="pun">-=</span><span class="pln"> total
+      println</span><span class="pun">(</span><span class="pln">overallDecrement</span><span class="pun">)</span>
+      <span class="kwd">return</span><span class="pln"> overallDecrement
+   </span><span class="pun">}</span>
+   <span class="kwd">return</span><span class="pln"> decrementer
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> decrem </span><span class="pun">=</span><span class="pln"> calcDecrement</span><span class="pun">(</span><span class="pln">forDecrement</span><span class="pun">:</span> <span class="lit">18</span><span class="pun">)</span><span class="pln">
+decrem</span><span class="pun">()</span><span class="pln">
+decrem</span><span class="pun">()</span><span class="pln">
+decrem</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">82
+64
+46
+</pre>
+<p>When each and every time the outer function calcDecrement is called it invokes the decrementer() function and decrements the value by 18 and returns the result with the help of outer function calcDecrement. Here calcDecrement acts as a closure.</p>
+<p>Even though the function decrementer() does not have any arguments closure by default refers to variables 'overallDecrement' and 'total' by capturing its existing values. The copy of the values for the specified variables are stored with the new decrementer() function. Swift handles memory management functions by allocating and deallocating memory spaces when the variables are not in use.</p>

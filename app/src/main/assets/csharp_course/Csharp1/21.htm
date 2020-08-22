@@ -1,0 +1,265 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - For Loop</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>C# - For Loop</span></b></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%'><span style='font-family:"Cambria",serif;
+color:black'>A&nbsp;<b>for</b>&nbsp;loop is a repetition control structure that
+allows you to efficiently write a loop that needs to execute a specific number
+of times.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Syntax</span></b></h2>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>The syntax of
+a&nbsp;<b>for</b>&nbsp;loop in C# is &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas'>for ( init; condition; increment ) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>&nbsp;&nbsp; statement(s);</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>}</span></pre>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Here is the flow of
+control in a for loop &#8722;</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·</span><span
+style='font-size:7.0pt;line-height:150%;color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Cambria",serif;color:black'>The&nbsp;<b>init</b>&nbsp;step
+is executed first, and only once. This step allows you to declare and
+initialize any loop control variables. You are not required to put a statement
+here, as long as a semicolon appears.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·</span><span
+style='font-size:7.0pt;line-height:150%;color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Cambria",serif;color:black'>Next, the&nbsp;<b>condition</b>&nbsp;is
+evaluated. If it is true, the body of the loop is executed. If it is false, the
+body of the loop does not execute and flow of control jumps to the next
+statement just after the for loop.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·</span><span
+style='font-size:7.0pt;line-height:150%;color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Cambria",serif;color:black'>After the body of
+the for loop executes, the flow of control jumps back up to the&nbsp;<b>increment</b>&nbsp;statement.
+This statement allows you to update any loop control variables. This statement
+can be left blank, as long as a semicolon appears after the condition.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·</span><span
+style='font-size:7.0pt;line-height:150%;color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Cambria",serif;color:black'>The condition is
+now evaluated again. If it is true, the loop executes and the process repeats
+itself (body of loop, then increment step, and then again testing for a
+condition). After the condition becomes false, the for loop terminates.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><u><span style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Flow Diagram</span></u></b></h2>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'><img src="19_files/image001.webp" alt="for loop in C#"></span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:windowtext'>Example</span></b></h2>
+
+<pre style='line-height:150%'><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>using</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>System</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></span></pre><pre style='line-height:150%'><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;</span></span></pre><pre style='line-height:150%'><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>namespace</span></span><span class=pln><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Loops</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%'><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;&nbsp; </span></span><span class=kwd><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#000088'>class</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>Program</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>static</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>void</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Main</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>(</span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>string</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>[]</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> args</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#880000'>/* for loop execution */</span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>for</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> a </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>10</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&lt;</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#006666'>20</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> a </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> a </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>+</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>1</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%'><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Console</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>WriteLine</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#008800'>&quot;value of a: {0}&quot;</span></span><span class=pun><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> a</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></span></pre><pre style='line-height:150%'><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Console</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>ReadLine</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span></span></pre><pre
+style='line-height:150%'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></span></pre><pre style='line-height:150%'><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;&nbsp; </span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></span></pre><pre
+style='line-height:150%'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#666600'>}</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'> </span></span></pre>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>When the above code is
+compiled and executed, it produces the following result &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>value of a: 10</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a: 11</span></pre><pre style='line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value of a: 12</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a: 13</span></pre><pre style='line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value of a: 14</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a: 15</span></pre><pre style='line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value of a: 16</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a: 17</span></pre><pre style='line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value of a: 18</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a: 19</span></pre>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

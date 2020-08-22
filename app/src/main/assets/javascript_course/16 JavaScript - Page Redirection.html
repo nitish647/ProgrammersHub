@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Page Redirection</title>
+    <meta name="description" content="JavaScript Page Redirection - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Page Redirection</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <h2>What is Page Redirection ?</h2>
+        <p>You might have encountered a situation where you clicked a URL to reach a page X but internally you were directed to another page Y. It happens due to <b>page redirection</b>. This concept is different from JavaScript Page Refresh.</p>
+        <p>There could be various reasons why you would like to redirect a user from the original page. We are listing down a few of the reasons −</p>
+        <ul class="list">
+            <li><p>You did not like the name of your domain and you are moving to a new one. In such a scenario, you may want to direct all your visitors to the new site. Here you can maintain your old domain but put a single page with a page redirection such that all your old domain visitors can come to your new domain.</p></li>
+            <li><p>You have built-up various pages based on browser versions or their names or may be based on different countries, then instead of using your server-side page redirection, you can use client-side page redirection to land your users on the appropriate page.</p></li>
+            <li><p>The Search Engines may have already indexed your pages. But while moving to another domain, you would not like to lose your visitors coming through search engines. So you can use client-side page redirection. But keep in mind this should not be done to fool the search engine, it could lead your site to get banned.</p></li>
+        </ul>
+        <h2>How Page Re-direction Works ?</h2>
+        <p>The implementations of Page-Redirection are as follows.</p>
+        <h3>Example 1</h3>
+        <p>It is quite simple to do a page redirect using JavaScript at client side. To redirect your site visitors to a new page, you just need to add a line in your head section as follows.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">Redirect</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               window</span><span class="pun">.</span><span class="pln">location</span><span class="pun">=</span><span class="str">"http://www.tutorialspoint.com"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following button, you will be redirected to home page.</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Redirect Me"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="typ">Redirect</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/redirect.htm" height="120px" width="600px" style="visibility: visible; height: 85px;"></iframe>
+        <h3>Example 2</h3>
+        <p>You can show an appropriate message to your site visitors before redirecting them to a new page. This would need a bit time delay to load a new page. The following example shows how to implement the same. Here setTimeout() is a built-in JavaScript function which can be used to execute another function after a given time interval.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">Redirect</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               window</span><span class="pun">.</span><span class="pln">location</span><span class="pun">=</span><span class="str">"http://www.tutorialspoint.com"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"You will be redirected to main page in 10 sec."</span><span class="pun">);</span><span class="pln">
+            setTimeout</span><span class="pun">(</span><span class="str">'Redirect()'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/redirect2.htm" height="120px" width="600px" style="visibility: visible; height: 40px;"></iframe>
+        <pre class="result notranslate">You will be redirected to tutorialspoint.com main page in 10 seconds!
+</pre>
+        <h3>Example 3</h3>
+        <p>The following example shows how to redirect your site visitors onto a different page based on their browsers.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> browsername</span><span class="pun">=</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">appName</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> browsername </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Netscape"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               window</span><span class="pun">.</span><span class="pln">location</span><span class="pun">=</span><span class="str">"http://www.location.com/ns.htm"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> browsername </span><span class="pun">==</span><span class="str">"Microsoft Internet Explorer"</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               window</span><span class="pun">.</span><span class="pln">location</span><span class="pun">=</span><span class="str">"http://www.location.com/ie.htm"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">else</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               window</span><span class="pun">.</span><span class="pln">location</span><span class="pun">=</span><span class="str">"http://www.location.com/other.htm"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

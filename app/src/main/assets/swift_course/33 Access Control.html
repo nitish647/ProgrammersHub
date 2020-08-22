@@ -1,0 +1,298 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Access Control</h1>
+
+<p>To restrict access to code blocks, modules and abstraction is done through access control. Classes, structures and enumerations can be accessed according to their properties, methods, initializers and subscripts by access control mechanisms. Constants, variables and functions in a protocol are restricted and allowed access as global and local through access control. Access control applied to properties, types and functions can be referred as 'entities'.</p>
+<p>Access control model is based on modules and source files.</p>
+<p>Module is defined as a single unit of code distribution and can be imported using the keyword 'import'. A source file is defined as a single source code file with in a module to access multiple types and functions.</p>
+<p>Three different access levels are provided by Swift language. They are Public, Internal and Private access.</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>S.No</th><th>Access Levels &amp; Definition</th></tr>
+<tr>
+<td>1</td>
+<td>
+<p><strong>Public</strong></p>
+<p>Enables entities to be processed with in any source file from their defining module, a source file from another module that imports the defining module.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<p><strong>Internal</strong></p>
+<p>Enables entities to be used within any source file from their defining module, but not in any source file outside of that module.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<p><strong>Private</strong></p>
+<p>Restricts the use of an entity to its own defining source file. Private access plays role to hide the implementation details of a specific code functionality.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Syntax</h3>
+<pre class="result notranslate">public class SomePublicClass {}
+internal class SomeInternalClass {}
+private class SomePrivateClass {}
+
+public var somePublicVariable = 0
+internal let someInternalConstant = 0
+private func somePrivateFunction() {}
+</pre>
+<h2>Access Control for Function types</h2>
+<p>Some functions may have arguments declared inside the function without any return values. The following program declares a and b as arguments to the sum() function. Inside the function itself the values for arguments a and b are passed by invoking the function call sum() and its values are printed thereby eliminating return values. To make the function's return type as private, declare the function's overall access level with the private modifier.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">private</span><span class="pln"> func sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+   </span><span class="kwd">let</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">-</span><span class="pln"> b
+   println</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+
+sum</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">)</span><span class="pln">
+sum</span><span class="pun">(</span><span class="lit">40</span><span class="pun">,</span><span class="lit">10</span><span class="pun">)</span><span class="pln">
+sum</span><span class="pun">(</span><span class="lit">24</span><span class="pun">,</span><span class="lit">6</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">(30, 20)
+(50, 40)
+(30, 24)
+</pre>
+<h2>Access Control for Enumeration types</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">public</span> <span class="kwd">enum</span> <span class="typ">Student</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="typ">Name</span><span class="pun">(</span><span class="typ">String</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="typ">Mark</span><span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span><span class="typ">Int</span><span class="pun">,</span><span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> studDetails </span><span class="pun">=</span> <span class="typ">Student</span><span class="pun">.</span><span class="typ">Name</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> studMarks </span><span class="pun">=</span> <span class="typ">Student</span><span class="pun">.</span><span class="typ">Mark</span><span class="pun">(</span><span class="lit">98</span><span class="pun">,</span><span class="lit">97</span><span class="pun">,</span><span class="lit">95</span><span class="pun">)</span>
+
+<span class="kwd">switch</span><span class="pln"> studMarks </span><span class="pun">{</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Name</span><span class="pun">(</span><span class="kwd">let</span><span class="pln"> studName</span><span class="pun">):</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Student name is: \(studName)."</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Mark</span><span class="pun">(</span><span class="kwd">let</span> <span class="typ">Mark1</span><span class="pun">,</span> <span class="kwd">let</span> <span class="typ">Mark2</span><span class="pun">,</span> <span class="kwd">let</span> <span class="typ">Mark3</span><span class="pun">):</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Student Marks are: \(Mark1),\(Mark2),\(Mark3)."</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Nothing"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Student Marks are: 98,97,95
+</pre>
+<p>Enumeration in Swift language automatically receive the same access level for individual cases of an enumeration. Consider for example to access the students name and marks secured in three subjects enumeration name is declared as student and the members present in enum class are name which belongs to string datatype, marks are represented as mark1, mark2 and mark3 of datatype Integer. To access either the student name or marks they have scored. Now, the switch case will print student name if that case block is executed otherwise it will print the marks secured by the student. If both condition fails the default block will be executed.</p>
+<h2>Access Control for SubClasses</h2>
+<p>Swift allows the user to subclass any class that can be accessed in the current access context. A subclass cannot have a higher access level than its superclass. The user is restricted from writing a public subclass of an internal superclass.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span><span class="pln"> cricket </span><span class="pun">{</span>
+   <span class="kwd">private</span><span class="pln"> func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Welcome to Swift Super Class"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">internal</span> <span class="kwd">class</span><span class="pln"> tennis</span><span class="pun">:</span><span class="pln"> cricket  </span><span class="pun">{</span>
+   <span class="kwd">override</span> <span class="kwd">internal</span><span class="pln"> func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Welcome to Swift Sub Class"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> cricinstance </span><span class="pun">=</span><span class="pln"> cricket</span><span class="pun">()</span><span class="pln">
+cricinstance</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span>
+
+<span class="kwd">let</span><span class="pln"> tennisinstance </span><span class="pun">=</span><span class="pln"> tennis</span><span class="pun">()</span><span class="pln">
+tennisinstance</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Welcome to Swift Super Class
+Welcome to Swift Sub Class
+</pre>
+<h2>Access Control for Constants, variables, properties and subscripts</h2>
+<p>Swift constant, variable, or property cannot be defined as public than its type. It is not valid to write a public property with a private type. Similarly, a subscript cannot be more public than its index or return type.</p>
+<p>When a constant, variable, property, or subscript makes use of a private type, the constant, variable, property, or subscript must also be marked as private &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">private</span> <span class="kwd">var</span><span class="pln"> privateInstance </span><span class="pun">=</span> <span class="typ">SomePrivateClass</span><span class="pun">()</span></pre>
+<h2>Getters and Setters</h2>
+<p>Getters and setters for constants, variables, properties, and subscripts automatically receive the same access level as the constant, variable, property, or subscript they belong to.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span> <span class="typ">Samplepgm</span> <span class="pun">{</span>
+   <span class="kwd">private</span> <span class="kwd">var</span><span class="pln"> counter</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">0</span> <span class="pun">{</span><span class="pln">
+      willSet</span><span class="pun">(</span><span class="pln">newTotal</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">"Total Counter is: \(newTotal)"</span><span class="pun">)</span>
+      <span class="pun">}</span><span class="pln">
+      didSet</span><span class="pun">{</span>
+         <span class="kwd">if</span><span class="pln"> counter </span><span class="pun">&gt;</span><span class="pln"> oldValue </span><span class="pun">{</span><span class="pln">
+            println</span><span class="pun">(</span><span class="str">"Newly Added Counter \(counter - oldValue)"</span><span class="pun">)</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span> <span class="typ">NewCounter</span> <span class="pun">=</span> <span class="typ">Samplepgm</span><span class="pun">()</span>
+<span class="typ">NewCounter</span><span class="pun">.</span><span class="pln">counter </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="typ">NewCounter</span><span class="pun">.</span><span class="pln">counter </span><span class="pun">=</span> <span class="lit">800</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Total Counter is: 100
+Newly Added Counter 100
+Total Counter is: 800
+Newly Added Counter 700
+</pre>
+<h2>Access Control for Initializers and Default Initializers</h2>
+<p>Custom initializers can be assigned an access level less than or equal to the type that they initialize. A required initializer must have the same access level as the class it belongs to. The types of an initializer's parameters cannot be more private than the initializer's own access level.</p>
+<p>To declare each and every subclass of the initialize 'required' keyword needs to be defined before the init() function.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> classA </span><span class="pun">{</span><span class="pln">
+   required init</span><span class="pun">()</span> <span class="pun">{</span>
+      <span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pln">
+      println</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> classB</span><span class="pun">:</span><span class="pln"> classA </span><span class="pun">{</span><span class="pln">
+   required init</span><span class="pun">()</span> <span class="pun">{</span>
+      <span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">30</span><span class="pln">
+      println</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> classA</span><span class="pun">()</span>
+<span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> classB</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">10
+30
+10
+</pre>
+<p>A default initializer has the same access level as the type it initializes, unless that type is defined as public. When default initialize is defined as public it is considered internal. When the user needs a public type to be initializable with a no-argument initializer in another module, provide explicitly a public no-argument initializer as part of the type's definition.</p>
+<h2>Access Control for Protocols</h2>
+<p>When we define a new protocol to inherit functionalities from an existing protocol, both has to be declared the same access levels to inherit the properties of each other. Swift access control won't allow the users to define a 'public' protocol that inherits from an 'internal' protocol.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">public</span><span class="pln"> protocol tcpprotocol </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">public</span> <span class="kwd">class</span><span class="pln"> mainClass </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1</span><span class="pun">:</span> <span class="typ">Int</span> <span class="com">// local storage</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no1 </span><span class="pun">=</span><span class="pln"> no1 </span><span class="com">// initialization</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> subClass</span><span class="pun">:</span><span class="pln"> mainClass</span><span class="pun">,</span><span class="pln"> tcpprotocol </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2 </span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no2 </span><span class="pun">=</span><span class="pln"> no2
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">)</span>
+   <span class="pun">}</span>
+
+   <span class="com">// Requires only one parameter for convenient method</span><span class="pln">
+   required </span><span class="kwd">override</span><span class="pln"> convenience init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>  <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span><span class="lit">0</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> mainClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">20</span><span class="pun">)</span>
+<span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> subClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">30</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">50</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"res is: \(res.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">res is: 20
+res is: 30
+res is: 50
+</pre>
+<h2>Access Control for Extensions</h2>
+<p>Swift does not allow the users to provide an explicit access level modifier for an extension when the user uses that extension to add protocol conformance. The default access level for each protocol requirement implementation within the extension is provided with its own protocol access level.</p>
+<h2>Access Control for Generics</h2>
+<p>Generics allow the user to specify minimum access levels to access the type constraints on its type parameters.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">public</span> <span class="kwd">struct</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span>
+   <span class="kwd">private</span><span class="pln"> mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Naming Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span>
+<span class="kwd">let</span><span class="pln"> deletetos </span><span class="pun">=</span><span class="pln"> tos</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Type Parameters]
+[Swift, Generics, Type Parameters, Naming Type Parameters]
+</pre>
+<h2>Access Control for Type Aliases</h2>
+<p>The user can define type aliases to treat distinct access control types. Same access level or different access levels can be defined by the user. When type alias is 'private' its associated members can be declared as 'private, internal of public type'. When type alias is public the members cannot be alias as an 'internal' or 'private' name</p>
+<p>Any type aliases you define are treated as distinct types for the purposes of access control. A type alias can have an access level less than or equal to the access level of the type it aliases. For example, a private type alias can alias a private, internal, or public type, but a public type alias cannot alias an internal or private type.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">public</span><span class="pln"> protocol </span><span class="typ">Container</span> <span class="pun">{</span><span class="pln">
+   typealias </span><span class="typ">ItemType</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span> <span class="typ">ItemType</span><span class="pun">)</span>
+      <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span><span class="pln">
+      subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">ItemType</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span> <span class="typ">Stack</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;:</span> <span class="typ">Container</span> <span class="pun">{</span>
+   <span class="com">// original Stack&lt;T&gt; implementation</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span><span class="pln">
+   mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+
+   <span class="com">// conformance to the Container protocol</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+func allItemsMatch</span><span class="pun">&lt;</span><span class="pln">
+   C1</span><span class="pun">:</span> <span class="typ">Container</span><span class="pun">,</span><span class="pln"> C2</span><span class="pun">:</span> <span class="typ">Container</span>
+   <span class="kwd">where</span><span class="pln"> C1</span><span class="pun">.</span><span class="typ">ItemType</span> <span class="pun">==</span><span class="pln"> C2</span><span class="pun">.</span><span class="typ">ItemType</span><span class="pun">,</span><span class="pln"> C1</span><span class="pun">.</span><span class="typ">ItemType</span><span class="pun">:</span> <span class="typ">Equatable</span><span class="pun">&gt;</span>
+   <span class="pun">(</span><span class="pln">someContainer</span><span class="pun">:</span><span class="pln"> C1</span><span class="pun">,</span><span class="pln"> anotherContainer</span><span class="pun">:</span><span class="pln"> C2</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Bool</span> <span class="pun">{</span>
+   <span class="com">// check that both containers contain the same number of items</span>
+   <span class="kwd">if</span><span class="pln"> someContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">!=</span><span class="pln"> anotherContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">{</span>
+      <span class="kwd">return</span> <span class="kwd">false</span>
+   <span class="pun">}</span>
+
+   <span class="com">// check each pair of items to see if they are equivalent</span>
+   <span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span> <span class="lit">0.</span><span class="pun">.&lt;</span><span class="pln">someContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> someContainer</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">!=</span><span class="pln"> anotherContainer</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">false</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+
+   <span class="com">// all items match, so return true</span>
+   <span class="kwd">return</span> <span class="kwd">true</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span> <span class="typ">Stack</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Where Clause"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> eos </span><span class="pun">=</span> <span class="pun">[</span><span class="str">"Swift"</span><span class="pun">,</span> <span class="str">"Generics"</span><span class="pun">,</span> <span class="str">"Where Clause"</span><span class="pun">]</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">eos</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Where Clause]
+[Swift, Generics, Where Clause]
+</pre>

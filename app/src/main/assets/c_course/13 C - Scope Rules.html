@@ -1,0 +1,745 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C - Scope Rules</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C - Scope Rules</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A scope in any programming is a region of the program where a
+defined variable can have its existence and beyond that variable it cannot be
+accessed. There are three places where variables can be declared in C
+programming language &#8722;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>Inside a function or a block which
+is called&nbsp;<b>local</b>&nbsp;variables.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>Outside of all functions which is
+called&nbsp;<b>global</b>&nbsp;variables.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>In the definition of function
+parameters which are called&nbsp;<b>formal</b>&nbsp;parameters.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Let us understand what are&nbsp;<b>local</b>&nbsp;and&nbsp;<b>global</b>&nbsp;variables,
+and&nbsp;<b>formal</b>&nbsp;parameters.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Local Variables</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Variables that are declared inside a function or block are called
+local variables. They can be used only by statements that are inside that
+function or block of code. Local variables are not known to functions outside
+their own. The following example shows how local variables are used. Here all
+the variables a, b, and c are local to main() function.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* local variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> a</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> c</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* actual initialization */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  a </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>10</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  b </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>20</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  c </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> a </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of a = %d, b = %d and c = %d\n&quot;</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> a</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> c</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Global Variables</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Global variables are defined outside a function, usually on top of
+the program. Global variables hold their values throughout the lifetime of your
+program and they can be accessed inside any of the functions defined for the
+program.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A global variable can be accessed by any function. That is, a
+global variable is available for use throughout your entire program after its
+declaration. The following program show how global variables are used in a
+program.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* global variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> g</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* local variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> a</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* actual initialization */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  a </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>10</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  b </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>20</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  g </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> a </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of a = %d, b = %d and g = %d\n&quot;</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> a</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> g</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A program can have same name for local and global variables but
+the value of local variable inside a function will take preference. Here is an
+example &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* global variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> g </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>20</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* local variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> g </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of g = %d\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>,</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>  g</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#313131'>value of g = 10</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Formal Parameters</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Formal parameters, are treated as local variables with-in a
+function and they take precedence over global variables. Following is an
+example &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* global variable declaration */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> a </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>20</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* local variable declaration in main function */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> a </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> b </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>20</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> c </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of a in main() = %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>  a</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>  c </span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>sum</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+a</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> b</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of c in main() = %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>  c</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* function to add two integers */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> sum</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+a</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> b</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of a in sum() = %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>  a</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;value
+of b in sum() = %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>  b</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> a </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>value of a
+in main() = 10</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>value of a
+in sum() = 10</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>value of b
+in sum() = 20</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>value of c
+in main() = 30</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Initializing Local and Global Variables</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When a local variable is defined, it is not initialized by the
+system, you must initialize it yourself. Global variables are initialized
+automatically by the system when you define them as follows &#8722;</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=604
+ style='width:453.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=180 valign=top style='width:135.0pt;border:solid #DDDDDD 1.0pt;
+  background:#EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Data
+  Type</span></b></p>
+  </td>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-left:none;background:
+  #EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Initial
+  Default Value</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>int</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>0</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>char</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>'\0'</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>float</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>0</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>double</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>0</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>pointer</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>NULL</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>It is a good programming practice to initialize variables
+properly, otherwise your program may produce unexpected results, because
+uninitialized variables will take some garbage value already available at their
+memory location.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

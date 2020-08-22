@@ -1,0 +1,50 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>Java Class example.</span>
+<span style='color:#3f7f59; '>This Java class example describes how class is defined and being used</span>
+<span style='color:#3f7f59; '>in Java language.</span>
+<span style='color:#3f7f59; '>&#xa0;</span>
+<span style='color:#3f7f59; '>Syntax of defining java class is,</span>
+<span style='color:#3f7f59; '>&lt;modifier> class &lt;class-name>{</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;// members and methods</span>
+<span style='color:#3f7f59; '>}</span>
+<span style='color:#3f7f59; '>*/</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> JavaClassExample{
+  <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;Syntax of defining memebers of the java class is,</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&lt;modifier> type &lt;name>;</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;*/</span>
+  <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>String</span> name;
+  <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;Syntax of defining methods of the java class is,</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&lt;modifier> &lt;return-type> methodName(&lt;optional-parameter-list>) &lt;exception-list>{</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;...</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;}</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;*/</span>
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> setName(<span style='color:#7f0055; font-weight:bold; '>String</span> n){
+    <span style='color:#3f7f59; '>//set passed parameter as name</span>
+    name = n;
+  }
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>String</span> getName(){
+    <span style='color:#3f7f59; '>//return the set name</span>
+    <span style='color:#7f0055; font-weight:bold; '>return</span> name;
+  }
+  <span style='color:#3f7f59; '>//main method will be called first when program is executed</span>
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){
+    <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;Syntax of java object creation is,</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&lt;class-name> object-name = new &lt;class-constructor>;</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+    JavaClassExample javaClassExample = <span style='color:#7f0055; font-weight:bold; '>new</span> JavaClassExample();
+    <span style='color:#3f7f59; '>//set name member of this object</span>
+    javaClassExample.setName(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Visitor</span><span style='color:#2a00ff; '>"</span>);
+    <span style='color:#3f7f59; '>// print the name</span>
+    System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Hello </span><span style='color:#2a00ff; '>"</span> + javaClassExample.getName());      
+  }
+}
+ 
+
+Output:
+
+Hello Visitor
+</pre>

@@ -1,0 +1,57 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Friend Functions</h1>
+
+<p>A friend function of a class is defined outside that class' scope but it has the right to access all private and protected members of the class. Even though the prototypes for friend functions appear in the class definition, friends are not member functions.</p>
+<p>A friend can be a function, function template, or member function, or a class or class template, in which case the entire class and all of its members are friends.</p>
+<p>To declare a function as a friend of a class, precede the function prototype in the class definition with keyword <strong>friend</strong> as follows &minus;</p>
+<pre class="result notranslate">class Box {
+   double width;
+   
+   public:
+      double length;
+      friend void printWidth( Box box );
+      void setWidth( double wid );
+};
+</pre>
+<p>To declare all member functions of class ClassTwo as friends of class ClassOne, place a following declaration in the definition of class ClassOne &minus;</p>
+<pre class="result notranslate">friend class ClassTwo;
+</pre>
+<p>Consider the following program &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+   
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">friend</span> <span class="kwd">void</span><span class="pln"> printWidth</span><span class="pun">(</span> <span class="typ">Box</span><span class="pln"> box </span><span class="pun">);</span>
+      <span class="kwd">void</span><span class="pln"> setWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">);</span>
+<span class="pun">};</span>
+
+<span class="com">// Member function definition</span>
+<span class="kwd">void</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">setWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   width </span><span class="pun">=</span><span class="pln"> wid</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Note: printWidth() is not a member function of any class.</span>
+<span class="kwd">void</span><span class="pln"> printWidth</span><span class="pun">(</span> <span class="typ">Box</span><span class="pln"> box </span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">/* Because printWidth() is a friend of Box, it can
+   directly access any member of this class */</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Width of box : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">width </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Box</span><span class="pln"> box</span><span class="pun">;</span>
+ 
+   <span class="com">// set box width without member function</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+   
+   <span class="com">// Use friend function to print the wdith.</span><span class="pln">
+   printWidth</span><span class="pun">(</span><span class="pln"> box </span><span class="pun">);</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Width of box : 10
+</pre>

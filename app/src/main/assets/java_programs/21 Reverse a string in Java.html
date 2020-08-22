@@ -1,0 +1,30 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java program to reverse a string</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> ReverseString
+{
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+   {
+      <span style='color:#7f0055; font-weight:bold; '>String</span> original, reverse = <span style='color:#2a00ff; '>""</span>;
+      Scanner in = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter a string to reverse"</span>);
+      original = in.nextLine();
+ 
+      <span style='color:#7f0055; font-weight:bold; '>int</span> length = original.length();
+ 
+      <span style='color:#7f0055; font-weight:bold; '>for</span> ( <span style='color:#7f0055; font-weight:bold; '>int</span> i = length - 1 ; i >= 0 ; i-- )
+         reverse = reverse + original.charAt(i);
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Reverse of entered string is: "</span>+reverse);
+   }
+}
+
+
+Output:
+
+Enter a string to reverse
+Rushikesh
+Reverse of entered string is: hsekihsuR
+</pre>

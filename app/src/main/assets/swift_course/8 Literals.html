@@ -1,0 +1,99 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Literals</h1>
+
+<p>A literal is the source code representation of a value of an integer, floating-point number, or string type. The following are examples of literals &minus;</p>
+<pre class="result notranslate">42               // Integer literal
+3.14159          // Floating-point literal
+"Hello, world!"  // String literal
+</pre>
+<h2>Integer Literals</h2>
+<p>An integer literal can be a decimal, binary, octal, or hexadecimal constant. Binary literals begin with 0b, octal literals begin with 0o, and hexadecimal literals begin with 0x and nothing for decimal.</p>
+<p>Here are some examples of integer literals &minus;</p>
+<pre class="result notranslate">let decimalInteger = 17           // 17 in decimal notation
+let binaryInteger = 0b10001       // 17 in binary notation
+let octalInteger = 0o21           // 17 in octal notation
+let hexadecimalInteger = 0x11     // 17 in hexadecimal notation
+</pre>
+<h2>Floating-point Literals</h2>
+<p>A floating-point literal has an integer part, a decimal point, a fractional part, and an exponent part. You can represent floating point literals either in decimal form or hexadecimal form.</p>
+<p>Decimal floating-point literals consist of a sequence of decimal digits followed by either a decimal fraction, a decimal exponent, or both.</p>
+<p>Hexadecimal floating-point literals consist of a 0x prefix, followed by an optional hexadecimal fraction, followed by a hexadecimal exponent.</p>
+<p>Here are some examples of floating-point literals &minus;</p>
+<pre class="result notranslate">let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+let hexadecimalDouble = 0xC.3p0
+</pre>
+<h2>String Literals</h2>
+<p>A string literal is a sequence of characters surrounded by double quotes, with the following form &minus;</p>
+<pre class="result notranslate">"characters"
+</pre>
+<p>String literals cannot contain an unescaped double quote ("), an unescaped backslash (\), a carriage return, or a line feed. Special characters can be included in string literals using the following escape sequences &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Escape sequence</th><th>Meaning</th></tr>
+<tr>
+<td>\0</td>
+<td>Null Character</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>\character</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>Form feed</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>Newline</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>Vertical tab</td>
+</tr>
+<tr>
+<td>\'</td>
+<td>Single Quote</td>
+</tr>
+<tr>
+<td>\"</td>
+<td>Double Quote</td>
+</tr>
+<tr>
+<td>\000</td>
+<td>Octal number of one to three digits</td>
+</tr>
+<tr>
+<td>\xhh...</td>
+<td>Hexadecimal number of one or more digits</td>
+</tr>
+</tbody>
+</table>
+<p>The following example shows how to use a few string literals &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> stringL </span><span class="pun">=</span> <span class="str">"Hello\tWorld\n\nHello\'Swift\'"</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">stringL</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Hello	World
+
+Hello'Swift'
+</pre>
+<h2>Boolean Literals</h2>
+<p>There are three Boolean literals and they are part of standard Swift keywords &minus;</p>
+<ul class="list">
+<li>A value of <strong>true</strong> representing true.</li>
+<li>A value of <strong>false</strong> representing false.</li>
+<li>A value of <strong>nil</strong> representing no value.</li>
+</ul>

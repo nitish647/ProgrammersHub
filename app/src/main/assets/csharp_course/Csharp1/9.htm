@@ -1,0 +1,422 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Method overloading</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Method overloading</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>A lot of
+programming languages support a technique called default/optional parameters.
+It allows the programmer to make one or several parameters optional, by giving
+them a default value. It's especially practical when adding functionality to
+existing code. For instance, you may wish to add functionality to an existing
+function, which requires one or more parameters to be added. By doing so, you
+would break existing code calling this function, since they would now not be
+passing the required amount of parameters. To work around this, you could
+define the newly added parameters as optional, and give them a default value
+that corresponds to how the code would work before adding the parameters.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Default parameters
+were introduced in C# version 4.0, but up until that, C# coders have been using
+a different technique, which basically does the same, called method
+overloading. It allows the programmer to define several methods with the same
+name, as long as they take a different set of parameters. When you use the classes
+of the .NET framework, you will soon realize that method overloading is used
+all over the place. A good example of this, is the Substring() method of the
+String class. It has an extra overload, like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 0in;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Substring</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+startIndex</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Substring</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+startIndex</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+length</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>You can call it
+with either one or two parameters. If you only call it with one parameter, the
+length parameter is assumed to be the rest of the string, saving us time
+whenever we simply want to get the last part of a string.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>So, by defining
+several versions of the same function, how do we avoid having the same code
+several places? It's actually quite simple: We let the simple versions of the
+method make the complex version of it do all the work. Consider the following
+example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>SillyMath</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>        </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>return</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number3</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>        </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>return</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1 </span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> number2 </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>+</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number3</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We define a Plus
+method, in two different versions. The first one takes two paramaters, for
+adding two numbers, while the second version takes three numbers. The actual
+work is done in the version that takes three numbers - if we only wish to add
+two, we call the three parameter version, and simply use 0 as the third
+paramater, acting as a default value. I know, I know, it's a silly example, as
+indicated by the name of the class, but it should give you an idea about how it
+all works.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Now, whenever you
+feel like doing advanced math by adding a total of four numbers (just kidding
+here), it's very simple to add a new overload:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>SillyMath</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>        </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>return</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number3</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>        </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>return</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> number3</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Plus</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number3</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number4</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>        </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>return</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number1 </span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> number2 </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>+</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> number3
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> number4</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>    </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The cool thing
+about this, is that all your existing calls to the Plus method will continue
+working, as if nothing had been changed. The more you use C#, the more you will
+learn to appreciate method overloading.</span></p>
+
+</div>
+
+</body>
+
+</html>

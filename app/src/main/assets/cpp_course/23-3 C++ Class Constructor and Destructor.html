@@ -1,0 +1,153 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Class Constructor and Destructor</h1>
+
+<h2>The Class Constructor</h2>
+<p>A class <strong>constructor</strong> is a special member function of a class that is executed whenever we create new objects of that class.</p>
+<p>A constructor will have exact same name as the class and it does not have any return type at all, not even void. Constructors can be very useful for setting initial values for certain member variables.</p>
+<p>Following example explains the concept of constructor &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+      <span class="typ">Line</span><span class="pun">();</span>  <span class="com">// This is the constructor</span>
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions definitions including constructor</span>
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Object is being created"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">void</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">double</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Line</span><span class="pln"> line</span><span class="pun">;</span>
+ 
+   <span class="com">// set line length</span><span class="pln">
+   line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Object is being created
+Length of line : 6
+</pre>
+<h2>Parameterized Constructor</h2>
+<p>A default constructor does not have any parameter, but if you need, a constructor can have parameters. This helps you to assign initial value to an object at the time of its creation as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+      <span class="typ">Line</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> len</span><span class="pun">);</span>  <span class="com">// This is the constructor</span>
+ 
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions definitions including constructor</span>
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Object is being created, length = "</span> <span class="pun">&lt;&lt;</span><span class="pln"> len </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">void</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">double</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Line</span><span class="pln"> line</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+ 
+   <span class="com">// get initially set length.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+   
+   <span class="com">// set line length again</span><span class="pln">
+   line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Object is being created, length = 10
+Length of line : 10
+Length of line : 6
+</pre>
+<h2>Using Initialization Lists to Initialize Fields</h2>
+<p>In case of parameterized constructor, you can use following syntax to initialize the fields &minus;</p>
+<pre class="result notranslate">Line::Line( double len): length(len) {
+   cout &lt;&lt; "Object is being created, length = " &lt;&lt; len &lt;&lt; endl;
+}
+</pre>
+<p>Above syntax is equal to the following syntax &minus;</p>
+<pre class="result notranslate">Line::Line( double len) {
+   cout &lt;&lt; "Object is being created, length = " &lt;&lt; len &lt;&lt; endl;
+   length = len;
+}
+</pre>
+<p>If for a class C, you have multiple fields X, Y, Z, etc., to be initialized, then use can use same syntax and separate the fields by comma as follows &minus;</p>
+<pre class="result notranslate">C::C( double a, double b, double c): X(a), Y(b), Z(c) {
+   ....
+}
+</pre>
+<h2>The Class Destructor</h2>
+<p>A <strong>destructor</strong> is a special member function of a class that is executed whenever an object of it's class goes out of scope or whenever the delete expression is applied to a pointer to the object of that class.</p>
+<p>A destructor will have exact same name as the class prefixed with a tilde (~) and it can neither return a value nor can it take any parameters. Destructor can be very useful for releasing resources before coming out of the program like closing files, releasing memories etc.</p>
+<p>Following example explains the concept of destructor &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+      <span class="typ">Line</span><span class="pun">();</span>   <span class="com">// This is the constructor declaration</span>
+      <span class="pun">~</span><span class="typ">Line</span><span class="pun">();</span>  <span class="com">// This is the destructor: declaration</span>
+ 
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions definitions including constructor</span>
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Object is being created"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="typ">Line</span><span class="pun">::~</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Object is being deleted"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">void</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">double</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Line</span><span class="pln"> line</span><span class="pun">;</span>
+ 
+   <span class="com">// set line length</span><span class="pln">
+   line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Object is being created
+Length of line : 6
+Object is being deleted
+</pre>

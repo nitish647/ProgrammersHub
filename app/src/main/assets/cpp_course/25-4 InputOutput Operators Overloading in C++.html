@@ -1,0 +1,54 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Input/Output Operators Overloading in C++</h1>
+
+<p>C++ is able to input and output the built-in data types using the stream extraction operator &gt;&gt; and the stream insertion operator &lt;&lt;. The stream insertion and stream extraction operators also can be overloaded to perform input and output for user-defined types like an object.</p>
+<p>Here, it is important to make operator overloading function a friend of the class because it would be called without creating an object.</p>
+<p>Following example explains how extraction operator &gt;&gt; and insertion operator &lt;&lt;.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Distance</span> <span class="pun">{</span>
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> feet</span><span class="pun">;</span>             <span class="com">// 0 to infinite</span>
+      <span class="kwd">int</span><span class="pln"> inches</span><span class="pun">;</span>           <span class="com">// 0 to 12</span>
+      
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// required constructors</span>
+      <span class="typ">Distance</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="typ">Distance</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> f</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span><span class="pln"> f</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">friend</span><span class="pln"> ostream </span><span class="pun">&amp;</span><span class="kwd">operator</span><span class="pun">&lt;&lt;(</span><span class="pln"> ostream </span><span class="pun">&amp;</span><span class="pln">output</span><span class="pun">,</span> <span class="kwd">const</span> <span class="typ">Distance</span> <span class="pun">&amp;</span><span class="pln">D </span><span class="pun">)</span> <span class="pun">{</span><span class="pln"> 
+         output </span><span class="pun">&lt;&lt;</span> <span class="str">"F : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> D</span><span class="pun">.</span><span class="pln">feet </span><span class="pun">&lt;&lt;</span> <span class="str">" I : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> D</span><span class="pun">.</span><span class="pln">inches</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> output</span><span class="pun">;</span>            
+      <span class="pun">}</span>
+
+      <span class="kwd">friend</span><span class="pln"> istream </span><span class="pun">&amp;</span><span class="kwd">operator</span><span class="pun">&gt;&gt;(</span><span class="pln"> istream  </span><span class="pun">&amp;</span><span class="pln">input</span><span class="pun">,</span> <span class="typ">Distance</span> <span class="pun">&amp;</span><span class="pln">D </span><span class="pun">)</span> <span class="pun">{</span><span class="pln"> 
+         input </span><span class="pun">&gt;&gt;</span><span class="pln"> D</span><span class="pun">.</span><span class="pln">feet </span><span class="pun">&gt;&gt;</span><span class="pln"> D</span><span class="pun">.</span><span class="pln">inches</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> input</span><span class="pun">;</span>            
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Distance</span><span class="pln"> D1</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">),</span><span class="pln"> D2</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span> <span class="lit">11</span><span class="pun">),</span><span class="pln"> D3</span><span class="pun">;</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Enter the value of object : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cin </span><span class="pun">&gt;&gt;</span><span class="pln"> D3</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"First Distance : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> D1 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Second Distance :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> D2 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Third Distance :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> D3 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">$./a.out
+Enter the value of object :
+70
+10
+First Distance : F : 11 I : 10
+Second Distance :F : 5 I : 11
+Third Distance :F : 70 I : 10
+</pre>

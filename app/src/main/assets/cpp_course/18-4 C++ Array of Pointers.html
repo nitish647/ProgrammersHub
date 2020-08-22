@@ -1,0 +1,75 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Array of Pointers</h1>
+
+<p>Before we understand the concept of array of pointers, let us consider the following example, which makes use of an array of 3 integers &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+ 
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+   
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="kwd">var</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of var[0] = 10
+Value of var[1] = 100
+Value of var[2] = 200
+</pre>
+<p>There may be a situation, when we want to maintain an array, which can store pointers to an int or char or any other data type available. Following is the declaration of an array of pointers to an integer &minus;</p>
+<pre class="result notranslate">int *ptr[MAX];
+</pre>
+<p>This declares <strong>ptr</strong> as an array of MAX integer pointers. Thus, each element in ptr, now holds a pointer to an int value. Following example makes use of three integers which will be stored in an array of pointers as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+   <span class="kwd">int</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">];</span>
+ 
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      ptr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">&amp;</span><span class="kwd">var</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span> <span class="com">// assign the address of integer.</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of var[0] = 10
+Value of var[1] = 100
+Value of var[2] = 200
+</pre>
+<p>You can also use an array of pointers to character to store a list of strings as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">4</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">char</span> <span class="pun">*</span><span class="pln">names</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span> <span class="str">"Zara Ali"</span><span class="pun">,</span> <span class="str">"Hina Ali"</span><span class="pun">,</span> <span class="str">"Nuha Ali"</span><span class="pun">,</span> <span class="str">"Sara Ali"</span> <span class="pun">};</span>
+
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of names["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> names</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of names[0] = Zara Ali
+Value of names[1] = Hina Ali
+Value of names[2] = Nuha Ali
+Value of names[3] = Sara Ali
+</pre>

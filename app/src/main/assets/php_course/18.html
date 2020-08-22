@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - Sending Emails using PHP</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>PHP - Sending Emails using PHP</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>PHP must be configured correctly in the <b>php.ini</b> file with the details of how your system sends email. Open php.ini file available in <b>/etc/</b> directory and find the section headed <b>[mail function]</b>.</p>
+        <p>Windows users should ensure that two directives are supplied. The first is called SMTP that defines your email server address. The second is called sendmail_from which defines your own email address.</p>
+        <p>The configuration for Windows should look something like this −</p>
+        <pre class="result notranslate">[mail function]
+; For Win32 only.
+SMTP = smtp.secureserver.net
+
+; For win32 only
+sendmail_from = webmaster@tutorialspoint.com
+</pre>
+        <p>Linux users simply need to let PHP know the location of their <b>sendmail</b> application. The path and any desired switches should be specified to the sendmail_path directive.</p>
+        <p>The configuration for Linux should look something like this −</p>
+        <pre class="result notranslate">[mail function]
+; For Win32 only.
+SMTP =
+
+; For win32 only
+sendmail_from =
+
+; For Unix only
+sendmail_path = /usr/sbin/sendmail -t -i
+</pre>
+        <p>Now you are ready to go −</p>
+        <h2>Sending plain text email</h2>
+        <p>PHP makes use of <b>mail()</b> function to send an email. This function requires three mandatory arguments that specify the recipient's email address, the subject of the the message and the actual message additionally there are other two optional parameters.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">mail</span><span class="pun">(</span><span class="pln"> to</span><span class="pun">,</span><span class="pln"> subject</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">,</span><span class="pln"> headers</span><span class="pun">,</span><span class="pln"> parameters </span><span class="pun">);</span></pre>
+        <p>Here is the description for each parameters.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th class="ts">Sr.No</th>
+                <th class="ts">Parameter &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>to</b></p>
+                    <p>Required. Specifies the receiver / receivers of the email</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>subject</b></p>
+                    <p>Required. Specifies the subject of the email. This parameter cannot contain any newline characters</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>message</b></p>
+                    <p>Required. Defines the message to be sent. Each line should be separated with a LF (\n). Lines should not exceed 70 characters</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>headers</b></p>
+                    <p>Optional. Specifies additional headers, like From, Cc, and Bcc. The additional headers should be separated with a CRLF (\r\n)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>parameters</b></p>
+                    <p>Optional. Specifies an additional parameter to the send mail program</p></td>
+            </tr>
+            </tbody></table>
+        <p>As soon as the mail function is called PHP will attempt to send the email then it will return true if successful or false if it is failed.</p>
+        <p>Multiple recipients can be specified as the first argument to the mail() function in a comma separated list.</p>
+        <h2>Sending HTML email</h2>
+        <p>When you send a text message using PHP then all the content will be treated as simple text. Even if you will include HTML tags in a text message, it will be displayed as simple text and HTML tags will not be formatted according to HTML syntax. But PHP provides option to send an HTML message as actual HTML message.</p>
+        <p>While sending an email message you can specify a Mime version, content type and character set to send an HTML email.</p>
+        <h3>Example</h3>
+        <p>Following example will send an HTML email message to xyz@somedomain.com copying it to afgh@somedomain.com. You can code this program in such a way that it should receive all content from the user and then it should send an email.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Sending HTML email using PHP</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $to </span><span class="pun">=</span><span class="pln"> </span><span class="str">"xyz@somedomain.com"</span><span class="pun">;</span><span class="pln">
+         $subject </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This is subject"</span><span class="pun">;</span><span class="pln">
+
+         $message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;This is HTML message.&lt;/b&gt;"</span><span class="pun">;</span><span class="pln">
+         $message </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"&lt;h1&gt;This is headline.&lt;/h1&gt;"</span><span class="pun">;</span><span class="pln">
+
+         $header </span><span class="pun">=</span><span class="pln"> </span><span class="str">"From:abc@somedomain.com \r\n"</span><span class="pun">;</span><span class="pln">
+         $header </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"Cc:afgh@somedomain.com \r\n"</span><span class="pun">;</span><span class="pln">
+         $header </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"MIME-Version: 1.0\r\n"</span><span class="pun">;</span><span class="pln">
+         $header </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"Content-type: text/html\r\n"</span><span class="pun">;</span><span class="pln">
+
+         $retval </span><span class="pun">=</span><span class="pln"> mail </span><span class="pun">(</span><span class="pln">$to</span><span class="pun">,</span><span class="pln">$subject</span><span class="pun">,</span><span class="pln">$message</span><span class="pun">,</span><span class="pln">$header</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> $retval </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            echo </span><span class="str">"Message sent successfully..."</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            echo </span><span class="str">"Message could not be sent..."</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>Sending attachments with email</h2>
+        <p>To send an email with mixed content requires to set <b>Content-type</b> header to <b>multipart/mixed</b>. Then text and attachment sections can be specified within <b>boundaries</b>.</p>
+        <p>A boundary is started with two hyphens followed by a unique number which can not appear in the message part of the email. A PHP function <b>md5()</b> is used to create a 32 digit hexadecimal number to create unique number. A final boundary denoting the email's final section must also end with two hyphens.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   </span><span class="com">// request variables // important</span><span class="pln">
+   $from </span><span class="pun">=</span><span class="pln"> $_REQUEST</span><span class="pun">[</span><span class="str">"from"</span><span class="pun">];</span><span class="pln">
+   $emaila </span><span class="pun">=</span><span class="pln"> $_REQUEST</span><span class="pun">[</span><span class="str">"emaila"</span><span class="pun">];</span><span class="pln">
+   $filea </span><span class="pun">=</span><span class="pln"> $_REQUEST</span><span class="pun">[</span><span class="str">"filea"</span><span class="pun">];</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$filea</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">function</span><span class="pln"> mail_attachment </span><span class="pun">(</span><span class="pln">$from </span><span class="pun">,</span><span class="pln"> $to</span><span class="pun">,</span><span class="pln"> $subject</span><span class="pun">,</span><span class="pln"> $message</span><span class="pun">,</span><span class="pln"> $attachment</span><span class="pun">){</span><span class="pln">
+         $fileatt </span><span class="pun">=</span><span class="pln"> $attachment</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Path to the file</span><span class="pln">
+         $fileatt_type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"application/octet-stream"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// File Type </span><span class="pln">
+
+         $start </span><span class="pun">=</span><span class="pln"> strrpos</span><span class="pun">(</span><span class="pln">$attachment</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pln"> </span><span class="pun">?</span><span class="pln">
+            strrpos</span><span class="pun">(</span><span class="pln">$attachment</span><span class="pun">,</span><span class="pln"> </span><span class="str">'//'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> strrpos</span><span class="pun">(</span><span class="pln">$attachment</span><span class="pun">,</span><span class="pln"> </span><span class="str">'/'</span><span class="pun">)+</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+
+         $fileatt_name </span><span class="pun">=</span><span class="pln"> substr</span><span class="pun">(</span><span class="pln">$attachment</span><span class="pun">,</span><span class="pln"> $start</span><span class="pun">,</span><span class="pln">
+            strlen</span><span class="pun">(</span><span class="pln">$attachment</span><span class="pun">));</span><span class="pln"> </span><span class="com">// Filename that will be used for the </span><span class="pln">
+            file </span><span class="kwd">as</span><span class="pln"> the attachment
+
+         $email_from </span><span class="pun">=</span><span class="pln"> $from</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Who the email is from</span><span class="pln">
+         $subject </span><span class="pun">=</span><span class="pln"> </span><span class="str">"New Attachment Message"</span><span class="pun">;</span><span class="pln">
+
+         $email_subject </span><span class="pun">=</span><span class="pln">  $subject</span><span class="pun">;</span><span class="pln"> </span><span class="com">// The Subject of the email </span><span class="pln">
+         $email_txt </span><span class="pun">=</span><span class="pln"> $message</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Message that the email has in it </span><span class="pln">
+         $email_to </span><span class="pun">=</span><span class="pln"> $to</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Who the email is to</span><span class="pln">
+
+         $headers </span><span class="pun">=</span><span class="pln"> </span><span class="str">"From: "</span><span class="pun">.</span><span class="pln">$email_from</span><span class="pun">;</span><span class="pln">
+         $file </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="pln">$fileatt</span><span class="pun">,</span><span class="str">'rb'</span><span class="pun">);</span><span class="pln">
+         $data </span><span class="pun">=</span><span class="pln"> fread</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln">filesize</span><span class="pun">(</span><span class="pln">$fileatt</span><span class="pun">));</span><span class="pln">
+         fclose</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">);</span><span class="pln">
+
+         $msg_txt</span><span class="pun">=</span><span class="str">"\n\n You have recieved a new attachment message from $from"</span><span class="pun">;</span><span class="pln">
+         $semi_rand </span><span class="pun">=</span><span class="pln"> md5</span><span class="pun">(</span><span class="pln">time</span><span class="pun">());</span><span class="pln">
+         $mime_boundary </span><span class="pun">=</span><span class="pln"> </span><span class="str">"==Multipart_Boundary_x{$semi_rand}x"</span><span class="pun">;</span><span class="pln">
+         $headers </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"\nMIME-Version: 1.0\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"Content-Type: multipart/mixed;\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"
+            boundary=\"{$mime_boundary}\""</span><span class="pun">;</span><span class="pln">
+
+         $email_txt </span><span class="pun">.=</span><span class="pln"> $msg_txt</span><span class="pun">;</span><span class="pln">
+
+         $email_message </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"This is a multi-part message in MIME format.\n\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+            </span><span class="str">"--{$mime_boundary}\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"Content-Type:text/html;
+            charset = \"iso-8859-1\"\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"Content-Transfer-Encoding: 7bit\n\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+            $email_txt </span><span class="pun">.</span><span class="pln"> </span><span class="str">"\n\n"</span><span class="pun">;</span><span class="pln">
+
+         $data </span><span class="pun">=</span><span class="pln"> chunk_split</span><span class="pun">(</span><span class="pln">base64_encode</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">));</span><span class="pln">
+
+         $email_message </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"--{$mime_boundary}\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"Content-Type: {$fileatt_type};\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+            </span><span class="str">" name = \"{$fileatt_name}\"\n"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="com">//"Content-Disposition: attachment;\n" . </span><span class="pln">
+            </span><span class="com">//" filename = \"{$fileatt_name}\"\n" . "Content-Transfer-Encoding: </span><span class="pln">
+            base64\n\n</span><span class="str">" . $data . "</span><span class="pln">\n\n</span><span class="str">" . "</span><span class="pun">--{</span><span class="pln">$mime_boundary</span><span class="pun">}--</span><span class="pln">\n</span><span class="str">";
+
+         $ok = mail($email_to, $email_subject, $email_message, $headers);
+
+         if($ok) {
+            echo "</span><span class="typ">File</span><span class="pln"> </span><span class="typ">Sent</span><span class="pln"> </span><span class="typ">Successfully</span><span class="pun">.</span><span class="str">";
+            unlink($attachment); // delete a file after attachment sent.
+         }else {
+            die("</span><span class="typ">Sorry</span><span class="pln"> but the email could </span><span class="kwd">not</span><span class="pln"> be sent</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Please</span><span class="pln"> go back </span><span class="kwd">and</span><span class="pln"> </span><span class="kwd">try</span><span class="pln"> again</span><span class="pun">!</span><span class="str">");
+         }
+      }
+      move_uploaded_file($_FILES["</span><span class="pln">filea</span><span class="str">"]["</span><span class="pln">tmp_name</span><span class="str">"],
+         'temp/'.basename($_FILES['filea']['name']));
+
+      mail_attachment("</span><span class="pln">$from</span><span class="str">", "</span><span class="pln">youremailaddress@gmail</span><span class="pun">.</span><span class="pln">com</span><span class="str">",
+         "</span><span class="pln">subject</span><span class="str">", "</span><span class="pln">message</span><span class="str">", ("</span><span class="pln">temp</span><span class="pun">/</span><span class="str">".$_FILES["</span><span class="pln">filea</span><span class="str">"]["</span><span class="pln">name</span><span class="str">"]));
+   }
+</span><span class="pun">?&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">language</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"javascript"</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">CheckData45</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">with</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">filepost</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">filea</span><span class="pun">.</span><span class="pln">value </span><span class="pun">!</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'one'</span><span class="pun">).</span><span class="pln">innerText </span><span class="pun">=</span><span class="pln">
+                     </span><span class="str">"Attaching File ... Please Wait"</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;table</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"100%"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"100%"</span><span class="pln"> </span><span class="atn">border</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="pln">
+         </span><span class="atn">cellpadding</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">cellspacing</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+            </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">align</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"center"</span><span class="tag">&gt;</span><span class="pln">
+               </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"filepost"</span><span class="pln"> </span><span class="atn">method</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"post"</span><span class="pln">
+                  </span><span class="atn">action</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"file.php"</span><span class="pln"> </span><span class="atn">enctype</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"multipart/form-data"</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"file"</span><span class="tag">&gt;</span><span class="pln">
+
+                  </span><span class="tag">&lt;table</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"300"</span><span class="pln"> </span><span class="atn">border</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">cellspacing</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="pln">
+                     </span><span class="atn">cellpadding</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="tag">&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"bottom"</span><span class="tag">&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"20"</span><span class="tag">&gt;</span><span class="pln">Your Name:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td&gt;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"from"</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln">
+                           </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"from"</span><span class="pln"> </span><span class="atn">size</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"30"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"bottom"</span><span class="tag">&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"20"</span><span class="tag">&gt;</span><span class="pln">Your Email Address:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">class</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"frmtxt2"</span><span class="tag">&gt;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"emaila"</span><span class="pln">
+                           </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"emaila"</span><span class="pln"> </span><span class="atn">size</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"30"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"20"</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"bottom"</span><span class="tag">&gt;</span><span class="pln">Attach File:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"bottom"</span><span class="tag">&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"bottom"</span><span class="tag">&gt;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"filea"</span><span class="pln">
+                           </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"filea"</span><span class="pln"> </span><span class="atn">size</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"16"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"40"</span><span class="pln"> </span><span class="atn">valign</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"middle"</span><span class="tag">&gt;&lt;input</span><span class="pln">
+                           </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Reset2"</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"reset"</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Reset2"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Reset"</span><span class="tag">&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Submit2"</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"submit"</span><span class="pln">
+                           </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Submit"</span><span class="pln"> </span><span class="atn">onClick</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="typ">CheckData45</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/table&gt;</span><span class="pln">
+
+               </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+               </span><span class="tag">&lt;center&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;table</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"400"</span><span class="tag">&gt;</span><span class="pln">
+
+                     </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;td</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"one"</span><span class="tag">&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/td&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+                  </span><span class="tag">&lt;/table&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/center&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;/td&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/table&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

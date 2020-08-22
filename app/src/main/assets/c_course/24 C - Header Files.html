@@ -1,0 +1,362 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C - Header Files</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C - Header Files</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A header file is a file with extension&nbsp;<b>.h</b>&nbsp;which
+contains C function declarations and macro definitions to be shared between
+several source files. There are two types of header files: the files that the
+programmer writes and the files that comes with your compiler.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You request to use a header file in your program by including it
+with the C preprocessing directive&nbsp;<b>#include</b>, like you have seen
+inclusion of&nbsp;<b>stdio.h</b>&nbsp;header file, which comes along with your
+compiler.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Including a header file is equal to copying the content of the
+header file but we do not do it because it will be error-prone and it is not a
+good idea to copy the content of a header file in the source files, especially
+if we have multiple source files in a program.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A simple practice in C or C++ programs is that we keep all the
+constants, macros, system wide global variables, and function prototypes in the
+header files and include that header file wherever it is required.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Include Syntax</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Both the user and the system header files are included using the
+preprocessing directive&nbsp;<b>#include</b>. It has the following two forms &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>#include
+&lt;file&gt;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>This form is used for system header files. It searches for a file
+named 'file' in a standard list of system directories. You can prepend
+directories to this list with the -I option while compiling your source code.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>#include
+&quot;file&quot;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>This form is used for header files of your own program. It
+searches for a file named 'file' in the directory containing the current file.
+You can prepend directories to this list with the -I option while compiling
+your source code.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Include Operation</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The&nbsp;<b>#include</b>&nbsp;directive works by directing the C
+preprocessor to scan the specified file as input before continuing with the
+rest of the current source file. The output from the preprocessor contains the
+output already generated, followed by the output resulting from the included
+file, followed by the output that comes from the text after the&nbsp;<b>#include</b>&nbsp;directive.
+For example, if you have a header file header.h as follows &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>char *test
+(void);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>and a main program called&nbsp;<i>program.c</i>&nbsp;that uses the
+header file, like this &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> x</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#include</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;header.h&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> main </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>void</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>puts</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>test </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>the compiler will see the same token stream as it would if
+program.c read.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> x</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>char</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>*</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>test </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>void</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> main </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>void</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>puts</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>test </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Once-Only Headers</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>If a header file happens to be included twice, the compiler will
+process its contents twice and it will result in an error. The standard way to
+prevent this is to enclose the entire real contents of the file in a conditional,
+like this &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#ifndef</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+HEADER_FILE</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#define</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+HEADER_FILE</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>the entire header file file</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#endif</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>This construct is commonly known as a wrapper&nbsp;<b>#ifndef</b>.
+When the header is included again, the conditional will be false, because
+HEADER_FILE is defined. The preprocessor will skip over the entire contents of
+the file, and the compiler will not see it twice.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Computed Includes</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Sometimes it is necessary to select one of the several different
+header files to be included into your program. For instance, they might specify
+configuration parameters to be used on different sorts of operating systems.
+You could do this with a series of conditionals as follows &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#if SYSTEM_1</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'># include &quot;system_1.h&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#elif</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> SYSTEM_2</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'># include &quot;system_2.h&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#elif</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> SYSTEM_3</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>...</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>#endif</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>But as it grows, it becomes tedious, instead the preprocessor
+offers the ability to use a macro for the header name. This is called a&nbsp;<b>computed
+include</b>. Instead of writing a header name as the direct argument of&nbsp;<b>#include</b>,
+you simply put a macro name there &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>#define SYSTEM_H
+&quot;system_1.h&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>...</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>#include
+SYSTEM_H</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>SYSTEM_H will be expanded, and the preprocessor will look for
+system_1.h as if the&nbsp;<b>#include</b>&nbsp;had been written that way
+originally. SYSTEM_H could be defined by your Makefile with a -D option.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

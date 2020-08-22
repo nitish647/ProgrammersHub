@@ -1,0 +1,113 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Classes</h1>
+
+<p>Classes in Swift are building blocks of flexible constructs. Similar to constants, variables and functions the user can define class properties and methods. Swift provides us the functionality that while declaring classes the users need not create interfaces or implementation files. Swift allows us to create classes as a single file and the external interfaces will be created by default once the classes are initialized.</p>
+<h2>Benefits of having Classes</h2>
+<ul class="list">
+<li>Inheritance acquires the properties of one class to another class</li>
+<li>Type casting enables the user to check class type at run time</li>
+<li>Deinitializers take care of releasing memory resources</li>
+<li>Reference counting allows the class instance to have more than one reference</li>
+</ul>
+<h2>Common Characteristics of Classes and structures</h2>
+<ul class="list">
+<li>Properties are defined to store values</li>
+<li>Subscripts are defined for providing access to values</li>
+<li>Methods are initialized to improve functionality</li>
+<li>Initial state are defined by initializers</li>
+<li>Functionality are expanded beyond default values</li>
+<li>Confirming protocol functionality standards</li>
+</ul>
+<h3>Syntax</h3>
+<pre class="result notranslate">Class classname {
+   Definition 1
+   Definition 2
+    --- 
+   Definition N
+}
+</pre>
+<h2>Class Definition</h2>
+<pre class="result notranslate">class student {
+   var studname: String
+   var mark: Int 
+   var mark2: Int 
+}
+</pre>
+<p>The syntax for creating instances</p>
+<pre class="result notranslate">let studrecord = student()
+</pre>
+<h3>Example</h3>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span> <span class="typ">MarksStruct</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">mark </span><span class="pun">=</span><span class="pln"> mark
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> studentMarks </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark </span><span class="pun">=</span> <span class="lit">300</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> marks </span><span class="pun">=</span><span class="pln"> studentMarks</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark is \(marks.mark)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Mark is 300
+</pre>
+<h2>Accessing Class Properties as Reference Types</h2>
+<p>Class properties can be accessed by the '.' syntax. Property name is separated by a '.' after the instance name.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">MarksStruct</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">mark </span><span class="pun">=</span><span class="pln"> mark
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> studentMarks </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark1 </span><span class="pun">=</span> <span class="lit">300</span>
+   <span class="kwd">var</span><span class="pln"> mark2 </span><span class="pun">=</span> <span class="lit">400</span>
+   <span class="kwd">var</span><span class="pln"> mark3 </span><span class="pun">=</span> <span class="lit">900</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> marks </span><span class="pun">=</span><span class="pln"> studentMarks</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark1 is \(marks.mark1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark2 is \(marks.mark2)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark3 is \(marks.mark3)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Mark1 is 300
+Mark2 is 400
+Mark3 is 900
+</pre>
+<h2>Class Identity Operators</h2>
+<p>Classes in Swift refers multiple constants and variables pointing to a single instance. To know about the constants and variables pointing to a particular class instance identity operators are used. Class instances are always passed by reference. In Classes NSString, NSArray, and NSDictionary instances are always assigned and passed around as a reference to an existing instance, rather than as a copy.</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Identical to Operators</th><th>Not Identical to Operators</th></tr>
+<tr>
+<td>Operator used is (===)</td>
+<td>Operator used is (!==)</td>
+</tr>
+<tr>
+<td>Returns true when two constants or variables pointing to a same instance</td>
+<td>Returns true when two constants or variables pointing to a different instance</td>
+</tr>
+</tbody>
+</table>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span> <span class="typ">SampleClass</span><span class="pun">:</span> <span class="typ">Equatable</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> myProperty</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">s</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      myProperty </span><span class="pun">=</span><span class="pln"> s
+   </span><span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+func </span><span class="pun">==(</span><span class="pln">lhs</span><span class="pun">:</span> <span class="typ">SampleClass</span><span class="pun">,</span><span class="pln"> rhs</span><span class="pun">:</span> <span class="typ">SampleClass</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Bool</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">myProperty </span><span class="pun">==</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">myProperty
+</span><span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> spClass1 </span><span class="pun">=</span> <span class="typ">SampleClass</span><span class="pun">(</span><span class="pln">s</span><span class="pun">:</span> <span class="str">"Hello"</span><span class="pun">)</span>
+<span class="kwd">let</span><span class="pln"> spClass2 </span><span class="pun">=</span> <span class="typ">SampleClass</span><span class="pun">(</span><span class="pln">s</span><span class="pun">:</span> <span class="str">"Hello"</span><span class="pun">)</span><span class="pln">
+
+spClass1 </span><span class="pun">===</span><span class="pln"> spClass2 </span><span class="com">// false</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(spClass1)"</span><span class="pun">)</span><span class="pln">
+
+spClass1 </span><span class="pun">!==</span><span class="pln"> spClass2 </span><span class="com">// true</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(spClass2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">main.SampleClass
+main.SampleClass
+</pre>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Applet Basics</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Applet Basics</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>An <b>applet</b> is a Java program that runs in a Web browser. An applet can be a fully functional Java application because it has the entire Java API at its disposal.</p>
+        <p>There are some important differences between an applet and a standalone Java application, including the following −</p>
+        <ul class="list">
+            <li><p>An applet is a Java class that extends the java.applet.Applet class.</p></li>
+            <li><p>A main() method is not invoked on an applet, and an applet class will not define main().</p></li>
+            <li><p>Applets are designed to be embedded within an HTML page.</p></li>
+            <li><p>When a user views an HTML page that contains an applet, the code for the applet is downloaded to the user's machine.</p></li>
+            <li><p>A JVM is required to view an applet. The JVM can be either a plug-in of the Web browser or a separate runtime environment.</p></li>
+            <li><p>The JVM on the user's machine creates an instance of the applet class and invokes various methods during the applet's lifetime.</p></li>
+            <li><p>Applets have strict security rules that are enforced by the Web browser. The security of an applet is often referred to as sandbox security, comparing the applet to a child playing in a sandbox with various rules that must be followed.</p></li>
+            <li><p>Other classes that the applet needs can be downloaded in a single Java Archive (JAR) file.</p></li>
+        </ul>
+        <h2>Life Cycle of an Applet</h2>
+        <p>Four methods in the Applet class gives you the framework on which you build any serious applet −</p>
+        <ul class="list">
+            <li><p><b>init</b> − This method is intended for whatever initialization is needed for your applet. It is called after the param tags inside the applet tag have been processed.</p></li>
+            <li><p><b>start</b> − This method is automatically called after the browser calls the init method. It is also called whenever the user returns to the page containing the applet after having gone off to other pages.</p></li>
+            <li><p><b>stop</b> − This method is automatically called when the user moves off the page on which the applet sits. It can, therefore, be called repeatedly in the same applet.</p></li>
+            <li><p><b>destroy</b> − This method is only called when the browser shuts down normally. Because applets are meant to live on an HTML page, you should not normally leave resources behind after a user leaves the page that contains the applet.</p></li>
+            <li><p><b>paint</b> − Invoked immediately after the start() method, and also any time the applet needs to repaint itself in the browser. The paint() method is actually inherited from the java.awt.</p></li>
+        </ul>
+        <h2>A "Hello, World" Applet</h2>
+        <p>Following is a simple applet named HelloWorldApplet.java −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">applet</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HelloWorldApplet</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Applet</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> paint </span><span class="pun">(</span><span class="typ">Graphics</span><span class="pln"> g</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      g</span><span class="pun">.</span><span class="pln">drawString </span><span class="pun">(</span><span class="str">"Hello World"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>These import statements bring the classes into the scope of our applet class −</p>
+        <ul class="list">
+            <li>java.applet.Applet</li>
+            <li>java.awt.Graphics</li>
+        </ul>
+        <p>Without those import statements, the Java compiler would not recognize the classes Applet and Graphics, which the applet class refers to.</p>
+        <h2>The Applet Class</h2>
+        <p>Every applet is an extension of the <i>java.applet.Applet class</i>. The base Applet class provides methods that a derived Applet class may call to obtain information and services from the browser context.</p>
+        <p>These include methods that do the following −</p>
+        <ul class="list">
+            <li>Get applet parameters</li>
+            <li>Get the network location of the HTML file that contains the applet</li>
+            <li>Get the network location of the applet class directory</li>
+            <li>Print a status message in the browser</li>
+            <li>Fetch an image</li>
+            <li>Fetch an audio clip</li>
+            <li>Play an audio clip</li>
+            <li>Resize the applet</li>
+        </ul>
+        <p>Additionally, the Applet class provides an interface by which the viewer or browser obtains information about the applet and controls the applet's execution. The viewer may −</p>
+        <ul class="list">
+            <li>Request information about the author, version, and copyright of the applet</li>
+            <li>Request a description of the parameters the applet recognizes</li>
+            <li>Initialize the applet</li>
+            <li>Destroy the applet</li>
+            <li>Start the applet's execution</li>
+            <li>Stop the applet's execution</li>
+        </ul>
+        <p>The Applet class provides default implementations of each of these methods. Those implementations may be overridden as necessary.</p>
+        <p>The "Hello, World" applet is complete as it stands. The only method overridden is the paint method.</p>
+        <h2>Invoking an Applet</h2>
+        <p>An applet may be invoked by embedding directives in an HTML file and viewing the file through an applet viewer or Java-enabled browser.</p>
+        <p>The &lt;applet&gt; tag is the basis for embedding an applet in an HTML file. Following is an example that invokes the "Hello, World" applet −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">The Hello, World Applet</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+   </span><span class="tag">&lt;applet</span><span class="pln"> </span><span class="atn">code</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"HelloWorldApplet.class"</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"120"</span><span class="tag">&gt;</span><span class="pln">
+      If your browser was Java-enabled, a "Hello, World"
+      message would appear here.
+   </span><span class="tag">&lt;/applet&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+         <p>The code attribute of the &lt;applet&gt; tag is required. It specifies the Applet class to run. Width and height are also required to specify the initial size of the panel in which an applet runs. The applet directive must be closed with an &lt;/applet&gt; tag.</p>
+        <p>If an applet takes parameters, values may be passed for the parameters by adding &lt;param&gt; tags between &lt;applet&gt; and &lt;/applet&gt;. The browser ignores text and other tags between the applet tags.</p>
+        <p>Non-Java-enabled browsers do not process &lt;applet&gt; and &lt;/applet&gt;. Therefore, anything that appears between the tags, not related to the applet, is visible in non-Java-enabled browsers.</p>
+        <p>The viewer or browser looks for the compiled Java code at the location of the document. To specify otherwise, use the codebase attribute of the &lt;applet&gt; tag as shown −</p>
+        <pre class="result notranslate">&lt;applet codebase = "https://amrood.com/applets" code = "HelloWorldApplet.class"
+   width = "320" height = "120"&gt;
+</pre>
+        <p>If an applet resides in a package other than the default, the holding package must be specified in the code attribute using the period character (.) to separate package/class components. For example −</p>
+        <pre class="result notranslate">&lt;applet  = "mypackage.subpackage.TestApplet.class"
+   width = "320" height = "120"&gt;
+</pre>
+        <h2>Getting Applet Parameters</h2>
+        <p>The following example demonstrates how to make an applet respond to setup parameters specified in the document. This applet displays a checkerboard pattern of black and a second color.</p>
+        <p>The second color and the size of each square may be specified as parameters to the applet within the document.</p>
+        <p>CheckerApplet gets its parameters in the init() method. It may also get its parameters in the paint() method. However, getting the values and saving the settings once at the start of the applet, instead of at every refresh, is convenient and efficient.</p>
+        <p>The applet viewer or browser calls the init() method of each applet it runs. The viewer calls init() once, immediately after loading the applet. (Applet.init() is implemented to do nothing.) Override the default implementation to insert custom initialization code.</p>
+        <p>The Applet.getParameter() method fetches a parameter given the parameter's name (the value of a parameter is always a string). If the value is numeric or other non-character data, the string must be parsed.</p>
+        <p>The following is a skeleton of CheckerApplet.java −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">applet</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">CheckerApplet</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Applet</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> squareSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">50</span><span class="pun">;</span><span class="pln">   </span><span class="com">// initialized to default size</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> parseSquareSize </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> param</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Color</span><span class="pln"> parseColor </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> param</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> paint </span><span class="pun">(</span><span class="typ">Graphics</span><span class="pln"> g</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Here are CheckerApplet's init() and private parseSquareSize() methods −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">String</span><span class="pln"> squareSizeParam </span><span class="pun">=</span><span class="pln"> getParameter </span><span class="pun">(</span><span class="str">"squareSize"</span><span class="pun">);</span><span class="pln">
+   parseSquareSize </span><span class="pun">(</span><span class="pln">squareSizeParam</span><span class="pun">);</span><span class="pln">
+
+   </span><span class="typ">String</span><span class="pln"> colorParam </span><span class="pun">=</span><span class="pln"> getParameter </span><span class="pun">(</span><span class="str">"color"</span><span class="pun">);</span><span class="pln">
+   </span><span class="typ">Color</span><span class="pln"> fg </span><span class="pun">=</span><span class="pln"> parseColor </span><span class="pun">(</span><span class="pln">colorParam</span><span class="pun">);</span><span class="pln">
+
+   setBackground </span><span class="pun">(</span><span class="typ">Color</span><span class="pun">.</span><span class="pln">black</span><span class="pun">);</span><span class="pln">
+   setForeground </span><span class="pun">(</span><span class="pln">fg</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> parseSquareSize </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> param</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">param </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      squareSize </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt </span><span class="pun">(</span><span class="pln">param</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Let default value remain</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>The applet calls parseSquareSize() to parse the squareSize parameter. parseSquareSize() calls the library method Integer.parseInt(), which parses a string and returns an integer. Integer.parseInt() throws an exception whenever its argument is invalid.</p>
+        <p>Therefore, parseSquareSize() catches exceptions, rather than allowing the applet to fail on bad input.</p>
+        <p>The applet calls parseColor() to parse the color parameter into a Color value. parseColor() does a series of string comparisons to match the parameter value to the name of a predefined color. You need to implement these methods to make this applet work.</p>
+        <h2>Specifying Applet Parameters</h2>
+        <p>The following is an example of an HTML file with a CheckerApplet embedded in it. The HTML file specifies both parameters to the applet by means of the &lt;param&gt; tag.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">Checkerboard Applet</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+   </span><span class="tag">&lt;applet</span><span class="pln"> </span><span class="atn">code</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"CheckerApplet.class"</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"480"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"320"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"blue"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"squaresize"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"30"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/applet&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p><b>Note</b> − Parameter names are not case sensitive.</p>
+        <h2>Application Conversion to Applets</h2>
+        <p>It is easy to convert a graphical Java application (that is, an application that uses the AWT and that you can start with the Java program launcher) into an applet that you can embed in a web page.</p>
+        <p>Following are the specific steps for converting an application to an applet.</p>
+        <ul class="list">
+            <li><p>Make an HTML page with the appropriate tag to load the applet code.</p></li>
+            <li><p>Supply a subclass of the JApplet class. Make this class public. Otherwise, the applet cannot be loaded.</p></li>
+            <li><p>Eliminate the main method in the application. Do not construct a frame window for the application. Your application will be displayed inside the browser.</p></li>
+            <li><p>Move any initialization code from the frame window constructor to the init method of the applet. You don't need to explicitly construct the applet object. The browser instantiates it for you and calls the init method.</p></li>
+            <li><p>Remove the call to setSize; for applets, sizing is done with the width and height parameters in the HTML file.</p></li>
+            <li><p>Remove the call to setDefaultCloseOperation. An applet cannot be closed; it terminates when the browser exits.</p></li>
+            <li><p>If the application calls setTitle, eliminate the call to the method. Applets cannot have title bars. (You can, of course, title the web page itself, using the HTML title tag.)</p></li>
+            <li><p>Don't call setVisible(true). The applet is displayed automatically.</p></li>
+        </ul>
+        <h2>Event Handling</h2>
+        <p>Applets inherit a group of event-handling methods from the Container class. The Container class defines several methods, such as processKeyEvent and processMouseEvent, for handling particular types of events, and then one catch-all method called processEvent.</p>
+        <p>In order to react to an event, an applet must override the appropriate event-specific method.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.</span><span class="kwd">event</span><span class="pun">.</span><span class="typ">MouseListener</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.</span><span class="kwd">event</span><span class="pun">.</span><span class="typ">MouseEvent</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">applet</span><span class="pun">.</span><span class="typ">Applet</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.</span><span class="typ">Graphics</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleEventHandling</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Applet</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">MouseListener</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">StringBuffer</span><span class="pln"> strBuffer</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      addMouseListener</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+      strBuffer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuffer</span><span class="pun">();</span><span class="pln">
+      addItem</span><span class="pun">(</span><span class="str">"initializing the apple "</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      addItem</span><span class="pun">(</span><span class="str">"starting the applet "</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      addItem</span><span class="pun">(</span><span class="str">"stopping the applet "</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> destroy</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      addItem</span><span class="pun">(</span><span class="str">"unloading the applet"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">void</span><span class="pln"> addItem</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> word</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">word</span><span class="pun">);</span><span class="pln">
+      strBuffer</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">word</span><span class="pun">);</span><span class="pln">
+      repaint</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> paint</span><span class="pun">(</span><span class="typ">Graphics</span><span class="pln"> g</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Draw a Rectangle around the applet's display area.</span><span class="pln">
+      g</span><span class="pun">.</span><span class="pln">drawRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln">
+      getWidth</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln">
+      getHeight</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// display the string inside the rectangle.</span><span class="pln">
+      g</span><span class="pun">.</span><span class="pln">drawString</span><span class="pun">(</span><span class="pln">strBuffer</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(),</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mouseEntered</span><span class="pun">(</span><span class="typ">MouseEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mouseExited</span><span class="pun">(</span><span class="typ">MouseEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mousePressed</span><span class="pun">(</span><span class="typ">MouseEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mouseReleased</span><span class="pun">(</span><span class="typ">MouseEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mouseClicked</span><span class="pun">(</span><span class="typ">MouseEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      addItem</span><span class="pun">(</span><span class="str">"mouse clicked! "</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Now, let us call this applet as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">Event Handling</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+   </span><span class="tag">&lt;applet</span><span class="pln"> </span><span class="atn">code</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"ExampleEventHandling.class"</span><span class="pln">
+      </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"300"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"300"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/applet&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>Initially, the applet will display "initializing the applet. Starting the applet." Then once you click inside the rectangle, "mouse clicked" will be displayed as well.</p>
+        <h2>Displaying Images</h2>
+        <p>An applet can display images of the format GIF, JPEG, BMP, and others. To display an image within the applet, you use the drawImage() method found in the java.awt.Graphics class.</p>
+        <p>Following is an example illustrating all the steps to show images −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">applet</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ImageDemo</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Applet</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Image</span><span class="pln"> image</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">AppletContext</span><span class="pln"> context</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getAppletContext</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> imageURL </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getParameter</span><span class="pun">(</span><span class="str">"image"</span><span class="pun">);</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">imageURL </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         imageURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"java.jpg"</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         URL url </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> URL</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getDocumentBase</span><span class="pun">(),</span><span class="pln"> imageURL</span><span class="pun">);</span><span class="pln">
+         image </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">getImage</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">MalformedURLException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+         </span><span class="com">// Display in browser status bar</span><span class="pln">
+         context</span><span class="pun">.</span><span class="pln">showStatus</span><span class="pun">(</span><span class="str">"Could not load image!"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> paint</span><span class="pun">(</span><span class="typ">Graphics</span><span class="pln"> g</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      context</span><span class="pun">.</span><span class="pln">showStatus</span><span class="pun">(</span><span class="str">"Displaying image"</span><span class="pun">);</span><span class="pln">
+      g</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">image</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">84</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span><span class="pln">
+      g</span><span class="pun">.</span><span class="pln">drawString</span><span class="pun">(</span><span class="str">"www.javalicense.com"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">35</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Now, let us call this applet as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">The ImageDemo applet</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+   </span><span class="tag">&lt;applet</span><span class="pln"> </span><span class="atn">code</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"ImageDemo.class"</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"300"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"200"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"image"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"java.jpg"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/applet&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>Playing Audio</h2>
+        <p>An applet can play an audio file represented by the AudioClip interface in the java.applet package. The AudioClip interface has three methods, including −</p>
+        <ul class="list">
+            <li><p><b>public void play()</b> − Plays the audio clip one time, from the beginning.</p></li>
+            <li><p><b>public void loop()</b> − Causes the audio clip to replay continually.</p></li>
+            <li><p><b>public void stop()</b> − Stops playing the audio clip.</p></li>
+        </ul>
+        <p>To obtain an AudioClip object, you must invoke the getAudioClip() method of the Applet class. The getAudioClip() method returns immediately, whether or not the URL resolves to an actual audio file. The audio file is not downloaded until an attempt is made to play the audio clip.</p>
+        <p>Following is an example illustrating all the steps to play an audio −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">applet</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AudioDemo</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Applet</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">AudioClip</span><span class="pln"> clip</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">AppletContext</span><span class="pln"> context</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getAppletContext</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> audioURL </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getParameter</span><span class="pun">(</span><span class="str">"audio"</span><span class="pun">);</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">audioURL </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         audioURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"default.au"</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         URL url </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> URL</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getDocumentBase</span><span class="pun">(),</span><span class="pln"> audioURL</span><span class="pun">);</span><span class="pln">
+         clip </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">getAudioClip</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">MalformedURLException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+         context</span><span class="pun">.</span><span class="pln">showStatus</span><span class="pun">(</span><span class="str">"Could not load audio file!"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">clip </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         clip</span><span class="pun">.</span><span class="pln">loop</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">clip </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         clip</span><span class="pun">.</span><span class="pln">stop</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Now, let us call this applet as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">The ImageDemo applet</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+   </span><span class="tag">&lt;applet</span><span class="pln"> </span><span class="atn">code</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"ImageDemo.class"</span><span class="pln"> </span><span class="atn">width</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"0"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"audio"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"test.wav"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/applet&gt;</span><span class="pln">
+   </span><span class="tag">&lt;hr&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>You can use test.wav on your PC to test the above example.</p>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

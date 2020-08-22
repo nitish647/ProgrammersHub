@@ -1,0 +1,116 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Pointers</h1>
+ 
+<p>C++ pointers are easy and fun to learn. Some C++ tasks are performed more easily with pointers, and other C++ tasks, such as dynamic memory allocation, cannot be performed without them.</p>
+<p>As you know every variable is a memory location and every memory location has its address defined which can be accessed using ampersand (&amp;) operator which denotes an address in memory. Consider the following which will print the address of the variables defined &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln">  var1</span><span class="pun">;</span>
+   <span class="kwd">char</span><span class="pln"> var2</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var1 variable: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="pun">&amp;</span><span class="pln">var1 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var2 variable: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="pun">&amp;</span><span class="pln">var2 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Address of var1 variable: 0xbfebd5c0
+Address of var2 variable: 0xbfebd5b6
+</pre>
+<h2>What are Pointers?</h2>
+<p>A <strong>pointer</strong> is a variable whose value is the address of another variable. Like any variable or constant, you must declare a pointer before you can work with it. The general form of a pointer variable declaration is &minus;</p>
+<pre class="result notranslate">type *var-name;
+</pre>
+<p>Here, <strong>type</strong> is the pointer's base type; it must be a valid C++ type and <strong>var-name</strong> is the name of the pointer variable. The asterisk you used to declare a pointer is the same asterisk that you use for multiplication. However, in this statement the asterisk is being used to designate a variable as a pointer. Following are the valid pointer declaration &minus;</p>
+<pre class="result notranslate">int    *ip;    // pointer to an integer
+double *dp;    // pointer to a double
+float  *fp;    // pointer to a float
+char   *ch     // pointer to character
+</pre>
+<p>The actual data type of the value of all pointers, whether integer, float, character, or otherwise, is the same, a long hexadecimal number that represents a memory address. The only difference between pointers of different data types is the data type of the variable or constant that the pointer points to.</p>
+<h2>Using Pointers in C++</h2>
+<p>There are few important operations, which we will do with the pointers very frequently. <strong>(a)</strong> We define a pointer variable. <strong>(b)</strong> Assign the address of a variable to a pointer. <strong>(c)</strong> Finally access the value at the address available in the pointer variable. This is done by using unary operator * that returns the value of the variable located at the address specified by its operand. Following example makes use of these operations &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span> <span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>   <span class="com">// actual variable declaration.</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ip</span><span class="pun">;</span>        <span class="com">// pointer variable </span><span class="pln">
+
+   ip </span><span class="pun">=</span> <span class="pun">&amp;</span><span class="kwd">var</span><span class="pun">;</span>       <span class="com">// store address of var in pointer variable</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var variable: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="kwd">var</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// print the address stored in ip pointer variable</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address stored in ip variable: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> ip </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// access the value at the address available in pointer</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of *ip variable: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ip </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">Value of var variable: 20
+Address stored in ip variable: 0xbfc601ac
+Value of *ip variable: 20
+</pre>
+<h2>Pointers in C++</h2>
+<p>Pointers have many but easy concepts and they are very important to C++ programming. There are following few important pointer concepts which should be clear to a C++ programmer &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: Center;">Concept &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>Null Pointers</a>
+<p>C++ supports null pointer, which is a constant with a value of zero defined in several standard libraries.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>Pointer Arithmetic</a>
+<p>There are four arithmetic operators that can be used on pointers: ++, --, +, -</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>Pointers vs Arrays</a>
+<p>There is a close relationship between pointers and arrays.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>Array of Pointers</a>
+<p>You can define arrays to hold a number of pointers.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>Pointer to Pointer</a>
+<p>C++ allows you to have pointer on a pointer and so on.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>Passing Pointers to Functions</a>
+<p>Passing an argument by reference or by address both enable the passed argument to be changed in the calling function by the called function.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>Return Pointer from Functions</a>
+<p>C++ allows a function to return a pointer to local variable, static variable and dynamically allocated memory as well.</p>
+</td>
+</tr>
+</tbody>
+</table>

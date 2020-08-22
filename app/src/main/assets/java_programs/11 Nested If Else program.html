@@ -1,0 +1,45 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java Nested If Else program</span>
+<span style='color:#3f7f59; '>//You can use nested if-else which means that you can use if else statements in any if or else block.</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Scanner</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> NestedIfElse {
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+    <span style='color:#7f0055; font-weight:bold; '>int</span> marksObtained, passingMarks;
+    <span style='color:#7f0055; font-weight:bold; '>char</span> grade;
+ 
+    passingMarks = 40;
+ 
+    Scanner input = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+ 
+    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Input marks scored by you"</span>);
+ 
+    marksObtained = input.nextInt();
+ 
+    <span style='color:#7f0055; font-weight:bold; '>if</span> (marksObtained >= passingMarks) {
+ 
+      <span style='color:#7f0055; font-weight:bold; '>if</span> (marksObtained > 90) 
+        grade = <span style='color:#2a00ff; '>'A'</span>;
+      <span style='color:#7f0055; font-weight:bold; '>else</span> <span style='color:#7f0055; font-weight:bold; '>if</span> (marksObtained > 75)
+        grade = <span style='color:#2a00ff; '>'B'</span>;
+      <span style='color:#7f0055; font-weight:bold; '>else</span> <span style='color:#7f0055; font-weight:bold; '>if</span> (marksObtained > 60)
+        grade = <span style='color:#2a00ff; '>'C'</span>;
+      <span style='color:#7f0055; font-weight:bold; '>else</span>
+        grade = <span style='color:#2a00ff; '>'D'</span>; 
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"You passed the exam and your grade is "</span> + grade);
+    }
+    <span style='color:#7f0055; font-weight:bold; '>else</span> {
+      grade = <span style='color:#2a00ff; '>'F'</span>; 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"You failed and your grade is "</span> + grade);
+    }
+  }
+}
+
+
+Output:
+
+Input marks scored by you
+34
+You failed and your grade is F
+</pre>

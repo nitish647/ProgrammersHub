@@ -1,0 +1,36 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Implement Selection sort in Java</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> MySelectionSort {
+ 
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[] doSelectionSort(<span style='color:#7f0055; font-weight:bold; '>int</span>[] arr){
+         
+        <span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; arr.length - 1; i++)
+        {
+            <span style='color:#7f0055; font-weight:bold; '>int</span> index = i;
+            <span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> j = i + 1; j &lt; arr.length; j++)
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (arr[j] &lt; arr[index])
+                    index = j;
+      
+            <span style='color:#7f0055; font-weight:bold; '>int</span> smallerNumber = arr[index]; 
+            arr[index] = arr[i];
+            arr[i] = smallerNumber;
+        }
+        <span style='color:#7f0055; font-weight:bold; '>return</span> arr;
+    }
+     
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span> a[]){
+         
+        <span style='color:#7f0055; font-weight:bold; '>int</span>[] arr1 = {10,34,2,56,7,67,88,42};
+        <span style='color:#7f0055; font-weight:bold; '>int</span>[] arr2 = doSelectionSort(arr1);
+        <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i:arr2){
+            System.out.print(i);
+            System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>, </span><span style='color:#2a00ff; '>"</span>);
+        }
+    }
+}
+
+
+Output:
+
+2, 7, 10, 34, 42, 56, 67, 88
+</pre>

@@ -1,0 +1,74 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ References</h1>
+ 
+<p>A reference variable is an alias, that is, another name for an already existing variable. Once a reference is initialized with a variable, either the variable name or the reference name may be used to refer to the variable.</p>
+<h2>References vs Pointers</h2>
+<p>References are often confused with pointers but three major differences between references and pointers are &minus;</p>
+<ul class="list">
+<li>
+<p>You cannot have NULL references. You must always be able to assume that a reference is connected to a legitimate piece of storage.</p>
+</li>
+<li>
+<p>Once a reference is initialized to an object, it cannot be changed to refer to another object. Pointers can be pointed to another object at any time.</p>
+</li>
+<li>
+<p>A reference must be initialized when it is created. Pointers can be initialized at any time.</p>
+</li>
+</ul>
+<h2>Creating References in C++</h2>
+<p>Think of a variable name as a label attached to the variable's location in memory. You can then think of a reference as a second label attached to that memory location. Therefore, you can access the contents of the variable through either the original variable name or the reference. For example, suppose we have the following example &minus;</p>
+<pre class="result notranslate">int i = 17;
+</pre>
+<p>We can declare reference variables for i as follows.</p>
+<pre class="result notranslate">int&amp; r = i;
+</pre>
+<p>Read the &amp; in these declarations as <strong>reference</strong>. Thus, read the first declaration as "r is an integer reference initialized to i" and read the second declaration as "s is a double reference initialized to d.". Following example makes use of references on int and double &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// declare simple variables</span>
+   <span class="kwd">int</span><span class="pln">    i</span><span class="pun">;</span>
+   <span class="kwd">double</span><span class="pln"> d</span><span class="pun">;</span>
+ 
+   <span class="com">// declare reference variables</span>
+   <span class="kwd">int</span><span class="pun">&amp;</span><span class="pln">    r </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+   <span class="kwd">double</span><span class="pun">&amp;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> d</span><span class="pun">;</span><span class="pln">
+   
+   i </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of i : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of i reference : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> r  </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+ 
+   d </span><span class="pun">=</span> <span class="lit">11.7</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of d : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> d </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of d reference : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> s  </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled together and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of i : 5
+Value of i reference : 5
+Value of d : 11.7
+Value of d reference : 11.7
+</pre>
+<p>References are usually used for function argument lists and function return values. So following are two important subjects related to C++ references which should be clear to a C++ programmer &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Concept &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>References as Parameters</a>
+<p>C++ supports passing references as function parameter more safely than parameters.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>Reference as Return Value</a>
+<p>You can return reference from a C++ function like any other data type.</p>
+</td>
+</tr>
+</tbody>
+</table>

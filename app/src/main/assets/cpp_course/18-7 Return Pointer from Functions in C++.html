@@ -1,0 +1,67 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Return Pointer from Functions in C++</h1>
+
+<p>As we have seen in last chapter how C++ allows to return an array from a function, similar way C++ allows you to return a pointer from a function. To do so, you would have to declare a function returning a pointer as in the following example &minus;</p>
+<pre class="result notranslate">int * myFunction() {
+   .
+   .
+   .
+}
+</pre>
+<p>Second point to remember is that, it is not good idea to return the address of a local variable to outside of the function, so you would have to define the local variable as <strong>static</strong> variable.</p>
+<p>Now, consider the following function, which will generate 10 random numbers and return them using an array name which represents a pointer i.e., address of first array element.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;ctime&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// function to generate and retrun random numbers.</span>
+<span class="kwd">int</span> <span class="pun">*</span><span class="pln"> getRandom</span><span class="pun">(</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">int</span><span class="pln">  r</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span>
+ 
+   <span class="com">// set the seed</span><span class="pln">
+   srand</span><span class="pun">(</span> <span class="pun">(</span><span class="kwd">unsigned</span><span class="pun">)</span><span class="pln">time</span><span class="pun">(</span><span class="pln"> NULL </span><span class="pun">)</span> <span class="pun">);</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">;</span> <span class="pun">++</span><span class="pln">i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      r</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> rand</span><span class="pun">();</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> r</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+ 
+   <span class="kwd">return</span><span class="pln"> r</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// main function to call above defined function.</span>
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// a pointer to an int.</span>
+   <span class="kwd">int</span> <span class="pun">*</span><span class="pln">p</span><span class="pun">;</span><span class="pln">
+ 
+   p </span><span class="pun">=</span><span class="pln"> getRandom</span><span class="pun">();</span>
+   <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"*(p + "</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">") : "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*(</span><span class="pln">p </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled together and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">624723190
+1468735695
+807113585
+976495677
+613357504
+1377296355
+1530315259
+1778906708
+1820354158
+667126415
+*(p + 0) : 624723190
+*(p + 1) : 1468735695
+*(p + 2) : 807113585
+*(p + 3) : 976495677
+*(p + 4) : 613357504
+*(p + 5) : 1377296355
+*(p + 6) : 1530315259
+*(p + 7) : 1778906708
+*(p + 8) : 1820354158
+*(p + 9) : 667126415
+</pre>
+<hr />

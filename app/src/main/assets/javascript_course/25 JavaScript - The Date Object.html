@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - The Date Object</title>
+    <meta name="description" content="JavaScript The Date Object - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - The Date Object</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>The Date object is a datatype built into the JavaScript language. Date objects are created with the <b>new Date( )</b> as shown below.</p>
+        <p>Once a Date object is created, a number of methods allow you to operate on it. Most methods simply allow you to get and set the year, month, day, hour, minute, second, and millisecond fields of the object, using either local time or UTC (universal, or GMT) time.</p>
+        <p>The ECMAScript standard requires the Date object to be able to represent any date and time, to millisecond precision, within 100 million days before or after 1/1/1970. This is a range of plus or minus 273,785 years, so JavaScript can represent date and time till the year 275755.</p>
+        <h3>Syntax</h3>
+        <p>You can use any of the following syntaxes to create a Date object using Date() constructor.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">milliseconds</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">datestring</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">year</span><span class="pun">,</span><span class="pln">month</span><span class="pun">,</span><span class="pln">date</span><span class="pun">[,</span><span class="pln">hour</span><span class="pun">,</span><span class="pln">minute</span><span class="pun">,</span><span class="pln">second</span><span class="pun">,</span><span class="pln">millisecond </span><span class="pun">])</span></pre>
+        <p><b>Note</b> − Parameters in the brackets are always optional.</p>
+        <p>Here is a description of the parameters −</p>
+        <ul class="list">
+            <li><p><b>No Argument</b> − With no arguments, the Date() constructor creates a Date object set to the current date and time.</p></li>
+            <li><p><b>milliseconds</b> − When one numeric argument is passed, it is taken as the internal numeric representation of the date in milliseconds, as returned by the getTime() method. For example, passing the argument 5000 creates a date that represents five seconds past midnight on 1/1/70.</p></li>
+            <li><p><b>datestring</b> − When one string argument is passed, it is a string representation of a date, in the format accepted by the <b>Date.parse()</b> method.</p></li>
+            <li><p><b>7 agruments</b> − To use the last form of the constructor shown above. Here is a description of each argument −</p></li>
+            <ul class="list">
+                <li><p><b>year</b> − Integer value representing the year. For compatibility (in order to avoid the Y2K problem), you should always specify the year in full; use 1998, rather than 98.</p></li>
+                <li><p><b>month</b> − Integer value representing the month, beginning with 0 for January to 11 for December.</p></li>
+                <li><p><b>date</b> − Integer value representing the day of the month.</p></li>
+                <li><p><b>hour</b> − Integer value representing the hour of the day (24-hour scale).</p></li>
+                <li><p><b>minute</b> − Integer value representing the minute segment of a time reading.</p></li>
+                <li><p><b>second</b> − Integer value representing the second segment of a time reading.</p></li>
+                <li><p><b>millisecond</b> − Integer value representing the millisecond segment of a time reading.</p></li>
+            </ul>
+        </ul>
+        <h2>Date Properties</h2>
+        <p>Here is a list of the properties of the Date object along with their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Property &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> constructor
+                    <p>Specifies the function that creates an object's prototype.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> prototype
+                    <p>The prototype property allows you to add properties and methods to an object</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of different Date properties.</p>
+        <h2>Date Methods</h2>
+        <p>Here is a list of the methods used with <b>Date</b> and their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th></tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> Date()
+                    <p>Returns today's date and time</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td>getDate()
+                    <p>Returns the day of the month for the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> getDay()
+                    <p>Returns the day of the week for the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> getFullYear()
+                    <p>Returns the year of the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> getHours()
+                    <p>Returns the hour in the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> getMilliseconds()
+                    <p>Returns the milliseconds in the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> getMinutes()
+                    <p>Returns the minutes in the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> getMonth()
+                    <p>Returns the month in the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> getSeconds()
+                    <p>Returns the seconds in the specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td> getTime()
+                    <p>Returns the numeric value of the specified date as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td>getTimezoneOffset()
+                    <p>Returns the time-zone offset in minutes for the current locale.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> getUTCDate()
+                    <p>Returns the day (date) of the month in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> getUTCDay()
+                    <p>Returns the day of the week in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> getUTCFullYear()
+                    <p>Returns the year in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> getUTCHours()
+                    <p>Returns the hours in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">16</td>
+                <td> getUTCMilliseconds()
+                    <p>Returns the milliseconds in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">17</td>
+                <td> getUTCMinutes()
+                    <p>Returns the minutes in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">18</td>
+                <td> getUTCMonth()
+                    <p>Returns the month in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">19</td>
+                <td> getUTCSeconds()
+                    <p>Returns the seconds in the specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">20</td>
+                <td> getYear()
+                    <p><b>Deprecated</b> - Returns the year in the specified date according to local time. Use getFullYear instead.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">21</td>
+                <td> setDate()
+                    <p>Sets the day of the month for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">22</td>
+                <td> setFullYear()
+                    <p>Sets the full year for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">23</td>
+                <td> setHours()
+                    <p>Sets the hours for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">24</td>
+                <td> setMilliseconds()
+                    <p>Sets the milliseconds for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">25</td>
+                <td> setMinutes()
+                    <p>Sets the minutes for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">26</td>
+                <td> setMonth()
+                    <p>Sets the month for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">27</td>
+                <td> setSeconds()
+                    <p>Sets the seconds for a specified date according to local time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">28</td>
+                <td> setTime()
+                    <p>Sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">29</td>
+                <td> setUTCDate()
+                    <p>Sets the day of the month for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">30</td>
+                <td> setUTCFullYear()
+                    <p>Sets the full year for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">31</td>
+                <td> setUTCHours()
+                    <p>Sets the hour for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">32</td>
+                <td> setUTCMilliseconds()
+                    <p>Sets the milliseconds for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">33</td>
+                <td> setUTCMinutes()
+                    <p>Sets the minutes for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">34</td>
+                <td> setUTCMonth()
+                    <p>Sets the month for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">35</td>
+                <td> setUTCSeconds()
+                    <p>Sets the seconds for a specified date according to universal time.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">36</td>
+                <td> setYear()
+                    <p><b>Deprecated - </b> Sets the year for a specified date according to local time. Use setFullYear instead.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">37</td>
+                <td> toDateString()
+                    <p>Returns the "date" portion of the Date as a human-readable string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">38</td>
+                <td> toGMTString()
+                    <p><b>Deprecated - </b> Converts a date to a string, using the Internet GMT conventions. Use toUTCString instead.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">39</td>
+                <td> toLocaleDateString()
+                    <p>Returns the "date" portion of the Date as a string, using the current locale's conventions.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">40</td>
+                <td> toLocaleFormat()
+                    <p>Converts a date to a string, using a format string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">41</td>
+                <td> toLocaleString()
+                    <p>Converts a date to a string, using the current locale's conventions.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">42</td>
+                <td> toLocaleTimeString()
+                    <p>Returns the "time" portion of the Date as a string, using the current locale's conventions.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">43</td>
+                <td> toSource()
+                    <p>Returns a string representing the source for an equivalent Date object; you can use this value to create a new object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">44</td>
+                <td> toString()
+                    <p>Returns a string representing the specified Date object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">45</td>
+                <td> toTimeString()
+                    <p>Returns the "time" portion of the Date as a human-readable string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">46</td>
+                <td> toUTCString()
+                    <p>Converts a date to a string, using the universal time convention.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">47</td>
+                <td> valueOf()
+                    <p>Returns the primitive value of a Date object.</p></td>
+            </tr>
+            </tbody></table>
+        <p>Converts a date to a string, using the universal time convention.</p>
+        <h2>Date Static Methods</h2>
+        <p>In addition to the many instance methods listed previously, the Date object also defines two static methods. These methods are invoked through the Date() constructor itself.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> Date.parse( )
+                    <p>Parses a string representation of a date and time and returns the internal millisecond representation of that date.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> Date.UTC( )
+                    <p>Returns the millisecond representation of the specified UTC date and time.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usages of Date Static methods.</p>
+        <hr>
+    </div></div></div></div></div></div></body></html>

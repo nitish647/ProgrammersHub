@@ -1,0 +1,60 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;Java Sort int Array Example</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;This example shows how to sort an int array using sort method of Arrays class of</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;java.util package.</span>
+<span style='color:#3f7f59; '>*/</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.util.Arrays;
+ 
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> SortIntArrayExample {
+ 
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+   
+    <span style='color:#3f7f59; '>//create an int array</span>
+    <span style='color:#7f0055; font-weight:bold; '>int</span>[] i1 = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[]{3,2,5,4,1};
+   
+    <span style='color:#3f7f59; '>//print original int array</span>
+    System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Original Array : </span><span style='color:#2a00ff; '>"</span>);
+    <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> index=0; index &lt; i1.length ; index++)
+      System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>  </span><span style='color:#2a00ff; '>"</span>  + i1[index]);
+   
+    <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;To sort java int array use Arrays.sort() method of java.util package.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;Sort method sorts int array in ascending order and based on quicksort</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;algorithm.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;There are two static sort methods available in java.util.Arrays class</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;to sort an int array.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+   
+    <span style='color:#3f7f59; '>//To sort full array use sort(int[] i) method.</span>
+    Arrays.<span style='color:#7f0055; font-weight:bold; '>sort</span>(i1);
+   
+    <span style='color:#3f7f59; '>//print sorted int array</span>
+    System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Sorted int array : </span><span style='color:#2a00ff; '>"</span>);
+    <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> index=0; index &lt; i1.length ; index++)
+      System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>  </span><span style='color:#2a00ff; '>"</span>  + i1[index]);
+     
+    <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;To sort partial int array use</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;sort(int[] i, int startIndex, int endIndex) method where startIndex is</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;inclusive and endIndex is exclusive</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+   
+    <span style='color:#7f0055; font-weight:bold; '>int</span>[] i2 = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[]{5,2,3,1,4};
+    Arrays.<span style='color:#7f0055; font-weight:bold; '>sort</span>(i2,1,4);
+   
+    <span style='color:#3f7f59; '>//print sorted int array</span>
+    System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Partially Sorted int array : </span><span style='color:#2a00ff; '>"</span>);
+    <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> index=0; index &lt; i2.length ; index++)
+      System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>  </span><span style='color:#2a00ff; '>"</span>  + i2[index]);
+ 
+  }
+}
+ 
+
+Output:
+ 
+Original Array :     3  2  5  4  1
+Sorted <span style='color:#7f0055; font-weight:bold; '>int</span> <span style='color:#7f0055; font-weight:bold; '>array</span> :     1  2  3  4  5
+Partially Sorted <span style='color:#7f0055; font-weight:bold; '>int</span> <span style='color:#7f0055; font-weight:bold; '>array</span> :     5  1  2  3  4
+</pre>

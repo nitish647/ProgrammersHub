@@ -1,0 +1,663 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C - Memory Management</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C - Memory Management</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>This chapter explains dynamic memory management in C. The C
+programming language provides several functions for memory allocation and
+management. These functions can be found in the&nbsp;<b>&lt;stdlib.h&gt;</b>&nbsp;header
+file.</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=604
+ style='width:453.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;background:#EEEEEE;
+  padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>S.N.</span></b></p>
+  </td>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-left:none;background:
+  #EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:15.0pt;text-align:center;
+  line-height:150%'><b><span lang=EN-IN style='line-height:150%;font-family:
+  "Cambria","serif";color:#313131'>Function &amp; Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>1</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>void
+  *calloc(int num, int size);</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>This
+  function allocates an array of&nbsp;<b>num</b>&nbsp;elements each of which
+  size in bytes will be&nbsp;<b>size</b>.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>2</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>void
+  free(void *address);</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>This
+  function releases a block of memory block specified by address.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>3</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>void
+  *malloc(int num);</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>This
+  function allocates an array of&nbsp;<b>num</b>&nbsp;bytes and leave them
+  initialized.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>4</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>void
+  *realloc(void *address, int newsize);</span></b></p>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:black'>This
+  function re-allocates memory extending it upto&nbsp;<b>newsize</b>.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Allocating Memory Dynamically</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>While programming, if you are aware of the size of an array, then
+it is easy and you can define it as an array. For example, to store a name of
+any person, it can go up to a maximum of 100 characters, so you can define
+something as follows &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>char
+name[100];</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>But now let us consider a situation where you have no idea about
+the length of the text you need to store, for example, you want to store a
+detailed description about a topic. Here we need to define a pointer to
+character without defining how much memory is required and later, based on
+requirement, we can allocate memory as shown in the below example &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;string.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>char</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> name</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>100</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>char</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>*</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>description</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>strcpy</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>name</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Hari&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* allocate memory dynamically */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>description</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> malloc</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>200</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>sizeof</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>char</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> description </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+NULL </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Error
+- unable to allocate required memory\n&quot;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>else</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>strcpy</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+description</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#008800'>&quot;Hari a CEOA student in class 10th&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Name
+= %s\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> name </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Description:
+%s\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> description </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Name =
+Hari</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Description:
+Hari a CEOA  student in class 10th</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Same program can be written using&nbsp;<b>calloc();</b>&nbsp;only
+thing is you need to replace malloc with calloc as follows &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>calloc</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>200</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>sizeof</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>char</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>));</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>So you have complete control and you can pass any size value while
+allocating memory, unlike arrays where once the size defined, you cannot change
+it.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Resizing and Releasing Memory</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When your program comes out, operating system automatically
+release all the memory allocated by your program but as a good practice when
+you are not in need of memory anymore then you should release that memory by
+calling the function&nbsp;<b>free()</b>.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Alternatively, you can increase or decrease the size of an
+allocated memory block by calling the function&nbsp;<b>realloc()</b>. Let us
+check the above program once again and make use of realloc() and free()
+functions &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;string.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>char</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> name</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#006666'>100</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>char</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>*</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>description</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>strcpy</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>name</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Hari&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* allocate memory dynamically */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>description</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> malloc</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>30</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>sizeof</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>char</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> description </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+NULL </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Error
+- unable to allocate required memory\n&quot;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>else</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>strcpy</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+description</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#008800'>&quot;Hari a CEOA student.&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* suppose you want to store bigger description */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>description</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> realloc</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+description</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>100</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>*</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#000088'>sizeof</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>char</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> description </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+NULL </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Error
+- unable to allocate required memory\n&quot;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>else</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>strcat</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+description</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#008800'>&quot;he is in class 10th&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Name
+= %s\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> name </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>printf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Description:
+%s\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> description </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* release memory using free() function */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>free</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>description</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Name =
+Hari</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Description:
+Hari a CEOA student.he is in class 10th</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can try the above example without re-allocating extra memory,
+and strcat() function will give an error due to lack of available memory in
+description.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

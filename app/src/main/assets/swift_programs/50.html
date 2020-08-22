@@ -1,0 +1,134 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="p50" style="overflow: hidden; position: relative; background-color: white; width: 909px; height: 1286px;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	-webkit-transform-origin: bottom left;
+	-ms-transform-origin: bottom left;
+	transform-origin: bottom left;
+	-webkit-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	transform: scale(0.25);
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_50{left:110px;bottom:1156px;}
+#t2_50{left:110px;bottom:1139px;}
+#t3_50{left:110px;bottom:1104px;}
+#t4_50{left:147px;bottom:1070px;}
+#t5_50{left:147px;bottom:1035px;}
+#t6_50{left:147px;bottom:1018px;}
+#t7_50{left:183px;bottom:1000px;}
+#t8_50{left:183px;bottom:983px;}
+#t9_50{left:110px;bottom:966px;}
+#ta_50{left:183px;bottom:931px;}
+#tb_50{left:110px;bottom:914px;}
+#tc_50{left:183px;bottom:896px;}
+#td_50{left:183px;bottom:879px;}
+#te_50{left:183px;bottom:862px;}
+#tf_50{left:183px;bottom:844px;}
+#tg_50{left:183px;bottom:827px;}
+#th_50{left:110px;bottom:809px;}
+#ti_50{left:183px;bottom:775px;}
+#tj_50{left:147px;bottom:740px;}
+#tk_50{left:147px;bottom:705px;}
+#tl_50{left:147px;bottom:688px;}
+#tm_50{left:183px;bottom:671px;}
+#tn_50{left:183px;bottom:636px;}
+#to_50{left:110px;bottom:619px;}
+#tp_50{left:183px;bottom:601px;}
+#tq_50{left:183px;bottom:584px;}
+#tr_50{left:183px;bottom:549px;}
+#ts_50{left:147px;bottom:532px;}
+#tt_50{left:147px;bottom:497px;}
+#tu_50{left:183px;bottom:480px;}
+#tv_50{left:183px;bottom:463px;}
+#tw_50{left:147px;bottom:445px;}
+#tx_50{left:110px;bottom:393px;}
+
+.s1_50{
+	FONT-SIZE: 61.1px;
+	FONT-FAMILY: LiberationMono_19a;
+	color: rgb(0,0,0);
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts50" type="text/css" >
+
+@font-face {
+	font-family: LiberationMono_19a;
+	src: url("fonts/LiberationMono_19a.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg50Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg50" style="-webkit-user-select: none;"><object width="909" height="1286" data="50/50.svg" type="image/svg+xml" id="pdf50" style="width:909px; height:1286px; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_50" class="t s1_50">50)</div>
+<div id="t2_50" class="t s1_50">import UIKit</div>
+<div id="t3_50" class="t s1_50">class ViewController: UIViewController {</div>
+<div id="t4_50" class="t s1_50">let step:Float=10 // If you want UISlider to snap to steps by 10</div>
+<div id="t5_50" class="t s1_50">override func viewDidLoad()</div>
+<div id="t6_50" class="t s1_50">{</div>
+<div id="t7_50" class="t s1_50">super.viewDidLoad()</div>
+<div id="t8_50" class="t s1_50">// Do any additional setup after loading the view, typically from a </div>
+<div id="t9_50" class="t s1_50">nib.</div>
+<div id="ta_50" class="t s1_50">let mySlider = UISlider(frame:CGRect(x: 10, y: 100, width: 300, </div>
+<div id="tb_50" class="t s1_50">height: 20))</div>
+<div id="tc_50" class="t s1_50">mySlider.minimumValue = 0</div>
+<div id="td_50" class="t s1_50">mySlider.maximumValue = 100</div>
+<div id="te_50" class="t s1_50">mySlider.isContinuous = true</div>
+<div id="tf_50" class="t s1_50">mySlider.tintColor = UIColor.green</div>
+<div id="tg_50" class="t s1_50">mySlider.addTarget(self, action: </div>
+<div id="th_50" class="t s1_50">#selector(ViewController.sliderValueDidChange(_:)), for: .valueChanged)</div>
+<div id="ti_50" class="t s1_50">self.view.addSubview(mySlider)</div>
+<div id="tj_50" class="t s1_50">}</div>
+<div id="tk_50" class="t s1_50">func sliderValueDidChange(_ sender:UISlider!)</div>
+<div id="tl_50" class="t s1_50">{</div>
+<div id="tm_50" class="t s1_50">print("Slider value changed")</div>
+<div id="tn_50" class="t s1_50">// Use this code below only if you want UISlider to snap to values </div>
+<div id="to_50" class="t s1_50">step by step</div>
+<div id="tp_50" class="t s1_50">let roundedStepValue = round(sender.value / step) * step</div>
+<div id="tq_50" class="t s1_50">sender.value = roundedStepValue</div>
+<div id="tr_50" class="t s1_50">print("Slider step value \(Int(roundedStepValue))")</div>
+<div id="ts_50" class="t s1_50">}</div>
+<div id="tt_50" class="t s1_50">override func didReceiveMemoryWarning() {</div>
+<div id="tu_50" class="t s1_50">super.didReceiveMemoryWarning()</div>
+<div id="tv_50" class="t s1_50">// Dispose of any resources that can be recreated.</div>
+<div id="tw_50" class="t s1_50">}</div>
+<div id="tx_50" class="t s1_50">}</div>
+
+<!-- End text definitions -->
+
+
+</div>
+</body>
+</html>

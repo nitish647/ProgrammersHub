@@ -1,0 +1,32 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java program to reverse number</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Scanner</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> ReverseNumber
+{
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+   {
+      <span style='color:#7f0055; font-weight:bold; '>int</span> n, reverse = 0;
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter the number to reverse"</span>);
+      Scanner in = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+      n = in.nextInt();
+ 
+      <span style='color:#7f0055; font-weight:bold; '>while</span>( n != 0 )
+      {
+          reverse = reverse * 10;
+          reverse = reverse + n%10;
+          n = n/10;
+      }
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Reverse of entered number is "</span>+reverse);
+   }
+}
+
+
+Output:
+
+Enter the number to reverse
+1234
+Reverse of entered number is 4321
+</pre>

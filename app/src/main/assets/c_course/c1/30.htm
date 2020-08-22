@@ -1,0 +1,334 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Open
+and create calls</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:normal;background:white'><span lang=EN-IN
+style='font-size:27.0pt;font-family:"Tahoma","sans-serif";color:#333333'>Open
+and create calls</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+white'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Demonstrate the&nbsp;</span><span lang=EN-IN style='font-size:
+9.5pt;font-family:Consolas;color:#C7254E;background:#F9F2F4'>cp</span><span
+lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>&nbsp;like program which copies the contents of one file to
+another.</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;fcntl.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;stdarg.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;stdio.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;unistd.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;sys/syscall.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#define PERMS 0666 </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* RW
+for owner, group and others */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#define BUFSIZ 1024</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>merror</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, ...);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>main</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> argc, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>argv[])</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> f1, f2,
+n;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+buf[BUFSIZ];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (argc </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>!=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>3</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        merror(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Usage:
+prog: from to&quot;</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ((f1 </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+open(argv[</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#40A070'>1</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>], O_RDONLY, </span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#40A070'>0</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>)) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>==</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        merror(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;prog:
+can't open %s&quot;</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>, argv[</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#40A070'>1</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#333333'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ((f2 </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+creat(argv[</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#40A070'>2</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>], PERMS)) </span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#666666'>==</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        merror(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;prog:
+can't create %s, mode %03o&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>, argv[</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#40A070'>2</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>],
+PERMS);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>while</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ((n </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+read(f1, buf, BUFSIZ)) </span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#666666'>&gt;</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+(write(f2, buf, n) </span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#666666'>!=</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'> n)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            merror(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;prog:
+write error on file %s&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>, argv[</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#40A070'>2</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>merror</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>fmt,
+...)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>va_list</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> args;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    va_start(args,
+fmt);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    fprintf(stderr,
+</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#4070A0'>&quot;error: &quot;</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>   
+vfprintf(stderr, fmt, args);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    fprintf(stderr,
+</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#4070A0'>&quot;<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    va_end(args);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    exit(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# Pass By Value
+with Examples</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>C# Pass By Value
+with Examples</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>In c#, Passing a&nbsp;<a
+href="https://www.tutlane.com/tutorial/csharp/csharp-value-type-and-reference-type-with-examples"
+target="_blank" title="C# Value Types with Examples"><span style='color:#0088CC;
+text-decoration:none'>Value-Type</span></a>&nbsp;parameter to a method by value
+means passing a copy of the variable to the method. So the changes made to the
+parameter inside of called method will not have an effect on the original data
+stored in the argument variable.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>As discussed earlier,&nbsp;<a
+href="https://www.tutlane.com/tutorial/csharp/csharp-value-type-and-reference-type-with-examples"
+target="_blank" title="C# Value Types with Examples"><span style='color:#0088CC;
+text-decoration:none'>Value-Type</span></a>&nbsp;variables will contain the
+value directly on it memory and&nbsp;<a
+href="https://www.tutlane.com/tutorial/csharp/csharp-value-type-and-reference-type-with-examples"
+target="_blank" title="C# Reference Types with Examples"><span
+style='color:#0088CC;text-decoration:none'>Reference-Type</span></a>&nbsp;variables
+will contain a reference of its data.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#4E4E4E'>C# Passing Parameters By Value
+Example</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>Following is the example of passing a&nbsp;<a
+href="https://www.tutlane.com/tutorial/csharp/csharp-value-type-and-reference-type-with-examples"
+target="_blank" title="C# Value Types with Examples"><span style='color:#0088CC;
+text-decoration:none'>value type</span></a>&nbsp;parameter to a method by value
+in c# programming language.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;System;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>namespace</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Tutlane</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Program</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Main(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+args)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x
+= 10;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Variable
+Value Before Calling the Method: {0}&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>, x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Multiplication(x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Variable
+Value After Calling the Method: {0}&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>, x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Press
+Enter Key to Exit..&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.ReadLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Multiplication(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;a)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a *= a;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Variable
+Value Inside the Method: {0}&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>, a);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above example, the variable&nbsp;<b>x</b>&nbsp;is
+a&nbsp;<a
+href="https://www.tutlane.com/tutorial/csharp/csharp-value-type-and-reference-type-with-examples"
+target="_blank" title="C# Value Types with Examples"><span style='color:#0088CC;
+text-decoration:none'>value type</span></a>&nbsp;and it passed to the&nbsp;<b>Multiplication</b>&nbsp;method.
+The content of variable&nbsp;<b>x</b>, copied to the parameter&nbsp;<b>a</b>&nbsp;and
+made required modifications in&nbsp;<b>Multiplication</b>&nbsp;method but the
+changes that made inside of the method have no effect on the original value of
+the variable.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#4E4E4E'>Output of C# Passing Parameters
+By Value Example</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>When we execute above c# program, we will get the result like as
+shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><img src="29_files/image001.webp"
+alt="C# Pass By Value Example Result"> <img src="29_files/image002.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above result, the variable value not changed even
+after we made the modifications in our method.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>This is how we can pass parameters to the method by value in c#
+programming language based on our requirements.</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

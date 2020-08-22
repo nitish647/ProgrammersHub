@@ -1,0 +1,694 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Static Classes and Static Class
+Members</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:white'><b><span style='font-size:20.0pt;line-height:150%;
+font-family:"Cambria",serif;color:#0070C0'>Static Classes and Static Class
+Members</span></b></p>
+
+<p style='line-height:150%;background:white'><span style='font-family:"Cambria",serif;
+color:black'>A&nbsp;static&nbsp;class is basically the same as a non-static
+class, but there is one difference: a static class cannot be instantiated. In
+other words, you cannot use the&nbsp;new&nbsp;operator to create a variable of
+the class type. Because there is no instance variable, you access the members
+of a static class by using the class name itself. For example, if you have a
+static class that is named&nbsp;</span><code style='box-sizing: inherit;
+background-color:var(--body-background-dark);border-radius: 3px;overflow-wrap: break-word'><span
+style='line-height:150%;font-family:"Cambria",serif;color:black'>UtilityClass</span></code><span
+style='font-family:"Cambria",serif;color:black'>&nbsp;that has a public static
+method named&nbsp;</span><code style='box-sizing: inherit;background-color:
+var(--body-background-dark);border-radius: 3px;overflow-wrap: break-word'><span
+style='line-height:150%;font-family:"Cambria",serif;color:black'>MethodA</span></code><span
+style='font-family:"Cambria",serif;color:black'>, you call the method as shown
+in the following example:</span></p>
+
+<p style='line-height:150%;background:white'><span style='color:black'><img src="11_files/image001.webp"><span
+style='box-sizing: inherit;flex-grow: 1'></span></p>
+
+<p style='line-height:150%;background:white'><span style='font-family:"Cambria",serif;
+color:black'>A static class can be used as a convenient container for sets of
+methods that just operate on input parameters and do not have to get or set any
+internal instance fields. For example, in the .NET Framework Class Library, the
+static&nbsp;System.Math&nbsp;class contains methods that perform mathematical
+operations, without any requirement to store or retrieve data that is unique to
+a particular instance of the&nbsp;Math&nbsp;class. That is, you apply the
+members of the class by specifying the class name and the method name, as shown
+in the following example.</span></p>
+
+<p style='line-height:150%;background:white'><span style='color:black'><img src="11_files/image002.webp"><span
+style='box-sizing: inherit;flex-grow: 1'></span></p>
+
+<p style='line-height:150%;background:white'><span style='font-family:"Cambria",serif;
+color:black'>As is the case with all class types, the type information for a
+static class is loaded by the .NET Framework common language runtime (CLR) when
+the program that references the class is loaded. The program cannot specify
+exactly when the class is loaded. However, it is guaranteed to be loaded and to
+have its fields initialized and its static constructor called before the class
+is referenced for the first time in your program. A static constructor is only
+called one time, and a static class remains in memory for the lifetime of the
+application domain in which your program resides.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;max-width:100%;
+overflow-wrap: break-word;color:var(--info-dark)'><span style='font-family:
+"Cambria",serif;color:black'>The following list provides the main features of a
+static class:</span></p>
+
+<p style='margin-left:28.5pt;text-indent:-.25in;line-height:150%;background:
+white;box-sizing: inherit;margin:1rem 0px 0px;overflow-wrap: break-word'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'>Contains
+only static members.</span></p>
+
+<p style='margin-left:28.5pt;text-indent:-.25in;line-height:150%;background:
+white;box-sizing: inherit;margin:1rem 0px 0px;overflow-wrap: break-word'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'>Cannot be
+instantiated.</span></p>
+
+<p style='margin-left:28.5pt;text-indent:-.25in;line-height:150%;background:
+white;box-sizing: inherit;margin:1rem 0px 0px;overflow-wrap: break-word'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'>Is sealed.</span></p>
+
+<p style='margin-left:28.5pt;text-indent:-.25in;line-height:150%;background:
+white;box-sizing: inherit;margin:1rem 0px 0px;overflow-wrap: break-word'><span
+style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:red'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'>Cannot
+contain&nbsp;Instance Constructors.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Creating a static
+class is therefore basically the same as creating a class that contains only
+static members and a private constructor. A private constructor prevents the
+class from being instantiated. The advantage of using a static class is that
+the compiler can check to make sure that no instance members are accidentally
+added. The compiler will guarantee that instances of this class cannot be
+created.  Static classes are sealed and therefore cannot be inherited. They
+cannot inherit from any class except&nbsp;Object. Static classes cannot contain
+an instance constructor; however, they can contain a static constructor.
+Non-static classes should also define a static constructor if the class
+contains static members that require non-trivial initialization. For more
+information, see&nbsp;Static Constructors.</span></p>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: inherit;
+font-size:1.75rem;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=example><b><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:black'>Example</span></b></h2>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Here is an example
+of a static class that contains two methods that convert temperature from
+Celsius to Fahrenheit and from Fahrenheit to Celsius:</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span class=language><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'><span
+style='box-sizing: inherit;flex-grow: 1'>C#</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'></span></span></p>
+
+<button class="action" data-bi-name="copy" aria-label="Copy code" style="box-sizing: inherit; font-family: inherit; font-size: 12.8px; line-height: normal; margin: 0px; overflow: visible; text-transform: none; -webkit-appearance: button; color: var(--text); background-color: transparent; cursor: pointer; padding: 2px 10px; border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left-color: ; border-left-style: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-left-width: 1px; display: flex; align-items: center;"><span
+role=presentation style='box-sizing: inherit;font-size:inherit;speak: none;
+display:inline-block;-webkit-font-smoothing: antialiased'><span
+style='box-sizing: inherit'><pre style='line-height:150%;box-sizing: inherit;
+font-size:0.875rem;padding:1rem;-webkit-font-smoothing: auto;border:var(--border);
+background-color:var(--body-background-medium);overflow-wrap: normal;
+tab-size: 4;hyphens: none;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;overflow:auto;
+word-spacing:0px' tabindex=0><span class=hljs-keyword><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'><span
+style='box-sizing: inherit'>public</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>static</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>class</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-title><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#007D9A'>TemperatureConverter</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>{</span></code></pre><pre style='line-height:
+150%'><code><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='box-sizing: inherit'><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>public</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>static</span></span></span><span class=hljs-function><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> <span
+style='box-sizing: inherit'></span></span><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>double</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-title><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#007D9A'>CelsiusToFahrenheit</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>(<span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='box-sizing: inherit'><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>string</span></span></span><span
+class=hljs-params><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> temperatureCelsius</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>)</span></span></pre><pre style='line-height:150%'><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>    </span></span></span><code><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'>{</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Convert argument to double for calculations.</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>double</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> celsius = Double.Parse(temperatureCelsius);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Convert Celsius to Fahrenheit.</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>double</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> fahrenheit = (celsius * </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>9</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> / </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>5</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>) + </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>32</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>return</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> fahrenheit;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    </span><span style='box-sizing: inherit'><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>public</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>static</span></span></span><span class=hljs-function><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> <span
+style='box-sizing: inherit'></span></span><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>double</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-title><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#007D9A'>FahrenheitToCelsius</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>(<span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='box-sizing: inherit'><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>string</span></span></span><span
+class=hljs-params><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> temperatureFahrenheit</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>)</span></span></pre><pre style='line-height:150%'><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>    </span></span></span><code><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'>{</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Convert argument to double for calculations.</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>double</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> fahrenheit = Double.Parse(temperatureFahrenheit);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Convert Fahrenheit to Celsius.</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>double</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> celsius = (fahrenheit - </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>32</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>) * </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>5</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> / </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>9</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>return</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> celsius;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>}</span></code></pre><pre style='line-height:
+150%'><code><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp;</span></code></pre><pre style='line-height:150%'><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'><span style='box-sizing: inherit'>class</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-title><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#007D9A'>TestTemperatureConverter</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>{</span></code></pre><pre style='line-height:
+150%'><code><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='box-sizing: inherit'><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>static</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>void</span></span></span><span class=hljs-function><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> <span
+style='box-sizing: inherit'></span></span><span class=hljs-title><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#007D9A'>Main</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>()</span></span></pre><pre style='line-height:150%'><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'>    </span></span></span><code><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'>{</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Please select the convertor direction&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;1. From Celsius to Fahrenheit.&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;2. From Fahrenheit to Celsius.&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.Write(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;:&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>string</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> selection = Console.ReadLine();</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>double</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> F, C = </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>0</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>switch</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> (selection)</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        {</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>case</span></span></span><code><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;1&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>:</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                Console.Write(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Please enter the Celsius temperature: &quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                F = TemperatureConverter.CelsiusToFahrenheit(Console.ReadLine());</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Temperature in Fahrenheit: {0:F2}&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>, F);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>break</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>case</span></span></span><code><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;2&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>:</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                Console.Write(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Please enter the Fahrenheit temperature: &quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                C = TemperatureConverter.FahrenheitToCelsius(Console.ReadLine());</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Temperature in Celsius: {0:F2}&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>, C);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>break</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>default</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>:</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Please select a convertor.&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>                </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>break</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Keep the console window open in debug mode.</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.WriteLine(</span><span
+style='box-sizing: inherit'></code><span class=hljs-string><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Press any key to exit.&quot;</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>);</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        Console.ReadKey();</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>}</span></code></pre><pre style='line-height:
+150%'><span class=hljs-comment><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:green'><span style='box-sizing: inherit'>/* Example Output:</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    Please select the convertor direction</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    1. From Celsius to Fahrenheit.</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    2. From Fahrenheit to Celsius.</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    :2</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    Please enter the Fahrenheit temperature: 20</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    Temperature in Celsius: -6.67</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'>    Press any key to exit.</span></span></pre><pre
+style='line-height:150%'><span class=hljs-comment><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:green'> */</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:green'>&nbsp;</span></code></pre>
+
+<h2 style='margin-top:0in;line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Static Members</span></u></b></h2>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>A non-static class can
+contain static methods, fields, properties, or events. The static member is
+callable on a class even when no instance of the class has been created. The
+static member is always accessed by the class name, not the instance name. Only
+one copy of a static member exists, regardless of how many instances of the
+class are created. Static methods and properties cannot access non-static
+fields and events in their containing type, and they cannot access an instance
+variable of any object unless it is explicitly passed in a method parameter.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>It is more typical
+to declare a non-static class with some static members, than to declare an
+entire class as static. Two common uses of static fields are to keep a count of
+the number of objects that have been instantiated, or to store a value that
+must be shared among all instances.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Static methods can
+be overloaded but not overridden, because they belong to the class, and not to
+any instance of the class.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Although a field
+cannot be declared as&nbsp;</span><code style='box-sizing: inherit;background-color:
+var(--body-background-dark);border-radius: 3px;overflow-wrap: break-word'><span
+style='line-height:150%;font-family:"Cambria",serif;color:black'>static const</span></code><span
+style='font-family:"Cambria",serif;color:black'>, a&nbsp;const&nbsp;field is
+essentially static in its behavior. It belongs to the type, not to instances of
+the type. Therefore, const fields can be accessed by using the same&nbsp;</span><code
+style='box-sizing: inherit;background-color:var(--body-background-dark);
+border-radius: 3px;overflow-wrap: break-word'><span style='line-height:150%;
+font-family:"Cambria",serif;color:black'>ClassName.MemberName</span></code><span
+style='font-family:"Cambria",serif;color:black'>&nbsp;notation that is used for
+static fields. No object instance is required.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>C# does not support
+static local variables (variables that are declared in method scope). You
+declare static class members by using the&nbsp;</span><code style='box-sizing: inherit;
+background-color:var(--body-background-dark);border-radius: 3px;overflow-wrap: break-word'><span
+style='line-height:150%;font-family:"Cambria",serif;color:black'>static</span></code><span
+style='font-family:"Cambria",serif;color:black'>&nbsp;keyword before the return
+type of the member, as shown in the following example:</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span class=language><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'><span
+style='box-sizing: inherit;flex-grow: 1'>C#</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'></span></span></p>
+
+<button class="action" data-bi-name="copy" aria-label="Copy code" style="box-sizing: inherit; font-family: inherit; font-size: 12.8px; line-height: normal; margin: 0px; overflow: visible; text-transform: none; -webkit-appearance: button; color: var(--text); background-color: transparent; cursor: pointer; padding: 2px 10px; border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left-color: ; border-left-style: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-left-width: 1px; display: flex; align-items: center;"><span
+role=presentation style='box-sizing: inherit;font-size:inherit;speak: none;
+display:inline-block;-webkit-font-smoothing: antialiased'><span
+style='box-sizing: inherit'><pre style='line-height:150%;box-sizing: inherit;
+font-size:0.875rem;padding:1rem;-webkit-font-smoothing: auto;border:var(--border);
+background-color:var(--body-background-medium);overflow-wrap: normal;
+tab-size: 4;hyphens: none;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;overflow:auto;
+word-spacing:0px' tabindex=0><span class=hljs-keyword><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'><span
+style='box-sizing: inherit'>public</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>class</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-title><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#007D9A'>Automobile</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>{</span></code></pre><pre style='line-height:
+150%'><code><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>public</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>static</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>int</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> NumberOfWheels = </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>4</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>public</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>static</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>int</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> SizeOfGasTank</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    {</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>get</span></span></span></pre><pre style='line-height:
+150%'><code><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        {</span></code></pre><pre style='line-height:150%'><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>            </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>return</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-number><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>15</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>        }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    </span><span style='box-sizing: inherit'><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>public</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>static</span></span></span><span class=hljs-function><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> <span
+style='box-sizing: inherit'></span></span><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>void</span></span></span><span
+class=hljs-function><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:black'> <span style='box-sizing: inherit'></span></span><span
+class=hljs-title><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#007D9A'>Drive</span></span></span><span class=hljs-function><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>() </span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>{ }</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    </span><span style='box-sizing: inherit'></code><span
+class=hljs-keyword><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#0101FD'>public</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>static</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='box-sizing: inherit'></code><span class=hljs-keyword><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#0101FD'>event</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> EventType RunOutOfGas;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>    </span><span style='box-sizing: inherit'></code><span
+class=hljs-comment><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:green'>// Other non-static fields and properties...</span></span></span></pre><pre
+style='line-height:150%'><code><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>}</span></code></pre>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>Static members are
+initialized before the static member is accessed for the first time and before
+the static constructor, if there is one, is called. To access a static class
+member, use the name of the class instead of a variable name to specify the location
+of the member, as shown in the following example:</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span class=language><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'><span
+style='box-sizing: inherit;flex-grow: 1'>C#</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'></span></span></p>
+
+<button class="action" data-bi-name="copy" aria-label="Copy code" style="box-sizing: inherit; font-family: inherit; font-size: 12.8px; line-height: normal; margin: 0px; overflow: visible; text-transform: none; -webkit-appearance: button; color: var(--text); background-color: transparent; cursor: pointer; padding: 2px 10px; border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left-color: ; border-left-style: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-left-width: 1px; display: flex; align-items: center;"><span
+role=presentation style='box-sizing: inherit;font-size:inherit;speak: none;
+display:inline-block;-webkit-font-smoothing: antialiased'><span
+style='box-sizing: inherit'><pre style='line-height:150%;box-sizing: inherit;
+font-size:0.875rem;padding:1rem;-webkit-font-smoothing: auto;border:var(--border);
+background-color:var(--body-background-medium);overflow-wrap: normal;
+tab-size: 4;hyphens: none;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;overflow:auto;
+word-spacing:0px' tabindex=0><code name="csProgGuideObjects#30"
+data-author-content="Automobile.Drive();&#10;int i = Automobile.NumberOfWheels;&#10;"
+style='box-sizing: inherit'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>Automobile.Drive();</span></code></pre><pre
+style='line-height:150%'><span class=hljs-keyword><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#0101FD'><span style='box-sizing: inherit'>int</span></span></span><code><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> i = Automobile.NumberOfWheels</span></code><code><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>;</span></code></pre>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>If your class
+contains static fields, provide a static constructor that initializes them when
+the class is loaded.</span></p>
+
+<p style='line-height:150%;background:white;box-sizing: inherit;margin:1rem 0px 0px;
+overflow-wrap: break-word;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>A call to a static
+method generates a call instruction in Microsoft intermediate language (MSIL),
+whereas a call to an instance method generates a&nbsp;</span><code
+style='box-sizing: inherit;background-color:var(--body-background-dark);
+border-radius: 3px;overflow-wrap: break-word'><span style='line-height:150%;
+font-family:"Cambria",serif;color:black'>callvirt</span></code><span
+style='font-family:"Cambria",serif;color:black'>&nbsp;instruction, which also
+checks for a null object references. However, most of the time the performance
+difference between the two is not significant.</span></p>
+
+</div>
+
+</body>
+
+</html>

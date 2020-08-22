@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-insert-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+   <title>JavaScript - Loop Control</title>
+    <meta name="description" content="JavaScript Loop Control with break and continue - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./13_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Loop Control</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>JavaScript provides full control to handle loops and switch statements. There may be a situation when you need to come out of a loop without reaching its bottom. There may also be a situation when you want to skip a part of your code block and start the next iteration of the loop.</p>
+        <p>To handle all such situations, JavaScript provides <b>break</b> and <b>continue</b> statements. These statements are used to immediately come out of any loop or to start the next iteration of any loop respectively.</p>
+        <h2>The break Statement</h2>
+        <p>The <b>break</b> statement, which was briefly introduced with the <i>switch</i> statement, is used to exit a loop early, breaking out of the enclosing curly braces.</p>
+        <h3>Flow Chart</h3>
+        <p>The flow chart of a break statement would look as follows −</p>
+        <img src="../img/6.PNG" alt="Break Statement">
+        <h3>Example</h3>
+        <p>The following example illustrates the use of a <b>break</b> statement with a while loop. Notice how the loop breaks out early once <b>x</b> reaches 5 and reaches to <b>document.write (..)</b> statement just below to the closing curly brace −</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+         </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering the loop&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">20</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">==</span><span class="pln"> </span><span class="lit">5</span><span class="pun">){</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln"> </span><span class="com">// breaks out of loop completely</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            x </span><span class="pun">=</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering the loop
+2
+3
+4
+5
+Exiting the loop!
+Set the variable to different value and then try...
+</pre>
+        <p>We already have seen the usage of <b>break</b> statement inside <b>a switch</b> statement.</p>
+        <h2>The continue Statement</h2>
+        <p>The <b>continue</b> statement tells the interpreter to immediately start the next iteration of the loop and skip the remaining code block. When a <b>continue</b> statement is encountered, the program flow moves to the loop check expression immediately and if the condition remains true, then it starts the next iteration, otherwise the control comes out of the loop.</p>
+        <h3>Example</h3>
+        <p>This example illustrates the use of a <b>continue</b> statement with a while loop. Notice how the <b>continue</b> statement is used to skip printing when the index held in variable <b>x</b> reaches 5 −</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering the loop&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+
+            </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               x </span><span class="pun">=</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">==</span><span class="pln"> </span><span class="lit">5</span><span class="pun">){</span><span class="pln">
+                  </span><span class="kwd">continue</span><span class="pun">;</span><span class="pln"> </span><span class="com">// skip rest of the loop body</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering the loop
+2
+3
+4
+6
+7
+8
+9
+10
+Exiting the loop!
+</pre>
+        <h2>Using Labels to Control the Flow</h2>
+        <p>Starting from JavaScript 1.2, a label can be used with <b>break</b> and <b>continue</b> to control the flow more precisely. A <b>label</b> is simply an identifier followed by a colon (:) that is applied to a statement or a block of code. We will see two different examples to understand how to use labels with break and continue.</p>
+        <p><b>Note</b> − Line breaks are not allowed between the <b>‘continue’</b> or <b>‘break’</b> statement and its label name. Also, there should not be any other statement in between a label name and associated loop.</p>
+        <p>Try the following two examples for a better understanding of Labels.</p>
+        <h3>Example 1</h3>
+        <p>The following example shows how to implement Label with a break statement.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+            outerloop</span><span class="pun">:</span><span class="pln"> </span><span class="com">// This is the label name</span><span class="pln">
+
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Outerloop: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               innerloop</span><span class="pun">:</span><span class="pln">
+               </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln">
+               </span><span class="pun">{</span><span class="pln">
+                  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">j </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="kwd">break</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> </span><span class="com">// Quit the innermost loop</span><span class="pln">
+                  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">break</span><span class="pln"> innerloop</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Do the same thing</span><span class="pln">
+                  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">4</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">break</span><span class="pln"> outerloop</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Quit the outer loop</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Innerloop: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> j </span><span class="pun">+</span><span class="pln"> </span><span class="str">" &lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering the loop!
+Outerloop: 0
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Innerloop: 3
+Outerloop: 1
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Innerloop: 3
+Outerloop: 2
+Outerloop: 3
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Innerloop: 3
+Outerloop: 4
+Exiting the loop!
+</pre>
+        <h3>Example 2</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+         outerloop</span><span class="pun">:</span><span class="pln"> </span><span class="com">// This is the label name</span><span class="pln">
+
+         </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Outerloop: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">j </span><span class="pun">==</span><span class="pln"> </span><span class="lit">3</span><span class="pun">){</span><span class="pln">
+                  </span><span class="kwd">continue</span><span class="pln"> outerloop</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Innerloop: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> j </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting the loop!&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering the loop!
+Outerloop: 0
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Outerloop: 1
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Outerloop: 2
+Innerloop: 0
+Innerloop: 1
+Innerloop: 2
+Exiting the loop!
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

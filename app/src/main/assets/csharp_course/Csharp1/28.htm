@@ -1,0 +1,920 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Different Types Of
+Method Parameters in C#</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:white;vertical-align:middle'><b><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>Different Types Of
+Method Parameters in C#</span></b></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>Method parameter is one of the integral part of programming and
+it also applies with C# programming Language.<br>
+We can categorize method parameters in various parts. Some of them are:</span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Named
+     Parameters (C# 4.0 and above)</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Ref
+     Parameter (Passing Value Types by Reference)</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Out
+     Parameters</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Default
+     Parameters or Optional Arguments (C# 4.0 and above)</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Dynamic
+     parameter (dynamic keyword).</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Value
+     parameter or Passing Value Types by Value (normal C# method param are
+     value parameter)</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Params
+     (params)</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Named Parameters</span></u></b><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212121'><br>
+</span></b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>In C# 4.0 a new type of argument iis introduced known as named
+parameter. Using this feature we can specify the value of a parameter by
+parameter name regardless of its ordering in method. I am using a simple method
+to explain it. Have a look at the following screenshot.<br>
+<br>
+<img src="28_files/image001.webp"
+alt="Named parameters"><br>
+<br>
+It provides an ease for user because sometimes we may have 10-20 parameters in
+a method. In that case we need to remember ordering of all those parameters.
+But if we use the default parameter feature of C# then we do not need to
+remember any ordering. This feature is available in C# 4.0 and above versions
+(C#, C# 6).<br>
+<br>
+Suppose we have a method like the following code snippet,</span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>SomeObject(</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;width,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;height,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;length,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;weight,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;volume,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>double</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;density,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>bool</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;isMetal,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>bool</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;isConductor)&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>Then we need to remember all the parameter and
+its ordering but Named parameter makes it easy.</span><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212121'><br>
+<br>
+<span style='background:white'>The code snippet will be something like the
+following:</span></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>private</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;SomeObject(</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;width,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;height,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;length,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;weight,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;volume,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;density,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>bool</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;isMetal,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>bool</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;isConductor)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//do&nbsp;something&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>static</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;Main(</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>string</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>[]&nbsp;args)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;Program&nbsp;p&nbsp;=&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>new</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Program();&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;p.SomeObject(10.0,&nbsp;20.0,&nbsp;isConductor:&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>true</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>,&nbsp;isMetal:&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>true</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>,&nbsp;length:&nbsp;50.0,&nbsp;weight:&nbsp;100.0,&nbsp;density:&nbsp;50.0,&nbsp;volume:&nbsp;200.0);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><b><span style='font-size:
+     12.0pt;line-height:150%;font-family:"Cambria",serif;color:#006699'>private</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;SomeObject(</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;width,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;height,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;length,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;weight,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;volume,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>double</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;density,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>bool</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;isMetal,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>bool</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;isConductor)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//do&nbsp;something&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>But all the named parameters must appear after
+fixed arguments. If we provide any fixed argument after named argument then it
+will give the following compile time error “<i>Named argument specifications
+must appear after all fixed arguments have been specified</i>”.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'><img src="28_files/image002.webp"
+alt="argument specifications "></span><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#212121'><br>
+<br>
+<b><span style='background:white'>Advantages of Named Parameter</span></b></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Named
+     parameter provide us the facility to do not remember the parameter
+     ordering.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Improves
+     the readability of code.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Easy
+     to understand.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Due
+     to readability it also reduces the chances of bug in application.</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>Disadvantages of Named Parameter</span></b></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Its
+     performance is slower as compared to fixed argument. It should be avoided
+     if it does not change the readability and understanding of code to a great
+     extent.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Due
+     to slower performance we can also say that it is syntactic sugar over
+     fixed parameter calls.</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Default Parameters or Optional Arguments (C# 4.0 and above)<br>
+</span></u></b><b><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:#212121'><br>
+</span></b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>In C# 4.0 along with named parameter another method parameter
+feature introduced known as Default Parameters or Optional Arguments. Default
+parameter can be used with method, constructor, delegates and indexer. For
+method, constructor, delegates and indexer we can specify which parameter is
+required (fixed) and which is optional. Any call can omit arguments for
+optional parameter but it must specify the value for required (fixed)
+parameter.<br>
+<br>
+<b><img src="28_files/image002.webp"
+alt="Default Parameters"><br>
+<br>
+<img src="28_files/image003.webp"
+alt="Default Parameters1"><br>
+<br>
+</b>Optional parameter must be defined after any required parameter.<br>
+<br>
+While calling the method having optional parameter if we provide value for an
+optional parameter then we must provide value for all preceding optional
+parameters.<br>
+<br>
+<b>E.g.</b></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>private</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;Add(</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;w,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;x&nbsp;=&nbsp;10,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>int</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;y&nbsp;=&nbsp;0,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>int</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;z&nbsp;=&nbsp;5)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//do&nbsp;something&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>Program&nbsp;p&nbsp;=&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>new</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Program();&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>p.Add(15);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#008200'>//&nbsp;pass&nbsp;10&nbsp;for&nbsp;y&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>p.Add(15,&nbsp;10);&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//but&nbsp;it&nbsp;will&nbsp;consider&nbsp;it&nbsp;as&nbsp;value&nbsp;for&nbsp;x&nbsp;not&nbsp;for&nbsp;y.</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'><img src="28_files/image004.webp" alt=eg></span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'><br>
+<br>
+<span style='background:white'>If you want to pass value for y, then you must
+specify value for x also. e.g.</span></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>p.Add(15,&nbsp;10,&nbsp;10);&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>But this can be done using named parameter,</span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>p.Add(15,&nbsp;y:&nbsp;10);&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'><img src="28_files/image005.webp" alt=p.add></span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'><br>
+<br>
+<span style='background:white'>As you can see in above screenshot IntelliSense
+uses brackets to indicate optional parameters.</span><br>
+<br>
+<b><span style='background:white'>Optional parameter in Constructor<br>
+<br>
+</span></b><b><span style='background:white'><img src="28_files/image006.webp"
+alt="Optional parameter in Constructor"></span><span style='background:white'><br>
+</span></b><span style='background:white'>In the same way we can use it with
+indexer and delegate.</span><br>
+<span style='background:white'>Named and optional arguments also support
+dynamic objects and greatly improve interoperability with COM APIs.</span><br>
+<br>
+</span><b><u><span style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0;background:white'>Ref Parameter (Passing Value Types by
+Reference)<br>
+</span></u></b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>In C# by default we pass the parameter by value
+also known as value parameter. But a parameter also can be passed by reference.
+To pass an argument with reference we need to use &quot;ref&quot; keyword. If
+any argument passed as reference then any change to the parameter in the called
+method is reflected in the calling method.</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212121'><br>
+<span style='background:white'>I want to clarify that the concept of reference
+type and passing arguments by reference type is entirely different concept.</span><br>
+<span style='background:white'>Any argument being passed by reference must be
+assigned before passing it to the method. If it is not assigned then it will
+give compile time error.</span><br>
+<b><span style='background:white'><br>
+E.g:</span></b></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>private</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;Add(</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>ref</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;w,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>ref</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;x)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//do&nbsp;something&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>Program&nbsp;p&nbsp;=&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>new</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Program();&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><b><span style='font-size:
+     12.0pt;line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;firstParam;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;secondParam;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>p.Add(</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>ref</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;firstParam,&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>ref</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;secondParam);&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>Will throw the following error “<i>Use of
+unassigned local variable '<b>firstParam</b>'</i>”,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'><img src="28_files/image007.webp"
+alt="Use of unassigned local variable"></span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212121'><br>
+<br>
+<span style='background:white'>Now assign value for those parameters and error
+will gone.</span></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;firstParam&nbsp;=&nbsp;0;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><b><span style='font-size:
+     12.0pt;line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;secondParam&nbsp;=&nbsp;0;&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>Out Parameters</span></b></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>An out param is similar to ref param. But any argument passed as
+out parameter need not to be initialized whereas in case of ref it must be
+initialized. Another difference is that ref parameter may be assigned inside
+the method in which it is called (not necessary), but in case of “out” it must
+be assigned in the calling method before any exit.<br>
+<br>
+<img src="28_files/image008.webp"
+alt="Out Parameters"><br>
+<b>Dynamic parameter (dynamic keyword):<br>
+</b>A parameter can also be passed dynamically like the following code snippet.</span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>namespace</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;DynamicParams&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>class</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Program&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>static</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>void</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;MyDynamicMethod(dynamic&nbsp;dynamicparam)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dynamicparam.DoSomethingDynamic();&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#008200'>//&nbsp;Called&nbsp;dynamically&nbsp;&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>static</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>void</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Main(</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>[]&nbsp;args)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyDynamicMethod(</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:blue'>&quot;dynamicValue&quot;</span><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>Value parameter or Passing Value Types by Value
+(normal C# method param are value parameter):</span></b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212121'><br>
+<span style='background:white'>Normal C# method param are value parameter. It
+is also known as “<i>passing value types by value</i>” or we can say that when
+a variable is passed as value type then it contains its data directly not the
+reference. If any changes made in the value type parameter it will not reflect
+the original data stored as argument. If we need to modify original data we can
+pass it using 'ref' or 'out' keyword. e.g.</span></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>static</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>void</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;Main(</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>string</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>[]&nbsp;args)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>int</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;a&nbsp;=&nbsp;10;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>int</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;b&nbsp;=&nbsp;25;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>int</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;res&nbsp;=&nbsp;Add(a,&nbsp;b);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>public</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>static</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;Add(</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;x,&nbsp;</span><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>int</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;y)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>return</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;x&nbsp;=&nbsp;y;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>Ordering of parameters in Method:<br>
+</span></b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'>Ordering matters in most of the cases. Some of
+them are:&nbsp;</span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Default
+     parameter</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Method
+     overloading</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Method
+     overriding</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white'><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Value
+     parameter</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>It does not matter for Named Parameters.<br>
+<br>
+<b>Params (params)<br>
+</b>The ‘param’ keyword can be used to specify a method parameter that takes a
+variable number of arguments. When we use ‘param’ keyword to pass variable
+number of arguments we can send any number of arguments or no arguments. But
+all the arguments passed should be of same type.<br>
+If a method is using param keyword it cannot have any other parameter i.e. no
+additional parameter allowed.</span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><b><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:#006699'>using</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;</span><b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:#006699'>static</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;System.Console;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><b><span style='font-size:
+     12.0pt;line-height:150%;font-family:"Cambria",serif;color:#006699'>namespace</span></b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;paramsTypeParameter&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>class</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Program&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>static</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>void</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;Main(</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>[]&nbsp;args)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;my1stLine&nbsp;=&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:blue'>&quot;This&nbsp;is&nbsp;my&nbsp;first&nbsp;Line&quot;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;my2ndLine&nbsp;=&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:blue'>&quot;This&nbsp;is&nbsp;my&nbsp;second&nbsp;Line&quot;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;my3rdline&nbsp;=&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:blue'>&quot;This&nbsp;is&nbsp;my&nbsp;Third&nbsp;Line&quot;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;my4thline&nbsp;=&nbsp;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:blue'>&quot;This&nbsp;is&nbsp;my&nbsp;fourth&nbsp;Line&quot;</span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>;&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintPassedList(my1stLine,&nbsp;my2ndLine,&nbsp;my3rdline,&nbsp;my4thline);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>public</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>static</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>void</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;PrintPassedList(</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>params</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>string</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>[]&nbsp;listtoPrint)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>foreach</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>(var&nbsp;item&nbsp;</span><b><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:#006699'>in</span></b><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>&nbsp;listtoPrint)&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WriteLine(item);&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:white;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in'><span style='font-size:12.0pt;
+     line-height:150%;font-family:"Cambria",serif;color:black'>}&nbsp;&nbsp;</span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212121;background:white'>Output<br>
+</span></b><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121;background:white'><img src="28_files/image009.webp" alt=output></span></b></p>
+
+</div>
+
+</body>
+
+</html>

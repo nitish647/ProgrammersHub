@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Document Object Model or DOM</title>
+    <meta name="description" content="JavaScript Document Object Model or DOM - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Document Object Model or DOM</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Every web page resides inside a browser window which can be considered as an object.</p>
+        <p>A Document object represents the HTML document that is displayed in that window. The Document object has various properties that refer to other objects which allow access to and modification of document content.</p>
+        <p>The way a document content is accessed and modified is called the <b>Document Object Model</b>, or <b>DOM</b>. The Objects are organized in a hierarchy. This hierarchical structure applies to the organization of objects in a Web document.</p>
+        <ul class="list">
+            <li><p><b>Window object</b> − Top of the hierarchy. It is the outmost element of the object hierarchy.</p></li>
+            <li><p><b>Document object</b> − Each HTML document that gets loaded into a window becomes a document object. The document contains the contents of the page.</p></li>
+            <li><p><b>Form object</b> − Everything enclosed in the &lt;form&gt;...&lt;/form&gt; tags sets the form object.</p></li>
+            <li><p><b>Form control elements</b> − The form object contains all the elements defined for that object such as text fields, buttons, radio buttons, and checkboxes.</p></li>
+        </ul>
+        <p>Here is a simple hierarchy of a few important objects −</p>
+        <img src="../img/8.PNG" alt="HTML DOM">
+        <p>There are several DOMs in existence. The following sections explain each of these DOMs in detail and describe how you can use them to access and modify document content.</p>
+        <ul class="list">
+            <li><p> The Legacy DOM − This is the model which was introduced in early versions of JavaScript language. It is well supported by all browsers, but allows access only to certain key portions of documents, such as forms, form elements, and images.</p></li>
+            <li><p> The W3C DOM  − This document object model allows access and modification of all document content and is standardized by the World Wide Web Consortium (W3C). This model is supported by almost all the modern browsers.</p></li>
+            <li><p> The IE4 DOM − This document object model was introduced in Version 4 of Microsoft's Internet Explorer browser. IE 5 and later versions include support for most basic W3C DOM features.</p></li>
+        </ul>
+        <h2>DOM compatibility</h2>
+        <p>If you want to write a script with the flexibility to use either W3C DOM or IE 4 DOM depending on their availability, then you can use a capability-testing approach that first checks for the existence of a method or property to determine whether the browser has the capability you desire. For example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// If the W3C method exists, use it</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">all</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// If the all[] array exists, use it</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// Otherwise use the legacy DOM</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

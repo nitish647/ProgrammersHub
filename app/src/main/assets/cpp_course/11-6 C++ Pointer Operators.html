@@ -1,0 +1,38 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Pointer Operators</h1>
+
+<p>C++ provides two pointer operators, which are (a) Address of Operator &amp; and (b) Indirection Operator *.</p>
+<p>A pointer is a variable that contains the address of another variable or you can say that a variable that contains the address of another variable is said to "point to" the other variable. A variable can be any data type including an object, structure or again pointer itself.</p>
+<p>The . (dot) operator and the -&gt; (arrow) operator are used to reference individual members of classes, structures, and unions.</p>
+<h2>The Address of Operator &amp;</h2>
+<p>The &amp; is a unary operator that returns the memory address of its operand. For example, if var is an integer variable, then &amp;var is its address. This operator has the same precedence and right-to-left associativity as the other unary operators.</p>
+<p>You should read the &amp; operator as <strong>"the address of"</strong> which means <strong>&amp;var</strong> will be read as "the address of var".</p>
+<h2>The Indirection Operator *</h2>
+<p>The second operator is indirection Operator *, and it is the complement of &amp;. It is a unary operator that returns the value of the variable located at the address specified by its operand.</p>
+<p>The following program executes the two operations</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">;</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln">  val</span><span class="pun">;</span>
+
+   <span class="kwd">var</span> <span class="pun">=</span> <span class="lit">3000</span><span class="pun">;</span>
+
+   <span class="com">// take the address of var</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="pun">&amp;</span><span class="kwd">var</span><span class="pun">;</span>
+
+   <span class="com">// take the value available at ptr</span><span class="pln">
+   val </span><span class="pun">=</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var :"</span> <span class="pun">&lt;&lt;</span> <span class="kwd">var</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of ptr :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of val :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> val </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of var :3000
+Value of ptr :0xbff64494
+Value of val :3000
+</pre>

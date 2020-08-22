@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Inner classes</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Inner classes</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>In this chapter, we will discuss inner classes of Java.</p>
+        <h2>Nested Classes</h2>
+        <p>In Java, just like methods, variables of a class too can have another class as its member. Writing a class within another is allowed in Java. The class written within is called the <b>nested class</b>, and the class that holds the inner class is called the <b>outer class</b>.</p>
+        <p><b>Syntax</b></p>
+        <p>Following is the syntax to write a nested class. Here, the class <b>Outer_Demo</b> is the outer class and the class <b>Inner_Demo</b> is the nested class.</p>
+        <pre class="result notranslate">class Outer_Demo {
+   class Inner_Demo {
+   }
+}
+</pre>
+        <p>Nested classes are divided into two types −</p>
+        <ul class="list">
+            <li><p><b>Non-static nested classes</b> − These are the non-static members of a class.</p></li>
+            <li><p><b>Static nested classes</b> − These are the static members of a class.</p></li>
+        </ul>
+        <img src="../img/6.PNG" alt="Inner Classes">
+        <h2>Inner Classes (Non-static Nested Classes)</h2>
+        <p>Inner classes are a security mechanism in Java. We know a class cannot be associated with the access modifier <b>private</b>, but if we have the class as a member of other class, then the inner class can be made private. And this is also used to access the private members of a class.</p>
+        <p>Inner classes are of three types depending on how and where you define them. They are −</p>
+        <ul class="list">
+            <li>Inner Class</li>
+            <li>Method-local Inner Class</li>
+            <li>Anonymous Inner Class</li>
+        </ul>
+        <h3>Inner Class</h3>
+        <p>Creating an inner class is quite simple. You just need to write a class within a class. Unlike a class, an inner class can be private and once you declare an inner class private, it cannot be accessed from an object outside the class.</p>
+        <p>Following is the program to create an inner class and access it. In the given example, we make the inner class private and access the class through a method.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Outer_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="com">// inner class</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Inner_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is an inner class"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// Accessing he inner class from the method within</span><span class="pln">
+   </span><span class="kwd">void</span><span class="pln"> display_Inner</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Inner_Demo</span><span class="pln"> inner </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Inner_Demo</span><span class="pun">();</span><span class="pln">
+      inner</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">My_class</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Instantiating the outer class </span><span class="pln">
+      </span><span class="typ">Outer_Demo</span><span class="pln"> outer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Outer_Demo</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Accessing the display_Inner() method.</span><span class="pln">
+      outer</span><span class="pun">.</span><span class="pln">display_Inner</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Here you can observe that <b>Outer_Demo</b> is the outer class, <b>Inner_Demo</b> is the inner class, <b>display_Inner()</b> is the method inside which we are instantiating the inner class, and this method is invoked from the <b>main</b> method.</p>
+        <p>If you compile and execute the above program, you will get the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is an inner class.
+</pre>
+        <h3>Accessing the Private Members</h3>
+        <p>As mentioned earlier, inner classes are also used to access the private members of a class. Suppose, a class is having private members to access them. Write an inner class in it, return the private members from a method within the inner class, say, <b>getValue()</b>, and finally from another class (from which you want to access the private members) call the getValue() method of the inner class.</p>
+        <p>To instantiate the inner class, initially you have to instantiate the outer class. Thereafter, using the object of the outer class, following is the way in which you can instantiate the inner class.</p>
+        <pre class="result notranslate">Outer_Demo outer = new Outer_Demo();
+Outer_Demo.Inner_Demo inner = outer.new Inner_Demo();
+</pre>
+        <p>The following program shows how to access the private members of a class using inner class.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Outer_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// private variable of the outer class</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">175</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="com">// inner class</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Inner_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getNum</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is the getnum method of the inner class"</span><span class="pun">);</span><span class="pln">
+         </span><span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">My_class2</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Instantiating the outer class</span><span class="pln">
+      </span><span class="typ">Outer_Demo</span><span class="pln"> outer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Outer_Demo</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Instantiating the inner class</span><span class="pln">
+      </span><span class="typ">Outer_Demo</span><span class="pun">.</span><span class="typ">Inner_Demo</span><span class="pln"> inner </span><span class="pun">=</span><span class="pln"> outer</span><span class="pun">.</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Inner_Demo</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">inner</span><span class="pun">.</span><span class="pln">getNum</span><span class="pun">());</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, you will get the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is the getnum method of the inner class: 175
+</pre>
+        <h2>Method-local Inner Class</h2>
+        <p>In Java, we can write a class within a method and this will be a local type. Like local variables, the scope of the inner class is restricted within the method.</p>
+        <p>A method-local inner class can be instantiated only within the method where the inner class is defined. The following program shows how to use a method-local inner class.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Outerclass</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// instance method of the outer class </span><span class="pln">
+   </span><span class="kwd">void</span><span class="pln"> my_Method</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">23</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="com">// method-local inner class</span><span class="pln">
+      </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MethodInner_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is method inner class "</span><span class="pun">+</span><span class="pln">num</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="com">// end of inner class</span><span class="pln">
+
+      </span><span class="com">// Accessing the inner class</span><span class="pln">
+      </span><span class="typ">MethodInner_Demo</span><span class="pln"> inner </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MethodInner_Demo</span><span class="pun">();</span><span class="pln">
+      inner</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Outerclass</span><span class="pln"> outer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Outerclass</span><span class="pun">();</span><span class="pln">
+      outer</span><span class="pun">.</span><span class="pln">my_Method</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, you will get the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is method inner class 23
+</pre>
+        <h2>Anonymous Inner Class</h2>
+        <p>An inner class declared without a class name is known as an <b>anonymous inner class</b>. In case of anonymous inner classes, we declare and instantiate them at the same time. Generally, they are used whenever you need to override the method of a class or an interface. The syntax of an anonymous inner class is as follows −</p>
+        <p><b>Syntax</b></p>
+        <pre class="result notranslate">AnonymousInner an_inner = new AnonymousInner() {
+   public void my_method() {
+      ........
+      ........
+   }
+};
+</pre>
+        <p>The following program shows how to override the method of a class using anonymous inner class.</p>
+        <p><b>Example</b></p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">abstract</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AnonymousInner</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">abstract</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mymethod</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Outer_class</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">AnonymousInner</span><span class="pln"> inner </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AnonymousInner</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mymethod</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is an example of anonymous inner class"</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+      inner</span><span class="pun">.</span><span class="pln">mymethod</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, you will get the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is an example of anonymous inner class
+</pre>
+        <p>In the same way, you can override the methods of the concrete class as well as the interface using an anonymous inner class.</p>
+        <h2>Anonymous Inner Class as Argument</h2>
+        <p>Generally, if a method accepts an object of an interface, an abstract class, or a concrete class, then we can implement the interface, extend the abstract class, and pass the object to the method. If it is a class, then we can directly pass it to the method.</p>
+        <p>But in all the three cases, you can pass an anonymous inner class to the method. Here is the syntax of passing an anonymous inner class as a method argument −</p>
+        <pre class="result notranslate">obj.my_Method(new My_Class() {
+   public void Do() {
+      .....
+      .....
+   }
+});
+</pre>
+        <p>The following program shows how to pass an anonymous inner class as a method argument.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// interface</span><span class="pln">
+</span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Message</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">String</span><span class="pln"> greet</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">My_class</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// method which accepts the object of interface Message</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> displayMessage</span><span class="pun">(</span><span class="typ">Message</span><span class="pln"> m</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">m</span><span class="pun">.</span><span class="pln">greet</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+         </span><span class="str">", This is an example of anonymous inner class as an argument"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Instantiating the class</span><span class="pln">
+      </span><span class="typ">My_class</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">My_class</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Passing an anonymous inner class as an argument</span><span class="pln">
+      obj</span><span class="pun">.</span><span class="pln">displayMessage</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Message</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> greet</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"Hello"</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">});</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, it gives you the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">Hello, This is an example of anonymous inner class as an argument
+</pre>
+        <h2>Static Nested Class</h2>
+        <p>A static inner class is a nested class which is a static member of the outer class. It can be accessed without instantiating the outer class, using other static members. Just like static members, a static nested class does not have access to the instance variables and methods of the outer class. The syntax of static nested class is as follows −</p>
+        <p><b>Syntax</b></p>
+        <pre class="result notranslate">class MyOuter {
+   static class Nested_Demo {
+   }
+}
+</pre>
+        <p>Instantiating a static nested class is a bit different from instantiating an inner class. The following program shows how to use a static nested class.</p>
+        <p><b>Example</b></p>
+           <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Outer</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Nested_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> my_method</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is my nested class"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Outer</span><span class="pun">.</span><span class="typ">Nested_Demo</span><span class="pln"> nested </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Outer</span><span class="pun">.</span><span class="typ">Nested_Demo</span><span class="pun">();</span><span class="pln">
+      nested</span><span class="pun">.</span><span class="pln">my_method</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, you will get the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is my nested class
+</pre>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

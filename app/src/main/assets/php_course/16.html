@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - Cookies</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>PHP - Cookies</h1>
+
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Cookies are text files stored on the client computer and they are kept of use tracking purpose. PHP transparently supports HTTP cookies.</p>
+        <p>There are three steps involved in identifying returning users −</p>
+        <ul class="list">
+            <li><p>Server script sends a set of cookies to the browser. For example name, age, or identification number etc.</p></li>
+            <li><p>Browser stores this information on local machine for future use.</p></li>
+            <li><p>When next time browser sends any request to web server then it sends those cookies information to the server and server uses that information to identify the user.</p></li>
+        </ul>
+        <p>This chapter will teach you how to set cookies, how to access them and how to delete them.</p>
+        <h2>The Anatomy of a Cookie</h2>
+        <p>Cookies are usually set in an HTTP header (although JavaScript can also set a cookie directly on a browser). A PHP script that sets a cookie might send headers that look something like this −</p>
+        <pre class="result notranslate">HTTP/1.1 200 OK
+Date: Fri, 04 Feb 2000 21:03:38 GMT
+Server: Apache/1.3.9 (UNIX) PHP/4.0b3
+Set-Cookie: name=xyz; expires=Friday, 04-Feb-07 22:03:38 GMT;
+                 path=/; domain=tutorialspoint.com
+Connection: close
+Content-Type: text/html
+</pre>
+        <p>As you can see, the Set-Cookie header contains a name value pair, a GMT date, a path and a domain. The name and value will be URL encoded. The expires field is an instruction to the browser to "forget" the cookie after the given time and date.</p>
+        <p>If the browser is configured to store cookies, it will then keep this information until the expiry date. If the user points the browser at any page that matches the path and domain of the cookie, it will resend the cookie to the server.The browser's headers might look something like this −</p>
+        <pre class="result notranslate">GET / HTTP/1.0
+Connection: Keep-Alive
+User-Agent: Mozilla/4.6 (X11; I; Linux 2.2.6-15apmac ppc)
+Host: zink.demon.co.uk:1126
+Accept: image/gif, */*
+Accept-Encoding: gzip
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+Cookie: name=xyz
+</pre>
+        <p>A PHP script will then have access to the cookie in the environmental variables $_COOKIE or $HTTP_COOKIE_VARS[] which holds all cookie names and values. Above cookie can be accessed using $HTTP_COOKIE_VARS["name"].</p>
+        <h2>Setting Cookies with PHP</h2>
+        <p>PHP provided <b>setcookie()</b> function to set a cookie. This function requires upto six arguments and should be called before &lt;html&gt; tag. For each cookie this function has to be called separately.</p>
+        <pre class="result notranslate">setcookie(name, value, expire, path, domain, security);
+</pre>
+        <p>Here is the detail of all the arguments −</p>
+        <ul class="list">
+            <li><p><b>Name</b> − This sets the name of the cookie and is stored in an environment variable called HTTP_COOKIE_VARS. This variable is used while accessing cookies.</p></li>
+            <li><p><b>Value</b> − This sets the value of the named variable and is the content that you actually want to store.</p></li>
+            <li><p><b>Expiry</b> − This specify a future time in seconds since 00:00:00 GMT on 1st Jan 1970. After this time cookie will become inaccessible. If this parameter is not set then cookie will automatically expire when the Web Browser is closed.</p></li>
+            <li><p><b>Path</b> − This specifies the directories for which the cookie is valid. A single forward slash character permits the cookie to be valid for all directories.</p></li>
+            <li><p><b>Domain</b> − This can be used to specify the domain name in very large domains and must contain at least two periods to be valid. All cookies are only valid for the host and domain which created them.</p></li>
+            <li><p><b>Security</b> − This can be set to 1 to specify that the cookie should only be sent by secure transmission using HTTPS otherwise set to 0 which mean cookie can be sent by regular HTTP.</p></li>
+        </ul>
+        <p>Following example will create two cookies <b>name</b> and <b>age</b> these cookies will be expired after one hour.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   setcookie</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"John Watkin"</span><span class="pun">,</span><span class="pln"> time</span><span class="pun">()+</span><span class="lit">3600</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">,</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+   setcookie</span><span class="pun">(</span><span class="str">"age"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"36"</span><span class="pun">,</span><span class="pln"> time</span><span class="pun">()+</span><span class="lit">3600</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Setting Cookies with PHP</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="pun">&lt;?</span><span class="pln">php echo </span><span class="str">"Set Cookies"</span><span class="pun">?&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>Accessing Cookies with PHP</h2>
+        <p>PHP provides many ways to access cookies. Simplest way is to use either $_COOKIE or $HTTP_COOKIE_VARS variables. Following example will access all the cookies set in above example.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Accessing Cookies with PHP</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         echo $_COOKIE</span><span class="pun">[</span><span class="str">"name"</span><span class="pun">].</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="com">/* is equivalent to */</span><span class="pln">
+         echo $HTTP_COOKIE_VARS</span><span class="pun">[</span><span class="str">"name"</span><span class="pun">].</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+         echo $_COOKIE</span><span class="pun">[</span><span class="str">"age"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="com">/* is equivalent to */</span><span class="pln">
+         echo $HTTP_COOKIE_VARS</span><span class="pun">[</span><span class="str">"age"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>You can use <b>isset()</b> function to check if a cookie is set or not.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Accessing Cookies with PHP</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> isset</span><span class="pun">(</span><span class="pln">$_COOKIE</span><span class="pun">[</span><span class="str">"name"</span><span class="pun">]))</span><span class="pln">
+            echo </span><span class="str">"Welcome "</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $_COOKIE</span><span class="pun">[</span><span class="str">"name"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">else</span><span class="pln">
+            echo </span><span class="str">"Sorry... Not recognized"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>Deleting Cookie with PHP</h2>
+        <p>Officially, to delete a cookie you should call setcookie() with the name argument only but this does not always work well, however, and should not be relied on.</p>
+        <p>It is safest to set the cookie with a date that has already expired −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   setcookie</span><span class="pun">(</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> time</span><span class="pun">()-</span><span class="pln"> </span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">,</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+   setcookie</span><span class="pun">(</span><span class="pln"> </span><span class="str">"age"</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> time</span><span class="pun">()-</span><span class="pln"> </span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">,</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Deleting Cookies with PHP</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="pun">&lt;?</span><span class="pln">php echo </span><span class="str">"Deleted Cookies"</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

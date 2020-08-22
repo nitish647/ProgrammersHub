@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Visibility</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Visibility</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The visibility of a
+class, a method, a variable or a property tells us how this item can be
+accessed. The most common types of visibility are private and public, but there
+are actually several other types of visibility within C#. Here is a complete
+list, and although some of them might not feel that relevant to you right now,
+you can always come back to this page and read up on them:</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212529'>public</span></b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>&nbsp;- the member can be reached from anywhere. This is the
+least restrictive visibility. Enums and interfaces are, by default, publicly
+visible.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212529'>protected</span></b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>&nbsp;- members can only be reached from within the same class,
+or from a class which inherits from this class.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212529'>internal</span></b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>&nbsp;- members can be reached from within the same project
+only.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212529'>protected
+internal</span></b><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:#212529'>&nbsp;- the same as internal, except that
+classes which inherit from this class can reach its members; even from another
+project.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#212529'>private</span></b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>&nbsp;- can only be reached by members from the same class. This
+is the most restrictive visibility. Classes and structs are by default set to
+private visibility.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>So for instance, if
+you have two classes: Class1 and Class2, private members from Class1 can only
+be used within Class1. You can't create a new instance of Class1 inside of
+Class2, and then expect to be able to use its private members.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>If Class2 inherits
+from Class1, then only non-private members can be reached from inside of
+Class2.</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

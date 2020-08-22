@@ -1,0 +1,595 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C - Error Handling</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C - Error Handling</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>As such, C programming does not provide direct support for error
+handling but being a system programming language, it provides you access at
+lower level in the form of return values. Most of the C or even Unix function
+calls return -1 or NULL in case of any error and set an error code&nbsp;<b>errno</b>.
+It is set as a global variable and indicates an error occurred during any
+function call. You can find various error codes defined in &lt;error.h&gt;
+header file.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>So a C programmer can check the returned values and can take
+appropriate action depending on the return value. It is a good practice, to set
+errno to 0 at the time of initializing a program. A value of 0 indicates that
+there is no error in the program.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>errno, perror(). and strerror()</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The C programming language provides&nbsp;<b>perror()</b>&nbsp;and&nbsp;<b>strerror()</b>&nbsp;functions
+which can be used to display the text message associated with&nbsp;<b>errno</b>.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>The&nbsp;<b>perror()</b>&nbsp;function
+displays the string you pass to it, followed by a colon, a space, and then the
+textual representation of the current errno value.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>The&nbsp;<b>strerror()</b>&nbsp;function,
+which returns a pointer to the textual representation of the current errno
+value.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Let's try to simulate an error condition and try to open a file
+which does not exist. Here I'm using both the functions to show the usage, but
+you can use one or more ways of printing your errors. Second important point to
+note is that you should use&nbsp;<b>stderr</b>&nbsp;file stream to output all
+the errors.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;errno.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;string.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>externint</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#313131'> errno </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> main </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>   FILE </span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>*</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> pf</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> errnum</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>pf</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>=</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> fopen </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;unexist.txt&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;rb&quot;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>pf </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+NULL</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>errnum</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> errno</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Value
+of errno: %d\n&quot;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>,</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> errno</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>perror</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Error
+printed by perror&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Error
+opening file: %s\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> strerror</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+errnum </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>else</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fclose</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>pf</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>return</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Value of
+errno: 2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Error
+printed by perror: No such file or directory</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Error
+opening file: No such file or directory</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Divide by Zero Errors</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>It is a common problem that at the time of dividing any number,
+programmers do not check if a divisor is zero and finally it creates a runtime
+error.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The code below fixes this by checking if the divisor is zero
+before dividing &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>main</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> dividend </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>20</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> divisor </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> quotient</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> divisor </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Division
+by zero! Exiting...\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>exit</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(-</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>1</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>quotient</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> dividend </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>/</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+divisor</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Value
+of quotient : %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> quotient </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>exit</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#006666'>0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Division
+by zero! Exiting...</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Program Exit Status</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>It is a common practice to exit with a value of EXIT_SUCCESS in
+case of program coming out after a successful operation. Here, EXIT_SUCCESS is
+a macro and it is defined as 0.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>If you have an error condition in your program and you are coming
+out then you should exit with a status EXIT_FAILURE which is defined as -1. So
+let's write above program as follows &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>#include</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#008800'>&lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>main</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> dividend </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>20</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> divisor </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>5</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> quotient</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>if</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> divisor </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>){</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Division
+by zero! Exiting...\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>exit</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>EXIT_FAILURE</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>quotient</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> dividend </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>/</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+divisor</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>fprintf</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>stderr</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Value
+of quotient : %d\n&quot;</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> quotient </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>exit</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>EXIT_SUCCESS</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Value of
+quotient : 4</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

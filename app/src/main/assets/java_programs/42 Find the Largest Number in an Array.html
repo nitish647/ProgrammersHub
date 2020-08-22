@@ -1,0 +1,41 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Find the Largest Number in an Array</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.util.Scanner;
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Largest_Number 
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) 
+    {
+        <span style='color:#7f0055; font-weight:bold; '>int</span> n, <span style='color:#7f0055; font-weight:bold; '>max</span>;
+        Scanner s = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(System.in);
+        System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Enter number of elements in the array:</span><span style='color:#2a00ff; '>"</span>);
+        n = s.nextInt();
+        <span style='color:#7f0055; font-weight:bold; '>int</span> a[] = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[n];
+        System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Enter elements of array:</span><span style='color:#2a00ff; '>"</span>);
+        <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; n; i++)
+        {
+            a[i] = s.nextInt();
+        }
+        <span style='color:#7f0055; font-weight:bold; '>max</span> = a[0];
+        <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; n; i++)
+        {
+            <span style='color:#7f0055; font-weight:bold; '>if</span>(<span style='color:#7f0055; font-weight:bold; '>max</span> &lt; a[i])
+            {
+                <span style='color:#7f0055; font-weight:bold; '>max</span> = a[i];
+            }
+        }
+        System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Maximum value:</span><span style='color:#2a00ff; '>"</span>+<span style='color:#7f0055; font-weight:bold; '>max</span>);
+    }
+}
+
+
+Output:
+
+Enter number of elements in the <span style='color:#7f0055; font-weight:bold; '>array</span>:5
+Enter elements of <span style='color:#7f0055; font-weight:bold; '>array</span>:
+4
+2
+3
+6
+1
+Maximum value:6
+</pre>

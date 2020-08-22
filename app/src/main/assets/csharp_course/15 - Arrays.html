@@ -1,0 +1,958 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Arrays</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Arrays</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>An array stores a fixed-size sequential collection of elements of
+the same type. An array is used to store a collection of data, but it is often
+more useful to think of an array as a collection of variables of the same type
+stored at contiguous memory locations.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Instead of declaring individual variables, such as number0,
+number1, ..., and number99, you declare one array variable such as numbers and
+use numbers[0], numbers[1], and ..., numbers[99] to represent individual
+variables. A specific element in an array is accessed by an index.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>All arrays consist of contiguous memory locations. The lowest
+address corresponds to the first element and the highest address to the last
+element.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif"'><img src="15_files/image001.webp"
+alt="Description: Arrays in C#"></span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Declaring Arrays</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>To declare an array in C#, you can use the following syntax:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>datatype</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+arrayName</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>where,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>datatype&nbsp;is used to specify the
+type of elements in the array.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>[ ]</span><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>&nbsp;specifies the rank of the array. The rank specifies the size
+of the array.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:38.4pt;text-align:justify;text-indent:-.25in;line-height:150%'><span
+lang=EN-IN style='font-size:10.0pt;line-height:150%;font-family:Symbol;
+color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria","serif";color:black'>arrayName</span><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>&nbsp;specifies the name of the array.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>For example,</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+balance</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Initializing an Array</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Declaring an array does not initialize the array in the memory.
+When the array variable is initialized, you can assign values to the array.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Array is a reference type, so you need to use the&nbsp;<b>new</b>&nbsp;keyword
+to create an instance of the array. For example,</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+balance </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>newdouble</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Assigning Values to an Array</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can assign values to individual array elements, by using the
+index number, like:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+balance </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>newdouble</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>balance</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>4500.0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can assign values to the array at the time of declaration, as
+shown:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+balance </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>={</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>2340.0</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>4523.69</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>3421.0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>};</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can also create and initialize an array, as shown:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> marks </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>newint</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>5</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]{</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>99</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>98</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>92</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>97</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>95</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>};</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You may also omit the size of the array, as shown:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> marks </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>newint</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]{</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>99</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>98</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>92</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>97</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>95</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>};</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can copy an array variable into another target array variable.
+In such case, both the target and source point to the same memory location:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> marks </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>newint</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]{</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>99</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>98</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>92</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>97</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>95</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>};</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>int</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> score </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+marks</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When you create an array, C# compiler implicitly initializes each
+array element to a default value depending on the array type. For example, for
+an int array all elements are initialized to 0.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Accessing Array Elements</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>An element is accessed by indexing the array name. This is done by
+placing the index of the element within square brackets after the name of the
+array. For example,</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> salary </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+balance</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>9</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example, demonstrates the above-mentioned concepts
+declaration, assignment, and accessing arrays:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>namespace</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>ArrayApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>class</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>MyArray</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>staticvoid</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>Main</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+args</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>  n </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>newint</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#880000'>/*
+n is an array of 10 integers */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> i</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>j</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* initialize elements of array n */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>for</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> i </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+i </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>&lt;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>10</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>            n</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>[</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+i </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>+</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>100</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* output each array element's value */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>for</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>j </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+j </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>&lt;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>10</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> j</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Element[{0}]
+= {1}&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> j</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> n</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>j</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[0]
+= 100</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[1]
+= 101</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[2]
+= 102</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[3]
+= 103</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[4]
+= 104</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[5]
+= 105</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[6]
+= 106</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[7]
+= 107</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[8]
+= 108</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[9]
+= 109</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Using the&nbsp;foreach&nbsp;Loop</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>In the previous example, we used a for loop for accessing each
+array element. You can also use a&nbsp;<b>foreach</b>&nbsp;statement to iterate
+through an array.</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>using</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>System</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>namespace</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>ArrayApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>class</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>MyArray</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>staticvoid</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#7F0055'>Main</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+args</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>[]</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'>  n </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>newint</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>];</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#880000'>/*
+n is an array of 10 integers */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* initialize elements of array n */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>for</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>(</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#000088'>int</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+i </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>&lt;</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>10</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>            n</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>[</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>i</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+i </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>+</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#006666'>100</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#880000'>/* output each array element's value */</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>foreach</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>(</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+j </span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>in</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> n </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>int</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> i </span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>=</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> j</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#006666'>100</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#008800'>&quot;Element[{0}]
+= {1}&quot;</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> i</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>,</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> j</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#7F0055'>Console</span><span lang=EN-IN style='line-height:150%;
+font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[0]
+= 100</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[1]
+= 101</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[2]
+= 102</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[3]
+= 103</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[4]
+= 104</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[5]
+= 105</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[6]
+= 106</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[7]
+= 107</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[8]
+= 108</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Element[9]
+= 109</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>C# Arrays</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>There are following few important concepts related to array which
+should be clear to a C# programmer:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=604
+ style='width:453.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=180 valign=top style='width:135.0pt;border:solid #DDDDDD 1.0pt;
+  background:#EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Concept</span></b></p>
+  </td>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-left:none;background:
+  #EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Multi-dimensional
+  arrays</span></b></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>C# supports multidimensional arrays. The simplest form of the
+  multidimensional array is the two-dimensional array.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Jagged
+  arrays</span></b></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>C# supports multidimensional arrays, which are arrays of
+  arrays.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Passing
+  arrays to functions</span></b></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>You can pass to the function a pointer to an array by
+  specifying the array's name without an index.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Param
+  arrays</span></b></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>This is used for passing unknown number of parameters to a
+  function.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:
+  12.0pt;margin-left:2.4pt;text-align:justify;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+  Array Class</span></b></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+  color:#313131'>Defined in System namespace, it is the base class to all
+  arrays, and provides various properties and methods for working with arrays.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

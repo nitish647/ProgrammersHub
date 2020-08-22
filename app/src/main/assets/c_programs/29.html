@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<P style="word-wrap : break-word;">
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>Find&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">gcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&nbsp;of&nbsp;a&nbsp;number&nbsp;using&nbsp;recursion&nbsp;in&nbsp;c&nbsp;program</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">stdio.h<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&gt;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n1,n2,gcd;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;two&nbsp;numbers:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;n1,&amp;n2);</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">gcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">findgcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(n1,n2);</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nGCD<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;of&nbsp;%d&nbsp;and&nbsp;%d&nbsp;is:&nbsp;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,n1,n2,gcd);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">findgcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">x,<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">y){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">while<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">x!=y){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">x&gt;y)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">findgcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(x&ndash;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">y,y<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">findgcd<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">x,y<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&ndash;x);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">x;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+</body>
+</html>

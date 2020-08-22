@@ -1,0 +1,150 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Class Access Modifiers</h1>
+
+<p>Data hiding is one of the important features of Object Oriented Programming which allows preventing the functions of a program to access directly the internal representation of a class type. The access restriction to the class members is specified by the labeled <strong>public, private,</strong> and <strong>protected</strong> sections within the class body. The keywords public, private, and protected are called access specifiers.</p>
+<p>A class can have multiple public, protected, or private labeled sections. Each section remains in effect until either another section label or the closing right brace of the class body is seen. The default access for members and classes is private.</p>
+<pre class="result notranslate">class Base { 
+   public:
+      // public members go here
+      protected:
+ 
+   // protected members go here
+   private:
+   // private members go here
+ 
+};
+</pre>
+<h2>The public Members</h2>
+<p>A <strong>public</strong> member is accessible from anywhere outside the class but within a program. You can set and get the value of public variables without any member function as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions definitions</span>
+<span class="kwd">double</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> length </span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="kwd">void</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Line</span><span class="pln"> line</span><span class="pun">;</span>
+ 
+   <span class="com">// set line length</span><span class="pln">
+   line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="com">// set line length without member function</span><span class="pln">
+   line</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">10.0</span><span class="pun">;</span> <span class="com">// OK: because length is public</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Length of line : 6
+Length of line : 10
+</pre>
+<h2>The private Members</h2>
+<p>A <strong>private</strong> member variable or function cannot be accessed, or even viewed from outside the class. Only the class and friend functions can access private members.</p>
+<p>By default all the members of a class would be private, for example in the following class <strong>width</strong> is a private member, which means until you label a member, it will be assumed a private member &minus;</p>
+<pre class="result notranslate">class Box {
+   double width;
+   
+   public:
+      double length;
+      void setWidth( double wid );
+      double getWidth( void );
+};
+</pre>
+<p>Practically, we define data in private section and related functions in public section so that they can be called from outside of the class as shown in the following program.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">void</span><span class="pln"> setWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getWidth</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+ 
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions definitions</span>
+<span class="kwd">double</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">getWidth</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> width </span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="kwd">void</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">setWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   width </span><span class="pun">=</span><span class="pln"> wid</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Box</span><span class="pln"> box</span><span class="pun">;</span>
+ 
+   <span class="com">// set box length without member function</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">10.0</span><span class="pun">;</span> <span class="com">// OK: because length is public</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of box : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="com">// set box width without member function</span>
+   <span class="com">// box.width = 10.0; // Error: because width is private</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>  <span class="com">// Use member function to set it.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Width of box : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">getWidth</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Length of box : 10
+Width of box : 10
+</pre>
+<h2>The protected Members</h2>
+<p>A <strong>protected</strong> member variable or function is very similar to a private member but it provided one additional benefit that they can be accessed in child classes which are called derived classes.</p>
+<p>You will learn derived classes and inheritance in next chapter. For now you can check following example where I have derived one child class <strong>SmallBox</strong> from a parent class <strong>Box</strong>.</p>
+<p>Following example is similar to above example and here <strong>width</strong> member will be accessible by any member function of its derived class SmallBox.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">protected</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="kwd">class</span> <span class="typ">SmallBox</span><span class="pun">:</span><span class="typ">Box</span> <span class="pun">{</span> <span class="com">// SmallBox is the derived class.</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">void</span><span class="pln"> setSmallWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">);</span>
+      <span class="kwd">double</span><span class="pln"> getSmallWidth</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Member functions of child class</span>
+<span class="kwd">double</span> <span class="typ">SmallBox</span><span class="pun">::</span><span class="pln">getSmallWidth</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> width </span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="kwd">void</span> <span class="typ">SmallBox</span><span class="pun">::</span><span class="pln">setSmallWidth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> wid </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   width </span><span class="pun">=</span><span class="pln"> wid</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">SmallBox</span><span class="pln"> box</span><span class="pun">;</span>
+ 
+   <span class="com">// set box width using member function</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">setSmallWidth</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Width of box : "</span><span class="pun">&lt;&lt;</span><span class="pln"> box</span><span class="pun">.</span><span class="pln">getSmallWidth</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Width of box : 5
+</pre>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.tutorialspoint.com/sql/sql-expressions.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Operators</title>
+    <meta name="description" content="JavaScript Operators - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+    <!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="./7_files/pubads_impl_rendering_170.js.download"></script><script src="./7_files/ads"></script><script src="./7_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="./7_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./7_files/style-min.css">
+<script async="async" src="./7_files/gpt.js.download"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./7_files/integrator.js.download" as="script"><script type="text/javascript" src="./7_files/integrator.js.download"></script><link rel="preload" href="./7_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./7_files/integrator.js(1).download"></script><script src="./7_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Operators</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <h2>What is an operator?</h2>
+        <p>Let us take a simple expression <b>4 + 5 is equal to 9</b>. Here 4 and 5 are called <b>operands</b> and ‘+’ is called the <b>operator</b>. JavaScript supports the following types of operators.</p>
+        <ul class="list">
+            <li><p>Arithmetic Operators</p></li>
+            <li><p>Comparison Operators</p></li>
+            <li><p>Logical (or Relational) Operators</p></li>
+            <li><p>Assignment Operators</p></li>
+            <li><p>Conditional (or ternary) Operators</p></li>
+        </ul>
+        <p>Lets have a look on all operators one by one.</p>
+        <h2>Arithmetic Operators</h2>
+        <p>JavaScript supports the following arithmetic operators −</p>
+        <p>Assume variable A holds 10 and variable B holds 20, then −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;width:9%;">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>+ (Addition)</b></p>
+                    <p>Adds two operands</p>
+                    <p><b>Ex:</b> A + B will give 30</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>- (Subtraction)</b></p>
+                    <p>Subtracts the second operand from the first</p>
+                    <p><b>Ex:</b> A - B will give -10</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>* (Multiplication)</b></p>
+                    <p>Multiply both operands</p>
+                    <p><b>Ex:</b> A * B will give 200</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>/ (Division)</b></p>
+                    <p>Divide the numerator by the denominator</p>
+                    <p><b>Ex:</b> B / A will give 2</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>% (Modulus)</b></p>
+                    <p>Outputs the remainder of an integer division</p>
+                    <p><b>Ex:</b> B % A will give 0</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>++ (Increment)</b></p>
+                    <p>Increases an integer value by one</p>
+                    <p><b>Ex:</b> A++ will give 11</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>-- (Decrement)</b></p>
+                    <p>Decreases an integer value by one</p>
+                    <p><b>Ex:</b> A-- will give 9</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <p><b>Note</b> − Addition operator (+) works for Numeric as well as Strings. e.g. "a" + 10 will give "a10".</p>
+        <h3>Example</h3>
+        <p>The following code shows how to use arithmetic operators in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">33</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Test"</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"a + b = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"a - b = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"a / b = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">/</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"a % b = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">%</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"a + b + c = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">++</span><span class="pln">a</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"++a = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">++</span><span class="pln">a</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            b </span><span class="pun">=</span><span class="pln"> </span><span class="pun">--</span><span class="pln">b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"--b = "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">--</span><span class="pln">b</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      Set the variables to different values and then try...
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">a + b = 43
+a - b = 23
+a / b = 3.3
+a % b = 3
+a + b + c = 43Test
+++a = 35
+--b = 8
+Set the variables to different values and then try...
+</pre>
+        <h2>Comparison Operators</h2>
+        <p>JavaScript supports the following comparison operators −</p>
+        <p>Assume variable A holds 10 and variable B holds 20, then −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td>
+                    <p><b>= = (Equal)</b></p>
+                    <p>Checks if the value of two operands are equal or not, if yes, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A == B) is not true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td>
+                    <p><b>!= (Not Equal)</b></p>
+                    <p>Checks if the value of two operands are equal or not, if the values are not equal, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A != B) is true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td>
+                    <p><b>&gt; (Greater than)</b></p>
+                    <p>Checks if the value of the left operand is greater than the value of the right operand, if yes, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A &gt; B) is not true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td>
+                    <p><b>&lt; (Less than)</b></p>
+                    <p>Checks if the value of the left operand is less than the value of the right operand, if yes, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A &lt; B) is true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td>
+                    <p><b>&gt;= (Greater than or Equal to)</b></p>
+                    <p>Checks if the value of the left operand is greater than or equal to the value of the right operand, if yes, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A &gt;= B) is not true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td>
+                    <p><b>&lt;= (Less than or Equal to)</b></p>
+                    <p>Checks if the value of the left operand is less than or equal to the value of the right operand, if yes, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A &lt;= B) is true.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h3>Example</h3>
+        <p>The following code shows how to use comparison operators in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a == b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">==</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &lt; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &gt; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a != b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">!=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &gt;= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &lt;= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      Set the variables to different values and different operators and then try...
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">(a == b) =&gt; false
+(a &lt; b) =&gt; true
+(a &gt; b) =&gt; false
+(a != b) =&gt; true
+(a &gt;= b) =&gt; false
+a &lt;= b) =&gt; true
+Set the variables to different values and different operators and then try...
+</pre>
+        <h2>Logical Operators</h2>
+        <p>JavaScript supports the following logical operators −</p>
+        <p>Assume variable A holds 10 and variable B holds 20, then −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>&amp;&amp; (Logical AND)</b></p>
+                    <p>If both the operands are non-zero, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A &amp;&amp; B) is true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>|| (Logical OR)</b></p>
+                    <p>If any of the two operands are non-zero, then the condition becomes true.</p>
+                    <p><b>Ex:</b> (A || B) is true.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>! (Logical NOT)</b></p>
+                    <p>Reverses the logical state of its operand. If a condition is true, then the Logical NOT operator will make it false.</p>
+                    <p><b>Ex:</b> ! (A &amp;&amp; B) is false.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h3>Example</h3>
+        <p>Try the following code to learn how to implement Logical Operators in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &amp;&amp; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a || b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">||</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"!(a &amp;&amp; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(!(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">));</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variables to different values and different operators and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">(a &amp;&amp; b) =&gt; false
+(a || b) =&gt; true
+!(a &amp;&amp; b) =&gt; true
+Set the variables to different values and different operators and then try...
+</pre>
+        <h2>Bitwise Operators</h2>
+        <p>JavaScript supports the following bitwise operators −</p>
+        <p>Assume variable A holds 2 and variable B holds 3, then −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>&amp; (Bitwise AND)</b></p>
+                    <p>It performs a Boolean AND operation on each bit of its integer arguments.</p>
+                    <p><b>Ex:</b> (A &amp; B) is 2.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>| (BitWise OR)</b></p>
+                    <p>It performs a Boolean OR operation on each bit of its integer arguments.</p>
+                    <p><b>Ex:</b> (A | B) is 3.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>^ (Bitwise XOR)</b></p>
+                    <p>It performs a Boolean exclusive OR operation on each bit of its integer arguments. Exclusive OR means that either operand one is true or operand two is true, but not both.</p>
+                    <p><b>Ex:</b> (A ^ B) is 1.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>~ (Bitwise Not)</b></p>
+                    <p>It is a unary operator and operates by reversing all the bits in the operand.</p>
+                    <p><b>Ex:</b> (~B) is -4.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>&lt;&lt; (Left Shift)</b></p>
+                    <p>It moves all the bits in its first operand to the left by the number of places specified in the second operand. New bits are filled with zeros. Shifting a value left by one position is equivalent to multiplying it by 2, shifting two positions is equivalent to multiplying by 4, and so on.</p>
+                    <p><b>Ex:</b> (A &lt;&lt; 1) is 4.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>&gt;&gt; (Right Shift)</b></p>
+                    <p>Binary Right Shift Operator. The left operand’s value is moved right by the number of bits specified by the right operand.</p>
+                    <p><b>Ex:</b> (A &gt;&gt; 1) is 1.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>&gt;&gt;&gt; (Right shift with Zero)</b></p>
+                    <p>This operator is just like the &gt;&gt; operator, except that the bits shifted in on the left are always zero.</p>
+                    <p><b>Ex:</b> (A &gt;&gt;&gt; 1) is 1.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h3>Example</h3>
+        <p>Try the following code to implement Bitwise operator in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Bit presentation 10</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Bit presentation 11</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &amp; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a | b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">|</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a ^ b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">^</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(~b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(~</span><span class="pln">b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &lt;&lt; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;&lt;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"(a &gt;&gt; b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;&gt;</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variables to different values and different operators and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <pre class="result notranslate">(a &amp; b) =&gt; 2
+(a | b) =&gt; 3
+(a ^ b) =&gt; 1
+(~b) =&gt; -4
+(a &lt;&lt; b) =&gt; 16
+(a &gt;&gt; b) =&gt; 0
+Set the variables to different values and different operators and then try...
+</pre>
+        <h2>Assignment Operators</h2>
+        <p>JavaScript supports the following assignment operators −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>= (Simple Assignment )</b></p>
+                    <p>Assigns values from the right side operand to the left side operand</p>
+                    <p><b>Ex:</b> C = A + B will assign the value of A + B into C</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>+= (Add and Assignment)</b></p>
+                    <p>It adds the right operand to the left operand and assigns the result to the left operand.</p>
+                    <p><b>Ex:</b> C += A is equivalent to C = C + A</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>−= (Subtract and Assignment)</b></p>
+                    <p>It subtracts the right operand from the left operand and assigns the result to the left operand.</p>
+                    <p><b>Ex:</b> C -= A is equivalent to C = C - A</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>*= (Multiply and Assignment)</b></p>
+                    <p>It multiplies the right operand with the left operand and assigns the result to the left operand.</p>
+                    <p><b>Ex:</b> C *= A is equivalent to C = C * A</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>/= (Divide and Assignment)</b></p>
+                    <p>It divides the left operand with the right operand and assigns the result to the left operand.</p>
+                    <p><b>Ex:</b> C /= A is equivalent to C = C / A</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>%= (Modules and Assignment)</b></p>
+                    <p>It takes modulus using two operands and assigns the result to the left operand.</p>
+                    <p><b>Ex:</b> C %= A is equivalent to C = C % A</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <p><b>Note</b> − Same logic applies to Bitwise operators so they will become like &lt;&lt;=, &gt;&gt;=, &gt;&gt;=, &amp;=, |= and ^=.</p>
+        <h3>Example</h3>
+        <p>Try the following code to implement assignment operator in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">33</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a = b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a += b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a -= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">-=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a *= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">*=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a /= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">/=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Value of a =&gt; (a %= b) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">%=</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variables to different values and different operators and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Value of a =&gt; (a = b) =&gt; 10
+Value of a =&gt; (a += b) =&gt; 20
+Value of a =&gt; (a -= b) =&gt; 10
+Value of a =&gt; (a *= b) =&gt; 100
+Value of a =&gt; (a /= b) =&gt; 10
+Value of a =&gt; (a %= b) =&gt; 0
+Set the variables to different values and different operators and then try...
+</pre>
+        <h2>Miscellaneous Operator</h2>
+        <p>We will discuss two operators here that are quite useful in JavaScript: the <b>conditional operator</b> (? :) and the <b>typeof operator</b>.</p>
+        <h3>Conditional Operator (? :)</h3>
+        <p>The conditional operator first evaluates an expression for a true or false value and then executes one of the two given statements depending upon the result of the evaluation.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;" width="10%">Sr.No</th>
+                <th style="text-align:center;">Operator and Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>? : (Conditional )</b></p>
+                    <p>If Condition is true? Then value X : Otherwise value Y</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h3>Example</h3>
+        <p>Try the following code to understand how the Conditional Operator works in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"((a &gt; b) ? 100 : 200) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="lit">100</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">200</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"((a &lt; b) ? 100 : 200) =&gt; "</span><span class="pun">);</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="lit">100</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">200</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variables to different values and different operators and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">((a &gt; b) ? 100 : 200) =&gt; 200
+((a &lt; b) ? 100 : 200) =&gt; 100
+Set the variables to different values and different operators and then try...
+</pre>
+        <h2>typeof Operator</h2>
+        <p>The <b>typeof</b> operator is a unary operator that is placed before its single operand, which can be of any type. Its value is a string indicating the data type of the operand.</p>
+        <p>The <i>typeof</i> operator evaluates to "number", "string", or "boolean" if its operand is a number, string, or boolean value and returns true or false based on the evaluation.</p>
+        <p>Here is a list of the return values for the <b>typeof</b> Operator.</p>
+        <table class="table table-bordered" style="text-align:center;">
+            <tbody><tr>
+                <th style="text-align:center;" width="20%">Type</th>
+                <th style="text-align:center;">String Returned by typeof</th>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>"number"</td>
+            </tr>
+            <tr>
+                <td>String</td>
+                <td>"string"</td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td>"boolean"</td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td>"object"</td>
+            </tr>
+            <tr>
+                <td>Function</td>
+                <td>"function"</td>
+            </tr>
+            <tr>
+                <td>Undefined</td>
+                <td>"undefined"</td>
+            </tr>
+            <tr>
+                <td>Null</td>
+                <td>"object"</td>
+            </tr>
+            </tbody></table>
+        <h3>Example</h3>
+        <p>The following code shows how to implement <b>typeof</b> operator.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="str">"String"</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> linebreak </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> b </span><span class="pun">==</span><span class="pln"> </span><span class="str">"string"</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"B is String"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">"B is Numeric"</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Result =&gt; "</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+
+            result </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> a </span><span class="pun">==</span><span class="pln"> </span><span class="str">"string"</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"A is String"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">"A is Numeric"</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Result =&gt; "</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">linebreak</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variables to different values and different operators and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Result =&gt; B is String
+Result =&gt; A is Numeric
+Set the variables to different values and different operators and then try...
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

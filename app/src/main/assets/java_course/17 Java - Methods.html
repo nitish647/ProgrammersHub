@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Methods</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Methods</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>A Java method is a collection of statements that are grouped together to perform an operation. When you call the System.out.<b>println()</b> method, for example, the system actually executes several statements in order to display a message on the console.</p>
+        <p>Now you will learn how to create your own methods with or without return values, invoke a method with or without parameters, and apply method abstraction in the program design.</p>
+        <h2>Creating Method</h2>
+        <p>Considering the following example to explain the syntax of a method −</p>
+        <p><b>Syntax</b></p>
+        <pre class="result notranslate">public static int methodName(int a, int b) {
+   // body
+}
+</pre>
+        <p>Here,</p>
+        <ul class="list">
+            <li><p><b>public static</b> − modifier</p></li>
+            <li><p><b>int</b> − return type</p></li>
+            <li><p><b>methodName</b> − name of the method</p></li>
+            <li><p><b>a, b</b> − formal parameters</p></li>
+            <li><p><b>int a, int b</b> − list of parameters</p></li>
+        </ul>
+        <p>Method definition consists of a method header and a method body. The same is shown in the following syntax −</p>
+        <p><b>Syntax</b></p>
+        <pre class="result notranslate">modifier returnType nameOfMethod (Parameter List) {
+   // method body
+}
+</pre>
+        <p>The syntax shown above includes −</p>
+        <ul class="list">
+            <li><p><b>modifier</b> − It defines the access type of the method and it is optional to use.</p></li>
+            <li><p><b>returnType</b> − Method may return a value.</p></li>
+            <li><p><b>nameOfMethod</b> − This is the method name. The method signature consists of the method name and the parameter list.</p></li>
+            <li><p><b>Parameter List</b> − The list of parameters, it is the type, order, and number of parameters of a method. These are optional, method may contain zero parameters.</p></li>
+            <li><p><b>method body</b> − The method body defines what the method does with the statements.</p></li>
+        </ul>
+        <p><b>Example</b></p>
+        <p>Here is the source code of the above defined  method called <b>min()</b>. This method takes two parameters num1 and num2 and returns the maximum between the two −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/** the snippet returns the minimum between two numbers */</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n1 </span><span class="pun">&gt;</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln">
+      min </span><span class="pun">=</span><span class="pln"> n2</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln">
+      min </span><span class="pun">=</span><span class="pln"> n1</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">return</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <h2>Method Calling</h2>
+        <p>For using a method, it should be called. There are two ways in which a method is called i.e., method returns a value or returning nothing (no return value).</p>
+        <p>The process of method calling is simple. When a program invokes a method, the program control gets transferred to the called method. This called method then returns control to the caller in two conditions, when −</p>
+        <ul class="list">
+            <li>the return statement is executed.</li>
+            <li>it reaches the method ending closing brace.</li>
+        </ul>
+        <p>The methods returning void is considered as call to a statement. Lets consider an example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is tutorialspoint.com!"</span><span class="pun">);</span></pre>
+        <p>The method returning value can be understood by the following example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">int</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> sum</span><span class="pun">(</span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9</span><span class="pun">);</span></pre>
+        <p>Following is the example to demonstrate how to define a method and how to call it −</p>
+        <p><b>Example</b></p>
+
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleMinNumber</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">11</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Minimum Value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">/** returns the minimum of two numbers */</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n1 </span><span class="pun">&gt;</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n2</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">else</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n1</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="kwd">return</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">Minimum value = 6
+</pre>
+        <h2>The void Keyword</h2>
+        <p>The void keyword allows us to create methods which do not return a value. Here, in the following example we're considering a void method <i>methodRankPoints</i>. This method is a void method, which does not return any value. Call to a void method must be a statement i.e. <i>methodRankPoints(255.7);</i>. It is a Java statement which ends with a semicolon as shown in the following example.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleVoid</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      methodRankPoints</span><span class="pun">(</span><span class="lit">255.7</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> methodRankPoints</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> points</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">points </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">202.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Rank:A1"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">points </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">122.4</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Rank:A2"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Rank:A3"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">Rank:A1
+</pre>
+        <h2>Passing Parameters by Value</h2>
+        <p>While working under calling process, arguments is to be passed. These should be in the same order as their respective parameters in the method specification. Parameters can be passed by value or by reference.</p>
+        <p>Passing Parameters by Value means calling a method with a parameter. Through this, the argument value is passed to the parameter.</p>
+        <p><b>Example</b></p>
+        <p>The following program shows an example of passing parameter by value. The values of the arguments remains the same even after the method invocation.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> swappingExample </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">30</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">45</span><span class="pun">;</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Before swapping, a = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="str">" and b = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Invoke the swap method</span><span class="pln">
+      swapFunction</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"\n**Now, Before and After swapping values will be same here**:"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"After swapping, a = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="str">" and b is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> swapFunction</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Before swapping(Inside), a = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="str">" b = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Swap n1 with n2</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+      a </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+      b </span><span class="pun">=</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"After swapping(Inside), a = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="str">" b = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">Before swapping, a = 30 and b = 45
+Before swapping(Inside), a = 30 b = 45
+After swapping(Inside), a = 45 b = 30
+
+**Now, Before and After swapping values will be same here**:
+After swapping, a = 30 and b is 45
+</pre>
+        <h2>Method Overloading</h2>
+        <p>When a class has two or more methods by the same name but different parameters, it is known as method overloading. It is different from overriding. In overriding, a method has the same method name, type, number of parameters, etc.</p>
+        <p>Let’s consider the example discussed earlier for finding minimum numbers of integer type. If, let’s say we want to find the minimum number of double type. Then the concept of overloading will be introduced to create two or more methods with the same name but different parameters.</p>
+        <p>The following example explains the same −</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleOverloading</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">11</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">double</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="lit">7.3</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">double</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="lit">9.4</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> result1 </span><span class="pun">=</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// same function name with different parameters</span><span class="pln">
+      </span><span class="kwd">double</span><span class="pln"> result2 </span><span class="pun">=</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="pln">c</span><span class="pun">,</span><span class="pln"> d</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Minimum Value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> result1</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Minimum Value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> result2</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// for integer</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n1 </span><span class="pun">&gt;</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n2</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">else</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n1</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="kwd">return</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// for double</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> minFunction</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> n1</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+     </span><span class="kwd">double</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n1 </span><span class="pun">&gt;</span><span class="pln"> n2</span><span class="pun">)</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n2</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">else</span><span class="pln">
+         min </span><span class="pun">=</span><span class="pln"> n1</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="kwd">return</span><span class="pln"> min</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">Minimum Value = 6
+Minimum Value = 7.3
+</pre>
+        <p>Overloading methods makes program readable. Here, two methods are given by the same name but with different parameters. The minimum number from integer and double types is the result.</p>
+        <h2>Using Command-Line Arguments</h2>
+        <p>Sometimes you will want to pass some information into a program when you run it. This is accomplished by passing command-line arguments to main( ).</p>
+        <p>A command-line argument is the information that directly follows the program's name on the command line when it is executed. To access the command-line arguments inside a Java program is quite easy. They are stored as strings in the String array passed to main( ).</p>
+        <p><b>Example</b></p>
+        <p>The following program displays all of the command-line arguments that it is called with −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">CommandLine</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">args</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"args["</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">"]: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">  args</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Try executing this program as shown here −</p>
+        <pre class="result notranslate">$java CommandLine this is a command line 200 -100
+</pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">args[0]: this
+args[1]: is
+args[2]: a
+args[3]: command
+args[4]: line
+args[5]: 200
+args[6]: -100
+</pre>
+        <h2>The Constructors</h2>
+        <p>A constructor initializes an object when it is created. It has the same name as its class and is syntactically similar to a method. However, constructors have no explicit return type.</p>
+        <p>Typically, you will use a constructor to give initial values to the instance variables defined by the class, or to perform any other startup procedures required to create a fully formed object.</p>
+        <p>All classes have constructors, whether you define one or not, because Java automatically provides a default constructor that initializes all member variables to zero. However, once you define your own constructor, the default constructor is no longer used.</p>
+        <p><b>Example</b></p>
+        <p>Here is a simple example that uses a constructor without parameters −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// A simple constructor.</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="com">// Following is the constructor</span><span class="pln">
+   </span><span class="typ">MyClass</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>You will have to call constructor to initialize objects as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ConsDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">MyClass</span><span class="pln"> t1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">MyClass</span><span class="pln"> t2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">t1</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t2</span><span class="pun">.</span><span class="pln">x</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">10 10
+</pre>
+        <h2>Parameterized Constructor</h2>
+        <p>Most often, you will need a constructor that accepts one or more parameters. Parameters are added to a constructor in the same way that they are added to a method, just declare them inside the parentheses after the constructor's name.</p>
+        <p><b>Example</b></p>
+        <p>Here is a simple example that uses a constructor with a parameter −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// A simple constructor.</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="com">// Following is the constructor</span><span class="pln">
+   </span><span class="typ">MyClass</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      x </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>You will need to call a constructor to initialize objects as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ConsDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">MyClass</span><span class="pln"> t1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">(</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">MyClass</span><span class="pln"> t2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">(</span><span class="pln"> </span><span class="lit">20</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">t1</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t2</span><span class="pun">.</span><span class="pln">x</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">10 20
+</pre>
+        <h2>The this keyword</h2>
+        <p><b>this</b> is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor. Using <i>this</i> you can refer the members of a class such as constructors, variables and methods.</p>
+        <p><b>Note</b> − The keyword <i>this</i> is used only within instance methods or constructors</p>
+        <img src="../img/2.PNG" alt="This">
+        <p>In general, the keyword <i>this</i> is used to −</p>
+        <ul class="list">
+            <li><p>Differentiate the instance variables from local variables if they have same names, within a constructor or a method.</p></li>
+        </ul>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Student</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> age</span><span class="pun">;</span><span class="pln">
+   </span><span class="typ">Student</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> age</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">age </span><span class="pun">=</span><span class="pln"> age</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <ul class="list">
+            <li><p>Call one type of constructor (parametrized constructor or default) from other in a class. It is known as explicit constructor invocation.</p></li>
+        </ul>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Student</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> age
+   </span><span class="typ">Student</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="typ">Student</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> age</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">age </span><span class="pun">=</span><span class="pln"> age</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+
+        <p><b>Example</b></p>
+        <p>Here is an example that uses <i>this</i> keyword to access the members of a class. Copy and paste the following program in a file with the name, <b>This_Example.java</b>.</p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">This_Example</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// Instance variable num</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="typ">This_Example</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is an example program on keyword this"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="typ">This_Example</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Invoking the default constructor</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Assigning the local variable </span><i><span class="com">num</span></i><span class="com"> to the instance variable </span><i><span class="com">num</span></i><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">num </span><span class="pun">=</span><span class="pln"> num</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> greet</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Hi Welcome to Tutorialspoint"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">print</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Local variable num</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="com">// Printing the local variable</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"value of local variable num is : "</span><span class="pun">+</span><span class="pln">num</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Printing the instance variable</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"value of instance variable num is : "</span><span class="pun">+</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">num</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Invoking the greet method of a class</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">greet</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Instantiating the class</span><span class="pln">
+      </span><span class="typ">This_Example</span><span class="pln"> obj1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">This_Example</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Invoking the print method</span><span class="pln">
+      obj1</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="com">// Passing a new value to the num variable through parametrized constructor</span><span class="pln">
+      </span><span class="typ">This_Example</span><span class="pln"> obj2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">This_Example</span><span class="pun">(</span><span class="lit">30</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Invoking the print method again</span><span class="pln">
+      obj2</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">This is an example program on keyword this
+value of local variable num is : 20
+value of instance variable num is : 10
+Hi Welcome to Tutorialspoint
+This is an example program on keyword this
+value of local variable num is : 20
+value of instance variable num is : 30
+Hi Welcome to Tutorialspoint
+</pre>
+        <h2>Variable Arguments(var-args)</h2>
+        <p>JDK 1.5 enables you to pass a variable number of arguments of the same type to a method. The parameter in the method is declared as follows −</p>
+        <pre class="result notranslate">typeName... parameterName
+</pre>
+        <p>In the method declaration, you specify the type followed by an ellipsis (...). Only one variable-length parameter may be specified in a method, and this parameter must be the last parameter. Any regular parameters must precede it.</p>
+        <p><b>Example</b></p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">VarargsDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Call method with variable args  </span><span class="pln">
+	   printMax</span><span class="pun">(</span><span class="lit">34</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">56.5</span><span class="pun">);</span><span class="pln">
+      printMax</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">double</span><span class="pun">[]{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">});</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> printMax</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">double</span><span class="pun">...</span><span class="pln"> numbers</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">numbers</span><span class="pun">.</span><span class="pln">length </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"No argument passed"</span><span class="pun">);</span><span class="pln">
+         </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+
+      </span><span class="kwd">double</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> numbers</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+
+      </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln">  numbers</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">numbers</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln">  result</span><span class="pun">)</span><span class="pln">
+      result </span><span class="pun">=</span><span class="pln"> numbers</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"The max value is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <p><b>Output</b></p>
+        <pre class="result notranslate">The max value is 56.5
+The max value is 3.0
+</pre>
+        <h2>The finalize( ) Method</h2>
+        <p>It is possible to define a method that will be called just before an object's final destruction by the garbage collector. This method is called <b>finalize( )</b>, and it can be used to ensure that an object terminates cleanly.</p>
+        <p>For example, you might use finalize( ) to make sure that an open file owned by that object is closed.</p>
+        <p>To add a finalizer to a class, you simply define the finalize( ) method. The Java runtime calls that method whenever it is about to recycle an object of that class.</p>
+        <p>Inside the finalize( ) method, you will specify those actions that must be performed before an object is destroyed.</p>
+        <p>The finalize( ) method has this general form −</p>
+        <pre class="result notranslate">protected void finalize( ) {
+   // finalization code here
+}
+</pre>
+        <p>Here, the keyword protected is a specifier that prevents access to finalize( ) by code defined outside its class.</p>
+        <p>This means that you cannot know when or even if finalize( ) will be executed. For example, if your program ends before garbage collection occurs, finalize( ) will not execute.</p>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

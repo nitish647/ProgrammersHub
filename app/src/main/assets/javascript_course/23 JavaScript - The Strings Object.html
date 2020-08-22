@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - The Strings Object</title>
+    <meta name="description" content="JavaScript array - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - The Strings Object</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>The <b>String</b> object lets you work with a series of characters; it wraps Javascript's string primitive data type with a number of helper methods.</p>
+        <p>As JavaScript automatically converts between string primitives and String objects, you can call any of the helper methods of the String object on a string primitive.</p>
+        <h3>Syntax</h3>
+        <p>Use the following syntax to create a String object −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">);</span></pre>
+        <p>The <b>String</b> parameter is a series of characters that has been properly encoded.</p>
+        <h2>String  Properties</h2>
+        <p>Here is a list of the properties of String object and their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Property &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> constructor
+                    <p>Returns a reference to the String function that created the object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> length
+                    <p>Returns the length of the string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> prototype
+                    <p>The prototype property allows you to add properties and methods to an object.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of String properties.</p>
+        <h2>String  Methods</h2>
+        <p>Here is a list of the methods available in String object along with their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> charAt()
+                    <p>Returns the character at the specified index.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> charCodeAt()
+                    <p>Returns a number indicating the Unicode value of the character at the given index.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> concat()
+                    <p>Combines the text of two strings and returns a new string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td>indexOf()
+                    <p>Returns the index within the calling String object of the first occurrence of the specified value, or -1 if not found.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> lastIndexOf()
+                    <p>Returns the index within the calling String object of the last occurrence of the specified value, or -1 if not found.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> localeCompare()
+                    <p>Returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> match()
+                    <p>Used to match a regular expression against a string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> replace()
+                    <p>Used to find a match between a regular expression and a string, and to replace the matched substring with a new substring.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> search()
+                    <p>Executes the search for a match between a regular expression and a specified string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td>slice()
+                    <p>Extracts a section of a string and returns a new string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> split()
+                    <p>Splits a String object into an array of strings by separating the string into substrings.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> substr()
+                    <p>Returns the characters in a string beginning at the specified location through the specified number of characters.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> substring()
+                    <p>Returns the characters in a string between two indexes into the string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> toLocaleLowerCase()
+                    <p>The characters within a string are converted to lower case while respecting the current locale.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> toLocaleUpperCase()
+                    <p>The characters within a string are converted to upper case while respecting the current locale.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">16</td>
+                <td> toLowerCase()
+                    <p>Returns the calling string value converted to lower case.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">17</td>
+                <td> toString()
+                    <p>Returns a string representing the specified object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">18</td>
+                <td> toUpperCase()
+                    <p>Returns the calling string value converted to uppercase.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">19</td>
+                <td> valueOf()
+                    <p>Returns the primitive value of the specified object.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>String HTML Wrappers</h2>
+        <p>Here is a list of the methods that return a copy of the string wrapped inside an appropriate HTML tag.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> anchor()
+                    <p>Creates an HTML anchor that is used as a hypertext target.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> big()
+                    <p>Creates a string to be displayed in a big font as if it were in a &lt;big&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> blink()
+                    <p>Creates a string to blink as if it were in a &lt;blink&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> bold()
+                    <p>Creates a string to be displayed as bold as if it were in a &lt;b&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> fixed()
+                    <p>Causes a string to be displayed in fixed-pitch font as if it were in a &lt;tt&gt; tag</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> fontcolor()
+                    <p>Causes a string to be displayed in the specified color as if it were in a &lt;font color="color"&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td>fontsize()
+                    <p>Causes a string to be displayed in the specified font size as if it were in a &lt;font size="size"&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> italics()
+                    <p>Causes a string to be italic, as if it were in an &lt;i&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> link()
+                    <p>Creates an HTML hypertext link that requests another URL.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td> small()
+                    <p>Causes a string to be displayed in a small font, as if it were in a &lt;small&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> strike()
+                    <p>Causes a string to be displayed as struck-out text, as if it were in a &lt;strike&gt; tag.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> sub()
+                    <p>Causes a string to be displayed as a subscript, as if it were in a &lt;sub&gt; tag</p></td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> sup()
+                    <p>Causes a string to be displayed as a superscript, as if it were in a &lt;sup&gt; tag</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of String methods.</p>
+        <hr>
+    </div></div></div></div></div></div></body></html>

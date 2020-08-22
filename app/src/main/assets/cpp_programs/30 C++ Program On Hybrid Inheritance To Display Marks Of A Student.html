@@ -1,0 +1,109 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">student</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rollno;</span>
+    <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter The Roll Number &amp; Name: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">rollno;</span>
+       <span style="color: #f8f8f2">cin.ignore();</span>
+       <span style="color: #f8f8f2">cin.getline(name,</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">show</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Roll No = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">rollno</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Name = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">name</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">exam_internal</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">student</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #f8f8f2">protected:</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sub1_marks;</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sub2_marks;</span>
+   <span style="color: #f8f8f2">public:</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Enter Internal Marks Of Subject 1 = &quot;</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">sub1_marks;</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Enter Internal Marks Of Subject 2 = &quot;</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">sub2_marks;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">display_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Internal Marks Of Subject 1 = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">sub1_marks</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Internal Marks Of Subject 2 = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">sub2_marks</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">exam_external</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">protected:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sub1_ext_marks;</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sub2_ext_marks;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter External Marks of subject 1 = &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">sub1_ext_marks;</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter external marks of subject 2 = &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">sub2_ext_marks;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">display_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;External Marks Of Subject 1 = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">sub1_ext_marks</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;External Marks Of Subject 2 = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">sub2_ext_marks</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">result</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">exam_internal,</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">exam_external</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">total_marks;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">cal_result</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">total_marks</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sub1_marks</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">sub2_marks</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">sub1_ext_marks</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">sub2_ext_marks;</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; Total Marks Obtained = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">total_marks;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">result</span> <span style="color: #f8f8f2">r1;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Enter The Details Of Student:&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">r1.read</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Enter The Marks Of Internal Examination:&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">r1.exam_internal</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">read_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Marks Of External Examination: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">r1.exam_external</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">read_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Displaying Student Details: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">r1.show</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">r1.exam_internal</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">display_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">r1.exam_external</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">display_marks</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Calculating &amp; Displaying Result &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">r1.cal_result</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Details</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Student</span><span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">Number</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Name</span><span style="color: #f92672">:</span>
+<span style="color: #ae81ff">150</span>
+<span style="color: #f8f8f2">Rahul</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Internal</span> <span style="color: #f8f8f2">Examination</span><span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Internal</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">80</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Internal</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">85</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">External</span> <span style="color: #f8f8f2">Examination</span><span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">External</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">subject</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">90</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">external</span> <span style="color: #f8f8f2">marks</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">subject</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">95</span>
+<span style="color: #f8f8f2">Displaying</span> <span style="color: #f8f8f2">Student</span> <span style="color: #f8f8f2">Details</span><span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">No</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">150</span>
+<span style="color: #f8f8f2">Name</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Rahul</span>
+<span style="color: #f8f8f2">Internal</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">80</span>
+<span style="color: #f8f8f2">Internal</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">85</span>
+<span style="color: #f8f8f2">External</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">90</span>
+<span style="color: #f8f8f2">External</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Subject</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">95</span>
+<span style="color: #f8f8f2">Calculating</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Displaying</span> <span style="color: #f8f8f2">Result</span>
+ <span style="color: #f8f8f2">Total</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Obtained</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">350</span>
+</pre></div>

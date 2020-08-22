@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Browsers Compatibility</title>
+    <meta name="description" content="JavaScript Browsers Compatibility - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Browsers Compatibility</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>It is important to understand the differences between different browsers in order to handle each in the way it is expected. So it is important to know which browser your web page is running in.</p>
+        <p>To get information about the browser your webpage is currently running in, use the built-in <b>navigator</b> object.</p>
+        <h2>Navigator Properties</h2>
+        <p>There are several Navigator related properties that you can use in your Web page. The following is a list of the names and descriptions of each.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Property &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>appCodeName</b></p>
+                    <p>This property is a string that contains the code name of the browser, Netscape for Netscape and Microsoft Internet Explorer for Internet Explorer.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>appVersion</b></p>
+                    <p>This property is a string that contains the version of the browser as well as other useful information such as its language and compatibility.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>language</b></p>
+                    <p>This property contains the two-letter abbreviation for the language that is used by the browser. Netscape only.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>mimTypes[]</b></p>
+                    <p>This property is an array that contains all MIME types supported by the client. Netscape only.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>platform[]</b></p>
+                    <p>This property is a string that contains the platform for which the browser was compiled."Win32" for 32-bit Windows operating systems</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>plugins[]</b></p>
+                    <p>This property is an array containing all the plug-ins that have been installed on the client. Netscape only.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>userAgent[]</b></p>
+                    <p>This property is a string that contains the code name and version of the browser. This value is sent to the originating server to identify the client.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Navigator Methods</h2>
+        <p>There are several Navigator-specific methods. Here is a list of their names and descriptions.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>javaEnabled()</b></p>
+                    <p>This method determines if JavaScript is enabled in the client. If JavaScript is enabled, this method returns true; otherwise, it returns false.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>plugings.refresh</b></p>
+                    <p>This method makes newly installed plug-ins available and populates the plugins array with all new plug-in names. Netscape only.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>preference(name,value)</b></p>
+                    <p>This method allows a signed script to get and set some Netscape preferences. If the second parameter is omitted, this method will return the value of the specified preference; otherwise, it sets the value. Netscape only.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>taintEnabled()</b></p>
+                    <p>This method returns true if data tainting is enabled; false otherwise.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Browser Detection</h2>
+        <p>There is a simple JavaScript which can be used to find out the name of a browser and then accordingly an HTML page can be served to the user.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Browser Detection Example</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> userAgent   </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">userAgent</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> opera       </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">userAgent</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'Opera'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> ie          </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">userAgent</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'MSIE'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> gecko       </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">userAgent</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'Gecko'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> netscape    </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">userAgent</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'Mozilla'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> version     </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">appVersion</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">opera</span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Opera based browser"</span><span class="pun">);</span><span class="pln">
+               </span><span class="com">// Keep your opera specific URL here.</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">gecko</span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Mozilla based browser"</span><span class="pun">);</span><span class="pln">
+               </span><span class="com">// Keep your gecko specific URL here.</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ie</span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"IE based browser"</span><span class="pun">);</span><span class="pln">
+               </span><span class="com">// Keep your IE specific URL here.</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">netscape</span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Netscape based browser"</span><span class="pun">);</span><span class="pln">
+               </span><span class="com">// Keep your Netscape specific URL here.</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Unknown browser"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="com">// You can include version to along with any above condition.</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;br /&gt; Browser version info : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> version </span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/browsers_handling.htm" height="90px" width="600px" style="visibility: visible; height: 96px;"></iframe>
+        <hr>
+    </div></div></div></div></div></div></body></html>

@@ -1,0 +1,458 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Interfaces</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Interfaces</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>An interface is defined as a syntactical contract that all the
+classes inheriting the interface should follow. The interface defines the&nbsp;<b>'what'</b>&nbsp;part
+of the syntactical contract and the deriving classes define the&nbsp;<b>'how'</b>&nbsp;part
+of the syntactical contract.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Interfaces define properties, methods, and events, which are the
+members of the interface. Interfaces contain only the declaration of the
+members. It is the responsibility of the deriving class to define the members.
+It often helps in providing a standard structure that the deriving classes
+would follow.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Abstract classes to some extent serve the same purpose, however,
+they are mostly used when only few methods are to be declared by the base class
+and the deriving class implements the functionalities.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Declaring Interfaces</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Interfaces are declared using the interface keyword. It is similar
+to class declaration. Interface statements are public by default. Following is
+an example of an interface declaration:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>publicinterface</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>ITransactions</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// interface members</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>void</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> showTransaction</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>double</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> getAmount</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+14.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example demonstrates implementation of the above
+interface:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Collections</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Generic</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Linq</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Text</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>InterfaceApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicinterface</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ITransactions</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+interface members</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>void</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> showTransaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> getAmount</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicclass</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>:</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ITransactions</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> tCode</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> date</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> amount</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>public</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+tCode </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot; &quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+date </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot; &quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+amount </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>public</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> d</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> a</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+tCode </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+date </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> d</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+amount </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> a</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicdouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> getAmount</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> amount</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> showTransaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Transaction:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> tCode</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Date:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> date</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Amount:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> getAmount</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Tester</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> args</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> t1 </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;001&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;8/10/2012&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>78900.00</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> t2 </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Transaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;002&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;9/10/2012&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>451900.00</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+t1</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>showTransaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+t2</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>showTransaction</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Transaction:
+001</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Date:
+8/10/2012</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Amount:
+78900</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Transaction:
+002</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Date:
+9/10/2012</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Amount:
+451900</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

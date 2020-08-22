@@ -1,0 +1,684 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Operators in C++</h1>
+
+<p>An operator is a symbol that tells the compiler to perform specific mathematical or logical manipulations. C++ is rich in built-in operators and provide the following types of operators &minus;</p>
+<ul class="list">
+<li>Arithmetic Operators</li>
+<li>Relational Operators</li>
+<li>Logical Operators</li>
+<li>Bitwise Operators</li>
+<li>Assignment Operators</li>
+<li>Misc Operators</li>
+</ul>
+<p>This chapter will examine the arithmetic, relational, logical, bitwise, assignment and other operators one by one.</p>
+<h2>Arithmetic Operators</h2>
+<p>There are following arithmetic operators supported by C++ language &minus;</p>
+<p>Assume variable A holds 10 and variable B holds 20, then &minus;</p>
+<p><strong>Try the following example to understand all the arithmetic operators available in C++.</strong></p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+ 
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">;</span><span class="pln">
+ 
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - Value of c is :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - Value of c is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl 
+   </span><span class="pun">;</span><span class="pln">
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">*</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - Value of c is :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">/</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 4 - Value of c is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">%</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 5 - Value of c is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">++;</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 6 - Value of c is :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+   
+   c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">--;</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 7 - Value of c is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - Value of c is :31
+Line 2 - Value of c is  :11
+Line 3 - Value of c is :210
+Line 4 - Value of c is  :2
+Line 5 - Value of c is  :1
+Line 6 - Value of c is :21
+Line 7 - Value of c is  :22
+</pre>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;" width="10%">Operator</th>
+<th style="text-align: center;" width="45%">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td style="text-align: center;">+</td>
+<td>Adds two operands</td>
+<td style="text-align: center;">A + B will give 30</td>
+</tr>
+<tr>
+<td class="ts">-</td>
+<td>Subtracts second operand from the first</td>
+<td class="ts">A - B will give -10</td>
+</tr>
+<tr>
+<td style="text-align: center;">*</td>
+<td>Multiplies both operands</td>
+<td style="text-align: center;">A * B will give 200</td>
+</tr>
+<tr>
+<td style="text-align: center;">/</td>
+<td>Divides numerator by de-numerator</td>
+<td style="text-align: center;">B / A will give 2</td>
+</tr>
+<tr>
+<td class="ts">%</td>
+<td>Modulus Operator and remainder of after an integer division</td>
+<td class="ts">B % A will give 0</td>
+</tr>
+<tr>
+<td class="ts">++</td>
+<td>Increment operator</a>, increases integer value by one</td>
+<td class="ts">A++ will give 11</td>
+</tr>
+<tr>
+<td class="ts">--</td>
+<td>Decrement operator</a>, decreases integer value by one</td>
+<td class="ts">A-- will give 9</td>
+</tr>
+</tbody>
+</table>
+<h2>Relational Operators</h2>
+<p>There are following relational operators supported by C++ language</p>
+<p>Assume variable A holds 10 and variable B holds 20, then &minus;</p>
+<p><strong>Try the following example to understand all the relational operators available in C++.</strong></p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">;</span>
+
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">==</span><span class="pln"> b </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - a is equal to b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - a is not equal to b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">&lt;</span><span class="pln"> b </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - a is less than b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - a is not less than b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - a is greater than b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - a is not greater than b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="com">/* Let's change the values of a and b */</span><span class="pln">
+   a </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span><span class="pln">
+   b </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">&lt;=</span><span class="pln"> b </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 4 - a is either less than \ or equal to  b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> b </span><span class="pun">&gt;=</span><span class="pln"> a </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 5 - b is either greater than \ or equal to b"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - a is not equal to b
+Line 2 - a is not less than b
+Line 3 - a is greater than b
+Line 4 - a is either less than or euqal to  b
+Line 5 - b is either greater than or equal to b
+</pre>
+<p>&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;" width="10%">Operator</th>
+<th style="text-align: center;" width="45%">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td class="ts">==</td>
+<td>Checks if the values of two operands are equal or not, if yes then condition becomes true.</td>
+<td class="ts">(A == B) is not true.</td>
+</tr>
+<tr>
+<td class="ts">!=</td>
+<td>Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.</td>
+<td class="ts">(A != B) is true.</td>
+</tr>
+<tr>
+<td class="ts">&gt;</td>
+<td>Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.</td>
+<td class="ts">(A &gt; B) is not true.</td>
+</tr>
+<tr>
+<td class="ts">&lt;</td>
+<td>Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.</td>
+<td class="ts">(A &lt; B) is true.</td>
+</tr>
+<tr>
+<td class="ts">&gt;=</td>
+<td>Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td class="ts">(A &gt;= B) is not true.</td>
+</tr>
+<tr>
+<td class="ts">&lt;=</td>
+<td>Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td class="ts">(A &lt;= B) is true.</td>
+</tr>
+</tbody>
+</table>
+<h2>Logical Operators</h2>
+<p>There are following logical operators supported by C++ language.</p>
+<p>Assume variable A holds 1 and variable B holds 0, then &minus;</p>
+<p><strong>Try the following example to understand all the logical operators available in C++.</strong></p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">;</span>
+
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - Condition is true"</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln">a </span><span class="pun">||</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - Condition is true"</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="com">/* Let's change the values of  a and b */</span><span class="pln">
+   a </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln">
+   b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+   
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - Condition is true"</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 4 - Condition is not true"</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">if</span><span class="pun">(!(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">))</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 5 - Condition is true"</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - Condition is true
+Line 2 - Condition is true
+Line 4 - Condition is not true
+Line 5 - Condition is true
+</pre>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;" width="10%">Operator</th>
+<th style="text-align: center;" width="45%">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td class="ts">&amp;&amp;</td>
+<td>Called Logical AND operator. If both the operands are non-zero, then condition becomes true.</td>
+<td class="ts">(A &amp;&amp; B) is false.</td>
+</tr>
+<tr>
+<td class="ts">||</td>
+<td>Called Logical OR Operator. If any of the two operands is non-zero, then condition becomes true.</td>
+<td class="ts">(A || B) is true.</td>
+</tr>
+<tr>
+<td class="ts">!</td>
+<td>Called Logical NOT Operator. Use to reverses the logical state of its operand. If a condition is true, then Logical NOT operator will make false.</td>
+<td class="ts">!(A &amp;&amp; B) is true.</td>
+</tr>
+</tbody>
+</table>
+<h2>Bitwise Operators</h2>
+<p>Bitwise operator works on bits and perform bit-by-bit operation. The truth tables for &amp;, |, and ^ are as follows &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center; width: 20%;">p</th>
+<th style="text-align: center; width: 20%;">q</th>
+<th style="text-align: center; width: 20%;">p &amp; q</th>
+<th style="text-align: center; width: 20%;">p | q</th>
+<th style="text-align: center; width: 20%;">p ^ q</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Assume if A = 60; and B = 13; now in binary format they will be as follows &minus;</p>
+<p>A = 0011 1100</p>
+<p>B = 0000 1101</p>
+<p>-----------------</p>
+<p>A&amp;B = 0000 1100</p>
+<p>A|B = 0011 1101</p>
+<p>A^B = 0011 0001</p>
+<p>~A&nbsp; = 1100 0011</p>
+<p>The Bitwise operators supported by C++ language are listed in the following table. Assume variable A holds 60 and variable B holds 13, then &minus;</p>
+<p><strong>Try the following example to understand all the bitwise operators available in C++.</strong></p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">unsigned</span> <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">60</span><span class="pun">;</span>	  <span class="com">// 60 = 0011 1100  </span>
+   <span class="kwd">unsigned</span> <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">13</span><span class="pun">;</span>	  <span class="com">// 13 = 0000 1101</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln">           
+
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&amp;</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">// 12 = 0000 1100</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - Value of c is : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">|</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">// 61 = 0011 1101</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - Value of c is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">^</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">// 49 = 0011 0001</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - Value of c is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span> <span class="pun">~</span><span class="pln">a</span><span class="pun">;</span>                <span class="com">// -61 = 1100 0011</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 4 - Value of c is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span> <span class="lit">2</span><span class="pun">;</span>            <span class="com">// 240 = 1111 0000</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 5 - Value of c is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&gt;&gt;</span> <span class="lit">2</span><span class="pun">;</span>            <span class="com">// 15 = 0000 1111</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 6 - Value of c is: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - Value of c is : 12
+Line 2 - Value of c is: 61
+Line 3 - Value of c is: 49
+Line 4 - Value of c is: -61
+Line 5 - Value of c is: 240
+Line 6 - Value of c is: 15
+</pre>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;" width="10%">Operator</th>
+<th style="text-align: center;" width="45%">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td class="ts">&amp;</td>
+<td>Binary AND Operator copies a bit to the result if it exists in both operands.</td>
+<td style="vertical-align: middle;">(A &amp; B) will give 12 which is 0000 1100</td>
+</tr>
+<tr>
+<td class="ts">|</td>
+<td>Binary OR Operator copies a bit if it exists in either operand.</td>
+<td>(A | B) will give 61 which is 0011 1101</td>
+</tr>
+<tr>
+<td class="ts">^</td>
+<td>Binary XOR Operator copies the bit if it is set in one operand but not both.</td>
+<td style="vertical-align: middle;">(A ^ B) will give 49 which is 0011 0001</td>
+</tr>
+<tr>
+<td class="ts">~</td>
+<td>Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.</td>
+<td>(~A ) will give -61 which is 1100 0011 in 2's complement form due to a signed binary number.</td>
+</tr>
+<tr>
+<td class="ts">&lt;&lt;</td>
+<td>Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.</td>
+<td style="vertical-align: middle;">A &lt;&lt; 2 will give 240 which is 1111 0000</td>
+</tr>
+<tr>
+<td class="ts">&gt;&gt;</td>
+<td>Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.</td>
+<td style="vertical-align: middle;">A &gt;&gt; 2 will give 15 which is 0000 1111</td>
+</tr>
+</tbody>
+</table>
+<h2>Assignment Operators</h2>
+<p>There are following assignment operators supported by C++ language &minus;</p>
+<p><strong>Try the following example to understand all the assignment operators available in C++.</strong></p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 1 - =  Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">+=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 2 - += Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">-=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 3 - -= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">*=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 4 - *= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">/=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 5 - /= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c  </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span><span class="pln">
+   c </span><span class="pun">%=</span><span class="pln">  a</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 6 - %= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">&lt;&lt;=</span>  <span class="lit">2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 7 - &lt;&lt;= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">&gt;&gt;=</span>  <span class="lit">2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 8 - &gt;&gt;= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">&amp;=</span>  <span class="lit">2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 9 - &amp;= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">^=</span>  <span class="lit">2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 10 - ^= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   c </span><span class="pun">|=</span>  <span class="lit">2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Line 11 - |= Operator, Value of c = : "</span> <span class="pun">&lt;&lt;</span><span class="pln">c</span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Line 1 - =  Operator, Value of c = : 21
+Line 2 - += Operator, Value of c = : 42
+Line 3 - -= Operator, Value of c = : 21
+Line 4 - *= Operator, Value of c = : 441
+Line 5 - /= Operator, Value of c = : 21
+Line 6 - %= Operator, Value of c = : 11
+Line 7 - &lt;&lt;= Operator, Value of c = : 44
+Line 8 - &gt;&gt;= Operator, Value of c = : 11
+Line 9 - &amp;= Operator, Value of c = : 2
+Line 10 - ^= Operator, Value of c = : 0
+Line 11 - |= Operator, Value of c = : 2
+</pre>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;" width="10%">Operator</th>
+<th style="text-align: center;" width="48%">Description</th>
+<th style="text-align: center;">Example</th>
+</tr>
+<tr>
+<td class="ts">=</td>
+<td>Simple assignment operator, Assigns values from right side operands to left side operand.</td>
+<td style="vertical-align: middle;">C = A + B will assign value of A + B into C</td>
+</tr>
+<tr>
+<td class="ts">+=</td>
+<td>Add AND assignment operator, It adds right operand to the left operand and assign the result to left operand.</td>
+<td style="vertical-align: middle;">C += A is equivalent to C = C + A</td>
+</tr>
+<tr>
+<td class="ts">-=</td>
+<td>Subtract AND assignment operator, It subtracts right operand from the left operand and assign the result to left operand.</td>
+<td style="vertical-align: middle;">C -= A is equivalent to C = C - A</td>
+</tr>
+<tr>
+<td class="ts">*=</td>
+<td>Multiply AND assignment operator, It multiplies right operand with the left operand and assign the result to left operand.</td>
+<td style="vertical-align: middle;">C *= A is equivalent to C = C * A</td>
+</tr>
+<tr>
+<td class="ts">/=</td>
+<td>Divide AND assignment operator, It divides left operand with the right operand and assign the result to left operand.</td>
+<td style="vertical-align: middle;">C /= A is equivalent to C = C / A</td>
+</tr>
+<tr>
+<td class="ts">%=</td>
+<td>Modulus AND assignment operator, It takes modulus using two operands and assign the result to left operand.</td>
+<td style="vertical-align: middle;">C %= A is equivalent to C = C % A</td>
+</tr>
+<tr>
+<td class="ts">&lt;&lt;=</td>
+<td>Left shift AND assignment operator.</td>
+<td style="vertical-align: middle;">C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</td>
+</tr>
+<tr>
+<td class="ts">&gt;&gt;=</td>
+<td>Right shift AND assignment operator.</td>
+<td style="vertical-align: middle;">C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</td>
+</tr>
+<tr>
+<td class="ts">&amp;=</td>
+<td>Bitwise AND assignment operator.</td>
+<td style="vertical-align: middle;">C &amp;= 2 is same as C = C &amp; 2</td>
+</tr>
+<tr>
+<td class="ts">^=</td>
+<td>Bitwise exclusive OR and assignment operator.</td>
+<td style="vertical-align: middle;">C ^= 2 is same as C = C ^ 2</td>
+</tr>
+<tr>
+<td class="ts">|=</td>
+<td>Bitwise inclusive OR and assignment operator.</td>
+<td style="vertical-align: middle;">C |= 2 is same as C = C | 2</td>
+</tr>
+</tbody>
+</table>
+<h2>Misc Operators</h2>
+<p>The following table lists some other operators that C++ supports.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Operator &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>sizeof</strong></p>
+<p>sizeof operator returns the size of a variable. For example, sizeof(a), where &lsquo;a&rsquo; is integer, and will return 4.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>Condition ? X : Y</strong></p>
+<p>Conditional operator (?). If Condition is true then it returns value of X otherwise returns value of Y.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>,</strong></p>
+<p>Comma operator causes a sequence of operations to be performed. The value of the entire comma expression is the value of the last expression of the comma-separated list.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>. (dot) and -&gt; (arrow)</strong></p>
+<p>Member operators are used to reference individual members of classes, structures, and unions.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>Cast</strong></p>
+<p>Casting operators convert one data type to another. For example, int(2.2000) would return 2.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>&amp;</strong></p>
+<p>Pointer operator &amp; returns the address of a variable. For example &amp;a; will give actual address of the variable.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td>
+<p><strong>*</strong></p>
+<p>Pointer operator * is pointer to a variable. For example *var; will pointer to a variable var.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Operators Precedence in C++</h2>
+<p>Operator precedence determines the grouping of terms in an expression. This affects how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has higher precedence than the addition operator &minus;</p>
+<p>For example x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has higher precedence than +, so it first gets multiplied with 3*2 and then adds into 7.</p>
+<p>Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.</p>
+<p><strong>Try the following example to understand operators precedence concept available in C++.</strong> </p>
+<p>Check the simple difference with and without parenthesis. This will produce different results because (), /, * and + have different precedence. Higher precedence operators will be evaluated first &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+ 
+main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span> <span class="lit">15</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> d </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> e</span><span class="pun">;</span><span class="pln">
+ 
+   e </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span><span class="pln"> c </span><span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>      <span class="com">// ( 30 * 15 ) / 5</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of (a + b) * c / d is :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> e </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   e </span><span class="pun">=</span> <span class="pun">((</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span><span class="pln"> c</span><span class="pun">)</span> <span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>    <span class="com">// (30 * 15 ) / 5</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of ((a + b) * c) / d is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> e </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   e </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span> <span class="pun">(</span><span class="pln">c </span><span class="pun">/</span><span class="pln"> d</span><span class="pun">);</span>   <span class="com">// (30) * (15/5)</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of (a + b) * (c / d) is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> e </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span><span class="pln">
+
+   e </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span> <span class="pun">(</span><span class="pln">b </span><span class="pun">*</span><span class="pln"> c</span><span class="pun">)</span> <span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>     <span class="com">//  20 + (150/5)</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of a + (b * c) / d is  :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> e </span><span class="pun">&lt;&lt;</span><span class="pln"> endl </span><span class="pun">;</span>
+  
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of (a + b) * c / d is :90
+Value of ((a + b) * c) / d is  :90
+Value of (a + b) * (c / d) is  :90
+Value of a + (b * c) / d is  :50
+</pre>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">Category&nbsp;</th>
+<th style="text-align: center;">Operator&nbsp;</th>
+<th style="text-align: center;">Associativity&nbsp;</th>
+</tr>
+<tr>
+<td>Postfix&nbsp;</td>
+<td>() [] -&gt; . ++ - - &nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Unary&nbsp;</td>
+<td>+ - ! ~ ++ - - (type)* &amp; sizeof&nbsp;</td>
+<td>Right to left&nbsp;</td>
+</tr>
+<tr>
+<td>Multiplicative &nbsp;</td>
+<td>* / %&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Additive &nbsp;</td>
+<td>+ -&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Shift &nbsp;</td>
+<td>&lt;&lt; &gt;&gt;&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Relational &nbsp;</td>
+<td>&lt; &lt;= &gt; &gt;=&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Equality &nbsp;</td>
+<td>== !=&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Bitwise AND&nbsp;</td>
+<td>&amp;&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Bitwise XOR&nbsp;</td>
+<td>^&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Bitwise OR&nbsp;</td>
+<td>|&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Logical AND&nbsp;</td>
+<td>&amp;&amp;&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Logical OR&nbsp;</td>
+<td>||&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+<tr>
+<td>Conditional&nbsp;</td>
+<td>?:&nbsp;</td>
+<td>Right to left&nbsp;</td>
+</tr>
+<tr>
+<td>Assignment&nbsp;</td>
+<td>= += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=&nbsp;</td>
+<td>Right to left&nbsp;</td>
+</tr>
+<tr>
+<td>Comma&nbsp;</td>
+<td>,&nbsp;</td>
+<td>Left to right&nbsp;</td>
+</tr>
+</tbody>
+</table>

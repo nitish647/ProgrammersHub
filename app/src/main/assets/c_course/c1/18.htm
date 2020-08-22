@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Static
+functions in C</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.75pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:21.0pt;font-family:"Times New Roman","serif"'>Static
+functions in C</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif"'>Prerequisite :&nbsp;<a
+href="https://www.geeksforgeeks.org/static-variables-in-c/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>Static variables in
+C</span></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif"'>In C, functions are global by default.
+The “</span><i><span lang=EN-IN style='font-size:11.5pt;font-family:"Times New Roman","serif"'>static</span></i><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>”
+keyword before a function name makes it static. For example, below
+function&nbsp;</span><i><span lang=EN-IN style='font-size:11.5pt;font-family:
+"Times New Roman","serif"'>fun()&nbsp;</span></i><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Times New Roman","serif"'>is static.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>static</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>fun(void) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;printf(&quot;I
+  am a static function &quot;); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Unlike
+global functions in C, access to static functions is restricted to the file
+where they are declared. Therefore, when we want to restrict access to
+functions, we make them static. Another reason for making functions static can
+be reuse of the same function name in other files.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Times New Roman","serif"'>For example, if we store following
+program in one file&nbsp;</span><i><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Times New Roman","serif"'>file1.c</span></i></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>/*
+  Inside file1.c */</span><span style='font-size:10.0pt;font-family:"Times New Roman","serif";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>static</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>void</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>fun1(void) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;puts(&quot;fun1
+  called&quot;); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Times New Roman","serif"'>And store following program in another
+file&nbsp;</span><i><span lang=EN-IN style='font-size:11.5pt;font-family:"Times New Roman","serif"'>file2.c</span></i></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>/*
+  Iinside file2.c&nbsp; */</span><span style='font-size:10.0pt;font-family:
+  "Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main(void) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;fun1();&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;return</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>0;&nbsp;&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:white;
+vertical-align:baseline'><span lang=EN-IN style='font-family:"Helvetica","sans-serif";
+color:black'>Now, if we compile the above code with command “</span><em><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>gcc file2.c file1.c</span></em><span lang=EN-IN style='font-family:
+"Helvetica","sans-serif";color:black'>”, we get the error&nbsp;</span><em><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>“undefined reference to `fun1’”</span></em><em><span lang=EN-IN
+style='font-family:"Helvetica","sans-serif";color:black;font-style:normal'>&nbsp;.</span></em><span
+lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'> This is
+because&nbsp;</span><em><span lang=EN-IN style='font-size:11.5pt;font-family:
+"Helvetica","sans-serif";color:black'>fun1()</span></em><span lang=EN-IN
+style='font-family:"Helvetica","sans-serif";color:black'>&nbsp;is
+declared&nbsp;</span><em><span lang=EN-IN style='font-size:11.5pt;font-family:
+"Helvetica","sans-serif";color:black'>static&nbsp;</span></em><span lang=EN-IN
+style='font-family:"Helvetica","sans-serif";color:black'>in&nbsp;</span><em><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>file1.c</span></em><span lang=EN-IN style='font-family:"Helvetica","sans-serif";
+color:black'>&nbsp;and cannot be used in&nbsp;</span><em><span lang=EN-IN
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:black'>file2.c</span></em><span
+lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'>.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

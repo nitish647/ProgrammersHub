@@ -1,0 +1,260 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Do...While Loop</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>C# - Do...While Loop</span></b></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>Unlike&nbsp;<b>for</b>&nbsp;and&nbsp;<b>while</b>&nbsp;loops,
+which test the loop condition at the start of the loop, the&nbsp;<b>do...while</b>&nbsp;loop
+checks its condition at the end of the loop.  A&nbsp;<b>do...while</b>&nbsp;loop
+is similar to a while loop, except that a do...while loop is guaranteed to
+execute at least one time.</span></p>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>Syntax</span></b></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>The syntax of a&nbsp;<b>do...while</b>&nbsp;loop in C# is &#8722;</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><img src="22_files/image001.webp"></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>Notice that the conditional expression appears at the end of the
+loop, so the statement(s) in the loop execute once before the condition is
+tested.</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>If the condition is true, the flow of control jumps back up to do,
+and the statement(s) in the loop execute again. This process repeats until the
+given condition becomes false.</span></p>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>Flow Diagram</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'><img src="22_files/image002.webp"
+alt="do...while loop in C#"></span></p>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>Example</span></b></p>
+
+<div style='border:solid #888888 1.0pt;padding:0in 0in 0in 0in'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>System</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'>namespace</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Loops</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>   </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Program</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>      </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Main</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+args</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/* local variable
+definition */</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> a </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>10</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/* do loop execution */</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>do</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;value
+of a: {0}&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>,</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> a</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            a </span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> a </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>+</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>}</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>while</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>a </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>&lt;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>20</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>      </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>   </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;border:none;padding:0in'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>}</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:
+.1in;margin-left:2.4pt;text-align:justify;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>When the above code is compiled and executed, it produces the
+following result &#8722;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 10</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 11</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 12</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 13</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 14</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 15</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 16</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 17</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 18</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>value
+of a: 19                       </span></p>
+
+</div>
+
+</body>
+
+</html>

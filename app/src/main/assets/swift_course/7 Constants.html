@@ -1,0 +1,58 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Constants</h1>
+
+<p>Constants refer to fixed values that a program may not alter during its execution. Constants can be of any of the basic data types like an <em>integer constant, a floating constant, a character constant, or a string literal</em>. There are <em>enumeration constants</em> as well.</p>
+<p><strong>Constants</strong> are treated just like regular variables except the fact that their values cannot be modified after their definition.</p>
+<h2>Constants Declaration</h2>
+<p>Before you use constants, you must declare them using <strong>let</strong> keyword as follows &minus;</p>
+<pre class="result notranslate">let constantName = &lt;initial value&gt;
+</pre>
+<p>Following is a simple example to show how to declare a constant in Swift &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> constA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">constA</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">42
+</pre>
+<h2>Type Annotations</h2>
+<p>You can provide a <strong>type annotation</strong> when you declare a constant, to be clear about the kind of values the constant can store. Following is the syntax &minus;</p>
+<pre class="result notranslate">var constantName:&lt;data type&gt; = &lt;optional initial value&gt;
+</pre>
+<p>The following example shows how to declare a constant in Swift using Annotation. Here it is important to note that it is mandatory to provide an initial value while creating a constant &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> constA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">constA</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> constB</span><span class="pun">:</span><span class="typ">Float</span> <span class="pun">=</span> <span class="lit">3.14159</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">constB</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">42
+3.1415901184082
+</pre>
+<h2>Naming Constants</h2>
+<p>The name of a constant can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Swift is a case-sensitive programming language.</p>
+<p>You can use simple or Unicode characters to name your variables. Following are valid examples &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> _const </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">_const</span><span class="pun">)</span>
+
+<span class="kwd">let</span> <span class="pun">你好</span> <span class="pun">=</span> <span class="str">"你好世界"</span><span class="pln">
+println</span><span class="pun">(你好)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Hello, Swift!
+你好世界
+</pre>
+<h2>Printing Constants</h2>
+<p>You can print the current value of a constant or variable using <strong>println</strong> function. You can interpolate a variable value by wrapping the name in parentheses and escape it with a backslash before the opening parenthesis: Following are valid examples &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> constA </span><span class="pun">=</span> <span class="str">"Godzilla"</span>
+<span class="kwd">let</span><span class="pln"> constB </span><span class="pun">=</span> <span class="lit">1000.00</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of \(constA) is more than \(constB) millions"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Value of Godzilla is more than 1000.0 millions
+</pre>

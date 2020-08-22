@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/videotut"
+    android:layout_height="match_parent"
+    tools:context=".Video_tutorials">
+  <com.airbnb.lottie.LottieAnimationView
+      android:id="@+id/lotie_tutorial"
+      app:lottie_loop="true"
+      android:visibility="gone"
+      app:lottie_rawRes="@raw/lottiel_no_internet"
+      app:lottie_autoPlay="true"
+      android:background="#039BE5"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+  <com.google.android.youtube.player.YouTubePlayerView
+      android:id="@+id/youtube_tut"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+  </com.google.android.youtube.player.YouTubePlayerView>
+    <TextView
+        android:background="#0288D1"
+        android:id="@+id/txt_title"
+        android:textSize="25dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColor="#F5F5F5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

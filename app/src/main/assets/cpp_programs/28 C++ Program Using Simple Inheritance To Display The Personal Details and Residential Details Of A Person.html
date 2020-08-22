@@ -1,0 +1,75 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #75715e">#include &lt;stdio.h&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Person</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">personid,</span> <span style="color: #f8f8f2">age;</span>
+    <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name[</span><span style="color: #ae81ff">25</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read1</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter the name, id and age of the person&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">gets</span> <span style="color: #f8f8f2">(name);</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">personid</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">age;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">print1</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;******Details entered******&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Name: &quot;</span><span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">name</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Age: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">age</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Id: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">personid</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Address</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Person</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hno;</span>
+     <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">hname[</span><span style="color: #ae81ff">25</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">sname[</span><span style="color: #ae81ff">25</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">po[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">public:</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read2</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">read1();</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter the house number, house name, street name and post office&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">hno</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">hname;</span>
+       <span style="color: #f8f8f2">cin.ignore();</span>
+       <span style="color: #f8f8f2">cin.getline(sname,</span><span style="color: #ae81ff">25</span><span style="color: #f8f8f2">);</span>
+       <span style="color: #f8f8f2">cin.getline(po,</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">print2</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">print1();</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;The address of the person is:&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;House number: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">hno</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;House name: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">hname</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Street name: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">sname</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Post Office: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">po;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Address</span> <span style="color: #f8f8f2">A;</span>
+  <span style="color: #f8f8f2">A.read2();</span>
+  <span style="color: #f8f8f2">A.print2();</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">name,</span> <span style="color: #f8f8f2">id</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">age</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">person</span>
+<span style="color: #f8f8f2">Abhishek</span>
+<span style="color: #ae81ff">10</span>
+<span style="color: #ae81ff">25</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">house</span> <span style="color: #f8f8f2">number,</span> <span style="color: #f8f8f2">house</span> <span style="color: #f8f8f2">name,</span> <span style="color: #f8f8f2">street</span> <span style="color: #f8f8f2">name</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">post</span> <span style="color: #f8f8f2">office</span>
+<span style="color: #ae81ff">50</span> <span style="color: #f8f8f2">Sample</span> <span style="color: #f8f8f2">Street</span> <span style="color: #f8f8f2">Post</span> <span style="color: #f8f8f2">Office</span>
+<span style="color: #f8f8f2">Post</span> <span style="color: #f8f8f2">Office</span>
+
+<span style="color: #f92672">******</span><span style="color: #f8f8f2">Details</span> <span style="color: #f8f8f2">entered</span><span style="color: #f92672">******</span>
+<span style="color: #f8f8f2">Name:</span> <span style="color: #f8f8f2">Abhishek</span>
+<span style="color: #f8f8f2">Age:</span> <span style="color: #ae81ff">25</span>
+<span style="color: #f8f8f2">Id:</span> <span style="color: #ae81ff">10</span>
+<span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">address</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">person</span> <span style="color: #f8f8f2">is</span><span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">House</span> <span style="color: #f8f8f2">number</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span>
+<span style="color: #f8f8f2">House</span> <span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Sample</span>
+<span style="color: #f8f8f2">Street</span> <span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Street</span> <span style="color: #f8f8f2">Post</span> <span style="color: #f8f8f2">Office</span>
+<span style="color: #f8f8f2">Post</span> <span style="color: #f8f8f2">Office</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Post</span> <span style="color: #f8f8f2">Offi</span>
+</pre></div>

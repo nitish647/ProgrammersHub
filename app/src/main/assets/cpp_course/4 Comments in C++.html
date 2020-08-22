@@ -1,0 +1,29 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Comments in C++</h1>
+<p>Program comments are explanatory statements that you can include in the C++ code. These comments help anyone reading the source code. All programming languages allow for some form of comments.</p>
+<p>C++ supports single-line and multi-line comments. All characters available inside any comment are ignored by C++ compiler.</p>
+<p>C++ comments start with /* and end with */. For example &minus;</p>
+<pre class="result notranslate">/* This is a comment */
+
+/* C++ comments can also
+   * span multiple lines
+*/
+</pre>
+<p>A comment can also start with //, extending to the end of the line. For example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+
+main</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Hello World"</span><span class="pun">;</span> <span class="com">// prints Hello World</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled, it will ignore <strong>// prints Hello World</strong> and final executable will produce the following result &minus;</p>
+<pre class="result notranslate">Hello World
+</pre>
+<p>Within a /* and */ comment, // characters have no special meaning. Within a // comment, /* and */ have no special meaning. Thus, you can "nest" one kind of comment within the other kind. For example &minus;</p>
+<pre class="result notranslate">/* Comment out printing of Hello World:
+
+cout &lt;&lt; "Hello World"; // prints Hello World
+
+*/
+</pre>

@@ -1,0 +1,1023 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Indexers</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Indexers</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>An&nbsp;<b>indexer</b>&nbsp;allows an object to be indexed such as
+an array. When you define an indexer for a class, this class behaves similar to
+a&nbsp;<b>virtual array</b>. You can then access the instance of this class
+using the array access operator ([ ]).</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Syntax</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>A one dimensional indexer has the following syntax:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>element</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>type
+</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#000088'>this</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>[</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#000088'>int</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> index</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// The get accessor.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// return the value specified by index</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// The set accessor.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// set the value specified by index</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Use of Indexers</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Declaration of behavior of an indexer is to some extent similar to
+a property. similar to the properties, you use&nbsp;<b>get</b>&nbsp;and&nbsp;<b>set</b>&nbsp;accessors
+for defining an indexer. However, properties return or set a specific data
+member, whereas indexers returns or sets a particular value from the object
+instance. In other words, it breaks the instance data into smaller parts and
+indexes each part, gets or sets each part.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Defining a property involves providing a property name. Indexers
+are not defined with names, but with the&nbsp;<b>this</b>&nbsp;keyword, which
+refers to the object instance. The following example demonstrates the concept:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexerApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> namelist </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>newstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticpublicint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>public</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>for</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+namelist</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'>i</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>]=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#008800'>&quot;N. A.&quot;</span><span lang=EN-IN style='font-family:
+"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstringthis</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> tmp</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+tmp </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> namelist</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+tmp </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> tmp </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+namelist</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'>index</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>]=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> value</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> args</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> names </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Zara&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Riz&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Nuha&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Asif&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>4</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Davinder&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>5</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Sunil&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>6</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Rubic&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>for</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>names</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Zara</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Riz</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Nuha</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Asif</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Davinder</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Sunil</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Rubic</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Overloaded Indexers</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Indexers can be overloaded. Indexers can also be declared with
+multiple parameters and each parameter may be a different type. It is not
+necessary that the indexes have to be integers. C# allows indexes to be of
+other types, for example, a string.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example demonstrates overloaded indexers:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexerApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> namelist </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>newstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticpublicint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>10</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>public</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>for</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+namelist</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'>i</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>]=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#008800'>&quot;N. A.&quot;</span><span lang=EN-IN style='font-family:
+"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstringthis</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> tmp</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>          
+    tmp </span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> namelist</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'>index</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+tmp </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> tmp </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>-</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+namelist</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>[</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'>index</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>]=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> value</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicintthis</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>while</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>index </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>namelist</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]==</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>              
+index</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>++;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> index</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> args</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> names </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Zara&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Riz&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Nuha&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Asif&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>       
+ names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>4</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Davinder&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>5</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Sunil&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+names</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>6</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Rubic&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//using
+the first indexer with int parameter</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>for</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>int</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>IndexedNames</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>size</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>++)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>names</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>i</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//using
+the second indexer with the string parameter</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>names</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Nuha&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Zara</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Riz</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Nuha</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Asif</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Davinder</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Sunil</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Rubic</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>N. A.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>2</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

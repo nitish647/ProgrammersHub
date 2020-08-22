@@ -1,0 +1,38 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Conditional ? : Operator</h1>
+
+<pre class="result notranslate">Exp1 ? Exp2 : Exp3;
+</pre>
+<p>where Exp1, Exp2, and Exp3 are expressions. Notice the use and placement of the colon. The value of a ? expression is determined like this: Exp1 is evaluated. If it is true, then Exp2 is evaluated and becomes the value of the entire ? expression. If Exp1 is false, then Exp3 is evaluated and its value becomes the value of the expression.</p>
+<p>The ? is called a ternary operator because it requires three operands and can be used to replace if-else statements, which have the following form &minus;</p>
+<pre class="result notranslate">if(condition) {
+   var = X;
+} else {
+   var = Y;
+}
+</pre>
+<p>For example, consider the following code &minus;</p>
+<pre class="result notranslate">if(y &lt; 10) { 
+   var = 30;
+} else {
+   var = 40;
+}
+</pre>
+<p>Above code can be rewritten like this &minus;</p>
+<pre class="result notranslate">var = (y &lt; 10) ? 30 : 40;
+</pre>
+<p>Here, x is assigned the value of 30 if y is less than 10 and 40 if it is not. You can the try following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// Local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln">
+
+   x </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">y </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">)</span> <span class="pun">?</span> <span class="lit">30</span> <span class="pun">:</span> <span class="lit">40</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"value of x: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> x </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">value of x: 40
+</pre>

@@ -1,0 +1,22 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Null Pointers</h1>
+
+<p>It is always a good practice to assign the pointer NULL to a pointer variable in case you do not have exact address to be assigned. This is done at the time of variable declaration. A pointer that is assigned NULL is called a <strong>null</strong> pointer.</p>
+<p>The NULL pointer is a constant with a value of zero defined in several standard libraries, including iostream. Consider the following program &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr </span><span class="pun">=</span><span class="pln"> NULL</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"The value of ptr is "</span> <span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">The value of ptr is 0
+</pre>
+<p>On most of the operating systems, programs are not permitted to access memory at address 0 because that memory is reserved by the operating system. However, the memory address 0 has special significance; it signals that the pointer is not intended to point to an accessible memory location. But by convention, if a pointer contains the null (zero) value, it is assumed to point to nothing.</p>
+<p>To check for a null pointer you can use an if statement as follows &minus;</p>
+<pre class="result notranslate">if(ptr)     // succeeds if p is not null
+if(!ptr)    // succeeds if p is null
+</pre>
+<p>Thus, if all unused pointers are given the null value and you avoid the use of a null pointer, you can avoid the accidental misuse of an uninitialized pointer. Many times, uninitialized variables hold some junk values and it becomes difficult to debug the program.</p>

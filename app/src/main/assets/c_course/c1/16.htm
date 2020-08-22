@@ -1,0 +1,199 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>For
+Versus While</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.75pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:21.0pt;font-family:"Times New Roman","serif"'>For
+Versus While</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Times New Roman","serif"'>Question:</span></b><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Times New Roman","serif"'>&nbsp;Is there
+any example for which the following two loops will not work same way?</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>/*Program
+  1 --&gt; For loop*/</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>for</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>(&lt;init-stmnt&gt;;
+  &lt;boolean-expr&gt;; &lt;incr-stmnt&gt;)&nbsp; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&lt;body-statements&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>/*Program
+  2 --&gt; While loop*/</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;init-stmnt&gt;;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>while</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>(&lt;boolean-expr&gt;)&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&lt;body-statements&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&lt;incr-stmnt&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Times New Roman","serif"'>Solution:</span></b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Times New Roman","serif"'><br>
+If the body-statements contains continue, then the two programs will work in
+different ways</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>See
+the below examples: Program 1 will print “loop” 3 times but Program 2 will go
+in an infinite loop.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Times New Roman","serif"'>Example for program 1</span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i = 0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;for(i
+  = 0; i &lt; 3; i++) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;loop
+  &quot;); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;continue;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;}&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;return</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Times New Roman","serif"'>Example for program 2</span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i = 0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;while(i
+  &lt; 3) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;loop&quot;);
+  /* printed infinite times */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;continue;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;i++;
+  /*This statement is never executed*/</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;}&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;return</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include&lt;iostream&gt;</span>
+<span style="color: #75715e">#include&lt;fstream&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">data;</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">age;</span>
+  <span style="color: #f8f8f2">ofstream</span> <span style="color: #f8f8f2">outfile;</span>
+  <span style="color: #f8f8f2">outfile.open(</span><span style="color: #e6db74">&quot;Myfile.dat&quot;</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;File is in Write mode&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Please Enter your name :&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">getline(cin,data);</span>
+  <span style="color: #f8f8f2">outfile</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">data</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter your Age :&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">age;</span>
+  <span style="color: #f8f8f2">cin.ignore();</span>
+  <span style="color: #f8f8f2">outfile</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">age</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter your profession : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">getline(cin,data);</span>
+  <span style="color: #f8f8f2">outfile</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">data</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">ifstream</span> <span style="color: #f8f8f2">infile;</span>
+  <span style="color: #f8f8f2">infile.open(</span><span style="color: #e6db74">&quot;Myfile.dat&quot;</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;File is in Read mode&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">infile.eof())</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">getline(infile,data);</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">data</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">infile.close();</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">File</span> <span style="color: #f8f8f2">is</span> <span style="color: #f8f8f2">in</span> <span style="color: #f8f8f2">Write</span> <span style="color: #f8f8f2">mode</span>
+<span style="color: #f8f8f2">Please</span> <span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">your</span> <span style="color: #f8f8f2">name</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Saurabh</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">your</span> <span style="color: #f8f8f2">Age</span> <span style="color: #f92672">:</span>
+<span style="color: #ae81ff">20</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">your</span> <span style="color: #f8f8f2">profession</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Engineer</span>
+<span style="color: #f8f8f2">File</span> <span style="color: #f8f8f2">is</span> <span style="color: #f8f8f2">in</span> <span style="color: #f8f8f2">Read</span> <span style="color: #f8f8f2">mode</span>
+<span style="color: #f8f8f2">Saurabh</span>
+<span style="color: #ae81ff">20</span>
+<span style="color: #f8f8f2">Engineer</span>
+</pre></div>

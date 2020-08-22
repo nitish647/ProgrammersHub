@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-select-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Functions</title>
+    <meta name="description" content="JavaScript Functions - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./14_files/style-min.css">
+
+
+
+
+
+
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Functions</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>A function is a group of reusable code which can be called anywhere in your program. This eliminates the need of writing the same code again and again. It helps programmers in writing modular codes. Functions allow a programmer to divide a big program into a number of small and manageable functions.</p>
+        <p>Like any other advanced programming language, JavaScript also supports all the features necessary to write modular code using functions. You must have seen functions like <b>alert()</b> and <b>write()</b> in the earlier chapters. We were using these functions again and again, but they had been written in core JavaScript only once.</p>
+        <p>JavaScript allows us to write our own functions as well. This section explains how to write your own functions in JavaScript.</p>
+        <h2>Function Definition</h2>
+        <p>Before we use a function, we need to define it. The most common way to define a function in JavaScript is by using the <b>function</b> keyword, followed by a unique function name, a list of parameters (that might be empty), and a statement block surrounded by curly braces.</p>
+        <h3>Syntax</h3>
+        <p>The basic syntax is shown here.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;!--</span><span class="pln">
+      </span><span class="kwd">function</span><span class="pln"> functionname</span><span class="pun">(</span><span class="pln">parameter</span><span class="pun">-</span><span class="pln">list</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         statements
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="com">//--&gt;</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></pre>
+        <h3>Example</h3>
+        <p>Try the following example. It defines a function called sayHello that takes no parameters −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;!--</span><span class="pln">
+      </span><span class="kwd">function</span><span class="pln"> sayHello</span><span class="pun">()</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         alert</span><span class="pun">(</span><span class="str">"Hello there"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="com">//--&gt;</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></pre>
+        <h2>Calling a Function</h2>
+        <p>To invoke a function somewhere later in the script, you would simply need to write the name of that function as shown in the following code.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> sayHello</span><span class="pun">()</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Hello there!"</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following button to call the function</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">sayHello</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Say Hello"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Use different text in write method and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/calling_function.htm" height="120px" width="600px" style="visibility: visible; height: 120px;"></iframe>
+        <h2>Function Parameters</h2>
+        <p>Till now, we have seen functions without parameters. But there is a facility to pass different parameters while calling a function. These passed parameters can be captured inside the function and any manipulation can be done over those parameters. A function can take multiple parameters separated by comma.</p>
+        <h3>Example</h3>
+        <p>Try the following example. We have modified our <b>sayHello</b> function here. Now it takes two parameters.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> sayHello</span><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> age </span><span class="pun">+</span><span class="pln"> </span><span class="str">" years old."</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following button to call the function</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">sayHello</span><span class="pun">(</span><span class="str">'Zara'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Say Hello"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Use different parameters inside the function and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/function_parameter.htm" height="120px" width="600px" style="visibility: visible; height: 120px;"></iframe>
+        <h2>The return Statement</h2>
+        <p>A JavaScript function can have an optional <b>return</b> statement. This is required if you want to return a value from a function. This statement should be the last statement in a function.</p>
+        <p>For example, you can pass two numbers in a function and then you can expect the function to return their multiplication in your calling program.</p>
+        <h3>Example</h3>
+        <p>Try the following example. It defines a function that takes two parameters and concatenates them before returning the resultant in the calling program.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> concatenate</span><span class="pun">(</span><span class="pln">first</span><span class="pun">,</span><span class="pln"> last</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> full</span><span class="pun">;</span><span class="pln">
+            full </span><span class="pun">=</span><span class="pln"> first </span><span class="pun">+</span><span class="pln"> last</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> full</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         </span><span class="kwd">function</span><span class="pln"> secondFunction</span><span class="pun">()</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> result</span><span class="pun">;</span><span class="pln">
+            result </span><span class="pun">=</span><span class="pln"> concatenate</span><span class="pun">(</span><span class="str">'Zara'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Ali'</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="pln">result </span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following button to call the function</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">secondFunction</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Call Function"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Use different parameters inside the function and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+  </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/return_statement.htm" height="120px" width="600px" style="visibility: visible; height: 120px;"></iframe>
+        <p>There is a lot to learn about JavaScript functions, however we have covered the most important concepts in this tutorial.</p>
+
+        <hr>
+    </div></div></div></div></div></div></body></html>

@@ -1,0 +1,47 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ nested switch statements</h1>
+
+<p>It is possible to have a switch as part of the statement sequence of an outer switch. Even if the case constants of the inner and outer switch contain common values, no conflicts will arise.</p>
+<p>C++ specifies that at least 256 levels of nesting be allowed for switch statements.</p>
+<h2>Syntax</h2>
+<p>The syntax for a <strong>nested switch</strong> statement is as follows &minus;</p>
+<pre class="result notranslate">switch(ch1) {
+   case 'A': 
+      cout &lt;&lt; "This A is part of outer switch";
+      switch(ch2) {
+         case 'A':
+            cout &lt;&lt; "This A is part of inner switch";
+            break;
+         case 'B': // ...
+      }
+      break;
+   case 'B': // ...
+}
+</pre>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span>
+ 
+   <span class="kwd">switch</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">case</span> <span class="lit">100</span><span class="pun">:</span><span class="pln"> 
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"This is part of outer switch"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+         <span class="kwd">switch</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span> <span class="pun">{</span>
+            <span class="kwd">case</span> <span class="lit">200</span><span class="pun">:</span><span class="pln">
+               cout </span><span class="pun">&lt;&lt;</span> <span class="str">"This is part of inner switch"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+         <span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Exact value of a is : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Exact value of b is : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>This would produce the following result &minus;</p>
+<pre class="result notranslate">This is part of outer switch
+This is part of inner switch
+Exact value of a is : 100
+Exact value of b is : 200
+</pre>

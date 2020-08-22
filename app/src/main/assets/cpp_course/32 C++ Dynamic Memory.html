@@ -1,0 +1,97 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Dynamic Memory</h1>
+ 
+<p>A good understanding of how dynamic memory really works in C++ is essential to becoming a good C++ programmer. Memory in your C++ program is divided into two parts &minus;</p>
+<ul class="list">
+<li>
+<p><strong>The stack</strong> &minus; All variables declared inside the function will take up memory from the stack.</p>
+</li>
+<li>
+<p><strong>The heap</strong> &minus; This is unused memory of the program and can be used to allocate the memory dynamically when program runs.</p>
+</li>
+</ul>
+<p>Many times, you are not aware in advance how much memory you will need to store particular information in a defined variable and the size of required memory can be determined at run time.</p>
+<p>You can allocate memory at run time within the heap for the variable of a given type using a special operator in C++ which returns the address of the space allocated. This operator is called <strong>new</strong> operator.</p>
+<p>If you are not in need of dynamically allocated memory anymore, you can use <strong>delete</strong> operator, which de-allocates memory that was previously allocated by new operator.</p>
+<h2>new and delete Operators</h2>
+<p>There is following generic syntax to use <strong>new</strong> operator to allocate memory dynamically for any data-type.</p>
+<pre class="result notranslate">new data-type;
+</pre>
+<p>Here, <strong>data-type</strong> could be any built-in data type including an array or any user defined data types include class or structure. Let us start with built-in data types. For example we can define a pointer to type double and then request that the memory be allocated at execution time. We can do this using the <strong>new </strong> operator with the following statements &minus;</p>
+<pre class="result notranslate">double* pvalue  = NULL; // Pointer initialized with null
+pvalue  = new double;   // Request memory for the variable
+</pre>
+<p>The memory may not have been allocated successfully, if the free store had been used up. So it is good practice to check if new operator is returning NULL pointer and take appropriate action as below &minus;</p>
+<pre class="result notranslate">double* pvalue  = NULL;
+if( !(pvalue  = new double )) {
+   cout &lt;&lt; "Error: out of memory." &lt;&lt;endl;
+   exit(1);
+}
+</pre>
+<p>The <strong>malloc()</strong> function from C, still exists in C++, but it is recommended to avoid using malloc() function. The main advantage of new over malloc() is that new doesn't just allocate memory, it constructs objects which is prime purpose of C++.</p>
+<p>At any point, when you feel a variable that has been dynamically allocated is not anymore required, you can free up the memory that it occupies in the free store with the &lsquo;delete&rsquo; operator as follows &minus;</p>
+<pre class="result notranslate">delete pvalue;        // Release memory pointed to by pvalue
+</pre>
+<p>Let us put above concepts and form the following example to show how &lsquo;new&rsquo; and &lsquo;delete&rsquo; work &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">double</span><span class="pun">*</span><span class="pln"> pvalue  </span><span class="pun">=</span><span class="pln"> NULL</span><span class="pun">;</span> <span class="com">// Pointer initialized with null</span><span class="pln">
+   pvalue  </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">double</span><span class="pun">;</span>   <span class="com">// Request memory for the variable</span>
+ 
+   <span class="pun">*</span><span class="pln">pvalue </span><span class="pun">=</span> <span class="lit">29494.99</span><span class="pun">;</span>     <span class="com">// Store value at allocated address</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of pvalue : "</span> <span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">pvalue </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">delete</span><span class="pln"> pvalue</span><span class="pun">;</span>         <span class="com">// free up the memory.</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">Value of pvalue : 29495
+</pre>
+<h2>Dynamic Memory Allocation for Arrays</h2>
+<p>Consider you want to allocate memory for an array of characters, i.e., string of 20 characters. Using the same syntax what we have used above we can allocate memory dynamically as shown below.</p>
+<pre class="result notranslate">char* pvalue  = NULL;         // Pointer initialized with null
+pvalue  = new char[20];       // Request memory for the variable
+</pre>
+<p>To remove the array that we have just created the statement would look like this &minus;</p>
+<pre class="result notranslate">delete [] pvalue;             // Delete array pointed to by pvalue
+</pre>
+<p>Following the similar generic syntax of new operator, you can allocate for a multi-dimensional array as follows &minus;</p>
+<pre class="result notranslate">double** pvalue  = NULL;      // Pointer initialized with null 
+pvalue  = new double [3][4];  // Allocate memory for a 3x4 array 
+</pre>
+<p>However, the syntax to release the memory for multi-dimensional array will still remain same as above &minus;</p>
+<pre class="result notranslate">delete [] pvalue;            // Delete array pointed to by pvalue
+</pre>
+<h2>Dynamic Memory Allocation for Objects</h2>
+<p>Objects are no different from simple data types. For example, consider the following code where we are going to use an array of objects to clarify the concept &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="typ">Box</span><span class="pun">()</span> <span class="pun">{</span><span class="pln"> 
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Constructor called!"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span> 
+      <span class="pun">}</span>
+      <span class="pun">~</span><span class="typ">Box</span><span class="pun">()</span> <span class="pun">{</span><span class="pln"> 
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Destructor called!"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span> 
+      <span class="pun">}</span>
+<span class="pun">};</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Box</span><span class="pun">*</span><span class="pln"> myBoxArray </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">[</span><span class="lit">4</span><span class="pun">];</span>
+   <span class="kwd">delete</span> <span class="pun">[]</span><span class="pln"> myBoxArray</span><span class="pun">;</span> <span class="com">// Delete array</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If you were to allocate an array of four Box objects, the Simple constructor would be called four times and similarly while deleting these objects, destructor will also be called same number of times.</p>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">Constructor called!
+Constructor called!
+Constructor called!
+Constructor called!
+Destructor called!
+Destructor called!
+Destructor called!
+Destructor called!
+</pre>

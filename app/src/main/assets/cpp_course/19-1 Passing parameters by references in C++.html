@@ -1,0 +1,42 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Passing parameters by references in C++</h1>
+
+<p>We have discussed how we implement <strong>call by reference</strong> concept using pointers. Here is another example of call by reference which makes use of C++ reference &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// function declaration</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">&amp;</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pun">&amp;</span><span class="pln"> y</span><span class="pun">);</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="com">/* calling a function to swap the values.*/</span><span class="pln">
+   swap</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span>
+ 
+<span class="com">// function definition to swap the values.</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">&amp;</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pun">&amp;</span><span class="pln"> y</span><span class="pun">)</span> <span class="pun">{</span>
+
+   <span class="kwd">int</span><span class="pln"> temp</span><span class="pun">;</span><span class="pln">
+   temp </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span> <span class="com">/* save the value at address x */</span><span class="pln">
+   x </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span>    <span class="com">/* put y into x */</span><span class="pln">
+   y </span><span class="pun">=</span><span class="pln"> temp</span><span class="pun">;</span> <span class="com">/* put x into y */</span>
+  
+   <span class="kwd">return</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Before swap, value of a :100
+Before swap, value of b :200
+After swap, value of a :200
+After swap, value of b :100
+</pre>

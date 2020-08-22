@@ -1,0 +1,415 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Static
+Variables in C</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.75pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:21.0pt;font-family:"Times New Roman","serif"'>Static
+Variables in C</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Static
+variables have a property of preserving their value even after they are out of
+their scope!Hence, static variables preserve their previous value in their
+previous scope and are not initialized again in the new scope.<br>
+Syntax:</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:#E0E0E0;vertical-align:baseline;border:none;padding:0in'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>static
+data_type var_name = var_value; </span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'><br>
+<br>
+Following are some interesting facts about static variables in C.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>1)</span></b><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Helvetica","sans-serif";color:black'>&nbsp;A static int variable remains in
+memory while the program is running. A normal or auto variable is destroyed
+when a function call where the variable was declared is over.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>For
+example, we can use static int to count number of times a function is called,
+but an auto variable can’t be sued for this purpose.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>For
+example below program prints “1 2”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>#include&lt;stdio.h&gt; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>int</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif";color:black'> </span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Courier New";color:black'>fun() </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>{ </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;static</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif";color:black'> </span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif";
+color:black'> </span><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>count = 0; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;count++; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;return</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif";color:black'> </span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Courier New";color:black'>count; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>} </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>int</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif";color:black'> </span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>{ </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;printf(&quot;%d &quot;, fun()); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;printf(&quot;%d &quot;, fun()); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;return</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Times New Roman","serif";color:black'> </span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Courier New";color:black'>0; </span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Courier New";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Helvetica","sans-serif";color:black'>Output:</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:#E0E0E0;vertical-align:baseline;border:none;padding:0in'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>1 2</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Helvetica","sans-serif";color:black'>But
+below program prints 1 1</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>#include&lt;stdio.h&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>fun() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>{ </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>count = 0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;count++;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;return</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>count; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>} </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>{ </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;printf(&quot;%d
+  &quot;, fun()); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;printf(&quot;%d
+  &quot;, fun()); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;return</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Output:</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+#E0E0E0;vertical-align:baseline;border:none;padding:0in'><span lang=EN-IN
+style='font-size:9.0pt;font-family:Consolas;color:black'>1 1</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Times New Roman","serif"'><br>
+<br>
+</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:"Times New Roman","serif"'>2)</span></b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;Static
+variables are allocated memory in data segment, not stack segment. See&nbsp;<a
+href="https://www.geeksforgeeks.org/memory-layout-of-c-program/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>memory layout of C
+programs</span></a>&nbsp;for details.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Times New Roman","serif"'><br>
+<br>
+</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:"Times New Roman","serif"'>3)&nbsp;</span></b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Static
+variables (like global variables) are initialized as 0 if not initialized
+explicitly. For example in the below program, value of x is printed as 0, while
+value of y is something garbage. See&nbsp;<a
+href="https://www.geeksforgeeks.org/g-fact-53/"><span style='font-size:11.5pt;
+color:#EC4E20;text-decoration:none'>this&nbsp;</span></a>for more details.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>#include
+  &lt;stdio.h&gt; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;static</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>x; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>y; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;%d
+  \n %d&quot;, x, y); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Helvetica","sans-serif";color:black'>Output:</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:#E0E0E0;vertical-align:baseline;border:none;padding:0in'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>0 </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:#E0E0E0;vertical-align:baseline;border:none;padding:0in'><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'>[some_garbage_value]
+</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'><br>
+<br>
+</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>4)</span></b><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Helvetica","sans-serif";color:black'>&nbsp;In C, static variables can only be initialized
+using constant literals. For example, following program fails in compilation.
+See&nbsp;<a href="https://www.geeksforgeeks.org/g-fact-80/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>this&nbsp;</span></a>for
+more details.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>#include&lt;stdio.h&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>initializer(void) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>{ </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;return</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>50; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>} </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>{ </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;static</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>int</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>i = initializer(); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;
+  value of i = %d&quot;, i); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;return</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif"'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New"'>} </span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+text-align:justify;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-family:"Helvetica","sans-serif";color:black'>Output</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'><pre style='margin-bottom:7.5pt;text-align:justify;
+background:#E0E0E0;vertical-align:baseline;border:none;padding:0in;border-radius: 10px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px'><span lang=EN-IN style='font-size:9.0pt;
+font-family:Consolas;color:black'> In function 'main':</span></pre><pre
+style='margin-bottom:7.5pt;text-align:justify;background:#E0E0E0;vertical-align:
+baseline;border:none;padding:0in'><span lang=EN-IN style='font-size:9.0pt;
+font-family:Consolas;color:black'>9:5: error: initializer element is not constant</span></pre><pre
+style='margin-bottom:7.5pt;text-align:justify;background:#E0E0E0;vertical-align:
+baseline;border:none;padding:0in'><span lang=EN-IN style='font-size:9.0pt;
+font-family:Consolas;color:black'>     static int i = initializer();</span></pre><pre
+style='margin-bottom:7.5pt;text-align:justify;background:#E0E0E0;vertical-align:
+baseline;border:none;padding:0in'><span lang=EN-IN style='font-size:9.0pt;
+font-family:Consolas;color:black'>     ^</span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+text-align:justify;background:white;vertical-align:baseline;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'>Please
+note that this condition doesn’t hold in C++. So if you save the program as a
+C++ program, it would compile \and run fine.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+text-align:justify;background:white;vertical-align:baseline;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'>&nbsp;</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:white;
+vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><strong><span lang=EN-IN
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:black'>5)</span></strong><span
+lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'>&nbsp;Static
+global variables and functions are also possible in C/C++. The purpose of these
+is to limit scope of a variable or function to a file. Please refer&nbsp;<a
+href="https://www.geeksforgeeks.org/what-are-static-functions-in-c/"
+style='outline: none'><span style='font-size:11.5pt;color:#EC4E20'>Static
+functions in C</span></a>&nbsp;for more details.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+text-align:justify;background:white;vertical-align:baseline;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-family:"Helvetica","sans-serif";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

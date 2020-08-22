@@ -1,0 +1,28 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java Thread example by Implementing Runnable Interface</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Thread_runnable <span style='color:#7f0055; font-weight:bold; '>implements</span> Runnable{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> run() {
+		<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated method stub</span>
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Thread is Running..."</span>);
+		
+	}
+	
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+	{
+		<span style='color:#7f0055; font-weight:bold; '>Thread</span> t = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>Thread</span>(<span style='color:#7f0055; font-weight:bold; '>new</span> Thread_runnable());
+		t.start();
+	
+		<span style='color:#3f7f59; '>//or you can use like this</span>
+		<span style='color:#3f7f59; '>/* Thread_runnable class_obj = new Thread_runnable()</span>
+<span style='color:#3f7f59; '>		 * Thread t = new Thread(class_obj);</span>
+<span style='color:#3f7f59; '>		 * t.start();</span>
+<span style='color:#3f7f59; '>		 */</span>
+	}
+}
+
+
+Output:
+
+Thread is Running...
+</pre>

@@ -1,0 +1,82 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;Java Bubble Sort Example</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;This Java bubble sort example shows how to sort an array of int using bubble sort algorithm.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;Bubble sort is the simplest sorting algorithm.</span>
+<span style='color:#3f7f59; '>*/</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> BubbleSort {
+ 
+        <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+               
+                <span style='color:#3f7f59; '>//create an int array we want to sort using bubble sort algorithm</span>
+                <span style='color:#7f0055; font-weight:bold; '>int</span> intArray[] = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[]{5,90,35,45,150,3};
+               
+                <span style='color:#3f7f59; '>//print array before sorting using bubble sort algorithm</span>
+                System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Array Before Bubble Sort</span><span style='color:#2a00ff; '>"</span>);
+                <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0; i &lt; intArray.length; i++){
+                        System.out.print(intArray[i] + <span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '> </span><span style='color:#2a00ff; '>"</span>);
+                }
+               
+                <span style='color:#3f7f59; '>//sort an array using bubble sort algorithm</span>
+                bubbleSort(intArray);
+               
+                System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>"</span>);
+               
+                <span style='color:#3f7f59; '>//print array after sorting using bubble sort algorithm</span>
+                System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Array After Bubble Sort</span><span style='color:#2a00ff; '>"</span>);
+                <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0; i &lt; intArray.length; i++){
+                        System.out.print(intArray[i] + <span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '> </span><span style='color:#2a00ff; '>"</span>);
+                }
+ 
+        }
+ 
+        <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> bubbleSort(<span style='color:#7f0055; font-weight:bold; '>int</span>[] intArray) {
+               
+                <span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* In bubble sort, we basically traverse the array from first</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* to array_length - 1 position and compare the element with the next one.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* Element is swapped with the next element if the next element is greater.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* Bubble sort steps are as follows.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 1. Compare array[0] &amp; array[1]</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 2. If array[0] > array [1] swap it.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 3. Compare array[1] &amp; array[2]</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 4. If array[1] > array[2] swap it.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* ...</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 5. Compare array[n-1] &amp; array[n]</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* 6. if [n-1] > array[n] then swap it.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* After this step we will have largest element at the last index.</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;* Repeat the same steps for array[1] to array[n-1]</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*  </span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;*/</span>
+               
+                <span style='color:#7f0055; font-weight:bold; '>int</span> n = intArray.length;
+                <span style='color:#7f0055; font-weight:bold; '>int</span> temp = 0;
+               
+                <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0; i &lt; n; i++){
+                        <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> j=1; j &lt; (n-i); j++){
+                               
+                                <span style='color:#7f0055; font-weight:bold; '>if</span>(intArray[j-1] > intArray[j]){
+                                        <span style='color:#3f7f59; '>//swap the elements!</span>
+                                        temp = intArray[j-1];
+                                        intArray[j-1] = intArray[j];
+                                        intArray[j] = temp;
+                                }
+                               
+                        }
+                }
+       
+        }
+}
+ 
+
+Output:
+ 
+Array Before Bubble Sort
+5 90 35 45 150 3
+Array After Bubble Sort
+3 5 35 45 90 150
+</pre>

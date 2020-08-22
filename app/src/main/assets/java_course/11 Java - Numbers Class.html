@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.tutorialspoint.com/sql/sql-drop-table.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+    <title>Java - Numbers Class</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./12_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Numbers Class</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Normally, when we work with Numbers, we use primitive data types such as byte, int, long, double, etc.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5000</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">float</span><span class="pln"> gpa </span><span class="pun">=</span><span class="pln"> </span><span class="lit">13.65</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">double</span><span class="pln"> mask </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0xaf</span><span class="pun">;</span></pre>
+        <p>However, in development, we come across situations where we need to use objects instead of primitive data types. In order to achieve this, Java provides <b>wrapper classes</b>.</p>
+        <p>All the wrapper classes (Integer, Long, Byte, Double, Float, Short) are subclasses of the abstract class Number.</p>
+        <img src="../img/1.PNG" alt="Number Classes">
+        <p>The object of the wrapper class contains or wraps its respective primitive data type. Converting primitive data types into object is called <b>boxing</b>, and this is taken care by the compiler. Therefore, while using a wrapper class you just need to pass the value of the primitive data type to the constructor of the Wrapper class.</p>
+        <p>And the Wrapper object will be converted back to a primitive data type, and this process is called unboxing. The <b>Number</b> class is part of the java.lang package.</p>
+        <p>Following is an example of boxing and unboxing −</p>
+        <h3>Example</h3>
+
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Test</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Integer</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> </span><span class="com">// boxes int to an Integer object</span><span class="pln">
+      x </span><span class="pun">=</span><span class="pln">  x </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">   </span><span class="com">// unboxes the Integer to a int</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">x</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">15
+</pre>
+        <p>When x is assigned an integer value, the compiler boxes the integer because x is integer object. Later, x is unboxed so that they can be added as an integer.</p>
+        <h2>Number Methods</h2>
+        <p>Following is the list of the instance methods that all the subclasses of the Number class implements −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> xxxValue()
+                    <p>Converts the value of <i>this</i> Number object to the xxx data type and returns it.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> compareTo()
+                    <p>Compares <i>this</i> Number object to the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> equals()
+                    <p>Determines whether <i>this</i> number object is equal to the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> valueOf()
+                    <p>Returns an Integer object holding the value of the specified primitive.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> toString()
+                    <p>Returns a String object representing the value of a specified int or Integer.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> parseInt()
+                    <p>This method is used to get the primitive data type of a certain String.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> abs()
+                    <p>Returns the absolute value of the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> ceil()
+                    <p>Returns the smallest integer that is greater than or equal to the argument. Returned as a double.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> floor()
+                    <p>Returns the largest integer that is less than or equal to the argument. Returned as a double.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td> rint()
+                    <p>Returns the integer that is closest in value to the argument. Returned as a double.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> round()
+                    <p>Returns the closest long or int, as indicated by the method's return type to the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> min()
+                    <p>Returns the smaller of the two arguments.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> max()
+                    <p>Returns the larger of the two arguments.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> exp()
+                    <p>Returns the base of the natural logarithms, e, to the power of the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> log()
+                    <p>Returns the natural logarithm of the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">16</td>
+                <td> pow()
+                    <p>Returns the value of the first argument raised to the power of the second argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">17</td>
+                <td> sqrt()
+                    <p>Returns the square root of the argument.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">18</td>
+                <td> sin()
+                    <p>Returns the sine of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">19</td>
+                <td> cos()
+                    <p>Returns the cosine of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">20</td>
+                <td> tan()
+                    <p>Returns the tangent of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">21</td>
+                <td> asin()
+                    <p>Returns the arcsine of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">22</td>
+                <td> acos()
+                    <p>Returns the arccosine of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">23</td>
+                <td> atan()
+                    <p>Returns the arctangent of the specified double value.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">24</td>
+                <td> atan2()
+                    <p>Converts rectangular coordinates (x, y) to polar coordinate (r, theta) and returns theta.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">25</td>
+                <td> toDegrees()
+                    <p>Converts the argument to degrees.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">26</td>
+                <td> toRadians()
+                    <p>Converts the argument to radians.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">27</td>
+                <td> random()
+                    <p>Returns a random number.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>What is Next?</h2>
+        <p>In the next section, we will be going through the Character class in Java. You will be learning how to use object Characters and primitive data type char in Java.</p>
+        <hr>
+
+    </div></div></div></div></div></div>
+</body></html>

@@ -1,0 +1,360 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Constructors
+and destructors</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:20.0pt;font-family:"Cambria",serif;color:#0070C0'>Constructors
+and destructors</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>Constructors are special
+methods, used when instantiating a class. A constructor can never return
+anything, which is why you don't have to define a return type for it. A normal
+method is defined like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>string</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Describe</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>A constructor can be defined
+like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>In our example for this
+chapter, we have a Car class, with a constructor which takes a string as
+argument. Of course, a constructor can be overloaded as well, meaning we can
+have several constructors, with the same name, but different parameters. Here
+is an example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>string</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>this</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>color </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>=</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>A constructor can call
+another constructor, which can come in handy in several situations. Here is an
+example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>WriteLine</span><span style='font-size:
+12.0pt;font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#008800'>&quot;Constructor with no parameters
+called!&quot;</span><span style='font-size:12.0pt;font-family:Consolas;
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>string</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>)</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>:</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>this</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>this</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>color </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>=</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>WriteLine</span><span style='font-size:
+12.0pt;font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#008800'>&quot;Constructor with color parameter
+called!&quot;</span><span style='font-size:12.0pt;font-family:Consolas;
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>If you run this code, you
+will see that the constructor with no parameters is called first. This can be
+used for instantiating various objects for the class in the default
+constructor, which can be called from other constructors from the class. If the
+constructor you wish to call takes parameters, you can do that as well. Here is
+a simple example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>public</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>string</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>)</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>:</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>this</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#000088'>this</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>color </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>=</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> color</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>WriteLine</span><span style='font-size:
+12.0pt;font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#008800'>&quot;Constructor with color parameter
+called!&quot;</span><span style='font-size:12.0pt;font-family:Consolas;
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Car</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+param1</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+param2</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>:</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>this</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>param1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>If you call the constructor
+which takes 2 parameters, the first parameter will be used to invoke the
+constructor that takes 1 parameter.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><u><span
+style='font-size:14.0pt;font-family:"Cambria",serif;color:#00B0F0'>Destructors</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>Since C# is garbage
+collected, meaing that the framework will free the objects that you no longer
+use, there may be times where you need to do some manual cleanup. A destructor,
+a method called once an object is disposed, can be used to cleanup resources used
+by the object. Destructors doesn't look very much like other methods in C#.
+Here is an example of a destructor for our Car class:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:"Cambria",serif;color:#666600'>~</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Car</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>()</span><span style='font-size:12.0pt;
+font-family:Consolas;color:black'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>    </span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>.</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#660066'>WriteLine</span><span style='font-size:
+12.0pt;font-family:Consolas;color:#666600'>(</span><span style='font-size:12.0pt;
+font-family:Consolas;color:#008800'>&quot;Out..&quot;</span><span
+style='font-size:12.0pt;font-family:Consolas;color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:normal;background:white'><span style='font-size:
+12.0pt;font-family:"Cambria",serif;color:#212529'>Once the object is collected
+by the garbage collector, this method is called.</span></p>
+
+</div>
+
+</body>
+
+</html>

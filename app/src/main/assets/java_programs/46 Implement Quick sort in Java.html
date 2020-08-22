@@ -1,0 +1,74 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f5fbf; '>/**</span>
+<span style='color:#3f5fbf; '>&#xa0;** Java Program to Implement Quick Sort</span>
+<span style='color:#3f5fbf; '>&#xa0;**/</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.util.Scanner;
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Quicksort  {
+        <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[] numbers;
+        <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>int</span> number;
+
+        <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>sort</span>(<span style='color:#7f0055; font-weight:bold; '>int</span>[] values) {
+                <span style='color:#3f7f59; '>// check for empty or null array</span>
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (values ==null || values.length==0){
+                        <span style='color:#7f0055; font-weight:bold; '>return</span>;
+                }
+                <span style='color:#7f0055; font-weight:bold; '>this</span>.numbers = values;
+                number = values.length;
+                quicksort(0, number - 1);
+        }
+
+        <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>void</span> quicksort(<span style='color:#7f0055; font-weight:bold; '>int</span> low, <span style='color:#7f0055; font-weight:bold; '>int</span> high) {
+                <span style='color:#7f0055; font-weight:bold; '>int</span> i = low, j = high;
+                <span style='color:#3f7f59; '>// Get the pivot element from the middle of the list</span>
+                <span style='color:#7f0055; font-weight:bold; '>int</span> pivot = numbers[low + (high-low)/2];
+
+                <span style='color:#3f7f59; '>// Divide into two lists</span>
+                <span style='color:#7f0055; font-weight:bold; '>while</span> (i &lt;= j) {
+                        <span style='color:#3f7f59; '>// If the current value from the left list is smaller then the pivot</span>
+                        <span style='color:#3f7f59; '>// element then get the next element from the left list</span>
+                        <span style='color:#7f0055; font-weight:bold; '>while</span> (numbers[i] &lt; pivot) {
+                                i++;
+                        }
+                        <span style='color:#3f7f59; '>// If the current value from the right list is larger then the pivot</span>
+                        <span style='color:#3f7f59; '>// element then get the next element from the right list</span>
+                        <span style='color:#7f0055; font-weight:bold; '>while</span> (numbers[j] > pivot) {
+                                j--;
+                        }
+
+                        <span style='color:#3f7f59; '>// If we have found a values in the left list which is larger then</span>
+                        <span style='color:#3f7f59; '>// the pivot element and if we have found a value in the right list</span>
+                        <span style='color:#3f7f59; '>// which is smaller then the pivot element then we exchange the</span>
+                        <span style='color:#3f7f59; '>// values.</span>
+                        <span style='color:#3f7f59; '>// As we are done we can increase i and j</span>
+                        <span style='color:#7f0055; font-weight:bold; '>if</span> (i &lt;= j) {
+                                exchange(i, j);
+                                i++;
+                                j--;
+                        }
+                }
+                <span style='color:#3f7f59; '>// Recursion</span>
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (low &lt; j)
+                        quicksort(low, j);
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (i &lt; high)
+                        quicksort(i, high);
+        }
+
+        <span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>void</span> exchange(<span style='color:#7f0055; font-weight:bold; '>int</span> i, <span style='color:#7f0055; font-weight:bold; '>int</span> j) {
+                <span style='color:#7f0055; font-weight:bold; '>int</span> temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+        }
+}
+
+
+Output:
+
+Enter number of integer elements
+10
+
+Enter 10 integer elements
+877 567 3456 876 467 26 934 9876 1 4567
+
+Elements after sorting
+1 26 467 567 876 877 934 3456 4567 9876
+</pre>

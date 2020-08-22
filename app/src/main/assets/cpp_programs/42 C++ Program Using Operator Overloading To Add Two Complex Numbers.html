@@ -1,0 +1,53 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #75715e">#include &lt;iomanip&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">complex</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">real,</span> <span style="color: #f8f8f2">img;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #f8f8f2">complex</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">real</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">img</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0.0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">read</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Real &amp; Imaginary Part: &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">real</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">img;</span>
+    <span style="color: #f8f8f2">}</span>
+   <span style="color: #f8f8f2">complex</span> <span style="color: #66d9ef">operator</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(complex</span> <span style="color: #f8f8f2">cc2)</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #f8f8f2">complex</span> <span style="color: #f8f8f2">temp;</span>
+     <span style="color: #f8f8f2">temp.real</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">real</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cc2.real;</span>
+     <span style="color: #f8f8f2">temp.img</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">img</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cc2.img;</span>
+     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(temp);</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">show</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;The Sum Is: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+     <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(img</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">real</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;+&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">img</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;i&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+     <span style="color: #66d9ef">else</span>
+       <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">real</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">img</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;i&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+   <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">complex</span> <span style="color: #f8f8f2">c1,</span> <span style="color: #f8f8f2">c2,</span> <span style="color: #f8f8f2">c3;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Enter Complex Number C1&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">c1.read</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Complex Number C2&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">c2.read</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">c3</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c1</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">c2;</span>
+  <span style="color: #f8f8f2">c3.show</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Complex</span> <span style="color: #f8f8f2">Number</span> <span style="color: #f8f8f2">C1Enter</span> <span style="color: #f8f8f2">Real</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Imaginary</span> <span style="color: #f8f8f2">Part</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4</span>
+<span style="color: #ae81ff">5</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Complex</span> <span style="color: #f8f8f2">Number</span> <span style="color: #f8f8f2">C2Enter</span> <span style="color: #f8f8f2">Real</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Imaginary</span> <span style="color: #f8f8f2">Part</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span>
+<span style="color: #ae81ff">6</span>
+<span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Sum</span> <span style="color: #f8f8f2">Is</span><span style="color: #f92672">:</span>
+<span style="color: #ae81ff">9</span><span style="color: #f92672">+</span><span style="color: #ae81ff">11</span><span style="color: #f8f8f2">i</span>
+</pre></div>

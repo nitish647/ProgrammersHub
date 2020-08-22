@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Encapsulation</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Encapsulation</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p><b>Encapsulation</b> is one of the four fundamental OOP concepts. The other three are inheritance, polymorphism, and abstraction.</p>
+        <p>Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. Therefore, it is also known as <b>data hiding</b>.</p>
+        <p>To achieve encapsulation in Java −</p>
+        <ul class="list">
+            <li><p>Declare the variables of a class as private.</p></li>
+            <li><p>Provide public setter and getter methods to modify and view the variables values.</p></li>
+        </ul>
+        <h3>Example</h3>
+        <p>Following is an example that demonstrates how to achieve Encapsulation in Java −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : EncapTest.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">EncapTest</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> idNum</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> age</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getAge</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> age</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getIdNum</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> idNum</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setAge</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> newAge</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      age </span><span class="pun">=</span><span class="pln"> newAge</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setName</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> newName</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      name </span><span class="pun">=</span><span class="pln"> newName</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setIdNum</span><span class="pun">(</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> newId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      idNum </span><span class="pun">=</span><span class="pln"> newId</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>The public setXXX() and getXXX() methods are the access points of the instance variables of the EncapTest class. Normally, these methods are referred as getters and setters. Therefore, any class that wants to access the variables should access them through these getters and setters.</p>
+        <p>The variables of the EncapTest class can be accessed using the following program −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : RunEncap.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">RunEncap</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">EncapTest</span><span class="pln"> encap </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EncapTest</span><span class="pun">();</span><span class="pln">
+      encap</span><span class="pun">.</span><span class="pln">setName</span><span class="pun">(</span><span class="str">"James"</span><span class="pun">);</span><span class="pln">
+      encap</span><span class="pun">.</span><span class="pln">setAge</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+      encap</span><span class="pun">.</span><span class="pln">setIdNum</span><span class="pun">(</span><span class="str">"12343ms"</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Name : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> encap</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">" Age : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> encap</span><span class="pun">.</span><span class="pln">getAge</span><span class="pun">());</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Name : James Age : 20
+</pre>
+        <h2>Benefits of Encapsulation</h2>
+        <ul class="list">
+            <li><p>The fields of a class can be made read-only or write-only.</p></li>
+            <li><p>A class can have total control over what is stored in its fields.</p></li>
+        </ul>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

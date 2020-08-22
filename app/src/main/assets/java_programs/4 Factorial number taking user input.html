@@ -1,0 +1,34 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java program to find factorial number</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Scanner</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> Factorial
+{
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+   {
+      <span style='color:#7f0055; font-weight:bold; '>int</span> n, c, fact = 1;
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter an integer to calculate it's factorial"</span>);
+      Scanner in = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+ 
+      n = in.nextInt();
+ 
+      <span style='color:#7f0055; font-weight:bold; '>if</span> ( n &lt; 0 )
+         <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Number should be non-negative."</span>);
+      <span style='color:#7f0055; font-weight:bold; '>else</span>
+      {
+         <span style='color:#7f0055; font-weight:bold; '>for</span> ( c = 1 ; c &lt;= n ; c++ )
+            fact = fact*c;
+ 
+         <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Factorial of "</span>+n+<span style='color:#2a00ff; '>" is = "</span>+fact);
+      }
+   }
+}
+
+
+Output:
+
+Enter an integer to calculate it's factorial
+5
+Factorial of 5 is = 120
+</pre>

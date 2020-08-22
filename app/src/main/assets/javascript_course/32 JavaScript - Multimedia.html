@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Multimedia</title>
+    <meta name="description" content="JavaScript Multimedia - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Multimedia</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>The JavaScript <b>navigator</b> object includes a child object called <b>plugins</b>. This object is an array, with one entry for each plug-in installed on the browser. The navigator.plugins object is supported only by Netscape, Firefox, and Mozilla only.</p>
+        <h3>Example</h3>
+        <p>Here is an example that shows how to list down all the plug-on installed in your browser −</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">List of Plug-Ins</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;table</span><span class="pln"> </span><span class="atn">border</span><span class="pun">=</span><span class="atv">"1"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+            </span><span class="tag">&lt;th&gt;</span><span class="pln">Plug-in Name</span><span class="tag">&lt;/th&gt;</span><span class="pln">
+            </span><span class="tag">&lt;th&gt;</span><span class="pln">Filename</span><span class="tag">&lt;/th&gt;</span><span class="pln">
+            </span><span class="tag">&lt;th&gt;</span><span class="pln">Description</span><span class="tag">&lt;/th&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+         </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">language</span><span class="pun">=</span><span class="atv">"JavaScript"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">plugins</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;tr&gt;&lt;td&gt;"</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">plugins</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;/td&gt;&lt;td&gt;"</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">plugins</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">filename</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;/td&gt;&lt;td&gt;"</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">plugins</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">description</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;/td&gt;&lt;/tr&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;/table&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/multimedia.htm" height="410px" width="600px" style="visibility: visible; height: 169px;"></iframe>
+        <h2>Checking for Plug-Ins</h2>
+        <p>Each plug-in has an entry in the array. Each entry has the following properties −</p>
+        <ul class="list">
+            <li><p><b>name</b> − is the name of the plug-in.</p></li>
+            <li><p><b>filename</b> − is the executable file that was loaded to install the plug-in.</p></li>
+            <li><p><b>description</b> − is a description of the plug-in, supplied by the developer.</p></li>
+            <li><p><b>mimeTypes</b> − is an array with one entry for each MIME type supported by the plug-in.</p></li>
+        </ul>
+        <p>You can use these properties in a script to find out the installed plug-ins, and then using JavaScript, you can play appropriate multimedia file. Take a look at the following example.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Using Plug-Ins</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">language</span><span class="pun">=</span><span class="atv">"JavaScript"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         media </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">mimeTypes</span><span class="pun">[</span><span class="str">"video/quicktime"</span><span class="pun">];</span><span class="pln">
+
+         </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">media</span><span class="pun">){</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;embed src='quick.mov' height=100 width=100&gt;"</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+         </span><span class="kwd">else</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;img src='quick.gif' height=100 width=100&gt;"</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/multimedia2.htm" height="120px" width="600px" style="visibility: visible; height: 121px;"></iframe>
+        <p><b>NOTE</b> − Here we are using HTML &lt;embed&gt; tag to embed a multimedia file.</p>
+        <h2>Controlling Multimedia</h2>
+        <p>Let us take one real example which works in almost all the browsers −</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Using Embeded Object</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> play</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">IsPlaying</span><span class="pun">()){</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">Play</span><span class="pun">();</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">IsPlaying</span><span class="pun">()){</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">StopPlay</span><span class="pun">();</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> rewind</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">IsPlaying</span><span class="pun">()){</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">StopPlay</span><span class="pun">();</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">demo</span><span class="pun">.</span><span class="typ">Rewind</span><span class="pun">();</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;embed</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"demo"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"demo"</span><span class="pln">
+      </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://www.amrood.com/games/kumite.swf"</span><span class="pln">
+      </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"318"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"300"</span><span class="pln"> </span><span class="atn">play</span><span class="pun">=</span><span class="atv">"false"</span><span class="pln"> </span><span class="atn">loop</span><span class="pun">=</span><span class="atv">"false"</span><span class="pln">
+      </span><span class="atn">pluginspage</span><span class="pun">=</span><span class="atv">"http://www.macromedia.com/go/getflashplayer"</span><span class="pln">
+      </span><span class="atn">swliveconnect</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/embed&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"form"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"form"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"#"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Start"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">play</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Stop"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stop</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Rewind"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewind</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <p>If you are using Mozilla, Firefox or Netscape, then</p>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/multimedia3.htm" height="350px" width="600px" style="visibility: visible; height: 350px;"></iframe>
+        <hr>
+    </div></div></div></div></div></div></body></html>

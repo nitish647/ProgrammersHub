@@ -1,0 +1,526 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Code Comments</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Code Comments</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>When writing code,
+you will quickly get used to the fact that pretty much any character or word
+you enter will have a special meaning. For instance, you will see a lot
+of&nbsp;<b>keywords</b>&nbsp;in C#, like&nbsp;<i>class</i>,&nbsp;<i>namespace</i>,&nbsp;<i>public</i>&nbsp;and
+many more. You will also see that the compiler makes sure that you are using
+these keywords, as well as your own variables and methods, in the correct way.
+C# is a fairly strict language and the compiler will help you make sure that
+everything is entered the way it should be. However, you do have a single
+possibility to write whatever you like, thanks to the concept of&nbsp;<b>code
+comments</b>.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>You may have
+already experienced comments in some of the code you have seen, be it C# or any
+other programming language - the concept of comments in code is pretty
+universal. The way they are written varies a lot though, so let's have a look
+at the type of comments you can use in your C# code.</span></p>
+
+<h2 style='margin-top:0in;line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Single-line comments</span></u></b></h2>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5887 data-element-id=5887><span style='font-family:"Cambria",serif;
+color:#212529'>The most basic type of comment in C# is the single-line comment.
+As the name indicates, it turns a single line into a comment - let's see how it
+might look:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'><pre style='line-height:150%;background:#EEEEEE;border:
+none;padding:0in;box-sizing: border-box;margin-bottom:1rem;border-radius: 4px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px' id=aelm5882 data-element-id=5882><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>// My comments about the class name could go here...</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=kwd><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'><span style='box-sizing: border-box'>class</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>Program</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>    </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>......</span></span></span></pre></div>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5885 data-element-id=5885><span style='font-family:"Cambria",serif;
+color:#212529'>So that's it: Prefix your lines with two forward slashes (//)
+and your text goes from something the compiler will check and complain about,
+to something the compiler completely ignores. And while this only applies to
+the prefixed line, you are free to do the same on the next line, essentially
+using single-line comments to make multiple comment lines:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 0in;
+background:#EEEEEE'><pre style='line-height:150%;background:#EEEEEE;border:
+none;padding:0in;box-sizing: border-box;margin-bottom:1rem;border-radius: 4px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px' id=aelm5890 data-element-id=5890><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>// My comments about the class name could go here...</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>// Add as many lines as you would like</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>// ...Seriously!</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=kwd><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'><span style='box-sizing: border-box'>class</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>Program</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>    </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>......</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'></span></span></pre></div>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: border-box;
+margin-bottom:0.5rem;font-size:1.75rem;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5888 data-element-id=5888><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></b></h2>
+
+<h2 style='margin-top:0in;line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>Multi-line comments</span></u></b></h2>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5889 data-element-id=5889><span style='font-family:"Cambria",serif;
+color:#212529'>In case you want to write multiple lines of comments, it might
+make more sense to use the multi-line comment variant that C# offers. Instead
+of having to prefix every line, you just enter a start and stop character
+sequence - everything in between is treated as comments:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'><pre style='line-height:150%;background:#EEEEEE;border:
+none;padding:0in;box-sizing: border-box;margin-bottom:1rem;border-radius: 4px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px' id=aelm5891 data-element-id=5891><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/* &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>My comments about the class name could go here... &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>Add as many lines of comments as you want &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>    ...and use indentation, if you want to! &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>*/</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=kwd><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'><span style='box-sizing: border-box'>class</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>Program</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> &nbsp;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>    </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>......</span></span></span></pre></div>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5892 data-element-id=5892><span style='font-family:"Cambria",serif;
+color:#212529'>Use the&nbsp;<em style='box-sizing: border-box'><span
+style='font-family:"Cambria",serif'>start sequence</span></em>&nbsp;of
+forward-slash-asterisk (/*), write whatever you like, across multiple lines or
+not, and then end it all with the&nbsp;<em style='box-sizing: border-box'><span
+style='font-family:"Cambria",serif'>end sequence</span></em>&nbsp;of
+asterisk-forward-slash (*/). In between these markers, you can write whatever
+you want.</span></p>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5893 data-element-id=5893><span style='font-family:"Cambria",serif;
+color:#212529'>As with pretty much any other programming related subject,
+whether to use multiple single-line comments or one multi-line comment is often
+debated. Personally, I use both, for various situations - in the end, it's all
+up to you!</span></p>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: border-box;
+margin-bottom:0.5rem;font-size:1.75rem;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5895 data-element-id=5895><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>Documentation
+comments</span></u></b></h2>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5894 data-element-id=5894><span style='font-family:"Cambria",serif;
+color:#212529'>Documentation Comments (sometimes referred to as XML
+Documentation Comments) looks like regular comments, but with embedded XML.
+Just like with regular comments, they come in two forms: Single-line and
+multi-line. You also write them the same way, but with an extra character. So,
+single-line XML Documentation Comments uses three forward slashes (///) instead
+of two, and the multi-line variant gets an extra asterisk added in the start
+delimiter. Let's see how it looks:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'><pre style='line-height:150%;background:#EEEEEE;border:
+none;padding:0in;box-sizing: border-box;margin-bottom:1rem;border-radius: 4px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px' id=aelm5896 data-element-id=5896><span
+style='box-sizing: border-box'><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>class</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>User</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/// &lt;summary&gt;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/// The Name of the User.</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/// &lt;/summary&gt;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>public</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>string</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>Name</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>get</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>set</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>}</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+<br style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>/**</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>&nbsp; &nbsp; * &lt;summary&gt;The Age of the User.&lt;/summary&gt;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>&nbsp; &nbsp; */</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'><span style='box-sizing: border-box'>&nbsp; &nbsp; </span></span></span><span
+style='box-sizing: border-box'><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>public</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>string</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#660066'><span style='box-sizing: border-box'>Age</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>{</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>get</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=kwd></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'><span style='box-sizing: border-box'>set</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'><span style='box-sizing: border-box'>}</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'><span style='box-sizing: border-box'>}</span></span></span></pre></div>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5897 data-element-id=5897><span style='font-family:"Cambria",serif;
+color:#212529'>Here you can see both variants - single-line and multi-line. The
+result is the same, but the first variant tends to be the most commonly used
+for documentation comments.</span></p>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5898 data-element-id=5898><span style='font-family:"Cambria",serif;
+color:#212529'>Documenting your types and their members with documentation
+comments is a pretty big subject, and therefore it will be covered more in
+depth in a later article, but now you know how they look!</span></p>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: border-box;
+margin-bottom:0.5rem;font-size:1.75rem;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5903 data-element-id=5903><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>Code comments &amp;
+the Task list</span></u></b></h2>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5904 data-element-id=5904><span style='font-family:"Cambria",serif;
+color:#212529'>If you're using Visual Studio, you can actually get some help
+tracking your code comments. In the Task List window (access it from the menu&nbsp;<strong
+style='box-sizing: border-box'><span style='font-family:"Cambria",serif'>View</span></strong>&nbsp;&gt;&nbsp;<strong
+style='box-sizing: border-box'><span style='font-family:"Cambria",serif'>Task
+List</span></strong>) your comments will appear if they use the special, but
+very simple Task List comment syntax:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'><pre style='line-height:150%;background:#EEEEEE;border:
+none;padding:0in;box-sizing: border-box;margin-bottom:1rem;border-radius: 4px;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+overflow:auto;word-spacing:0px' id=aelm5907 data-element-id=5907><span
+style='box-sizing: border-box'><span class=com><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#880000'>//TODO: Change &quot;world&quot; to &quot;universe&quot;</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=typ><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#660066'><span style='box-sizing: border-box'>Console</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>.</span></span></span><span
+style='box-sizing: border-box'><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>(</span></span></span><span
+style='box-sizing: border-box'><span class=str><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#008800'>&quot;Hello, world!&quot;</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=com><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#880000'><span style='box-sizing: border-box'>//HACK: Don't try this at home....</span></span></span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br
+style='box-sizing: border-box'>
+</span><span class=kwd><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'><span style='box-sizing: border-box'>int</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> answerToLife </span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span></span></span><span
+style='box-sizing: border-box'><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=lit></span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#006666'><span style='box-sizing: border-box'>42</span></span></span><span
+style='box-sizing: border-box'><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></span></pre></div>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5905 data-element-id=5905><span style='font-family:"Cambria",serif;
+color:#212529'>So if the single-line comment is immediately followed by TODO or
+HACK, it will appear in the Task List of Visual Studio, like this:</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'><img src="7_files/image001.webp"></span></p>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white'><span style='font-family:"Cambria",serif;
+color:#212529'>And there are more types - depending on the version of Visual
+Studio you're using, it will respond to some or all of the following comment
+tokens:</span></p>
+
+<p class=MsoNormal style='margin-right:15.0pt;margin-left:.25in;text-indent:
+-.25in;line-height:150%;background:white'><span style='font-size:10.0pt;
+line-height:150%;font-family:Wingdings;color:red'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>TODO</span></p>
+
+<p class=MsoNormal style='margin-right:15.0pt;margin-left:.25in;text-indent:
+-.25in;line-height:150%;background:white'><span style='font-size:10.0pt;
+line-height:150%;font-family:Wingdings;color:red'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>HACK</span></p>
+
+<p class=MsoNormal style='margin-right:15.0pt;margin-left:.25in;text-indent:
+-.25in;line-height:150%;background:white'><span style='font-size:10.0pt;
+line-height:150%;font-family:Wingdings;color:red'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>NOTE</span></p>
+
+<p class=MsoNormal style='margin-right:15.0pt;margin-left:.25in;text-indent:
+-.25in;line-height:150%;background:white'><span style='font-size:10.0pt;
+line-height:150%;font-family:Wingdings;color:red'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212529'>UNDONE</span></p>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5910 data-element-id=5910><span style='font-family:"Cambria",serif;
+color:#212529'>You can even add your own tokens, if you want to - just follow
+the steps described in&nbsp;this article.</span></p>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: border-box;
+margin-bottom:0.5rem;font-size:1.75rem;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5915 data-element-id=5915><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#33393E'>Summary</span></b></h2>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5916 data-element-id=5916><span style='font-family:"Cambria",serif;
+color:#212529'>Code comments are extremely useful in documenting your code or
+for the purpose of leaving clues to your self or your potential colleagues on
+how stuff works. As an added benefit, they're great when you need to test
+something quickly - just copy a line and comment out the original line and you
+can see how it works now. If you're not happy with the result, you can just
+delete the new line and uncomment the original line and you're back to where
+you started.</span></p>
+
+<p style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;margin-left:0in;
+line-height:150%;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px' id=aelm5917 data-element-id=5917><span style='font-family:"Cambria",serif;
+color:#212529'>And don't worry about the end-user snooping through your
+comments - they are, as already mentioned, completely ignored by the compiler
+and therefore not in anyway included in your final DLL or EXE file. Code
+comments are your personal free-space when programming, so use it in any way
+you want to.</span></p>
+
+</div>
+
+</body>
+
+</html>

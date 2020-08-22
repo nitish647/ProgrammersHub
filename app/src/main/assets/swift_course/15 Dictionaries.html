@@ -1,0 +1,191 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Dictionaries</h1>
+
+<p>Swift <strong>dictionaries</strong> are used to store unordered lists of values of the same type. Swift puts strict checking which does not allow you to enter a wrong type in a dictionary even by mistake.</p>
+<p>Swift dictionaries use unique identifier known as a <strong>key</strong> to store a value which later can be referenced and looked up through the same key. Unlike items in an array, items in a <strong>dictionary</strong> do not have a specified order. You can use a <strong>dictionary</strong> when you need to look up values based on their identifiers.</p>
+<p>A dictionary key can be either an integer or a string without a restriction, but it should be unique within a dictionary.</p>
+<p>If you assign a created dictionary to a variable, then it is always mutable which means you can change it by adding, removing, or changing its items. But if you assign a dictionary to a constant, then that dictionary is immutable, and its size and contents cannot be changed.</p>
+<h2>Creating Dictionary</h2>
+<p>You can create an empty dictionary of a certain type using the following initializer syntax &minus;</p>
+<pre class="result notranslate">var someDict =  [KeyType: ValueType]()
+</pre>
+<p>You can use the following simple syntax to create an empty dictionary whose key will be of Int type and the associated values will be strings &minus;</p>
+<pre class="result notranslate">var someDict = [Int: String]()
+</pre>
+<p>Here is an example to create a dictionary from a set of given values &minus;</p>
+<pre class="result notranslate">var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+</pre>
+<h2>Accessing Dictionaries</h2>
+<p>You can retrieve a value from a dictionary by using subscript syntax, passing the key of the value you want to retrieve within square brackets immediately after the name of the dictionary as follows &minus;</p>
+<pre class="result notranslate">var someVar = someDict[key]
+</pre>
+<p>Let's check the following example to create, initialize, and access values from a dictionary &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of key = 1 is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 2 is \(someDict[2])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 3 is \(someDict[3])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of key = 1 is Optional("One")
+Value of key = 2 is Optional("Two")
+Value of key = 3 is Optional("Three")
+</pre>
+<h2>Modifying Dictionaries</h2>
+<p>You can use <strong>updateValue(forKey:)</strong> method to add an existing value to a given key of the dictionary. This method returns an optional value of the dictionary's value type. Here is a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">var</span><span class="pln"> oldVal </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">.</span><span class="pln">updateValue</span><span class="pun">(</span><span class="str">"New value of one"</span><span class="pun">,</span><span class="pln"> forKey</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Old value of key = 1 is \(oldVal)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 1 is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 2 is \(someDict[2])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 3 is \(someDict[3])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Old value of key = 1 is Optional("One")
+Value of key = 1 is Optional("New value of one")
+Value of key = 2 is Optional("Two")
+Value of key = 3 is Optional("Three")
+</pre>
+<p>You can modify an existing element of a dictionary by assigning new value at a given key as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">var</span><span class="pln"> oldVal </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln">
+someDict</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"New value of one"</span>
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Old value of key = 1 is \(oldVal)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 1 is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 2 is \(someDict[2])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 3 is \(someDict[3])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Old value of key = 1 is Optional("One")
+Value of key = 1 is Optional("New value of one")
+Value of key = 2 is Optional("Two")
+Value of key = 3 is Optional("Three")
+</pre>
+<h2>Remove Key-Value Pairs</h2>
+<p>You can use <strong>removeValueForKey()</strong> method to remove a key-value pair from a dictionary. This method removes the key-value pair if it exists and returns the removed value, or returns nil if no value existed. Here is a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">var</span><span class="pln"> removedValue </span><span class="pun">=</span><span class="pln"> someDict</span><span class="pun">.</span><span class="pln">removeValueForKey</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of key = 1 is \(someDict[1])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 2 is \(someDict[2])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 3 is \(someDict[3])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of key = 1 is Optional("One")
+Value of key = 2 is nil
+Value of key = 3 is Optional("Three")
+</pre>
+<p>You can also use subscript syntax to remove a key-value pair from a dictionary by assigning a value of <strong>nil</strong> for that key. Here is a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span><span class="pln">
+
+someDict</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span> <span class="pun">=</span> <span class="kwd">nil</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of key = 1 is \(someDict[1])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 2 is \(someDict[2])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of key = 3 is \(someDict[3])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of key = 1 is Optional("One")
+Value of key = 2 is nil
+Value of key = 3 is Optional("Three")
+</pre>
+<h2>Iterating Over a Dictionary</h2>
+<p>You can use a <strong>for</strong>-<strong>in</strong> loop to iterate over the entire set of key-value pairs in a Dictionary as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">for</span> <span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">)</span> <span class="kwd">in</span><span class="pln"> someDict </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Dictionary key \(key) -  Dictionary value \(value)"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Dictionary key 2 -  Dictionary value Two
+Dictionary key 3 -  Dictionary value Three
+Dictionary key 1 -  Dictionary value One
+</pre>
+<p>You can use <strong>enumerate()</strong> function which returns the index of the item along with its (key, value) pair as shown below in the example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">for</span> <span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">)</span> <span class="kwd">in</span><span class="pln"> enumerate</span><span class="pun">(</span><span class="pln">someDict</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Dictionary key \(key) -  Dictionary value \(value)"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Dictionary key 0 -  Dictionary value (2, Two)
+Dictionary key 1 -  Dictionary value (3, Three)
+Dictionary key 2 -  Dictionary value (1, One)
+</pre>
+<h2>Convert to Arrays</h2>
+<p>You can extract a list of key-value pairs from a given dictionary to build separate arrays for both keys and values. Here is an example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+
+<span class="kwd">let</span><span class="pln"> dictKeys </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">someDict</span><span class="pun">.</span><span class="pln">keys</span><span class="pun">)</span>
+<span class="kwd">let</span><span class="pln"> dictValues </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">String</span><span class="pun">](</span><span class="pln">someDict</span><span class="pun">.</span><span class="pln">values</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Print Dictionary Keys"</span><span class="pun">)</span>
+
+<span class="kwd">for</span> <span class="pun">(</span><span class="pln">key</span><span class="pun">)</span> <span class="kwd">in</span><span class="pln"> dictKeys </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"\(key)"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Print Dictionary Values"</span><span class="pun">)</span>
+
+<span class="kwd">for</span> <span class="pun">(</span><span class="pln">value</span><span class="pun">)</span> <span class="kwd">in</span><span class="pln"> dictValues </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"\(value)"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Print Dictionary Keys
+2
+3
+1
+Print Dictionary Values
+Two
+Three
+One
+</pre>
+<h2>The count Property</h2>
+<p>You can use the read-only <strong>count</strong> property of a dictionary to find out the number of items in a dictionary as shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict1</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+<span class="kwd">var</span><span class="pln"> someDict2</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">4</span><span class="pun">:</span><span class="str">"Four"</span><span class="pun">,</span> <span class="lit">5</span><span class="pun">:</span><span class="str">"Five"</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Total items in someDict1 = \(someDict1.count)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Total items in someDict2 = \(someDict2.count)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Total items in someDict1 = 3
+Total items in someDict2 = 2
+</pre>
+<h2>The empty Property</h2>
+<p>You can use read-only <strong>empty</strong> property of a dictionary to find out whether a dictionary is empty or not, as shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someDict1</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="str">"One"</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">:</span><span class="str">"Two"</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">:</span><span class="str">"Three"</span><span class="pun">]</span>
+<span class="kwd">var</span><span class="pln"> someDict2</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">4</span><span class="pun">:</span><span class="str">"Four"</span><span class="pun">,</span> <span class="lit">5</span><span class="pun">:</span><span class="str">"Five"</span><span class="pun">]</span>
+<span class="kwd">var</span><span class="pln"> someDict3</span><span class="pun">:[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]()</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"someDict1 = \(someDict1.isEmpty)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"someDict2 = \(someDict2.isEmpty)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"someDict3 = \(someDict3.isEmpty)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">someDict1 = false
+someDict2 = false
+someDict3 = true
+</pre>

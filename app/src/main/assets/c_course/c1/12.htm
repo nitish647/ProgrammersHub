@@ -1,0 +1,350 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Compiling
+a C program:- Behind the Scenes</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.75pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:21.0pt;font-family:"Times New Roman","serif"'>Compiling
+a C program:- Behind the Scenes</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>C is
+a high level language and it needs a compiler to convert it into an executable
+code so that the program can be run on our machine.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>How do we compile and run a C program?</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Below
+are the steps we use on an Ubuntu machine with gcc compiler.</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:3.75pt;margin-left:
+0in;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Helvetica","sans-serif";color:black'><a
+href="https://www.geeksforgeeks.org/wp-content/uploads/compilation.webp"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'><br>
+</span></a></span><span lang=EN-IN style='font-size:21.0pt;font-weight:normal'>Compiling
+a C program:- Behind the Scenes</span></h1>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>C is
+a high level language and it needs a compiler to convert it into an executable
+code so that the program can be run on our machine.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>How do we compile and run a C program?</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Below
+are the steps we use on an Ubuntu machine with gcc compiler.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'><a
+href="https://www.geeksforgeeks.org/wp-content/uploads/compilation.webp"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'><br>
+</span></a>Then compile it using below command.</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0;margin-left:27.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#E0E0E0;vertical-align:baseline;
+border:none;padding:0in'><b><span lang=EN-IN style='font-size:9.0pt;font-family:
+Consolas;color:black'> $ gcc –Wall filename.c –o filename</span></b></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;
+margin-left:27.0pt;text-align:justify;line-height:normal;background:white;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Helvetica","sans-serif";color:black'>The option -Wall enables all compiler’s
+warning messages. This option is recommended to generate better code.<br>
+The option -o is used to specify output file name. If we do not use this option,
+then an output file with name a.out is generated.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>After
+compilation executable is generated and we run the generated executable using
+below command.</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0;margin-left:27.0pt;margin-right:0in'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#E0E0E0;vertical-align:baseline;
+border:none;padding:0in'><b><span lang=EN-IN style='font-size:9.0pt;font-family:
+Consolas;color:black'> $ ./filename</span></b><span lang=EN-IN
+style='font-size:9.0pt;font-family:Consolas;color:black'> </span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:13.5pt;
+font-family:"Times New Roman","serif"'>What goes inside the compilation
+process?</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Compiler
+converts a C program into an executable. There are four phases for a C program
+to become an executable:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>Pre-processing</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>Compilation</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>Assembly</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>Linking</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>By
+executing below command, We get the all intermediate files in the current
+directory along with the executable.</span></p>
+
+<div style='border:solid #EDEDED 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#E0E0E0'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:#E0E0E0;vertical-align:baseline;border:none;padding:0in'><b><span
+lang=EN-IN style='font-size:9.0pt;font-family:Consolas;color:black'> $gcc –Wall
+–save-temps filename.c –o filename</span></b><span lang=EN-IN style='font-size:
+9.0pt;font-family:Consolas;color:black'> </span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:9.0pt;line-height:106%;
+font-family:Consolas;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Let
+us one by one see what these intermediate files contain.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:white;vertical-align:baseline'><b><u><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>Pre-processing</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Helvetica","sans-serif";color:black'>This
+is the first phase through which source code is passed. This phase include:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Removal
+of Comments</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Expansion
+of Macros</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Expansion
+of the included files.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>The preprocessed output is stored in the&nbsp;</span><b><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>filename.i</span></b><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Helvetica","sans-serif";color:black'>. Let’s see what’s inside
+filename.i: using&nbsp;</span><b><span lang=EN-IN style='font-size:11.5pt;
+font-family:"Helvetica","sans-serif";color:black'>$vi filename.i</span></b></p>
+
+<p class=MsoNormal><img src="12_files/image001.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>In the above output, source file is filled with lots and lots of
+info, but at the end our code is preserved.<br>
+</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>Analysis:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>printf
+contains now a + b rather than add(a, b) that’s because macros have expanded.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Helvetica","sans-serif";color:black'>Comments
+are stripped off.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Wingdings;color:black'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><b><span lang=EN-IN
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:black'>#include&lt;stdio.h&gt;</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Helvetica","sans-serif";
+color:black'>&nbsp;is missing instead we see lots of code. So header files has
+been expanded and included in our source file.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:white;vertical-align:baseline'><b><u><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>Compiling</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>The next step is to compile filename.i and produce an;
+intermediate compiled output file&nbsp;</span><b><span lang=EN-IN
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:black'>filename.s</span></b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>. This file is in assembly level instructions. Let’s see through
+this file using</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:
+"Helvetica","sans-serif";color:black'>&nbsp;$vi filename.s</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><a
+href="https://www.geeksforgeeks.org/wp-content/uploads/image2.webp"><span
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:#EC4E20;
+text-decoration:none'><img src="12_files/image002.webp" alt="Description: image"></span></a></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Helvetica","sans-serif";color:black'>The
+snapshot shows that it is in assembly language, which assembler can understand.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:white;vertical-align:baseline'><b><u><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>Assembly</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>In this phase the filename.s is taken as input and turned
+into&nbsp;</span><b><span lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>filename.o</span></b><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Helvetica","sans-serif";color:black'>&nbsp;by assembler. This file
+contain machine level instructions. At this phase, only existing code is
+converted into machine language, the function calls like printf() are not
+resolved. Let’s view this file using&nbsp;</span><b><span lang=EN-IN
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:black'>$vi
+filename.o</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><a
+href="https://www.geeksforgeeks.org/wp-content/uploads/compil7.webp"><span
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:#EC4E20;
+text-decoration:none'><img src="12_files/image003.webp" alt="Description: compil7"></span></a></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:white;vertical-align:baseline'><b><u><span
+lang=EN-IN style='font-size:13.5pt;font-family:"Helvetica","sans-serif";
+color:black'>Linking</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>This is the final phase in which all the linking of function calls
+with their definitions are done. Linker knows where all these functions are
+implemented. Linker does some extra work also, it adds some extra code to our
+program which is required when the program starts and ends. For example, there
+is a code which is required for setting up the environment like passing command
+line arguments. This task can be easily verified by using&nbsp;</span><b><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>$size filename.o</span></b><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Helvetica","sans-serif";color:black'>&nbsp;and&nbsp;</span><b><span
+lang=EN-IN style='font-size:11.5pt;font-family:"Helvetica","sans-serif";
+color:black'>$size filename</span></b><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Helvetica","sans-serif";color:black'>. Through these commands, we
+know that how output file increases from an object file to an executable file.
+This is because of the extra code that linker adds with our program.<br>
+</span><a href="https://www.geeksforgeeks.org/wp-content/uploads/compil8.webp"><span
+style='font-size:11.5pt;font-family:"Helvetica","sans-serif";color:#EC4E20;
+text-decoration:none'><img src="12_files/image004.webp" alt="Description: compil8"></span></a><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'><br>
+Note that GCC by default does dynamic linking, so printf() is dynamically
+linked in above program. Refer&nbsp;<a
+href="https://www.geeksforgeeks.org/static-vs-dynamic-libraries/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>this</span></a>,&nbsp;<a
+href="https://www.geeksforgeeks.org/working-with-shared-libraries-set-1/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>this</span></a>&nbsp;and&nbsp;<a
+href="https://www.geeksforgeeks.org/working-with-shared-libraries-set-2/"><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>this</span></a>&nbsp;for
+more details on static and dynamic linkings.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:white;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Helvetica","sans-serif";
+color:black'>This article is contributed by&nbsp;<a
+href="https://www.linkedin.com/in/vikash-kumar-2b947389"><b><span
+style='font-size:11.5pt;color:#EC4E20;text-decoration:none'>Vikash Kumar</span></b></a>.
+Please write comments if you find anything incorrect, or you want to share more
+information about the topic discussed above.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:9.0pt;line-height:106%;
+font-family:Consolas'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

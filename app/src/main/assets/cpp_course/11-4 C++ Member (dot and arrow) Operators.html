@@ -1,0 +1,19 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Member (dot &amp; arrow) Operators</h1>
+
+<p>The . (dot) operator and the -&gt; (arrow) operator are used to reference individual members of classes, structures, and unions.</p>
+<p>The dot operator is applied to the actual object. The arrow operator is used with a pointer to an object. For example, consider the following structure &minus;</p>
+<pre class="result notranslate">struct Employee {
+   char first_name[16];
+   int  age;
+}  emp;
+</pre>
+<h2>The (.) dot operator</h2>
+<p>To assign the value "zara" to the <strong>first_name</strong> member of object emp, you would write something as follows &minus;</p>
+<pre class="result notranslate">strcpy(emp.first_name, "zara");
+</pre>
+<h2>The (-&gt;) arrow operator</h2>
+<p>If p_emp is a pointer to an object of type Employee, then to assign the value "zara" to the <strong>first_name</strong> member of object emp, you would write something as follows &minus;</p>
+<pre class="result notranslate">strcpy(p_emp-&gt;first_name, "zara");
+</pre>
+<p>The -&gt; is called the arrow operator. It is formed by using the minus sign followed by a greater than sign.</p>
+<p>Simply saying: To access members of a structure, use the dot operator. To access members of a structure through a pointer, use the arrow operator.</p>

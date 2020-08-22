@@ -1,0 +1,35 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Add two numbers in range of integers(4 bytes)</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Scanner</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>math</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>BigInteger</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> AddingLargeNumbers {
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+    <span style='color:#7f0055; font-weight:bold; '>String</span> number1, number2;
+    Scanner in = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+ 
+    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter first large number"</span>);
+    number1 = in.nextLine();
+ 
+    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter second large number"</span>);
+    number2 = in.nextLine();
+ 
+    <span style='color:#7f0055; font-weight:bold; '>BigInteger</span> first  = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BigInteger</span>(number1);
+    <span style='color:#7f0055; font-weight:bold; '>BigInteger</span> second = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BigInteger</span>(number2);
+    <span style='color:#7f0055; font-weight:bold; '>BigInteger</span> sum;
+ 
+    sum = first.add(second);
+ 
+    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Result of addition = "</span> + sum);
+  }
+}
+
+
+Output:
+
+Enter first large number
+11111111111111
+Enter second large number
+99999999999999
+Result of addition = 111111111111110
+</pre>

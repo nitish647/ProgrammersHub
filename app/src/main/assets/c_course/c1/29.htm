@@ -1,0 +1,823 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Arrays of Structures</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:normal;background:white'><span lang=EN-IN
+style='font-size:27.0pt;font-family:"Tahoma","sans-serif";color:#333333'>Arrays
+of Structures</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;stdio.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;ctype.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;string.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#define MAXWORD 100</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><b><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>struct</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> key {</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>word;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> count;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>} keytab[] </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>  {</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;auto&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;break&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;case&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;char&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;const&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;continue&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;default&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;unsigned&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;void&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;volatile&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;while&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;printf&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/*
+Figure out why printf is a special case */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>};</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#define NKEYS
+(sizeof keytab / sizeof(struct key))</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>mgetword</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>binsearch</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>struct</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> key </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* count C keywords
+*/</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>main</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> argc, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>argv[])</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> n;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+word[MAXWORD];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>while</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+(mgetword(word, MAXWORD) </span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#666666'>!=</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#333333'> EOF) </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+(isalpha(word[</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#40A070'>0</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>])) </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ((n </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+binsearch(word, keytab, NKEYS)) </span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#666666'>&gt;=</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>                keytab[n].count</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>++</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>for</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (n </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>; n </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&lt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> NKEYS;
+n</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#666666'>++</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>                </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+(keytab[n].count </span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#666666'>&gt;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'> </span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#40A070'>0</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>                   
+printf(</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#4070A0'>&quot;%4d %s<b>\n</b>&quot;</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>, keytab[n].count,
+keytab[n].word);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>                </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            </span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* binsearch: find
+word in tab[0]...tab[n-1] */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>binsearch</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>word, </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>struct</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> key
+tab[], </span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#902000'>int</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'> n)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> cond;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> low,
+high, mid;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    low </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    high </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> n </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>while</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (low </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&lt;=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> high) {</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        mid </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (low</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>+</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>high) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>/</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>2</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ((cond </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+strcmp(word, tab[mid].word)) </span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#666666'>&lt;</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            high </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> mid </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>else</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (cond </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            low </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> mid </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>+</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>else</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> mid;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    }</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* getword: get
+next word or character from input */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>mgetword</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>word, </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> lim)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> c,
+getch(</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#902000'>void</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+ungetch(</span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#902000'>int</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> word;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>while</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+(isspace(c </span><span lang=EN-IN style='font-size:10.0pt;font-family:Consolas;
+color:#666666'>=</span><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#333333'> getch()))</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        ;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (c </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>!=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> EOF)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>++</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> c;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>!</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>isalpha(c))
+{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>'\0'</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> c;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    }</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>for</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ( ; </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>--</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>lim </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>; w</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>++</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>!</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>isalnum(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+getch())) {</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            ungetch(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>            </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>break</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        }</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>w </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>'\0'</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> word[</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>];</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#define BUFSIZE 
+100</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+buf[BUFSIZE];  </span><i><span lang=EN-IN style='font-size:10.0pt;font-family:
+Consolas;color:#60A0B0'>/* buffer for ungetch */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> bufp </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;       </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* next
+free position in buf */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>getch</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)     </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* get a
+(possibly pushed back) character */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> ( bufp </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>?</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> buf[</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>--</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>bufp] </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>:</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+getchar();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>ungetch</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> c)     </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* push
+a character back on input */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>if</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(bufp </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+BUFSIZE)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;ungetch:
+too many characters <b>\n</b>&quot;</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>else</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        buf[bufp</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>++</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>] </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> c;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

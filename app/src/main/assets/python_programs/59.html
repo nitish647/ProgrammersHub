@@ -1,0 +1,51 @@
+<!-- HTML generated using hilite.me -->
+<div style="background: #202020; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">quickSort</span><span style="color: #d0d0d0">(data_list):</span>
+    <span style="color: #d0d0d0">quickSortHlp(data_list,</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span><span style="color: #24909d">len</span><span style="color: #d0d0d0">(data_list)-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+
+    <span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">quickSortHlp</span><span style="color: #d0d0d0">(data_list,first,last):</span>
+       <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">first</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #d0d0d0">last:</span>
+    
+           <span style="color: #d0d0d0">splitpoint</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">partition(data_list,first,last)</span>
+    
+           <span style="color: #d0d0d0">quickSortHlp(data_list,first,splitpoint-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+           <span style="color: #d0d0d0">quickSortHlp(data_list,splitpoint+</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,last)</span>
+    
+    
+    <span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">partition</span><span style="color: #d0d0d0">(data_list,first,last):</span>
+       <span style="color: #d0d0d0">pivotvalue</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data_list[first]</span>
+    
+       <span style="color: #d0d0d0">leftmark</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">first+</span><span style="color: #3677a9">1</span>
+       <span style="color: #d0d0d0">rightmark</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">last</span>
+    
+       <span style="color: #d0d0d0">done</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">False</span>
+       <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #6ab825; font-weight: bold">not</span> <span style="color: #d0d0d0">done:</span>
+    
+           <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">leftmark</span> <span style="color: #d0d0d0">&lt;=</span> <span style="color: #d0d0d0">rightmark</span> <span style="color: #6ab825; font-weight: bold">and</span> <span style="color: #d0d0d0">data_list[leftmark]</span> <span style="color: #d0d0d0">&lt;=</span> <span style="color: #d0d0d0">pivotvalue:</span>
+               <span style="color: #d0d0d0">leftmark</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">leftmark</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span>
+    
+           <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">data_list[rightmark]</span> <span style="color: #d0d0d0">&gt;=</span> <span style="color: #d0d0d0">pivotvalue</span> <span style="color: #6ab825; font-weight: bold">and</span> <span style="color: #d0d0d0">rightmark</span> <span style="color: #d0d0d0">&gt;=</span> <span style="color: #d0d0d0">leftmark:</span>
+               <span style="color: #d0d0d0">rightmark</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">rightmark</span> <span style="color: #d0d0d0">-</span><span style="color: #3677a9">1</span>
+    
+           <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">rightmark</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #d0d0d0">leftmark:</span>
+               <span style="color: #d0d0d0">done</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">True</span>
+           <span style="color: #6ab825; font-weight: bold">else</span><span style="color: #d0d0d0">:</span>
+               <span style="color: #d0d0d0">temp</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data_list[leftmark]</span>
+               <span style="color: #d0d0d0">data_list[leftmark]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data_list[rightmark]</span>
+               <span style="color: #d0d0d0">data_list[rightmark]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">temp</span>
+    
+       <span style="color: #d0d0d0">temp</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data_list[first]</span>
+       <span style="color: #d0d0d0">data_list[first]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">data_list[rightmark]</span>
+       <span style="color: #d0d0d0">data_list[rightmark]</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">temp</span>
+    
+    
+       <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #d0d0d0">rightmark</span>
+    
+    <span style="color: #d0d0d0">data_list</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">54</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">26</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">93</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">17</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">77</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">31</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">44</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">55</span><span style="color: #d0d0d0">,</span><span style="color: #3677a9">20</span><span style="color: #d0d0d0">]</span>
+    <span style="color: #d0d0d0">quickSort(data_list)</span>
+    <span style="color: #24909d">print</span><span style="color: #d0d0d0">(data_list)</span>
+    
+    
+    <span style="color: #d0d0d0">&gt;&gt;Output:</span>
+    
+    <span style="color: #d0d0d0">[</span><span style="color: #3677a9">17</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">20</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">26</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">31</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">44</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">54</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">55</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">77</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">93</span><span style="color: #d0d0d0">]</span> 
+    </pre></div>

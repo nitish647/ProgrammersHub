@@ -1,0 +1,107 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Static Members of a C++ Class</h1>
+
+<p>We can define class members static using <strong>static</strong> keyword. When we declare a member of a class as static it means no matter how many objects of the class are created, there is only one copy of the static member.</p>
+<p>A static member is shared by all objects of the class. All static data is initialized to zero when the first object is created, if no other initialization is present. We can't put it in the class definition but it can be initialized outside the class as done in the following example by redeclaring the static variable, using the scope resolution operator <strong>::</strong> to identify which class it belongs to.</p>
+<p>Let us try the following example to understand the concept of static data members &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> objectCount</span><span class="pun">;</span>
+      
+      <span class="com">// Constructor definition</span>
+      <span class="typ">Box</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> l </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> h </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span><span class="str">"Constructor called."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> l</span><span class="pun">;</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">;</span>
+         
+         <span class="com">// Increase every time object is created</span><span class="pln">
+         objectCount</span><span class="pun">++;</span>
+      <span class="pun">}</span>
+      <span class="kwd">double</span> <span class="typ">Volume</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>     <span class="com">// Length of a box</span>
+      <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>    <span class="com">// Breadth of a box</span>
+      <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>     <span class="com">// Height of a box</span>
+<span class="pun">};</span>
+
+<span class="com">// Initialize static member of class Box</span>
+<span class="kwd">int</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">objectCount </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="typ">Box</span> <span class="typ">Box1</span><span class="pun">(</span><span class="lit">3.3</span><span class="pun">,</span> <span class="lit">1.2</span><span class="pun">,</span> <span class="lit">1.5</span><span class="pun">);</span>    <span class="com">// Declare box1</span>
+   <span class="typ">Box</span> <span class="typ">Box2</span><span class="pun">(</span><span class="lit">8.5</span><span class="pun">,</span> <span class="lit">6.0</span><span class="pun">,</span> <span class="lit">2.0</span><span class="pun">);</span>    <span class="com">// Declare box2</span>
+
+   <span class="com">// Print total number of objects.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Total objects: "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">objectCount </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Constructor called.
+Constructor called.
+Total objects: 2
+</pre>
+<h2>Static Function Members</h2>
+<p>By declaring a function member as static, you make it independent of any particular object of the class. A static member function can be called even if no objects of the class exist and the <strong>static</strong> functions are accessed using only the class name and the scope resolution operator <strong>::</strong>.</p>
+<p>A static member function can only access static data member, other static member functions and any other functions from outside the class.</p>
+<p>Static member functions have a class scope and they do not have access to the <strong>this</strong> pointer of the class. You could use a static member function to determine whether some objects of the class have been created or not.</p>
+<p>Let us try the following example to understand the concept of static function members &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> objectCount</span><span class="pun">;</span>
+      
+      <span class="com">// Constructor definition</span>
+      <span class="typ">Box</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> l </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> h </span><span class="pun">=</span> <span class="lit">2.0</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span><span class="str">"Constructor called."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> l</span><span class="pun">;</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">;</span>
+
+         <span class="com">// Increase every time object is created</span><span class="pln">
+         objectCount</span><span class="pun">++;</span>
+      <span class="pun">}</span>
+      <span class="kwd">double</span> <span class="typ">Volume</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> getCount</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> objectCount</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>     <span class="com">// Length of a box</span>
+      <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>    <span class="com">// Breadth of a box</span>
+      <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>     <span class="com">// Height of a box</span>
+<span class="pun">};</span>
+
+<span class="com">// Initialize static member of class Box</span>
+<span class="kwd">int</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">objectCount </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">// Print total number of objects before creating object.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Inital Stage Count: "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">getCount</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="typ">Box</span> <span class="typ">Box1</span><span class="pun">(</span><span class="lit">3.3</span><span class="pun">,</span> <span class="lit">1.2</span><span class="pun">,</span> <span class="lit">1.5</span><span class="pun">);</span>    <span class="com">// Declare box1</span>
+   <span class="typ">Box</span> <span class="typ">Box2</span><span class="pun">(</span><span class="lit">8.5</span><span class="pun">,</span> <span class="lit">6.0</span><span class="pun">,</span> <span class="lit">2.0</span><span class="pun">);</span>    <span class="com">// Declare box2</span>
+
+   <span class="com">// Print total number of objects after creating object.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Final Stage Count: "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Box</span><span class="pun">::</span><span class="pln">getCount</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Inital Stage Count: 0
+Constructor called.
+Constructor called.
+Final Stage Count: 2
+</pre>

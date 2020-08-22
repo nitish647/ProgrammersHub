@@ -1,0 +1,136 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Signal Handling</h1>
+ 
+<p>Signals are the interrupts delivered to a process by the operating system which can terminate a program prematurely. You can generate interrupts by pressing Ctrl+C on a UNIX, LINUX, Mac OS X or Windows system.</p>
+<p>There are signals which can not be caught by the program but there is a following list of signals which you can catch in your program and can take appropriate actions based on the signal. These signals are defined in C++ header file &lt;csignal&gt;.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Signal &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>SIGABRT</strong></p>
+<p>Abnormal termination of the program, such as a call to <strong>abort</strong>.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>SIGFPE</strong></p>
+<p>An erroneous arithmetic operation, such as a divide by zero or an operation resulting in overflow.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>SIGILL</strong></p>
+<p>Detection of an illegal instruction.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>SIGINT</strong></p>
+<p>Receipt of an interactive attention signal.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>SIGSEGV</strong></p>
+<p>An invalid access to storage.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>SIGTERM</strong></p>
+<p>A termination request sent to the program.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>The signal() Function</h2>
+<p>C++ signal-handling library provides function <strong>signal</strong> to trap unexpected events. Following is the syntax of the signal() function &minus;</p>
+<pre class="result notranslate">void (*signal (int sig, void (*func)(int)))(int); 
+</pre>
+<p>Keeping it simple, this function receives two arguments: first argument as an integer which represents signal number and second argument as a pointer to the signal-handling function.</p>
+<p>Let us write a simple C++ program where we will catch SIGINT signal using signal() function. Whatever signal you want to catch in your program, you must register that signal using <strong>signal</strong> function and associate it with a signal handler. Examine the following example &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;csignal&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">void</span><span class="pln"> signalHandler</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> signum </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Interrupt signal ("</span> <span class="pun">&lt;&lt;</span><span class="pln"> signum </span><span class="pun">&lt;&lt;</span> <span class="str">") received.\n"</span><span class="pun">;</span>
+
+   <span class="com">// cleanup and close up stuff here  </span>
+   <span class="com">// terminate program  </span>
+
+   <span class="kwd">exit</span><span class="pun">(</span><span class="pln">signum</span><span class="pun">);</span>  
+<span class="pun">}</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// register signal SIGINT and signal handler  </span><span class="pln">
+   signal</span><span class="pun">(</span><span class="pln">SIGINT</span><span class="pun">,</span><span class="pln"> signalHandler</span><span class="pun">);</span>  
+
+   <span class="kwd">while</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Going to sleep...."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+      sleep</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span>
+   <span class="pun">}</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Going to sleep....
+Going to sleep....
+Going to sleep....
+</pre>
+<p>Now, press Ctrl+c to interrupt the program and you will see that your program will catch the signal and would come out by printing something as follows &minus;</p>
+<pre class="result notranslate">Going to sleep....
+Going to sleep....
+Going to sleep....
+Interrupt signal (2) received.
+</pre>
+<h2>The raise() Function</h2>
+<p>You can generate signals by function <strong>raise()</strong>, which takes an integer signal number as an argument and has the following syntax.</p>
+<pre class="result notranslate">int raise (signal sig);
+</pre>
+<p>Here, <strong>sig</strong> is the signal number to send any of the signals: SIGINT, SIGABRT, SIGFPE, SIGILL, SIGSEGV, SIGTERM, SIGHUP. Following is the example where we raise a signal internally using raise() function as follows &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;csignal&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">void</span><span class="pln"> signalHandler</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> signum </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Interrupt signal ("</span> <span class="pun">&lt;&lt;</span><span class="pln"> signum </span><span class="pun">&lt;&lt;</span> <span class="str">") received.\n"</span><span class="pun">;</span>
+
+   <span class="com">// cleanup and close up stuff here  </span>
+   <span class="com">// terminate program  </span>
+
+   <span class="kwd">exit</span><span class="pun">(</span><span class="pln">signum</span><span class="pun">);</span>  
+<span class="pun">}</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+   <span class="com">// register signal SIGINT and signal handler  </span><span class="pln">
+   signal</span><span class="pun">(</span><span class="pln">SIGINT</span><span class="pun">,</span><span class="pln"> signalHandler</span><span class="pun">);</span>  
+
+   <span class="kwd">while</span><span class="pun">(++</span><span class="pln">i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Going to sleep...."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+      <span class="kwd">if</span><span class="pun">(</span><span class="pln"> i </span><span class="pun">==</span> <span class="lit">3</span> <span class="pun">)</span> <span class="pun">{</span>
+         <span class="kwd">raise</span><span class="pun">(</span><span class="pln"> SIGINT</span><span class="pun">);</span>
+      <span class="pun">}</span><span class="pln">
+      sleep</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span>
+   <span class="pun">}</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result and would come out automatically &minus;</p>
+<pre class="result notranslate">Going to sleep....
+Going to sleep....
+Going to sleep....
+Interrupt signal (2) received.
+</pre>

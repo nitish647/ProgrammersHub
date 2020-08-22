@@ -1,0 +1,1015 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Properties</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Properties</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><b><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Properties</span></b><span lang=EN-IN style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria","serif";color:black'>&nbsp;are named
+members of classes, structures, and interfaces. Member variables or methods in
+a class or structures are called&nbsp;<b>Fields</b>. Properties are an
+extension of fields and are accessed using the same syntax. They use&nbsp;<b>accessors</b>&nbsp;through
+which the values of the private fields can be read, written or manipulated.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>Properties do not name the storage locations. Instead, they
+have&nbsp;<b>accessors</b>&nbsp;that read, write, or compute their values.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>For example, let us have a class named Student, with private
+fields for age, name, and code. We cannot directly access these fields from
+outside the class scope, but we can have properties for accessing these private
+fields.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Accessors</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The&nbsp;<b>accessor</b>&nbsp;of a property contains the
+executable statements that helps in getting (reading or computing) or setting
+(writing) the property. The accessor declarations can contain a get accessor, a
+set accessor, or both. For example:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// Declare a Code property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>publicstring</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Code</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>return</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> code</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>      code </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+value</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// Declare a Name property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>publicstring</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Name</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>return</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> name</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>      name </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+value</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#880000'>// Declare a Age property of type int:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>publicint</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>return</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> age</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>      age </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+value</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+14.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following example demonstrates use of properties:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> Softecks</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> code </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;N.A&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;not
+known&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privateint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> age </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Code property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+code </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> value</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Name property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+name </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> value</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Age property of type int:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>   
+        age </span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> value</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicoverridestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ToString</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Code =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;, Name =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;, Age =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ExampleDemo</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Create a new Student object:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> s </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Setting code, name and the age of the student</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;001&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Vishwa&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>9</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Student
+Info: {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> s</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//let
+us increase age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Student
+Info: {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> s</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='font-size:9.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#313131'>Student Info: Code = 001, Name = Vishwa, Age = 9</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='font-size:9.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#313131'>Student Info: Code = 001, Name = Vishwa, Age = 10</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Abstract Properties</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>An abstract class may have an abstract property, which should be
+implemented in the derived class. The following program illustrates this:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> Softecks</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicabstractclass</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Person</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicabstractstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicabstractint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>:</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Person</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> code </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;N.A&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;N.A&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privateint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> age </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Code property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+code </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> value</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Name property of type string:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicoverridestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+name </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> value</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Declare a Age property of type int:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicoverrideint</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>get</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>set</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+age </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> value</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicoverridestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ToString</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Code =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;, Name =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;, Age =
+&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ExampleDemo</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Create a new Student object:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> s </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Student</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Setting code, name and the age of the student</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Code</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;001&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Name</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Vishwa&quot;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>9</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Student
+Info:- {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> s</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//let
+us increase age</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+s</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Age</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Student
+Info:- {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> s</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Student
+Info: Code = 001, Name = Vishwa, Age = 9</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Student
+Info: Code = 001, Name = Vishwa, Age = 10</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;* Find the greatest number among three numbers</span>
+<span style='color:#3f7f59; '>&#xa0;*/</span>
+<span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> assignments</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> greatest_number {
+    
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+    {
+        <span style='color:#7f0055; font-weight:bold; '>int</span> max = 0;
+        <span style='color:#7f0055; font-weight:bold; '>int</span>[] arr_list = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[]{5,12,6};
+        <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=1;i&lt;=arr_list.length-1;i++)
+        {
+            <span style='color:#7f0055; font-weight:bold; '>if</span>(arr_list[max] &lt; arr_list[i] )
+            {
+               max = i;
+            }
+        }
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Largest number is: "</span>+arr_list[max]);
+    }    
+}
+
+
+Output:
+
+ Largest number is: 12
+</pre>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Abstraction</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Abstraction</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>As per dictionary, <b>abstraction</b> is the quality of dealing with ideas rather than events. For example, when you consider the case of e-mail, complex details such as what happens as soon as you send an e-mail, the protocol your e-mail server uses are hidden from the user. Therefore, to send an e-mail you just need to type the content, mention the address of the receiver, and click send.</p>
+        <p>Likewise in Object-oriented programming, abstraction is a process of hiding the implementation details from the user, only the functionality will be provided to the user. In other words, the user will have the information on what the object does instead of how it does it.</p>
+        <p>In Java, abstraction is achieved using Abstract classes and interfaces.</p>
+        <h2>Abstract Class </h2>
+        <p>A class which contains the <b>abstract</b> keyword in its declaration is known as abstract class.</p>
+        <ul class="list">
+            <li><p>Abstract classes may or may not contain <i>abstract methods</i>, i.e., methods without body ( public void get(); )</p></li>
+            <li><p>But, if a class has at least one abstract method, then the class <b>must</b> be declared abstract.</p></li>
+            <li><p>If a class is declared abstract, it cannot be instantiated.</p></li>
+            <li><p>To use an abstract class, you have to inherit it from another class, provide implementations to the abstract methods in it.</p></li>
+            <li><p>If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.</p></li>
+        </ul>
+        <h3>Example</h3>
+        <p>This section provides you an example of the abstract class. To create an abstract class, just use the <b>abstract</b> keyword before the class keyword, in the class declaration.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : Employee.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">abstract</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Employee</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> address</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">Employee</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> address</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Constructing an Employee"</span><span class="pun">);</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">address </span><span class="pun">=</span><span class="pln"> address</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">number </span><span class="pun">=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> computePay</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+     </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Inside Employee computePay"</span><span class="pun">);</span><span class="pln">
+     </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0.0</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mailCheck</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Mailing a check to "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">address</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> toString</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> address </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getAddress</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> address</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setAddress</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> newAddress</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      address </span><span class="pun">=</span><span class="pln"> newAddress</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getNumber</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>You can observe that except abstract methods the Employee class is same as normal class in Java. The class is now abstract, but it still has three fields, seven methods, and one constructor.</p>
+        <p>Now you can try to instantiate the Employee class in the following way −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : AbstractDemo.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AbstractDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">/* Following is not allowed and would raise error */</span><span class="pln">
+      </span><span class="typ">Employee</span><span class="pln"> e </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Employee</span><span class="pun">(</span><span class="str">"George W."</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Houston, TX"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">43</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"\n Call mailCheck using Employee reference--"</span><span class="pun">);</span><span class="pln">
+      e</span><span class="pun">.</span><span class="pln">mailCheck</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>When you compile the above class, it gives you the following error −</p>
+        <pre class="result notranslate">Employee.java:46: Employee is abstract; cannot be instantiated
+      Employee e = new Employee("George W.", "Houston, TX", 43);
+                   ^
+1 error
+</pre>
+        <h2>Inheriting the Abstract Class</h2>
+        <p>We can inherit the properties of Employee class just like concrete class in the following way −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : Salary.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Salary</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Employee</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> salary</span><span class="pun">;</span><span class="pln">   </span><span class="com">// Annual salary</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">Salary</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> address</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> salary</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> address</span><span class="pun">,</span><span class="pln"> number</span><span class="pun">);</span><span class="pln">
+      setSalary</span><span class="pun">(</span><span class="pln">salary</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> mailCheck</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Within mailCheck of Salary class "</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Mailing check to "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> getName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">" with salary "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> salary</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getSalary</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> salary</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setSalary</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> newSalary</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">newSalary </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0.0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         salary </span><span class="pun">=</span><span class="pln"> newSalary</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> computePay</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Computing salary pay for "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> getName</span><span class="pun">());</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> salary</span><span class="pun">/</span><span class="lit">52</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Here, you cannot instantiate the Employee class, but you can instantiate the Salary Class, and using this instance you can access all the three fields and seven methods of Employee class as shown below.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : AbstractDemo.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AbstractDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Salary</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Salary</span><span class="pun">(</span><span class="str">"Mohd Mohtashim"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Ambehta, UP"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3600.00</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Employee</span><span class="pln"> e </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Salary</span><span class="pun">(</span><span class="str">"John Adams"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Boston, MA"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2400.00</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Call mailCheck using Salary reference --"</span><span class="pun">);</span><span class="pln">
+      s</span><span class="pun">.</span><span class="pln">mailCheck</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"\n Call mailCheck using Employee reference--"</span><span class="pun">);</span><span class="pln">
+      e</span><span class="pun">.</span><span class="pln">mailCheck</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This produces the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Constructing an Employee
+Constructing an Employee
+Call mailCheck using Salary reference --
+Within mailCheck of Salary class
+Mailing check to Mohd Mohtashim with salary 3600.0
+
+ Call mailCheck using Employee reference--
+Within mailCheck of Salary class
+Mailing check to John Adams with salary 2400.0
+</pre>
+        <h2>Abstract Methods</h2>
+        <p>If you want a class to contain a particular method but you want the actual implementation of that method to be determined by child classes, you can declare the method in the parent class as an abstract.</p>
+        <ul class="list">
+            <li><p><b>abstract</b> keyword is used to declare the method as abstract.</p></li>
+            <li><p>You have to place the <b>abstract</b> keyword before the method name in the method declaration.</p></li>
+            <li><p>An abstract method contains a method signature, but no method body.</p></li>
+            <li><p>Instead of curly braces, an abstract method will have a semoi colon (;) at the end.</p></li>
+        </ul>
+        <p>Following is an example of the abstract method.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">abstract</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Employee</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> name</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> address</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">abstract</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> computePay</span><span class="pun">();</span><span class="pln">
+   </span><span class="com">// Remainder of class definition</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Declaring a method as abstract has two consequences −</p>
+        <ul class="list">
+            <li><p>The class containing it must be declared as abstract.</p></li>
+            <li><p>Any class inheriting the current class must either override the abstract method or declare itself as abstract.</p></li>
+        </ul>
+        <p><b>Note</b> − Eventually, a descendant class has to implement the abstract method; otherwise, you would have a hierarchy of abstract classes that cannot be instantiated.</p>
+        <p>Suppose Salary class inherits the Employee class, then it should implement the <b>computePay()</b> method as shown below −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : Salary.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Salary</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Employee</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> salary</span><span class="pun">;</span><span class="pln">   </span><span class="com">// Annual salary</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> computePay</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Computing salary pay for "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> getName</span><span class="pun">());</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> salary</span><span class="pun">/</span><span class="lit">52</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="com">// Remainder of class definition</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

@@ -1,0 +1,62 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Multi-dimensional Arrays</h1>
+
+<p>C++ allows multidimensional arrays. Here is the general form of a multidimensional array declaration &minus;</p>
+<pre class="result notranslate">type name[size1][size2]...[sizeN];
+</pre>
+<p>For example, the following declaration creates a three dimensional 5 . 10 . 4 integer array &minus;</p>
+<pre class="result notranslate">int threedim[5][10][4];
+</pre>
+<h2>Two-Dimensional Arrays</h2>
+<p>The simplest form of the multidimensional array is the two-dimensional array. A two-dimensional array is, in essence, a list of one-dimensional arrays. To declare a two-dimensional integer array of size x,y, you would write something as follows &minus;</p>
+<pre class="result notranslate">type arrayName [ x ][ y ];
+</pre>
+<p>Where <strong>type</strong> can be any valid C++ data type and <strong>arrayName</strong> will be a valid C++ identifier.</p>
+<p>A two-dimensional array can be think as a table, which will have x number of rows and y number of columns. A 2-dimensional array <strong>a</strong>, which contains three rows and four columns can be shown as below &minus;</p>
+<p><img src="two_dimensional_arrays.jpg" alt="Two Dimensional Arrays" /></p>
+<p>Thus, every element in array a is identified by an element name of the form <strong>a[ i ][ j ]</strong>, where a is the name of the array, and i and j are the subscripts that uniquely identify each element in a.</p>
+<h2>Initializing Two-Dimensional Arrays</h2>
+<p>Multidimensioned arrays may be initialized by specifying bracketed values for each row. Following is an array with 3 rows and each row have 4 columns.</p>
+<pre class="result notranslate">int a[3][4] = {  
+   {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+   {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+   {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+};
+</pre>
+<p>The nested braces, which indicate the intended row, are optional. The following initialization is equivalent to previous example &minus;</p>
+<pre class="result notranslate">int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
+</pre>
+<h2>Accessing Two-Dimensional Array Elements</h2>
+<p>An element in 2-dimensional array is accessed by using the subscripts, i.e., row index and column index of the array. For example &minus;</p>
+<pre class="result notranslate">int val = a[2][3];
+</pre>
+<p>The above statement will take 4<sup>th</sup> element from the 3<sup>rd</sup> row of the array. You can verify it in the above digram.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// an array with 5 rows and 2 columns.</span>
+   <span class="kwd">int</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">5</span><span class="pun">][</span><span class="lit">2</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span> <span class="pun">{</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">2</span><span class="pun">,</span><span class="lit">4</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">3</span><span class="pun">,</span><span class="lit">6</span><span class="pun">},{</span><span class="lit">4</span><span class="pun">,</span><span class="lit">8</span><span class="pun">}};</span>
+ 
+   <span class="com">// output each array element's value                      </span>
+   <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span>
+      <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> j </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span> <span class="lit">2</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"a["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"]["</span> <span class="pun">&lt;&lt;</span><span class="pln"> j </span><span class="pun">&lt;&lt;</span> <span class="str">"]: "</span><span class="pun">;</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span><span class="pln"> a</span><span class="pun">[</span><span class="pln">i</span><span class="pun">][</span><span class="pln">j</span><span class="pun">]&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">a[0][0]: 0
+a[0][1]: 0
+a[1][0]: 1
+a[1][1]: 2
+a[2][0]: 2
+a[2][1]: 4
+a[3][0]: 3
+a[3][1]: 6
+a[4][0]: 4
+a[4][1]: 8
+</pre>
+<p>As explained above, you can have arrays with any number of dimensions, although it is likely that most of the arrays you create will be of one or two dimensions.</p>

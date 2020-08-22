@@ -1,0 +1,109 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Subscripts</h1>
+
+<p>Accessing the element members of a collection, sequence and a list in Classes, Structures and Enumerations are carried out with the help of subscripts. These subscripts are used to store and retrieve the values with the help of index. Array elements are accessed with the help of someArray[index] and its subsequent member elements in a Dictionary instance can be accessed as someDicitonary[key].</p>
+<p>For a single type, subscripts can range from single to multiple declarations. We can use the appropriate subscript to overload the type of index value passed to the subscript. Subscripts also ranges from single dimension to multiple dimension according to the users requirements for their input data type declarations.</p>
+<h2>Subscript Declaration Syntax and its Usage</h2>
+<p>Let's have a recap to the computed properties. Subscripts too follow the same syntax as that of computed properties. For querying type instances, subscripts are written inside a square bracket followed with the instance name. Subscript syntax follows the same syntax structure as that of 'instance method' and 'computed property' syntax. 'subscript' keyword is used for defining subscripts and the user can specify single or multiple parameters with their return types. Subscripts can have read-write or read-only properties and the instances are stored and retrieved with the help of 'getter' and 'setter' properties as that of computed properties.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">subscript</span><span class="pun">(</span><span class="pln">index</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">get</span> <span class="pun">{</span>
+      <span class="com">// used for subscript value declarations</span>
+   <span class="pun">}</span>
+   <span class="kwd">set</span><span class="pun">(</span><span class="pln">newValue</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="com">// definitions are written here</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<h3>Example1</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span><span class="pln"> subexample </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> decrementer</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">index</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> decrementer </span><span class="pun">/</span><span class="pln"> index
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> division </span><span class="pun">=</span><span class="pln"> subexample</span><span class="pun">(</span><span class="pln">decrementer</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"The number is divisible by \(division[9]) times"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"The number is divisible by \(division[2]) times"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"The number is divisible by \(division[3]) times"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"The number is divisible by \(division[5]) times"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"The number is divisible by \(division[7]) times"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">The number is divisible by 11 times
+The number is divisible by 50 times
+The number is divisible by 33 times
+The number is divisible by 20 times
+The number is divisible by 14 times
+</pre>
+<h3>Example2</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> daysofaweek </span><span class="pun">{</span>
+   <span class="kwd">private</span> <span class="kwd">var</span><span class="pln"> days </span><span class="pun">=</span> <span class="pun">[</span><span class="str">"Sunday"</span><span class="pun">,</span> <span class="str">"Monday"</span><span class="pun">,</span> <span class="str">"Tuesday"</span><span class="pun">,</span> <span class="str">"Wednesday"</span><span class="pun">,</span> <span class="str">"Thursday"</span><span class="pun">,</span> <span class="str">"Friday"</span><span class="pun">,</span> <span class="str">"saturday"</span><span class="pun">]</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">index</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> days</span><span class="pun">[</span><span class="pln">index</span><span class="pun">]</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">set</span><span class="pun">(</span><span class="pln">newValue</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="kwd">self</span><span class="pun">.</span><span class="pln">days</span><span class="pun">[</span><span class="pln">index</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> daysofaweek</span><span class="pun">()</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">p</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">p</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">p</span><span class="pun">[</span><span class="lit">2</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">p</span><span class="pun">[</span><span class="lit">3</span><span class="pun">])</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Sunday
+Monday
+Tuesday
+Wednesday
+</pre>
+<h2>Options in Subscript</h2>
+<p>Subscripts takes single to multiple input parameters and these input parameters also belong to any datatype. They can also use variable and variadic parameters. Subscripts cannot provide default parameter values or use any in-out parameters.</p>
+<p>Defining multiple subscripts are termed as 'subscript overloading' where a class or structure can provide multiple subscript definitions as required. These multiple subscripts are inferred based on the types of values that are declared within the subscript braces.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span> <span class="typ">Matrix</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> rows</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> columns</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">Double</span><span class="pun">]</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">rows</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> columns</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">rows </span><span class="pun">=</span><span class="pln"> rows
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">columns </span><span class="pun">=</span><span class="pln"> columns
+      </span><span class="kwd">print</span> <span class="pun">=</span> <span class="typ">Array</span><span class="pun">(</span><span class="pln">count</span><span class="pun">:</span><span class="pln"> rows </span><span class="pun">*</span><span class="pln"> columns</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">0.0</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">row</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> column</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Double</span> <span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">print</span><span class="pun">[(</span><span class="pln">row </span><span class="pun">*</span><span class="pln"> columns</span><span class="pun">)</span> <span class="pun">+</span><span class="pln"> column</span><span class="pun">]</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">set</span> <span class="pun">{</span>
+         <span class="kwd">print</span><span class="pun">[(</span><span class="pln">row </span><span class="pun">*</span><span class="pln"> columns</span><span class="pun">)</span> <span class="pun">+</span><span class="pln"> column</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> mat </span><span class="pun">=</span> <span class="typ">Matrix</span><span class="pun">(</span><span class="pln">rows</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">,</span><span class="pln"> columns</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">)</span><span class="pln">
+
+mat</span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">1.0</span><span class="pln">
+mat</span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">2.0</span><span class="pln">
+mat</span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">3.0</span><span class="pln">
+mat</span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">5.0</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"\(mat[0,0])"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(mat[0,1])"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(mat[1,0])"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(mat[1,1])"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">1.0
+2.0
+3.0
+5.0
+</pre>
+<p>Swift subscript supports single parameter to multiple parameter declarations for appropriate data types. The program declares 'Matrix' structure as a 2 * 2 dimensional array matrix to store 'Double' data types. The Matrix parameter is inputted with Integer data types for declaring rows and columns.</p>
+<p>New instance for the Matrix is created by passing row and column count to the initialize as shown below.</p>
+<pre class="result notranslate">var mat = Matrix(rows: 3, columns: 3) 
+</pre>
+<p>Matrix values can be defined by passing row and column values into the subscript, separated by a comma as shown below.</p>
+<pre class="result notranslate">mat[0,0] = 1.0  
+mat[0,1] = 2.0
+mat[1,0] = 3.0
+mat[1,1] = 5.0
+</pre>

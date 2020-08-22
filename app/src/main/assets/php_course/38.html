@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - MySQL Login</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>PHP - MySQL Login</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>This tutorial demonstrates how to create a login page with MySQL Data base. Before enter into the code part, You would need special privileges to create or to delete a MySQL database. So assuming you have access to root user, you can create any database using mysql mysqladmin binary.</p>
+        <h2>Config.php</h2>
+        <p>Config.php file is having information about MySQL Data base configuration.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   define</span><span class="pun">(</span><span class="str">'DB_SERVER'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'localhost:3036'</span><span class="pun">);</span><span class="pln">
+   define</span><span class="pun">(</span><span class="str">'DB_USERNAME'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'root'</span><span class="pun">);</span><span class="pln">
+   define</span><span class="pun">(</span><span class="str">'DB_PASSWORD'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'rootpassword'</span><span class="pun">);</span><span class="pln">
+   define</span><span class="pun">(</span><span class="str">'DB_DATABASE'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'database'</span><span class="pun">);</span><span class="pln">
+   $db </span><span class="pun">=</span><span class="pln"> mysqli_connect</span><span class="pun">(</span><span class="pln">DB_SERVER</span><span class="pun">,</span><span class="pln">DB_USERNAME</span><span class="pun">,</span><span class="pln">DB_PASSWORD</span><span class="pun">,</span><span class="pln">DB_DATABASE</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+        <h2>Login.php</h2>
+        <p>Login PHP is having information about php script and HTML script to do login.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   include</span><span class="pun">(</span><span class="str">"config.php"</span><span class="pun">);</span><span class="pln">
+   session_start</span><span class="pun">();</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$_SERVER</span><span class="pun">[</span><span class="str">"REQUEST_METHOD"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// username and password sent from form </span><span class="pln">
+
+      $myusername </span><span class="pun">=</span><span class="pln"> mysqli_real_escape_string</span><span class="pun">(</span><span class="pln">$db</span><span class="pun">,</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'username'</span><span class="pun">]);</span><span class="pln">
+      $mypassword </span><span class="pun">=</span><span class="pln"> mysqli_real_escape_string</span><span class="pun">(</span><span class="pln">$db</span><span class="pun">,</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'password'</span><span class="pun">]);</span><span class="pln">
+
+      $sql </span><span class="pun">=</span><span class="pln"> </span><span class="str">"SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'"</span><span class="pun">;</span><span class="pln">
+      $result </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$db</span><span class="pun">,</span><span class="pln">$sql</span><span class="pun">);</span><span class="pln">
+      $row </span><span class="pun">=</span><span class="pln"> mysqli_fetch_array</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">,</span><span class="pln">MYSQLI_ASSOC</span><span class="pun">);</span><span class="pln">
+      $active </span><span class="pun">=</span><span class="pln"> $row</span><span class="pun">[</span><span class="str">'active'</span><span class="pun">];</span><span class="pln">
+
+      $count </span><span class="pun">=</span><span class="pln"> mysqli_num_rows</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// If result matched $myusername and $mypassword, table row must be 1 row</span><span class="pln">
+
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$count </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         session_register</span><span class="pun">(</span><span class="str">"myusername"</span><span class="pun">);</span><span class="pln">
+         $_SESSION</span><span class="pun">[</span><span class="str">'login_user'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $myusername</span><span class="pun">;</span><span class="pln">
+
+         header</span><span class="pun">(</span><span class="str">"location: welcome.php"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         $error </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Your Login Name or Password is invalid"</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Login Page</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text/css"</span><span class="tag">&gt;</span><span class="pln">
+         body </span><span class="pun">{</span><span class="pln">
+            font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="typ">Arial</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Helvetica</span><span class="pun">,</span><span class="pln"> sans</span><span class="pun">-</span><span class="pln">serif</span><span class="pun">;</span><span class="pln">
+            font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">14px</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+         label </span><span class="pun">{</span><span class="pln">
+            font</span><span class="pun">-</span><span class="pln">weight</span><span class="pun">:</span><span class="pln">bold</span><span class="pun">;</span><span class="pln">
+            width</span><span class="pun">:</span><span class="lit">100px</span><span class="pun">;</span><span class="pln">
+            font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">14px</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">.</span><span class="pln">box </span><span class="pun">{</span><span class="pln">
+            border</span><span class="pun">:#</span><span class="lit">666666</span><span class="pln"> solid </span><span class="lit">1px</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/style&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">bgcolor</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"#FFFFFF"</span><span class="tag">&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">align</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"center"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">style</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="pln">width</span><span class="pun">:</span><span class="lit">300px</span><span class="pun">;</span><span class="pln"> border</span><span class="pun">:</span><span class="pln"> solid </span><span class="lit">1px</span><span class="pln"> </span><span class="com">#333333; </span><span class="atv">"</span><span class="pln"> </span><span class="atn">align</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">style</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="pln">background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:#</span><span class="lit">333333</span><span class="pun">;</span><span class="pln"> color</span><span class="pun">:#</span><span class="pln">FFFFFF</span><span class="pun">;</span><span class="pln"> padding</span><span class="pun">:</span><span class="lit">3px</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;&lt;b&gt;</span><span class="pln">Login</span><span class="tag">&lt;/b&gt;&lt;/div&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">style</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="pln">margin</span><span class="pun">:</span><span class="lit">30px</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+
+               </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">""</span><span class="pln"> </span><span class="atn">method</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"post"</span><span class="tag">&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;label&gt;</span><span class="pln">UserName  :</span><span class="tag">&lt;/label&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"username"</span><span class="pln"> </span><span class="atn">class</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"box"</span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;label&gt;</span><span class="pln">Password  :</span><span class="tag">&lt;/label&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">class</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"box"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">" Submit "</span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+               </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">style</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="pln">font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">11px</span><span class="pun">;</span><span class="pln"> color</span><span class="pun">:#</span><span class="pln">cc0000</span><span class="pun">;</span><span class="pln"> margin</span><span class="pun">-</span><span class="pln">top</span><span class="pun">:</span><span class="lit">10px</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pun">&lt;?</span><span class="pln">php echo $error</span><span class="pun">;</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+         </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>welcome.php</h2>
+        <p>After successful login, it will display welcome page.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   include</span><span class="pun">(</span><span class="str">'session.php'</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;html</span><span class="atv">"&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Welcome </span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;h1&gt;</span><span class="pln">Welcome </span><span class="pun">&lt;?</span><span class="pln">php echo $login_session</span><span class="pun">;</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="tag">&lt;/h1&gt;</span><span class="pln">
+      </span><span class="tag">&lt;h2&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"logout.php"</span><span class="tag">&gt;</span><span class="pln">Sign Out</span><span class="tag">&lt;/a&gt;&lt;/h2&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h2>Logout page</h2>
+        <p>Logout page is having information about how to logout from login session.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   session_start</span><span class="pun">();</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">session_destroy</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      header</span><span class="pun">(</span><span class="str">"Location: login.php"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+        <h2>session.php</h2>
+        <p>Session.php will verify the session, if there is no session it will redirect to login page.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   include</span><span class="pun">(</span><span class="str">'config.php'</span><span class="pun">);</span><span class="pln">
+   session_start</span><span class="pun">();</span><span class="pln">
+
+   $user_check </span><span class="pun">=</span><span class="pln"> $_SESSION</span><span class="pun">[</span><span class="str">'login_user'</span><span class="pun">];</span><span class="pln">
+
+   $ses_sql </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$db</span><span class="pun">,</span><span class="str">"select username from admin where username = '$user_check' "</span><span class="pun">);</span><span class="pln">
+
+   $row </span><span class="pun">=</span><span class="pln"> mysqli_fetch_array</span><span class="pun">(</span><span class="pln">$ses_sql</span><span class="pun">,</span><span class="pln">MYSQLI_ASSOC</span><span class="pun">);</span><span class="pln">
+
+   $login_session </span><span class="pun">=</span><span class="pln"> $row</span><span class="pun">[</span><span class="str">'username'</span><span class="pun">];</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_SESSION</span><span class="pun">[</span><span class="str">'login_user'</span><span class="pun">])){</span><span class="pln">
+      header</span><span class="pun">(</span><span class="str">"location:login.php"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

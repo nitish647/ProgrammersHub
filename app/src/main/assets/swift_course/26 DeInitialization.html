@@ -1,0 +1,44 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Deinitialization</h1>
+
+<p>Before a class instance needs to be deallocated 'deinitializer' has to be called to deallocate the memory space. The keyword 'deinit' is used to deallocate the memory spaces occupied by the system resources. Deinitialization is available only on class types.</p>
+<h2>Deinitialization to Deallocate Memory Space</h2>
+<p>Swift automatically deallocates your instances when they are no longer needed, to free up resources. Swift handles the memory management of instances through automatic reference counting (ARC), as described in Automatic Reference Counting. Typically you don't need to perform manual clean-up when your instances are deallocated. However, when you are working with your own resources, you might need to perform some additional clean-up yourself. For example, if you create a custom class to open a file and write some data to it, you might need to close the file before the class instance is deallocated.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">var</span><span class="pln"> counter </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>  <span class="com">// for reference counting</span>
+<span class="kwd">class</span><span class="pln"> baseclass </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      counter</span><span class="pun">++;</span>
+   <span class="pun">}</span><span class="pln">
+   deinit </span><span class="pun">{</span><span class="pln">
+      counter</span><span class="pun">--;</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> baseclass</span><span class="pun">?</span> <span class="pun">=</span><span class="pln"> baseclass</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">)</span>
+<span class="kwd">print</span> <span class="pun">=</span> <span class="kwd">nil</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">1
+0
+</pre>
+<p>When print = nil statement is omitted the values of the counter retains the same since it is not deinitialized.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">var</span><span class="pln"> counter </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>  <span class="com">// for reference counting</span>
+
+<span class="kwd">class</span><span class="pln"> baseclass </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      counter</span><span class="pun">++;</span>
+   <span class="pun">}</span><span class="pln">
+
+   deinit </span><span class="pun">{</span><span class="pln">
+      counter</span><span class="pun">--;</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> baseclass</span><span class="pun">?</span> <span class="pun">=</span><span class="pln"> baseclass</span><span class="pun">()</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">1
+1
+</pre>

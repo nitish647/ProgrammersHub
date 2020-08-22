@@ -1,0 +1,163 @@
+<p>
+    47)
+</p>
+<p>
+    &lt;!DOCTYPE html&gt;
+</p>
+<p>
+    &lt;html lang="en"&gt;
+</p>
+<p>
+    &lt;head&gt;
+</p>
+<p>
+    &lt;meta charset="utf-8"&gt;
+</p>
+<p>
+    &lt;title&gt;JavaScript Sort an Array of Objects&lt;/title&gt;
+</p>
+<p>
+    &lt;/head&gt;
+</p>
+<p>
+    &lt;body&gt;
+</p>
+<p>
+    &lt;script&gt;
+</p>
+<p>
+    var persons = [
+</p>
+<p>
+    { name: "Harry", age: 14 },
+</p>
+<p>
+    { name: "Ethan", age: 30 },
+</p>
+<p>
+    { name: "Peter", age: 21 },
+</p>
+<p>
+    { name: "Clark", age: 42 },
+</p>
+<p>
+    { name: "Alice", age: 16 }
+</p>
+<p>
+    ];
+</p>
+<p>
+    // Sort by age
+</p>
+<p>
+    persons.sort(function (a, b) {
+</p>
+<p>
+    return a.age - b.age;
+</p>
+<p>
+    });
+</p>
+<p>
+    console.log(persons);
+</p>
+<p>
+    // Sort by name
+</p>
+<p>
+    persons.sort(function(a, b) {
+</p>
+<p>
+    var x = a.name.toLowerCase(); // ignore upper and lowercase
+</p>
+<p>
+    var y = b.name.toLowerCase(); // ignore upper and lowercase
+</p>
+<p>
+    if(x &lt; y) {
+</p>
+<p>
+    return -1;
+</p>
+<p>
+    }
+</p>
+<p>
+    if(x &gt; y) {
+</p>
+<p>
+    return 1;
+</p>
+<p>
+    }
+</p>
+<p>
+    // names must be equal
+</p>
+<p>
+    return 0;
+</p>
+<p>
+    });
+</p>
+<p>
+    // Loop through all the elements in the array
+</p>
+<p>
+    for(var i in persons) {
+</p>
+<p>
+    // Loop through all the properties in the object
+</p>
+<p>
+    for(var prop in persons[i]) {
+</p>
+<p>
+    document.write(prop + ": " + persons[i][prop] + "&lt;br&gt;");
+</p>
+<p>
+    }
+</p>
+<p>
+    document.write("&lt;hr&gt;");
+</p>
+<p>
+    }
+</p>
+<p>
+    &lt;/script&gt;
+</p>
+<p>
+    &lt;/body&gt;
+</p>
+<p>
+    &lt;/html&gt;
+    <br/>
+    <br/>
+    OUTPUT
+    <br/>
+    <br/>
+    name: Alice
+    <br/>
+    age: 16
+</p>
+<p>
+    name: Clark
+    <br/>
+    age: 42
+</p>
+<p>
+    name: Ethan
+    <br/>
+    age: 30
+</p>
+<p>
+    name: Harry
+    <br/>
+    age: 14
+</p>
+<p>
+    name: Peter
+    <br/>
+    age: 21
+</p>

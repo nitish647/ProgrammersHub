@@ -1,0 +1,329 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>nested
+loop</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:3.75pt;text-align:justify;line-height:
+normal;background:white;vertical-align:baseline'><span lang=EN-IN
+style='font-size:21.0pt;font-family:"Helvetica","sans-serif";color:black'>nested
+loop</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Which
+of the following two code segments is faster? Assume that compiler makes no
+optimizations.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>/*
+  FIRST */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>for(i=0;i&lt;10;i++)
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;for(j=0;j&lt;100;j++)
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;//do
+  somthing </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>/* SECOND */</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>for(i=0;i&lt;100;i++) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;for(j=0;j&lt;10;j++) </span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;//do something </span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Both
+code segments provide same functionality, and the code inside the two for loops
+would be executed same number of times in both code segments.<br>
+If we take a closer look then we can see that the SECOND does more operations
+than the FIRST. It executes all three parts (assignment, comparison and
+increment) of the for loop more times than the corresponding parts of FIRST:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>The
+SECOND executes assignment operations ( j = 0 or i = 0) 101 times while FIRST
+executes only 11 times.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>The
+SECOND does 101 + 1100 comparisons (i &lt; 100 or j &lt; 10) while the FIRST
+does 11 + 1010 comparisons (i &lt; 10 or j &lt; 100).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal;
+vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:
+"Times New Roman","serif"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Times New Roman","serif"'>The
+SECOND executes 1100 increment operations (i++ or j++) while the FIRST executes
+1010 increment operation.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Below
+C++ code counts the number of increment operations executed in FIRST and
+SECOND, and prints the counts.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>//program
+  to count number of increment&nbsp; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>//operations
+  in FIRST and SECOND&nbsp; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>#include&lt;iostream&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>using</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>namespace</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>std; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>c1 = 0, c2 =
+  0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;/*
+  FIRST */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i=0;i&lt;10;i++,c1++)
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>j=0;j&lt;100;j++,
+  c1++); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//do
+  something </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;/*
+  SECOND */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i=0; i&lt;100;
+  i++, c2++) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>j=0; j&lt;10;
+  j++, c2++); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//do
+  something </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;cout
+  &lt;&lt; &quot; Count in FIRST = &quot;</span><span style='font-size:10.0pt;
+  font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;&lt;c1
+  &lt;&lt; endl; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;cout
+  &lt;&lt; &quot; Count in SECOND&nbsp; = &quot;</span><span style='font-size:
+  10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;&lt;c2
+  &lt;&lt; endl; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;return</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Below
+C++ code counts the number of comparison operations executed by FIRST and
+SECOND</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse'>
+ <tr>
+  <td width=672 style='width:7.0in;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>//program
+  to count the number of comparison&nbsp; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>//operations
+  executed by FIRST and SECOND */ </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>#include&lt;iostream&gt;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>using</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>namespace</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>std; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>main() </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>{
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>c1 = 0, c2 =
+  0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;/*
+  FIRST */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i=0;
+  ++c1&amp;&amp;i&lt;10; i++) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>j=0;
+  ++c1&amp;&amp;j&lt;100;j++); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//do
+  something </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;/*
+  SECOND */</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>i=0;
+  ++c2&amp;&amp;i&lt;100; i++) </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>j=0;
+  ++c2&amp;&amp;j&lt;10; j++); </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//do
+  something </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;cout
+  &lt;&lt; &quot; Count fot FIRST&nbsp; &quot;</span><span style='font-size:
+  10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;&lt;c1
+  &lt;&lt; endl; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;cout
+  &lt;&lt; &quot; Count fot SECOND&nbsp; &quot;</span><span style='font-size:
+  10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;&lt;c2
+  &lt;&lt; endl; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;getchar();
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;return</span><span
+  style='font-size:10.0pt;font-family:"Times New Roman","serif";color:black'> </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>0; </span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Courier New";color:black'>}
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

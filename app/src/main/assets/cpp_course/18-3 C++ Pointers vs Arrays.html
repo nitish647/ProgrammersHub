@@ -1,0 +1,57 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Pointers vs Arrays</h1>
+
+<p>Pointers and arrays are strongly related. In fact, pointers and arrays are interchangeable in many cases. For example, a pointer that points to the beginning of an array can access that array by using either pointer arithmetic or array-style indexing. Consider the following program &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+   <span class="kwd">int</span>  <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+ 
+   <span class="com">// let us have array address in pointer.</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">var</span><span class="pun">;</span>
+   
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Address of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+ 
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of var["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">ptr </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+      <span class="com">// point to the next location</span><span class="pln">
+      ptr</span><span class="pun">++;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranslate">Address of var[0] = 0xbfa088b0
+Value of var[0] = 10
+Address of var[1] = 0xbfa088b4
+Value of var[1] = 100
+Address of var[2] = 0xbfa088b8
+Value of var[2] = 200
+</pre>
+<p>However, pointers and arrays are not completely interchangeable. For example, consider the following program &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">const</span> <span class="kwd">int</span><span class="pln"> MAX </span><span class="pun">=</span> <span class="lit">3</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span>  <span class="kwd">var</span><span class="pun">[</span><span class="pln">MAX</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">};</span>
+ 
+   <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> MAX</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span>
+      <span class="pun">*</span><span class="kwd">var</span> <span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>    <span class="com">// This is a correct syntax</span>
+      <span class="kwd">var</span><span class="pun">++;</span>       <span class="com">// This is incorrect.</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>It is perfectly acceptable to apply the pointer operator * to var but it is illegal to modify var value. The reason for this is that var is a constant that points to the beginning of an array and can not be used as l-value.</p>
+<p>Because an array name generates a pointer constant, it can still be used in pointer-style expressions, as long as it is not modified. For example, the following is a valid statement that assigns var[2] the value 500 &minus;</p>
+<pre class="result notranslate">*(var + 2) = 500;
+</pre>
+<p>Above statement is valid and will compile successfully because var is not changed.</p>

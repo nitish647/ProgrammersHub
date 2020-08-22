@@ -1,0 +1,44 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ function call by value</h1>
+
+<p>The <strong>call by value</strong> method of passing arguments to a function copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</p>
+<p>By default, C++ uses call by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function. Consider the function <strong>swap()</strong> definition as follows.</p>
+<pre id="swap" class="prettyprint notranslate prettyprinted"><span class="com">// function definition to swap the values.</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> y</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> temp</span><span class="pun">;</span><span class="pln">
+
+   temp </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span> <span class="com">/* save the value of x */</span><span class="pln">
+   x </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span>    <span class="com">/* put y into x */</span><span class="pln">
+   y </span><span class="pun">=</span><span class="pln"> temp</span><span class="pun">;</span> <span class="com">/* put x into y */</span>
+  
+   <span class="kwd">return</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>Now, let us call the function <strong>swap()</strong> by passing actual values as in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;" title="swap"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// function declaration</span>
+<span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> y</span><span class="pun">);</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Before swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="com">// calling a function to swap the values.</span><span class="pln">
+   swap</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of a :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"After swap, value of b :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> b </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is put together in a file, compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Before swap, value of a :100
+Before swap, value of b :200
+After swap, value of a :100
+After swap, value of b :200
+</pre>
+<p>Which shows that there is no change in the values though they had been changed inside the function.</p>

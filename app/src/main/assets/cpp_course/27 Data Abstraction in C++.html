@@ -1,0 +1,83 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Data Abstraction in C++</h1>
+ 
+<p>Data abstraction refers to providing only essential information to the outside world and hiding their background details, i.e., to represent the needed information in program without presenting the details.</p>
+<p>Data abstraction is a programming (and design) technique that relies on the separation of interface and implementation.</p>
+<p>Let's take one real life example of a TV, which you can turn on and off, change the channel, adjust the volume, and add external components such as speakers, VCRs, and DVD players, BUT you do not know its internal details, that is, you do not know how it receives signals over the air or through a cable, how it translates them, and finally displays them on the screen.</p>
+<p>Thus, we can say a television clearly separates its internal implementation from its external interface and you can play with its interfaces like the power button, channel changer, and volume control without having zero knowledge of its internals.</p>
+<p>In C++, classes provides great level of <strong>data abstraction</strong>. They provide sufficient public methods to the outside world to play with the functionality of the object and to manipulate object data, i.e., state without actually knowing how class has been implemented internally.</p>
+<p>For example, your program can make a call to the <strong>sort()</strong> function without knowing what algorithm the function actually uses to sort the given values. In fact, the underlying implementation of the sorting functionality could change between releases of the library, and as long as the interface stays the same, your function call will still work.</p>
+<p>In C++, we use <strong>classes</strong> to define our own abstract data types (ADT). You can use the <strong>cout</strong> object of class <strong>ostream</strong> to stream data to standard output like this &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Hello C++"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>Here, you don't need to understand how <strong>cout</strong> displays the text on the user's screen. You need to only know the public interface and the underlying implementation of &lsquo;cout&rsquo; is free to change.</p>
+<h2>Access Labels Enforce Abstraction</h2>
+<p>In C++, we use access labels to define the abstract interface to the class. A class may contain zero or more access labels &minus;</p>
+<ul class="list">
+<li>
+<p>Members defined with a public label are accessible to all parts of the program. The data-abstraction view of a type is defined by its public members.</p>
+</li>
+<li>
+<p>Members defined with a private label are not accessible to code that uses the class. The private sections hide the implementation from code that uses the type.</p>
+</li>
+</ul>
+<p>There are no restrictions on how often an access label may appear. Each access label specifies the access level of the succeeding member definitions. The specified access level remains in effect until the next access label is encountered or the closing right brace of the class body is seen.</p>
+<h2>Benefits of Data Abstraction</h2>
+<p>Data abstraction provides two important advantages &minus;</p>
+<ul class="list">
+<li>
+<p>Class internals are protected from inadvertent user-level errors, which might corrupt the state of the object.</p>
+</li>
+<li>
+<p>The class implementation may evolve over time in response to changing requirements or bug reports without requiring change in user-level code.</p>
+</li>
+</ul>
+<p>By defining data members only in the private section of the class, the class author is free to make changes in the data. If the implementation changes, only the class code needs to be examined to see what affect the change may have. If data is public, then any function that directly access the data members of the old representation might be broken.</p>
+<h2>Data Abstraction Example</h2>
+<p>Any C++ program where you implement a class with public and private members is an example of data abstraction. Consider the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Adder</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// constructor</span>
+      <span class="typ">Adder</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         total </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// interface to outside world</span>
+      <span class="kwd">void</span><span class="pln"> addNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         total </span><span class="pun">+=</span><span class="pln"> number</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// interface to outside world</span>
+      <span class="kwd">int</span><span class="pln"> getTotal</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> total</span><span class="pun">;</span>
+      <span class="pun">};</span>
+      
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="com">// hidden data from outside world</span>
+      <span class="kwd">int</span><span class="pln"> total</span><span class="pun">;</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Adder</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+   
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span><span class="pln">
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">30</span><span class="pun">);</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Total "</span> <span class="pun">&lt;&lt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">getTotal</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Total 60
+</pre>
+<p>Above class adds numbers together, and returns the sum. The public members - <strong>addNum</strong> and <strong>getTotal</strong> are the interfaces to the outside world and a user needs to know them to use the class. The private member <strong>total</strong> is something that the user doesn't need to know about, but is needed for the class to operate properly.</p>
+<h2>Designing Strategy</h2>
+<p>Abstraction separates code into interface and implementation. So while designing your component, you must keep interface independent of the implementation so that if you change underlying implementation then interface would remain intact.</p>
+<p>In this case whatever programs are using these interfaces, they would not be impacted and would just need a recompilation with the latest implementation.</p>

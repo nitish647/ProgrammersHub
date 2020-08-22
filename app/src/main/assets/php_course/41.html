@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - Ajax Auto Complete Search</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+   <div class="col-md-7 middle-col">
+      <h1>PHP - Ajax Auto Complete Search</h1>
+
+      <div class="clearer"></div>
+      <hr>
+      <h2>Auto Complete Search</h2>
+      <p>The Auto complete search box provides the suggestions when you enter data into the field. Here we are using xml to call auto complete suggestions. The below example demonstrate, How to use auto complete text box using with php.</p>
+      <h2>Index page</h2>
+      <p>Index page should be as follows −</p>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;style&gt;</span><span class="pln">
+         div </span><span class="pun">{</span><span class="pln">
+            width</span><span class="pun">:</span><span class="lit">240px</span><span class="pun">;</span><span class="pln">
+            color</span><span class="pun">:</span><span class="pln">green</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/style&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> showResult</span><span class="pun">(</span><span class="pln">str</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">str</span><span class="pun">.</span><span class="pln">length </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"livesearch"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"livesearch"</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">border </span><span class="pun">=</span><span class="pln"> </span><span class="str">"0px"</span><span class="pun">;</span><span class="pln">
+               </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">XMLHttpRequest</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               xmlhttp </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span><span class="pln">
+            </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               xmlhttp </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ActiveXObject</span><span class="pun">(</span><span class="str">"Microsoft.XMLHTTP"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            xmlhttp</span><span class="pun">.</span><span class="pln">onreadystatechange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">xmlhttp</span><span class="pun">.</span><span class="pln">readyState </span><span class="pun">==</span><span class="pln"> </span><span class="lit">4</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> xmlhttp</span><span class="pun">.</span><span class="pln">status </span><span class="pun">==</span><span class="pln"> </span><span class="lit">200</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"livesearch"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> xmlhttp</span><span class="pun">.</span><span class="pln">responseText</span><span class="pun">;</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"livesearch"</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">border </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1px solid #A5ACB2"</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            xmlhttp</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"GET"</span><span class="pun">,</span><span class="str">"livesearch.php?q="</span><span class="pun">+</span><span class="pln">str</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+            xmlhttp</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;h2&gt;</span><span class="pln">Enter Course Name</span><span class="tag">&lt;/h2&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">size</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"30"</span><span class="pln"> </span><span class="atn">onkeyup</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"</span><span class="pln">showResult</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"livesearch"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln">
+         </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://www.tutorialspoint.com"</span><span class="tag">&gt;</span><span class="pln">More Details </span><span class="tag">&lt;/a&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+      <h2>livesearch.php</h2>
+      <p>It is used to call the data from xml file and it will send the result to web browsers.</p>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+   $xmlDoc </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DOMDocument</span><span class="pun">();</span><span class="pln">
+   $xmlDoc</span><span class="pun">-&gt;</span><span class="pln">load</span><span class="pun">(</span><span class="str">"autocomplete.xml"</span><span class="pun">);</span><span class="pln">
+   $x </span><span class="pun">=</span><span class="pln"> $xmlDoc</span><span class="pun">-&gt;</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'link'</span><span class="pun">);</span><span class="pln">
+   $q </span><span class="pun">=</span><span class="pln"> $_GET</span><span class="pun">[</span><span class="str">"q"</span><span class="pun">];</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">strlen</span><span class="pun">(</span><span class="pln">$q</span><span class="pun">)&gt;</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $hint </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">$i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> $i</span><span class="pun">&gt;(</span><span class="pln">$x</span><span class="pun">-&gt;</span><span class="pln">length</span><span class="pun">);</span><span class="pln"> $i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         $y </span><span class="pun">=</span><span class="pln"> $x</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="pln">$i</span><span class="pun">)-&gt;</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'title'</span><span class="pun">);</span><span class="pln">
+         $z </span><span class="pun">=</span><span class="pln"> $x</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="pln">$i</span><span class="pun">)-&gt;</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'url'</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$y</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeType </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">stristr</span><span class="pun">(</span><span class="pln">$y</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeValue</span><span class="pun">,</span><span class="pln">$q</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+               </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$hint </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                  $hint </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;a href = '"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $z</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeValue </span><span class="pun">.</span><span class="pln"> </span><span class="str">"' target='_blank'&gt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+                  $y</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeValue </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;/a&gt;"</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                  $hint </span><span class="pun">=</span><span class="pln"> $hint </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;br/&gt;&lt;a href = '"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+                  $z</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeValue </span><span class="pun">.</span><span class="pln"> </span><span class="str">"' target='_blank'&gt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+                  $y</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">nodeValue </span><span class="pun">.</span><span class="pln"> </span><span class="str">"&lt;/a&gt;"</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$hint </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $response </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Please enter a valid name"</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $response </span><span class="pun">=</span><span class="pln"> $hint</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   echo $response</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+      <h2>autocomplete.xml</h2>
+      <p>It contained auto complete data and accessed by livesearch.php based on tittle field and Url filed</p>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;pages&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">android</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/android/index.htm</span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Java</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/java/index.htm</span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">CSS </span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/css/index.htm</span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">angularjs</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/angularjs/index.htm </span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">hadoop</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/hadoop/index.htm </span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">swift</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/swift/index.htm </span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">ruby</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/ruby/index.htm </span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;link&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">nodejs</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+      </span><span class="tag">&lt;url&gt;</span><span class="pln">http://www.tutorialspoint.com/nodejs/index.htm </span><span class="tag">&lt;/url&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/link&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;/pages&gt;</span></pre>
+      <p>It will produce the following result −</p>
+      <img src="../img/25.PNG" alt="Autocomplete Search">
+      <hr>
+   </div></div></div></div></div></div>
+</body></html>

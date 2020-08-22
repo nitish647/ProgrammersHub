@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.tutorialspoint.com/sql/sql-expressions.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - if...else Statement</title>
+    <meta name="description" content="JavaScript Placement in HTML File - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+    <!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="./7_files/pubads_impl_rendering_170.js.download"></script><script src="./7_files/ads"></script><script src="./7_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="./7_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./7_files/style-min.css">
+<script async="async" src="./7_files/gpt.js.download"></script>
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./7_files/integrator.js.download" as="script"><script type="text/javascript" src="./7_files/integrator.js.download"></script><link rel="preload" href="./7_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./7_files/integrator.js(1).download"></script><script src="./7_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - if...else Statement</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>While writing a program, there may be a situation when you need to adopt one out of a given set of paths. In such cases, you need to use conditional statements that allow your program to make correct decisions and perform right actions.</p>
+        <p>JavaScript supports conditional statements which are used to perform different actions based on different conditions. Here we will explain the <b>if..else</b> statement.</p>
+        <h2>Flow Chart of if-else</h2>
+        <p>The following flow chart shows how the if-else statement works.</p>
+        <img src="../img/1.PNG" alt="Decision Making">
+        <p>JavaScript supports the following forms of <b>if..else</b> statement −</p>
+        <ul class="list">
+            <li><p>if statement</p></li>
+            <li><p>if...else statement</p> </li>
+            <li><p>if...else if... statement.</p></li>
+        </ul>
+        <h2>if statement</h2>
+        <p>The <b>if</b> statement is the fundamental control statement that allows JavaScript to make decisions and execute statements conditionally.</p>
+        <h3>Syntax</h3>
+        <p>The syntax for a basic if statement is as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Here a JavaScript expression is evaluated. If the resulting value is true, the given statement(s) are executed. If the expression is false, then no statement would be not executed. Most of the times, you will use comparison operators while making decisions.</p>
+        <h3>Example</h3>
+        <p>Try the following example to understand how the <b>if</b> statement works.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> age </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> age </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">18</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Qualifies for driving&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Qualifies for driving
+Set the variable to different value and then try...
+</pre>
+        <h2>if...else statement:</h2>
+        <p>The <b>'if...else'</b> statement is the next form of control statement that allows JavaScript to execute statements in a more controlled way.</p>
+        <h3>Syntax</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">false</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Here JavaScript expression is evaluated. If the resulting value is true, the given statement(s) in the ‘if’ block, are executed. If the expression is false, then the given statement(s) in the else block are executed.</p>
+        <h3>Example</h3>
+        <p>Try the following code to learn how to implement an if-else statement in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> age </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> age </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">18</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Qualifies for driving&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Does not qualify for driving&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Does not qualify for driving
+Set the variable to different value and then try...
+</pre>
+        <h2>if...else if... statement</h2>
+        <p>The <b>if...else if...</b> statement is an advanced form of <b>if…else</b> that allows JavaScript to make a correct decision out of several conditions.</p>
+        <h3>Syntax</h3>
+        <p>The syntax of an if-else-if statement is as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression </span><span class="lit">1</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression </span><span class="lit">2</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="lit">2</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression </span><span class="lit">3</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="lit">3</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> </span><span class="kwd">no</span><span class="pln"> expression </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>There is nothing special about this code. It is just a series of <b>if</b> statements, where each <b>if</b> is a part of the <b>else</b> clause of the previous statement. Statement(s) are executed based on the true condition, if none of the conditions is true, then the <b>else</b> block is executed.</p>
+        <h3>Example</h3>
+        <p>Try the following code to learn how to implement an if-else-if statement in JavaScript.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> book </span><span class="pun">=</span><span class="pln"> </span><span class="str">"maths"</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> book </span><span class="pun">==</span><span class="pln"> </span><span class="str">"history"</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;History Book&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> book </span><span class="pun">==</span><span class="pln"> </span><span class="str">"maths"</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Maths Book&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> book </span><span class="pun">==</span><span class="pln"> </span><span class="str">"economics"</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Economics Book&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;b&gt;Unknown Book&lt;/b&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate"><b>Maths Book</b>
+Set the variable to different value and then try...
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

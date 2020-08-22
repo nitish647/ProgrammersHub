@@ -1,0 +1,348 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Type Casting</h1>
+
+<p>To validate the type of an instance 'Type Casting' comes into play in Swift language. It is used to check whether the instance type belongs to a particular super class or subclass or it is defined in its own hierarchy.</p>
+<p>Swift type casting provides two operators 'is' to check the type of a value and 'as' and to cast the type value to a different type. Type casting also checks whether the instance type follows particular protocol conformance standard.</p>
+<h2>Defining a Class Hierarchy</h2>
+<p>Type casting is used to check the type of instances to find out whether it belongs to particular class type. Also, it checks hierarchy of classes and its subclasses to check and cast those instances to make it as a same hierarchy.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">physics </span><span class="pun">=</span><span class="pln"> physics
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Chemistry</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">equations </span><span class="pun">=</span><span class="pln"> equations
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Maths</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">formulae </span><span class="pun">=</span><span class="pln"> formulae
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> sa </span><span class="pun">=</span> <span class="pun">[</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)]</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplechem </span><span class="pun">=</span> <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplechem.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance equation is: \(samplechem.equations)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplemaths </span><span class="pun">=</span> <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplemaths.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance formulae is: \(samplemaths.formulae)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Instance physics is: solid physics
+Instance equation is: Hertz
+Instance physics is: Fluid Dynamics
+Instance formulae is: Giga Hertz
+</pre>
+<h2>Type Checking</h2>
+<p>Type checking is done with the 'is' operator. The 'is' type check operator checks whether the instance belongs to particular subclass type and returns 'true' if it belongs to that instance else it will return 'false'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">physics </span><span class="pun">=</span><span class="pln"> physics
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Chemistry</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">equations </span><span class="pun">=</span><span class="pln"> equations
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Maths</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">formulae </span><span class="pun">=</span><span class="pln"> formulae
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> sa </span><span class="pun">=</span> <span class="pun">[</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">),</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Thermo physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Decibels"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Astro Physics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"MegaHertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Differential Equations"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Cosine Series"</span><span class="pun">)]</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplechem </span><span class="pun">=</span> <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplechem.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance equation is: \(samplechem.equations)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplemaths </span><span class="pun">=</span> <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplemaths.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance formulae is: \(samplemaths.formulae)"</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> chemCount </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="kwd">var</span><span class="pln"> mathsCount </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> sa </span><span class="pun">{</span>
+   <span class="kwd">if</span><span class="pln"> item </span><span class="kwd">is</span> <span class="typ">Chemistry</span> <span class="pun">{</span>
+      <span class="pun">++</span><span class="pln">chemCount
+   </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> item </span><span class="kwd">is</span> <span class="typ">Maths</span> <span class="pun">{</span>
+      <span class="pun">++</span><span class="pln">mathsCount
+   </span><span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Subjects in chemistry contains \(chemCount) topics and maths contains \(mathsCount) topics"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Instance physics is: solid physics
+Instance equation is: Hertz
+Instance physics is: Fluid Dynamics
+Instance formulae is: Giga Hertz
+Subjects in chemistry contains 2 topics and maths contains 3 topics
+</pre>
+<h2>Downcasting</h2>
+<p>Downcasting the subclass type can be done with two operators (as? and as!).'as?' returns an optional value when the value returns nil. It is used to check successful downcast.</p>
+<p>'as!' returns force unwrapping as discussed in the optional chaining when the downcasting returns nil value. It is used to trigger runtime error in case of downcast failure</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">physics </span><span class="pun">=</span><span class="pln"> physics
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Chemistry</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">equations </span><span class="pun">=</span><span class="pln"> equations
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Maths</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">formulae </span><span class="pun">=</span><span class="pln"> formulae
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> sa </span><span class="pun">=</span> <span class="pun">[</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">),</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Thermo physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Decibels"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Astro Physics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"MegaHertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Differential Equations"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Cosine Series"</span><span class="pun">)]</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplechem </span><span class="pun">=</span> <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplechem.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance equation is: \(samplechem.equations)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplemaths </span><span class="pun">=</span> <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplemaths.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance formulae is: \(samplemaths.formulae)"</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> chemCount </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="kwd">var</span><span class="pln"> mathsCount </span><span class="pun">=</span> <span class="lit">0</span>
+
+<span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> sa </span><span class="pun">{</span>
+   <span class="kwd">if</span> <span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Chemistry</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Chemistry topics are: '\(print.physics)', \(print.equations)"</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> example </span><span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Maths</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Maths topics are: '\(example.physics)',  \(example.formulae)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Instance physics is: solid physics
+Instance equation is: Hertz
+Instance physics is: Fluid Dynamics
+Instance formulae is: Giga Hertz
+Chemistry topics are: 'solid physics', Hertz
+Maths topics are: 'Fluid Dynamics', Giga Hertz
+Chemistry topics are: 'Thermo physics', Decibels
+Maths topics are: 'Astro Physics', MegaHertz
+Maths topics are: 'Differential Equations', Cosine Series
+</pre>
+<h2>Typecasting: Any and Any Object</h2>
+<p>The keyword 'Any' is used to represent an instance which belongs to any type including function types.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">physics </span><span class="pun">=</span><span class="pln"> physics
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Chemistry</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">equations </span><span class="pun">=</span><span class="pln"> equations
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Maths</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">formulae </span><span class="pun">=</span><span class="pln"> formulae
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> sa </span><span class="pun">=</span> <span class="pun">[</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">),</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Thermo physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Decibels"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Astro Physics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"MegaHertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Differential Equations"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Cosine Series"</span><span class="pun">)]</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplechem </span><span class="pun">=</span> <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplechem.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance equation is: \(samplechem.equations)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplemaths </span><span class="pun">=</span> <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplemaths.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance formulae is: \(samplemaths.formulae)"</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> chemCount </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="kwd">var</span><span class="pln"> mathsCount </span><span class="pun">=</span> <span class="lit">0</span>
+
+<span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> sa </span><span class="pun">{</span>
+   <span class="kwd">if</span> <span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Chemistry</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Chemistry topics are: '\(print.physics)', \(print.equations)"</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> example </span><span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Maths</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Maths topics are: '\(example.physics)',  \(example.formulae)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> exampleany </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Any</span><span class="pun">]()</span><span class="pln">
+
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">12</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">3.14159</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Example for Any"</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">))</span>
+
+<span class="kwd">for</span> <span class="kwd">print</span> <span class="kwd">in</span><span class="pln"> exampleany </span><span class="pun">{</span>
+   <span class="kwd">switch</span> <span class="kwd">print</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someInt </span><span class="kwd">as</span> <span class="typ">Int</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Integer value is \(someInt)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someDouble </span><span class="kwd">as</span> <span class="typ">Double</span> <span class="kwd">where</span><span class="pln"> someDouble </span><span class="pun">&gt;</span> <span class="lit">0</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Pi value is \(someDouble)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someString </span><span class="kwd">as</span> <span class="typ">String</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"\(someString)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> phy </span><span class="kwd">as</span> <span class="typ">Chemistry</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Topics '\(phy.physics)', \(phy.equations)"</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"None"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Instance physics is: solid physics
+Instance equation is: Hertz
+Instance physics is: Fluid Dynamics
+Instance formulae is: Giga Hertz
+Chemistry topics are: 'solid physics', Hertz
+Maths topics are: 'Fluid Dynamics',  Giga Hertz
+Chemistry topics are: 'Thermo physics', Decibels
+Maths topics are: 'Astro Physics',  MegaHertz
+Maths topics are: 'Differential Equations',  Cosine Series
+Integer value is 12
+Pi value is 3.14159
+Example for Any
+Topics 'solid physics', Hertz
+</pre>
+<h2>AnyObject</h2>
+<p>To represent the instance of any class type, 'AnyObject' keyword is used.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">physics </span><span class="pun">=</span><span class="pln"> physics
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Chemistry</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">equations </span><span class="pun">=</span><span class="pln"> equations
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Maths</span><span class="pun">:</span> <span class="typ">Subjects</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">formulae </span><span class="pun">=</span><span class="pln"> formulae
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span><span class="pln"> physics</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> saprint</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">AnyObject</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">),</span>
+   <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Thermo physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Decibels"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Astro Physics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"MegaHertz"</span><span class="pun">),</span>
+   <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Differential Equations"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Cosine Series"</span><span class="pun">)]</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplechem </span><span class="pun">=</span> <span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplechem.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance equation is: \(samplechem.equations)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> samplemaths </span><span class="pun">=</span> <span class="typ">Maths</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"Fluid Dynamics"</span><span class="pun">,</span><span class="pln"> formulae</span><span class="pun">:</span> <span class="str">"Giga Hertz"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance physics is: \(samplemaths.physics)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Instance formulae is: \(samplemaths.formulae)"</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> chemCount </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="kwd">var</span><span class="pln"> mathsCount </span><span class="pun">=</span> <span class="lit">0</span>
+
+<span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> saprint </span><span class="pun">{</span>
+   <span class="kwd">if</span> <span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Chemistry</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Chemistry topics are: '\(print.physics)', \(print.equations)"</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> example </span><span class="pun">=</span><span class="pln"> item </span><span class="kwd">as</span><span class="pun">?</span> <span class="typ">Maths</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Maths topics are: '\(example.physics)',  \(example.formulae)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> exampleany </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Any</span><span class="pun">]()</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">12</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">3.14159</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Example for Any"</span><span class="pun">)</span><span class="pln">
+exampleany</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="typ">Chemistry</span><span class="pun">(</span><span class="pln">physics</span><span class="pun">:</span> <span class="str">"solid physics"</span><span class="pun">,</span><span class="pln"> equations</span><span class="pun">:</span> <span class="str">"Hertz"</span><span class="pun">))</span>
+
+<span class="kwd">for</span> <span class="kwd">print</span> <span class="kwd">in</span><span class="pln"> exampleany </span><span class="pun">{</span>
+   <span class="kwd">switch</span> <span class="kwd">print</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someInt </span><span class="kwd">as</span> <span class="typ">Int</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Integer value is \(someInt)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someDouble </span><span class="kwd">as</span> <span class="typ">Double</span> <span class="kwd">where</span><span class="pln"> someDouble </span><span class="pun">&gt;</span> <span class="lit">0</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Pi value is \(someDouble)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> someString </span><span class="kwd">as</span> <span class="typ">String</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"\(someString)"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> phy </span><span class="kwd">as</span> <span class="typ">Chemistry</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Topics '\(phy.physics)', \(phy.equations)"</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"None"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Instance physics is: solid physics
+Instance equation is: Hertz
+Instance physics is: Fluid Dynamics
+Instance formulae is: Giga Hertz
+Chemistry topics are: 'solid physics', Hertz
+Maths topics are: 'Fluid Dynamics',  Giga Hertz
+Chemistry topics are: 'Thermo physics', Decibels
+Maths topics are: 'Astro Physics',  MegaHertz
+Maths topics are: 'Differential Equations',  Cosine Series
+Integer value is 12
+Pi value is 3.14159
+Example for Any
+Topics 'solid physics', Hertz
+</pre>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Regular Expressions and RegExp Object</title>
+    <meta name="description" content="JavaScript The Regular Expressions and RegExp Object - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Regular Expressions and RegExp Object</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>A regular expression is an object that describes a pattern of characters.</p>
+        <p>The JavaScript <b>RegExp</b> class represents regular expressions, and both String and <b>RegExp</b> define methods that use regular expressions to perform powerful pattern-matching and search-and-replace functions on text.</p>
+        <h3>Syntax</h3>
+        <p>A regular expression could be defined with the <b>RegExp ()</b> constructor, as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> pattern </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">RegExp</span><span class="pun">(</span><span class="pln">pattern</span><span class="pun">,</span><span class="pln"> attributes</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">or</span><span class="pln"> simply
+
+</span><span class="kwd">var</span><span class="pln"> pattern </span><span class="pun">=</span><span class="pln"> </span><span class="str">/pattern/</span><span class="pln">attributes</span><span class="pun">;</span></pre>
+        <p>Here is the description of the parameters −</p>
+        <ul class="list">
+            <li><p><b>pattern</b> − A string that specifies the pattern of the regular expression or another regular expression.</p></li>
+            <li><p><b>attributes</b> − An optional string containing any of the "g", "i", and "m" attributes that specify global, case-insensitive, and multiline matches, respectively.</p></li>
+        </ul>
+        <h2>Brackets</h2>
+        <p>Brackets ([]) have a special meaning when used in the context of regular expressions. They are used to find a range of characters.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Expression &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>[...]</b></p>
+                    <p>Any one character between the brackets.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>[^...]</b></p>
+                    <p>Any one character not between the brackets.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>[0-9]</b></p>
+                    <p>It matches any decimal digit from 0 through 9.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>[a-z]</b></p>
+                    <p>It matches any character from lowercase a through lowercase z.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>[A-Z]</b></p>
+                    <p>It matches any character from uppercase A through uppercase Z.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>[a-Z]</b></p>
+                    <p>It matches any character from lowercase a through uppercase Z.</p></td>
+            </tr>
+            </tbody></table>
+        <p>The ranges shown above are general; you could also use the range [0-3] to match any decimal digit ranging from 0 through 3, or the range [b-v] to match any lowercase character ranging from <b>b</b> through <b>v</b>.</p>
+        <h2>Quantifiers</h2>
+        <p>The frequency or position of bracketed character sequences and single characters can be denoted by a special character. Each special character has a specific connotation. The +, *, ?, and $ flags all follow a character sequence.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Expression &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>p+</b></p>
+                    <p>It matches any string containing one or more p's.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>p*</b></p>
+                    <p>It matches any string containing zero or more p's.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>p?</b></p>
+                    <p>It matches any string containing at most one p.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>p{N}</b></p>
+                    <p>It matches any string containing a sequence of <b>N</b> p's</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>p{2,3}</b></p>
+                    <p>It matches any string containing a sequence of two or three p's.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>p{2, }</b></p>
+                    <p>It matches any string containing a sequence of at least two p's.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>p$</b></p>
+                    <p>It  matches any string with p at the end of it.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td><p><b>^p</b></p>
+                    <p>It matches any string with p at the beginning of it.</p></td>
+            </tr>
+            </tbody></table>
+        <h3>Examples</h3>
+        <p>Following examples explain more about matching characters.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Expression &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>[^a-zA-Z]</b></p>
+                    <p>It matches any string not containing any of the characters ranging from <b>a</b> through <b>z</b> and <b>A</b> through Z.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>p.p</b></p>
+                    <p>It matches any string containing <b>p,</b> followed by any character, in turn followed by another <b>p</b>.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>^.{2}$</b></p>
+                    <p>It matches any string containing exactly two characters.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>&lt;b&gt;(.*)&lt;/b&gt;</b></p>
+                    <p>It matches any string enclosed within &lt;b&gt; and &lt;/b&gt;.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>p(hp)*</b></p>
+                    <p>It matches any string containing a <b>p</b> followed by zero or more instances of the sequence <b>hp</b>.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Literal characters</h2>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Character &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>Alphanumeric</b></p>
+                    <p>Itself</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>\0</b></p>
+                    <p>The NUL character (\u0000)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>\t</b></p>
+                    <p>Tab (\u0009</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>\n</b></p>
+                    <p>Newline (\u000A)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>\v</b></p>
+                    <p>Vertical tab (\u000B)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>\f</b></p>
+                    <p>Form feed (\u000C)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>\r</b></p>
+                    <p>Carriage return (\u000D)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td><p><b>\xnn</b></p>
+                    <p>The Latin character specified by the hexadecimal number nn; for example, \x0A is the same as \n</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td><p><b>\uxxxx</b></p>
+                    <p>The Unicode character specified by the hexadecimal number xxxx; for example, \u0009 is the same as \t</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td><p><b>\cX</b></p>
+                    <p>The control character ^X; for example, \cJ is equivalent to the newline character \n</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Metacharacters</h2>
+        <p>A metacharacter is simply an alphabetical character preceded by a backslash that acts to give the combination a special meaning.</p>
+        <p>For instance, you can search for a large sum of money using the '\d' metacharacter: <b>/([\d]+)000/</b>, Here <b>\d</b> will search for any string of numerical character.</p>
+        <p>The following table lists a set of metacharacters which can be used in PERL Style Regular Expressions.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;width:10%">Sr.No</th>
+                <th style="text-align:center;">Character &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>.</b></p>
+                    <p>a single character</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>\s</b></p>
+                    <p>a whitespace character (space, tab, newline)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>\S</b></p>
+                    <p>non-whitespace character</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>\d</b></p>
+                    <p>a digit (0-9)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>\D</b></p>
+                    <p>a non-digit</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>\w</b></p>
+                    <p>a word character (a-z, A-Z, 0-9, _)</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td><p><b>\W</b></p>
+                    <p>a non-word character</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td><p><b>[\b]</b></p>
+                    <p>a literal backspace (special case).</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td><p><b>[aeiou]</b></p>
+                    <p>matches a single character in the given set</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td><p><b>[^aeiou]</b></p>
+                    <p>matches a single character outside the given set</p></td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td><p><b>(foo|bar|baz)</b></p>
+                    <p>matches any of the alternatives specified</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Modifiers</h2>
+        <p>Several modifiers are available that can simplify the way you work with <b>regexps,</b> like case sensitivity, searching in multiple lines, etc.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Modifier &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>i</b></p>
+                    <p>Perform case-insensitive matching.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>m</b></p>
+                    <p>Specifies that if the string has newline or carriage return characters, the ^ and $ operators will now match against a newline boundary, instead of a string boundary</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>g</b></p>
+                    <p>Performs a global matchthat is, find all matches rather than stopping after the first match.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>RegExp Properties</h2>
+        <p>Here is a list of the properties associated with RegExp and their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Property &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> constructor
+                    <p>Specifies the function that creates an object's prototype.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> global
+                    <p>Specifies if the "g" modifier is set.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> ignoreCase
+                    <p>Specifies if the "i" modifier is set.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> lastIndex
+                    <p>The index at which to start the next match.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> multiline
+                    <p>Specifies if the "m" modifier is set.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td>source
+                    <p>The text of the pattern.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of RegExp properties.</p>
+        <h2>RegExp Methods</h2>
+        <p>Here is a list of the methods associated with RegExp along with their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> exec()
+                    <p>Executes a search for a match in its string parameter.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> test()
+                    <p>Tests for a match in its string parameter.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> toSource()
+                    <p>Returns an object literal representing the specified object; you can use this value to create a new object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> toString()
+                    <p>Returns a string representing the specified object.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of RegExp methods.</p>
+        <hr>
+    </div></div></div></div></div></div></body></html>

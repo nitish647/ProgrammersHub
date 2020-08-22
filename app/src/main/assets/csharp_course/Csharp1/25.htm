@@ -1,0 +1,302 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - nested switch Statements</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>C# - nested switch Statements</span></b></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%'><span style='font-family:"Cambria",serif;
+color:black'>It is possible to have a switch as part of the statement sequence
+of an outer switch. Even if the case constants of the inner and outer switch
+contain common values, no conflicts will arise.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Syntax</span></b></h2>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>The syntax for
+a&nbsp;<b>nested switch</b>&nbsp;statement is as follows &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas'>switch(ch1) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   case 'A':</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   Console.WriteLine(&quot;This A is part of outer switch&quot; );</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   </span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   switch(ch2) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>      case 'A':</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         Console.WriteLine(&quot;This A is part of inner switch&quot; );</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>         break;</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>      case 'B': /* inner B case code */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   }</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   break;</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   case 'B': /* outer B case code */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>}</span></pre>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Example</span></b></h2>
+
+<p class=MsoNormal align=right style='text-align:right;line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black;background:#FE9400'>Live Demo</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:0in 0in 0in 0in'><pre
+style='line-height:150%;border:none;padding:0in;padding:0.625rem;overflow-x: auto;
+color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#000088'>using</span></span><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>System</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>&nbsp;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>namespace</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>DecisionMaking</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>   </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>class</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Program</span></span><span class=pln><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>      </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>static</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>void</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>Main</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=kwd><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>string</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>[]</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> args</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> a </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>100</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> b </span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>200</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>switch</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>a</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>case</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>100</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>:</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>Console</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#660066'>WriteLine</span></span><span class=pun><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#008800'>&quot;This is part of outer switch &quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>);</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>            </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>switch</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>b</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>               </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>case</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span></span><span class=lit><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>200</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>:</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>               </span></span><span class=typ><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>.</span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=str><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#008800'>&quot;This is part of inner switch &quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>);</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>               </span></span><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>break</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>;</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>            </span></span><span class=pun><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>            </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>break</span></span><span class=pun><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span><span class=typ><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>.</span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=str><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#008800'>&quot;Exact value of a is : {0}&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> a</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>);</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span><span class=typ><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>.</span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>(</span></span><span class=str><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#008800'>&quot;Exact value of b is : {0}&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>,</span></span><span class=pln><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> b</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>);</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>         </span></span><span class=typ><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>.</span></span><span class=typ><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>ReadLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>();</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pln><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'>      </span></span><span class=pun><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>   </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></span></pre><pre style='line-height:150%;border:none;
+padding:0in'><span class=pun><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>}</span></span><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span></span></pre></div>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;text-align:justify;line-height:150%;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>When the above code
+is compiled and executed, it produces the following result &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>This is part of outer switch</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>This is part of inner switch</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>Exact value of a is : 100</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>Exact value of b is : 200</span></pre></div>
+
+</body>
+
+</html>

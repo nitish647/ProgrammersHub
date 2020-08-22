@@ -1,0 +1,56 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Student</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">protected:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rno,m1,m2;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">get</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter The Roll No: &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">rno;</span>
+      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter The Marks Gained In Two Subjects:&quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m1</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m2;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Sports</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">protected:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sm;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">getsm</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Enter The Marks Gained In Sports:&quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">sm;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Statement</span><span style="color: #f92672">:</span><span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Student,</span><span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Sports</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tot;</span> <span style="color: #66d9ef">float</span> <span style="color: #f8f8f2">avg;</span>
+   <span style="color: #f8f8f2">public:</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">display</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">tot</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(m1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">m2</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">sm);</span>
+       <span style="color: #f8f8f2">avg</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">float</span><span style="color: #f8f8f2">)tot</span><span style="color: #f92672">/</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Roll No: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">rno</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Total: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">tot;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Average: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">avg;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Statement</span> <span style="color: #f8f8f2">obj;</span>
+  <span style="color: #f8f8f2">obj.get();</span>
+  <span style="color: #f8f8f2">obj.getsm();</span>
+  <span style="color: #f8f8f2">obj.display();</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">No</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Gained</span> <span style="color: #f8f8f2">In</span> <span style="color: #f8f8f2">Two</span> <span style="color: #f8f8f2">Subjects</span><span style="color: #f92672">:</span><span style="color: #ae81ff">90</span>
+<span style="color: #ae81ff">95</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Marks</span> <span style="color: #f8f8f2">Gained</span> <span style="color: #f8f8f2">In</span> <span style="color: #f8f8f2">Sports</span><span style="color: #f92672">:</span><span style="color: #ae81ff">90</span>
+<span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">No</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span>
+<span style="color: #f8f8f2">Total:</span> <span style="color: #ae81ff">275</span>
+<span style="color: #f8f8f2">Average:</span> <span style="color: #ae81ff">91.6667</span>
+</pre></div>

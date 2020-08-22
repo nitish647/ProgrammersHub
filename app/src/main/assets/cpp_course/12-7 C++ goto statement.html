@@ -1,0 +1,62 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ goto statement</h1>
+
+<p>A <strong>goto</strong> statement provides an unconditional jump from the goto to a labeled statement in the same function.</p>
+<p><strong>NOTE</strong> &minus; Use of <strong>goto</strong> statement is highly discouraged because it makes difficult to trace the control flow of a program, making the program hard to understand and hard to modify. Any program that uses a goto can be rewritten so that it doesn't need the goto.</p>
+<h2>Syntax</h2>
+<p>The syntax of a goto statement in C++ is &minus;</p>
+<pre class="result notranslate">goto label;
+..
+.
+label: statement;
+</pre>
+<p>Where <strong>label</strong> is an identifier that identifies a labeled statement. A labeled statement is any statement that is preceded by an identifier followed by a colon (:).</p>
+<h2>Flow Diagram</h2>
+<p><img src="cpp_goto_statement.jpg" alt="C++ goto statement" /></p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// Local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+
+   <span class="com">// do loop execution</span><span class="pln">
+   LOOP</span><span class="pun">:</span><span class="kwd">do</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">==</span> <span class="lit">15</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="com">// skip the iteration.</span><span class="pln">
+         a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span> <span class="lit">1</span><span class="pun">;</span>
+         <span class="kwd">goto</span><span class="pln"> LOOP</span><span class="pun">;</span>
+      <span class="pun">}</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"value of a: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+      a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span> <span class="lit">1</span><span class="pun">;</span>
+   <span class="pun">}</span> 
+   <span class="kwd">while</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">&lt;</span> <span class="lit">20</span> <span class="pun">);</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+</pre>
+<p>One good use of goto is to exit from a deeply nested routine. For example, consider the following code fragment &minus;</p>
+<pre class="result notranslate">for(...) {
+   for(...) {
+      while(...) {
+         if(...) goto stop;
+         .
+         .
+         .
+      }
+   }
+}
+stop:
+cout &lt;&lt; "Error in program.\n";
+</pre>
+<p>Eliminating the <strong>goto</strong> would force a number of additional tests to be performed. A simple <strong>break </strong> statement would not work here, because it would only cause the program to exit from the innermost loop.</p>

@@ -1,0 +1,36 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;Find Largest and Smallest Number in an Array Example</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;This Java Example shows how to find largest and smallest number in an</span>
+<span style='color:#3f7f59; '>&#xa0;&#xa0;array.</span>
+<span style='color:#3f7f59; '>*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FindLargestSmallestNumber {
+ 
+        <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+               
+                <span style='color:#3f7f59; '>//array of 10 numbers</span>
+                <span style='color:#7f0055; font-weight:bold; '>int</span> numbers[] = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>int</span>[]{32,43,53,54,32,65,63,98,43,23};
+               
+                <span style='color:#3f7f59; '>//assign first element of an array to largest and smallest</span>
+                <span style='color:#7f0055; font-weight:bold; '>int</span> smallest = numbers[0];
+                <span style='color:#7f0055; font-weight:bold; '>int</span> largetst = numbers[0];
+               
+                <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=1; i&lt; numbers.length; i++)
+                {
+                        <span style='color:#7f0055; font-weight:bold; '>if</span>(numbers[i] > largetst)
+                                largetst = numbers[i];
+                        <span style='color:#7f0055; font-weight:bold; '>else</span> <span style='color:#7f0055; font-weight:bold; '>if</span> (numbers[i] &lt; smallest)
+                                smallest = numbers[i];
+                       
+                }
+               
+                System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Largest Number is : </span><span style='color:#2a00ff; '>"</span> + largetst);
+                System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Smallest Number is : </span><span style='color:#2a00ff; '>"</span> + smallest);
+        }
+}
+ 
+
+Output:
+
+Largest Number is : 98
+Smallest Number is : 23
+</pre>

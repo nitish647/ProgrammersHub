@@ -1,0 +1,205 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Preprocessor</h1>
+ 
+<p>The preprocessors are the directives, which give instructions to the compiler to preprocess the information before actual compilation starts.</p>
+<p>All preprocessor directives begin with #, and only white-space characters may appear before a preprocessor directive on a line. Preprocessor directives are not C++ statements, so they do not end in a semicolon (;).</p>
+<p>You already have seen a <strong>#include</strong> directive in all the examples. This macro is used to include a header file into the source file.</p>
+<p>There are number of preprocessor directives supported by C++ like #include, #define, #if, #else, #line, etc. Let us see important directives &minus;</p>
+<h2>The #define Preprocessor</h2>
+<p>The #define preprocessor directive creates symbolic constants. The symbolic constant is called a <strong>macro</strong> and the general form of the directive is &minus;</p>
+<pre class="result notranslate">#define macro-name replacement-text 
+</pre>
+<p>When this line appears in a file, all subsequent occurrences of macro in that file will be replaced by replacement-text before the program is compiled. For example &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="com">#define</span><span class="pln"> PI </span><span class="lit">3.14159</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of PI :"</span> <span class="pun">&lt;&lt;</span><span class="pln"> PI </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span> 
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>Now, let us do the preprocessing of this code to see the result assuming we have the source code file. So let us compile it with -E option and redirect the result to test.p. Now, if you check test.p, it will have lots of information and at the bottom, you will find the value replaced as follows &minus;</p>
+<pre class="result notranslate">$gcc -E test.cpp &gt; test.p
+
+...
+int main () {
+   cout &lt;&lt; "Value of PI :" &lt;&lt; 3.14159 &lt;&lt; endl; 
+   return 0;
+}
+</pre>
+<h2>Function-Like Macros</h2>
+<p>You can use #define to define a macro which will take argument as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="com">#define</span><span class="pln"> MIN</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln">b</span><span class="pun">)</span> <span class="pun">(((</span><span class="pln">a</span><span class="pun">)&lt;(</span><span class="pln">b</span><span class="pun">))</span> <span class="pun">?</span><span class="pln"> a </span><span class="pun">:</span><span class="pln"> b</span><span class="pun">)</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">;</span><span class="pln">
+   
+   i </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span><span class="pln">
+   j </span><span class="pun">=</span> <span class="lit">30</span><span class="pun">;</span><span class="pln">
+   
+   cout </span><span class="pun">&lt;&lt;</span><span class="str">"The minimum is "</span> <span class="pun">&lt;&lt;</span><span class="pln"> MIN</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">The minimum is 30
+</pre>
+<h2>Conditional Compilation</h2>
+<p>There are several directives, which can be used to compile selective portions of your program's source code. This process is called conditional compilation.</p>
+<p>The conditional preprocessor construct is much like the &lsquo;if&rsquo; selection structure. Consider the following preprocessor code &minus;</p>
+<pre class="result notranslate">#ifndef NULL
+   #define NULL 0
+#endif
+</pre>
+<p>You can compile a program for debugging purpose. You can also turn on or off the debugging using a single macro as follows &minus;</p>
+<pre class="result notranslate">#ifdef DEBUG
+   cerr &lt;&lt;"Variable x = " &lt;&lt; x &lt;&lt; endl;
+#endif
+</pre>
+<p>This causes the <strong>cerr</strong> statement to be compiled in the program if the symbolic constant DEBUG has been defined before directive #ifdef DEBUG. You can use #if 0 statment to comment out a portion of the program as follows &minus;</p>
+<pre class="result notranslate">#if 0
+   code prevented from compiling
+#endif
+</pre>
+<p>Let us try the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="com">#define</span><span class="pln"> DEBUG
+
+</span><span class="com">#define</span><span class="pln"> MIN</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln">b</span><span class="pun">)</span> <span class="pun">(((</span><span class="pln">a</span><span class="pun">)&lt;(</span><span class="pln">b</span><span class="pun">))</span> <span class="pun">?</span><span class="pln"> a </span><span class="pun">:</span><span class="pln"> b</span><span class="pun">)</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">;</span><span class="pln">
+   
+   i </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span><span class="pln">
+   j </span><span class="pun">=</span> <span class="lit">30</span><span class="pun">;</span>
+
+<span class="com">#ifdef</span><span class="pln"> DEBUG
+   cerr </span><span class="pun">&lt;&lt;</span><span class="str">"Trace: Inside main function"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="com">#endif</span>
+
+<span class="com">#if 0</span>
+   <span class="com">/* This is commented part */</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> MKSTR</span><span class="pun">(</span><span class="pln">HELLO C</span><span class="pun">++)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="com">#endif</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span><span class="str">"The minimum is "</span> <span class="pun">&lt;&lt;</span><span class="pln"> MIN</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+<span class="com">#ifdef</span><span class="pln"> DEBUG
+   cerr </span><span class="pun">&lt;&lt;</span><span class="str">"Trace: Coming out of main function"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+<span class="com">#endif</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">The minimum is 30
+Trace: Inside main function
+Trace: Coming out of main function
+</pre>
+<h2>The # and ## Operators</h2>
+<p>The # and ## preprocessor operators are available in C++ and ANSI/ISO C. The # operator causes a replacement-text token to be converted to a string surrounded by quotes.</p>
+<p>Consider the following macro definition &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="com">#define</span><span class="pln"> MKSTR</span><span class="pun">(</span><span class="pln"> x </span><span class="pun">)</span> <span class="com">#x</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> MKSTR</span><span class="pun">(</span><span class="pln">HELLO C</span><span class="pun">++)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">HELLO C++
+</pre>
+<p>Let us see how it worked. It is simple to understand that the C++ preprocessor turns the line &minus;</p>
+<pre class="result notranslate">cout &lt;&lt; MKSTR(HELLO C++) &lt;&lt; endl;
+</pre>
+<p>Above line will be turned into the following line &minus;</p>
+<pre class="result notranslate">cout &lt;&lt; "HELLO C++" &lt;&lt; endl;
+</pre>
+<p>The ## operator is used to concatenate two tokens. Here is an example &minus;</p>
+<pre class="result notranslate">#define CONCAT( x, y )  x ## y
+</pre>
+<p>When CONCAT appears in the program, its arguments are concatenated and used to replace the macro. For example, CONCAT(HELLO, C++) is replaced by "HELLO C++" in the program as follows.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="com">#define</span><span class="pln"> concat</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> a </span><span class="com">## b</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> xy </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span><span class="pln">
+   
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> concat</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span>
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">100
+</pre>
+<p>Let us see how it worked. It is simple to understand that the C++ preprocessor transforms &minus;</p>
+<pre class="result notranslate">cout &lt;&lt; concat(x, y);
+</pre>
+<p>Above line will be transformed into the following line &minus;</p>
+<pre class="result notranslate">cout &lt;&lt; xy;
+</pre>
+<h2>Predefined C++ Macros</h2>
+<p>C++ provides a number of predefined macros mentioned below &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Macro &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>__LINE__</strong></p>
+<p>This contains the current line number of the program when it is being compiled.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>__FILE__</strong></p>
+<p>This contains the current file name of the program when it is being compiled.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>__DATE__</strong></p>
+<p>This contains a string of the form month/day/year that is the date of the translation of the source file into object code.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>__TIME__</strong></p>
+<p>This contains a string of the form hour:minute:second that is the time at which the program was compiled.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let us see an example for all the above macros &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of __LINE__ : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> __LINE__ </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of __FILE__ : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> __FILE__ </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of __DATE__ : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> __DATE__ </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Value of __TIME__ : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> __TIME__ </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>If we compile and run above code, this would produce the following result &minus;</p>
+<pre class="result notranslate">Value of __LINE__ : 6
+Value of __FILE__ : test.cpp
+Value of __DATE__ : Feb 28 2011
+Value of __TIME__ : 18:52:48
+</pre>
+<hr />

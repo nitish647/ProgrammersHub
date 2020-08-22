@@ -1,0 +1,506 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# Out Parameter
+with Examples</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>C# Out Parameter
+with Examples</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>In c#,&nbsp;<b>out</b>&nbsp;keyword is used to pass an arguments
+to the method as a&nbsp;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:#0088CC'>reference type</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>. The&nbsp;<b>out</b>&nbsp;keyword is same like&nbsp;<b>ref</b>&nbsp;keyword,
+only difference is&nbsp;<b>out</b>&nbsp;doesn’t require a variable to be
+initialized before we pass it as an argument to the method but the&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0088CC'>variable</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:#4E4E4E'>&nbsp;must be initialized in called
+method before it return a value to the calling method.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;The out parameter in c# is also useful to return more than
+one value from the methods in c# programming language.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>Declaration of C#
+Out Parameter</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>Following is simple example of using&nbsp;<b>out</b>&nbsp;parameters
+in c# programming language.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>int</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:green'>//
+No need to initialize variable</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>Multiplication(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>out</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above declaration, we just declared a
+variable&nbsp;<b>x</b>&nbsp;and pass it to the method by using&nbsp;<b>out</b>&nbsp;parameter
+without assigning any value but as discussed, the variable must be initialized
+in called method before it return a value to the calling method.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>To use&nbsp;<b>out</b>&nbsp;parameter in c# application, both
+the method definition and the calling method must explicitly use the&nbsp;<b>out</b>&nbsp;keyword.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>C# Out Parameter
+Example</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>Following is the example of passing an&nbsp;<b>out</b>&nbsp;parameter
+to the method in c# programming language.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;System;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>namespace</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Tutlane</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Program</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Main(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+args)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Multiplication(</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>out</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Variable
+Value: {0}&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>, x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Press
+Enter Key to Exit..&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.ReadLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Multiplication(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>out</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;a)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a = 10;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a *= a;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above example, we declared a variable&nbsp;<b>x</b>&nbsp;and
+passing it to a&nbsp;<b>Multiplication</b>&nbsp;method by using&nbsp;<b>out</b>&nbsp;keyword
+without initializing the value. However, the called method (<b>Multiplication</b>)
+is initializing the value before it returning the value to the calling
+method.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>When we execute above c# program, we will get the result like as
+shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><img src="31_files/image001.webp"
+alt="C# Out Parameter Example Result"><img src="31_files/image002.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above result, the changes whatever we did for
+variable in&nbsp;<b>Multiplication</b>&nbsp;method has reflected in calling
+method also.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>C# Multiple Out
+Parameters Example</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>Following is the example of using multiple&nbsp;<b>out</b>&nbsp;parameters
+in c# programming language.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;System;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>namespace</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Tutlane</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Program</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Main(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+args)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x,
+y;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Multiplication(</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>out</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;x,&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>out</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;y);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;x
+Value: {0}&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>, x);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;y
+Value: {0}&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>, y);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;Press
+Enter Key to Exit..&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.ReadLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Multiplication(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>out</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;a,&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>out</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;b)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a = 10;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b = 5;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a *= a;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b *= b;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>If you observe above example, we defined a two variables (x, y)
+and passing it to&nbsp;<b>Multiplication</b>&nbsp;method using&nbsp;<b>out</b>&nbsp;parameters.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>When we execute above c# program, we will get the result like as
+shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;</span><img src="31_files/image003.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;If you observe above result, the changes whatever we did
+for variables in&nbsp;<b>Multiplication</b>&nbsp;method has reflected in
+calling method also.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#4E4E4E'>&nbsp;This is how we can use&nbsp;<b>out</b>&nbsp;parameter in
+c# programming language to pass an arguments to the method as a reference type
+in c# programming language based on our requirements.</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

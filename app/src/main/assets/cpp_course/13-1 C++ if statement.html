@@ -1,0 +1,33 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ if statement</h1>
+
+<p>An <strong>if</strong> statement consists of a boolean expression followed by one or more statements.</p>
+<h2>Syntax</h2>
+<p>The syntax of an if statement in C++ is &minus;</p>
+<pre class="result notranslate">if(boolean_expression) {
+   // statement(s) will execute if the boolean expression is true
+}
+</pre>
+<p>If the boolean expression evaluates to <strong>true</strong>, then the block of code inside the if statement will be executed. If boolean expression evaluates to <strong>false</strong>, then the first set of code after the end of the if statement (after the closing curly brace) will be executed.</p>
+<h2>Flow Diagram</h2>
+<p><img src="cpp_if_statement.jpg" alt="C++ if statement" /></p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+ 
+   <span class="com">// check the boolean condition</span>
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> a </span><span class="pun">&lt;</span> <span class="lit">20</span> <span class="pun">)</span> <span class="pun">{</span>
+      <span class="com">// if condition is true then print the following</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"a is less than 20;"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"value of a is : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">a is less than 20;
+value of a is : 10
+</pre>

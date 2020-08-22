@@ -1,0 +1,278 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Functions</h1>
+
+<p>A function is a set of statements organized together to perform a specific task. A Swift function can be as simple as a simple C function to as complex as an Objective C language function. It allows us to pass local and global parameter values inside the function calls.</p>
+<ul class="list">
+<li>
+<p><strong>Function Declaration</strong> &minus; It tells the compiler about a function's name, return type, and parameters.</p>
+</li>
+<li>
+<p><strong>Function Definition</strong> &minus; It provides the actual body of the function.</p>
+</li>
+</ul>
+<p>Swift functions contain parameter type and its return types.</p>
+<h2>Function Definition</h2>
+<p>In Swift, a function is defined by the "func" keyword. When a function is newly defined, it may take one or several values as input 'parameters' to the function and it will process the functions in the main body and pass back the values to the functions as output 'return types'.</p>
+<p>Every function has a function name, which describes the task that the function performs. To use a function, you "call" that function with its name and pass input values (known as arguments) that match the types of the function's parameters. Function parameters are also called as 'tuples'.</p>
+<p>A function's arguments must always be provided in the same order as the function's parameter list and the return values are followed by &rarr;.</p>
+<h3>Syntax</h3>
+<pre class="result notranslate">func funcname(Parameters) -&gt; returntype {
+   Statement1
+   Statement2
+   ---
+   Statement N
+   return parameters
+}
+</pre>
+<p>Take a look at the following code. The student&rsquo;s name is declared as string datatype declared inside the function 'student' and when the function is called, it will return student&rsquo;s name.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func student</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> name
+</span><span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">student</span><span class="pun">(</span><span class="str">"First Program"</span><span class="pun">))</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">student</span><span class="pun">(</span><span class="str">"About Functions"</span><span class="pun">))</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">First Program
+About Functions
+</pre>
+<h2>Calling a Function</h2>
+<p>Let us suppose we defined a function called 'display' to Consider for example to display the numbers a function with function name 'display' is initialized first with argument 'no1' which holds integer data type. Then the argument 'no1' is assigned to argument 'a' which hereafter will point to the same data type integer. Now the argument 'a' is returned to the function. Here display() function will hold the integer value and return the integer values when each and every time the function is invoked.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func display</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> no1
+   </span><span class="kwd">return</span><span class="pln"> a
+</span><span class="pun">}</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">display</span><span class="pun">(</span><span class="lit">100</span><span class="pun">))</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">display</span><span class="pun">(</span><span class="lit">200</span><span class="pun">))</span></pre>
+<p>When we run above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">100
+200
+</pre>
+<h2>Parameters and Return Values</h2>
+<p>Swift provides flexible function parameters and its return values from simple to complex values. Similar to that of C and Objective C, functions in Swift may also take several forms.</p>
+<h2>Functions with Parameters</h2>
+<p>A function is accessed by passing its parameter values to the body of the function. We can pass single to multiple parameter values as tuples inside the function.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func mult</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> no1</span><span class="pun">*</span><span class="pln">no2
+</span><span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mult</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="lit">20</span><span class="pun">))</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mult</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="lit">15</span><span class="pun">))</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mult</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="lit">30</span><span class="pun">))</span></pre>
+<p>When we run above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">40
+45
+120
+</pre>
+<h2>Functions without Parameters</h2>
+<p>We may also have functions without any parameters.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">func funcname</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> datatype </span><span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> datatype
+</span><span class="pun">}</span></pre>
+<p>Following is an example having a function without a parameter &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func votersname</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+   <span class="kwd">return</span> <span class="str">"Alice"</span>
+<span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">votersname</span><span class="pun">())</span> </pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Alice
+</pre>
+<h2>Functions with Return Values</h2>
+<p>Functions are also used to return string, integer, and float data type values as return types. To find out the largest and smallest number in a given array function 'ls' is declared with large and small integer datatypes.</p>
+<p>An array is initialized to hold integer values. Then the array is processed and each and every value in the array is read and compared for its previous value. When the value is lesser than the previous one it is stored in 'small' argument, otherwise it is stored in 'large' argument and the values are returned by calling the function.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func ls</span><span class="pun">(</span><span class="pln">array</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">])</span> <span class="pun">-&gt;</span> <span class="pun">(</span><span class="pln">large</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> small</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> lar </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span>
+   <span class="kwd">var</span><span class="pln"> sma </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span>
+   <span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">1.</span><span class="pun">.&lt;</span><span class="pln">array</span><span class="pun">.</span><span class="pln">count</span><span class="pun">]</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> sma </span><span class="pun">{</span><span class="pln">
+         sma </span><span class="pun">=</span><span class="pln"> i
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> i </span><span class="pun">&gt;</span><span class="pln"> lar </span><span class="pun">{</span><span class="pln">
+         lar </span><span class="pun">=</span><span class="pln"> i
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">return</span> <span class="pun">(</span><span class="pln">lar</span><span class="pun">,</span><span class="pln"> sma</span><span class="pun">)</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> ls</span><span class="pun">([</span><span class="lit">40</span><span class="pun">,</span><span class="lit">12</span><span class="pun">,-</span><span class="lit">5</span><span class="pun">,</span><span class="lit">78</span><span class="pun">,</span><span class="lit">98</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Largest number is: \(num.large) and smallest number is: \(num.small)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Largest number is: 98 and smallest number is: -5
+</pre>
+<h2>Functions Without Return Values</h2>
+<p>Some functions may have arguments declared inside the function without any return values. The following program declares <strong>a</strong> and <strong>b</strong> as arguments to the sum() function. inside the function itself the values for arguments <strong>a</strong> and <strong>b</strong> are passed by invoking the function call sum() and its values are printed thereby eliminating return values.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+   </span><span class="kwd">let</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">-</span><span class="pln"> b
+   println</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+sum</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">)</span><span class="pln">
+sum</span><span class="pun">(</span><span class="lit">40</span><span class="pun">,</span><span class="lit">10</span><span class="pun">)</span><span class="pln">
+sum</span><span class="pun">(</span><span class="lit">24</span><span class="pun">,</span><span class="lit">6</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">(30, 20)
+(50, 40)
+(30, 24)
+</pre>
+<h2>Functions with Optional Return Types</h2>
+<p>Swift introduces 'optional' feature to get rid of problems by introducing a safety measure. Consider for example we are declaring function values return type as integer but what will happen when the function returns a string value or either a nil value. In that case compiler will return an error value. 'optional' are introduced to get rid of these problems.</p>
+<p>Optional functions will take two forms 'value' and a 'nil'. We will mention 'Optionals' with the key reserved character '?' to check whether the tuple is returning a value or a nil value.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func minMax</span><span class="pun">(</span><span class="pln">array</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">])</span> <span class="pun">-&gt;</span> <span class="pun">(</span><span class="pln">min</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)?</span> <span class="pun">{</span>
+   <span class="kwd">if</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">isEmpty </span><span class="pun">{</span> <span class="kwd">return</span> <span class="kwd">nil</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> currentMin </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span>
+   <span class="kwd">var</span><span class="pln"> currentMax </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span>
+   <span class="kwd">for</span><span class="pln"> value </span><span class="kwd">in</span><span class="pln"> array</span><span class="pun">[</span><span class="lit">1.</span><span class="pun">.&lt;</span><span class="pln">array</span><span class="pun">.</span><span class="pln">count</span><span class="pun">]</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> value </span><span class="pun">&lt;</span><span class="pln"> currentMin </span><span class="pun">{</span><span class="pln">
+         currentMin </span><span class="pun">=</span><span class="pln"> value
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> value </span><span class="pun">&gt;</span><span class="pln"> currentMax </span><span class="pun">{</span><span class="pln">
+         currentMax </span><span class="pun">=</span><span class="pln"> value
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">return</span> <span class="pun">(</span><span class="pln">currentMin</span><span class="pun">,</span><span class="pln"> currentMax</span><span class="pun">)</span>
+<span class="pun">}</span>
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> bounds </span><span class="pun">=</span><span class="pln"> minMax</span><span class="pun">([</span><span class="lit">8</span><span class="pun">,</span> <span class="pun">-</span><span class="lit">6</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">,</span> <span class="lit">109</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">,</span> <span class="lit">71</span><span class="pun">])</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"min is \(bounds.min) and max is \(bounds.max)"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">min is -6 and max is 109
+</pre>
+<p>'Optionals' are used to check 'nil' or garbage values thereby consuming lot of time in debugging and make the code efficient and readable for the user.</p>
+<h2>Functions Local Vs External Parameter Names</h2>
+<h3>Local Parameter Names</h3>
+<p>Local parameter names are accessed inside the function alone.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">func sample</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>Here, the <strong>func</strong> sample argument number is declared as internal variable since it is accessed internally by the function sample(). Here the 'number' is declared as local variable but the reference to the variable is made outside the function with the following statement &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func sample</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+sample</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln">
+sample</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+sample</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">1
+2
+3
+</pre>
+<h3>External Parameter Names</h3>
+<p>External parameter names allow us to name a function parameters to make their purpose more clear. For example below you can name two function parameters and then call that function as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func pow</span><span class="pun">(</span><span class="pln">firstArg a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> secondArg b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> a
+   </span><span class="kwd">for</span><span class="pln"> _ </span><span class="kwd">in</span> <span class="lit">1.</span><span class="pun">.&lt;</span><span class="pln">b </span><span class="pun">{</span><span class="pln">
+      res </span><span class="pun">=</span><span class="pln"> res </span><span class="pun">*</span><span class="pln"> a
+   </span><span class="pun">}</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">res</span><span class="pun">)</span>
+   <span class="kwd">return</span><span class="pln"> res
+</span><span class="pun">}</span><span class="pln">
+pow</span><span class="pun">(</span><span class="pln">firstArg</span><span class="pun">:</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> secondArg</span><span class="pun">:</span><span class="lit">3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">125
+</pre>
+<h2>Variadic Parameters</h2>
+<p>When we want to define function with multiple number of arguments, then we can declare the members as 'variadic' parameters. Parameters can be specified as variadic by (&middot;&middot;&middot;) after the parameter name.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func vari</span><span class="pun">&lt;</span><span class="pln">N</span><span class="pun">&gt;(</span><span class="pln">members</span><span class="pun">:</span><span class="pln"> N</span><span class="pun">...)</span> <span class="pun">{</span>
+   <span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> members </span><span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+vari</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+vari</span><span class="pun">(</span><span class="lit">4.5</span><span class="pun">,</span> <span class="lit">3.1</span><span class="pun">,</span> <span class="lit">5.6</span><span class="pun">)</span><span class="pln">
+vari</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">,</span> <span class="str">"Enumerations"</span><span class="pun">,</span> <span class="str">"Closures"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">4
+3
+5
+4.5
+3.1
+5.6
+Swift
+Enumerations
+Closures
+</pre>
+<h2>Constant, Variable and I/O Parameters</h2>
+<p>Functions by default consider the parameters as 'constant', whereas the user can declare the arguments to the functions as variables also. We already discussed that 'let' keyword is used to declare constant parameters and variable parameters is defined with 'var' keyword.</p>
+<p>I/O parameters in Swift provide functionality to retain the parameter values even though its values are modified after the function call. At the beginning of the function parameter definition, 'inout' keyword is declared to retain the member values.</p>
+<p>It derives the keyword 'inout' since its values are passed 'in' to the function and its values are accessed and modified by its function body and it is returned back 'out' of the function to modify the original argument.</p>
+<p>Variables are only passed as an argument for in-out parameter since its values alone are modified inside and outside the function. Hence no need to declare strings and literals as in-out parameters. '&amp;' before a variable name refers that we are passing the argument to the in-out parameter.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func temp</span><span class="pun">(</span><span class="pln">inout a1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> inout b1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> a1
+   a1 </span><span class="pun">=</span><span class="pln"> b1
+   b1 </span><span class="pun">=</span><span class="pln"> t
+</span><span class="pun">}</span>
+<span class="kwd">var</span> <span class="kwd">no</span> <span class="pun">=</span> <span class="lit">2</span>
+<span class="kwd">var</span><span class="pln"> co </span><span class="pun">=</span> <span class="lit">10</span><span class="pln">
+temp</span><span class="pun">(&amp;</span><span class="kwd">no</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">co</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Swapped values are \(no), \(co)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Swapped values are 10, 2
+</pre>
+<h2>Function Types &amp; its Usage</h2>
+<p>Each and every function follows the specific function by considering the input parameters and outputs the desired result.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">func inputs</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> no1</span><span class="pun">/</span><span class="pln">no2
+</span><span class="pun">}</span></pre>
+<p>Following is an example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func inputs</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> no1</span><span class="pun">/</span><span class="pln">no2
+</span><span class="pun">}</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">inputs</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="lit">10</span><span class="pun">))</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">inputs</span><span class="pun">(</span><span class="lit">36</span><span class="pun">,</span><span class="lit">6</span><span class="pun">))</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">2
+6
+</pre>
+<p>Here the function is initialized with two arguments no1 and no2 as integer data types and its return type is also declared as 'int'.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">Func</span><span class="pln"> inputstr</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> name
+</span><span class="pun">}</span></pre>
+<p>Here the function is declared as <strong>string</strong> datatype.</p>
+<p>Functions may also have <strong>void</strong> data types and such functions won't return anything.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func inputstr</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Swift Functions"</span><span class="pun">)</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Types and its Usage"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+inputstr</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Swift Functions
+Types and its Usage
+</pre>
+<p>The above function is declared as a void function with no arguments and no return values.</p>
+<h2>Using Function Types</h2>
+<p>Functions are first passed with integer, float or string type arguments and then it is passed as constants or variables to the function as mentioned below.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">var</span><span class="pln"> addition</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">=</span><span class="pln"> sum</span></pre>
+<p>Here sum is a function name having 'a' and 'b' integer variables which is now declared as a variable to the function name addition. Hereafter both addition and sum function both have same number of arguments declared as integer datatype and also return integer values as references.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+</span><span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> addition</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">=</span><span class="pln"> sum
+println</span><span class="pun">(</span><span class="str">"Result: \(addition(40, 89))"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Result: 129
+</pre>
+<h2>Function Types as Parameter Types &amp; Return Types</h2>
+<p>We can also pass the function itself as parameter types to another function.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">func sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">return</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+</span><span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> addition</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">=</span><span class="pln"> sum
+println</span><span class="pun">(</span><span class="str">"Result: \(addition(40, 89))"</span><span class="pun">)</span><span class="pln">
+func another</span><span class="pun">(</span><span class="pln">addition</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Result: \(addition(a, b))"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+another</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Result: 129
+Result: 30
+</pre>
+<h2>Nested Functions</h2>
+<p>A nested function provides the facility to call the outer function by invoking the inside function.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func calcDecrement</span><span class="pun">(</span><span class="pln">forDecrement total</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> overallDecrement </span><span class="pun">=</span> <span class="lit">0</span><span class="pln">
+   func decrementer</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span><span class="pln">
+      overallDecrement </span><span class="pun">-=</span><span class="pln"> total
+      </span><span class="kwd">return</span><span class="pln"> overallDecrement
+   </span><span class="pun">}</span>
+   <span class="kwd">return</span><span class="pln"> decrementer
+</span><span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> decrem </span><span class="pun">=</span><span class="pln"> calcDecrement</span><span class="pun">(</span><span class="pln">forDecrement</span><span class="pun">:</span> <span class="lit">30</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">decrem</span><span class="pun">())</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">-30
+</pre>

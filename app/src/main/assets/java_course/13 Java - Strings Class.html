@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-select-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Strings Class</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./14_files/style-min.css">
+
+
+
+
+
+
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Strings Class</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Strings, which are widely used in Java programming, are a sequence of characters. In Java programming language, strings are treated as objects.</p>
+        <p>The Java platform provides the String class to create and manipulate strings.</p>
+        <h2>Creating Strings</h2>
+        <p>The most direct way to create a string is to write −</p>
+        <pre class="result notranslate">String greeting = "Hello world!";
+</pre>
+        <p>Whenever it encounters a string literal in your code, the compiler creates a String object with its value in this case, "Hello world!'.</p>
+        <p>As with any other object, you can create String objects by using the new keyword and a constructor. The String class has 11 constructors that allow you to provide the initial value of the string using different sources, such as an array of characters.</p>
+        <h3>Example</h3>
+
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">StringDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">char</span><span class="pun">[]</span><span class="pln"> helloArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="str">'h'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'e'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'l'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'l'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'o'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.'</span><span class="pln"> </span><span class="pun">};</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> helloString </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="pln">helloArray</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln"> helloString </span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">hello.
+</pre>
+        <p><b>Note</b> − The String class is immutable, so that once it is created a String object cannot be changed. If there is a necessity to make a lot of modifications to Strings of characters, then you should use String Buffer &amp; String Builder Classes.</p>
+        <h2>String Length</h2>
+        <p>Methods used to obtain information about an object are known as <b>accessor methods</b>. One accessor method that you can use with strings is the length() method, which returns the number of characters contained in the string object.</p>
+        <p>The following program is an example of <b>length()</b>, method String class.</p>
+        <h3>Example</h3>
+
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">StringDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> palindrome </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Dot saw I was Tod"</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> palindrome</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln"> </span><span class="str">"String Length is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> len </span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">String Length is : 17
+</pre>
+        <h2>Concatenating Strings</h2>
+        <p>The String class includes a method for concatenating two strings −</p>
+        <pre class="result notranslate">string1.concat(string2);
+</pre>
+        <p>This returns a new string that is string1 with string2 added to it at the end. You can also use the concat() method with string literals, as in −</p>
+        <pre class="result notranslate">"My name is ".concat("Zara");
+</pre>
+        <p>Strings are more commonly concatenated with the + operator, as in −</p>
+        <pre class="result notranslate">"Hello," + " world" + "!"
+</pre>
+        <p>which results in −</p>
+        <pre class="result notranslate">"Hello, world!"
+</pre>
+        <p>Let us look at the following example −</p>
+        <h3>Example</h3>
+          <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">StringDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> string1 </span><span class="pun">=</span><span class="pln"> </span><span class="str">"saw I was "</span><span class="pun">;</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Dot "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> string1 </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Tod"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Dot saw I was Tod
+</pre>
+        <h2>Creating Format Strings</h2>
+        <p>You have printf() and format() methods to print output with formatted numbers. The String class has an equivalent class method, format(), that returns a String object rather than a PrintStream object.</p>
+        <p>Using String's static format() method allows you to create a formatted string that you can reuse, as opposed to a one-time print statement. For example, instead of −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">printf</span><span class="pun">(</span><span class="str">"The value of the float variable is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                  </span><span class="str">"%f, while the value of the integer "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                  </span><span class="str">"variable is %d, and the string "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                  </span><span class="str">"is %s"</span><span class="pun">,</span><span class="pln"> floatVar</span><span class="pun">,</span><span class="pln"> intVar</span><span class="pun">,</span><span class="pln"> stringVar</span><span class="pun">);</span></pre>
+        <p>You can write −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="typ">String</span><span class="pln"> fs</span><span class="pun">;</span><span class="pln">
+fs </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">.</span><span class="pln">format</span><span class="pun">(</span><span class="str">"The value of the float variable is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                   </span><span class="str">"%f, while the value of the integer "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                   </span><span class="str">"variable is %d, and the string "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                   </span><span class="str">"is %s"</span><span class="pun">,</span><span class="pln"> floatVar</span><span class="pun">,</span><span class="pln"> intVar</span><span class="pun">,</span><span class="pln"> stringVar</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">fs</span><span class="pun">);</span></pre>
+        <h2>String Methods</h2>
+        <p>Here is the list of methods supported by String class −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> char  charAt(int index)
+                    <p>Returns the character at the specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> int compareTo(Object o)
+                    <p>Compares this String to another Object.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> int compareTo(String anotherString)
+                    <p>Compares two strings lexicographically.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> int compareToIgnoreCase(String str)
+                    <p>Compares two strings lexicographically, ignoring case differences.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> String concat(String str)
+                    <p>Concatenates the specified string to the end of this string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> boolean contentEquals(StringBuffer sb)
+                    <p>Returns true if and only if this String represents the same sequence of characters as the specified StringBuffer.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> static String copyValueOf(char[] data)
+                    <p>Returns a String that represents the character sequence in the array specified.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> static String copyValueOf(char[] data, int offset, int count)
+                    <p>Returns a String that represents the character sequence in the array specified.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> boolean endsWith(String suffix)
+                    <p>Tests if this string ends with the specified suffix.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td> boolean equals(Object anObject)
+                    <p>Compares this string to the specified object.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> boolean equalsIgnoreCase(String anotherString)
+                    <p>Compares this String to another String, ignoring case considerations.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> byte getBytes()
+                    <p>Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> byte[] getBytes(String charsetName)
+                    <p>Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+                    <p>Copies characters from this string into the destination character array.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> int hashCode()
+                    <p>Returns a hash code for this string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">16</td>
+                <td> int indexOf(int ch)
+                    <p>Returns the index within this string of the first occurrence of the specified character.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">17</td>
+                <td> int indexOf(int ch, int fromIndex)
+                    <p>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">18</td>
+                <td> int indexOf(String str)
+                    <p>Returns the index within this string of the first occurrence of the specified substring.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">19</td>
+                <td> int indexOf(String str, int fromIndex)
+                    <p>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">20</td>
+                <td> String intern()
+                    <p>Returns a canonical representation for the string object.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">21</td>
+                <td> int lastIndexOf(int ch)
+                    <p>Returns the index within this string of the last occurrence of the specified character.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">22</td>
+                <td> int lastIndexOf(int ch, int fromIndex)
+                    <p>Returns the index within this string of the last occurrence of the specified character, searching backward starting at the specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">23</td>
+                <td> int lastIndexOf(String str)
+                    <p>Returns the index within this string of the rightmost occurrence of the specified substring.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">24</td>
+                <td> int lastIndexOf(String str, int fromIndex)
+                    <p>Returns the index within this string of the last occurrence of the specified substring, searching backward starting at the specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">25</td>
+                <td> int length()
+                    <p>Returns the length of this string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">26</td>
+                <td> boolean matches(String regex)
+                    <p>Tells whether or not this string matches the given regular expression.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">27</td>
+                <td> boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)
+                    <p>Tests if two string regions are equal.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">28</td>
+                <td> boolean regionMatches(int toffset, String other, int ooffset, int len)
+                    <p>Tests if two string regions are equal.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">29</td>
+                <td> String replace(char oldChar, char newChar)
+                    <p>Returns a new string resulting from replacing all occurrences of oldChar in this string with newChar.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">30</td>
+                <td> String replaceAll(String regex, String replacement
+                    <p>Replaces each substring of this string that matches the given regular expression with the given replacement.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">31</td>
+                <td> String replaceFirst(String regex, String replacement)
+                    <p>Replaces the first substring of this string that matches the given regular expression with the given replacement.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">32</td>
+                <td> String[] split(String regex)
+                    <p>Splits this string around matches of the given regular expression.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">33</td>
+                <td> String[] split(String regex, int limit)
+                    <p>Splits this string around matches of the given regular expression.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">34</td>
+                <td> boolean startsWith(String prefix)
+                    <p>Tests if this string starts with the specified prefix.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">35</td>
+                <td> boolean startsWith(String prefix, int toffset)
+                    <p>Tests if this string starts with the specified prefix beginning a specified index.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">36</td>
+                <td> CharSequence subSequence(int beginIndex, int endIndex)
+                    <p>Returns a new character sequence that is a subsequence of this sequence.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">37</td>
+                <td> String substring(int beginIndex)
+                    <p>Returns a new string that is a substring of this string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">38</td>
+                <td> String substring(int beginIndex, int endIndex)
+                    <p>Returns a new string that is a substring of this string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">39</td>
+                <td> char[] toCharArray()
+                    <p>Converts this string to a new character array.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">40</td>
+                <td> String toLowerCase()
+                    <p>Converts all of the characters in this String to lower case using the rules of the default locale.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">41</td>
+                <td> String toLowerCase(Locale locale)
+                    <p>Converts all of the characters in this String to lower case using the rules of the given Locale.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">42</td>
+                <td> String toString()
+                    <p>This object (which is already a string!) is itself returned.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">43</td>
+                <td> String toUpperCase()
+                    <p>Converts all of the characters in this String to upper case using the rules of the default locale.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">44</td>
+                <td> String toUpperCase(Locale locale)
+                    <p>Converts all of the characters in this String to upper case using the rules of the given Locale.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">45</td>
+                <td> String trim()
+                    <p>Returns a copy of the string, with leading and trailing whitespace omitted.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">46</td>
+                <td> static String valueOf(primitive data type x)
+                    <p>Returns the string representation of the passed data type argument.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <hr>
+
+    </div></div></div></div></div></div>
+</body></html>

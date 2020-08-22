@@ -1,0 +1,63 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Relational Operators Overloading in C++</h1>
+
+<p>There are various relational operators supported by C++ language like (&lt;, &gt;, &lt;=, &gt;=, ==, etc.) which can be used to compare C++ built-in data types.</p>
+<p>You can overload any of these operators, which can be used to compare the objects of a class.</p>
+<p>Following example explains how a &lt; operator can be overloaded and similar way you can overload other relational operators.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Distance</span> <span class="pun">{</span>
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> feet</span><span class="pun">;</span>             <span class="com">// 0 to infinite</span>
+      <span class="kwd">int</span><span class="pln"> inches</span><span class="pun">;</span>           <span class="com">// 0 to 12</span>
+      
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// required constructors</span>
+      <span class="typ">Distance</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="typ">Distance</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> f</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span><span class="pln"> f</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// method to display distance</span>
+      <span class="kwd">void</span><span class="pln"> displayDistance</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"F: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> feet </span><span class="pun">&lt;&lt;</span> <span class="str">" I:"</span> <span class="pun">&lt;&lt;</span><span class="pln"> inches </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// overloaded minus (-) operator</span>
+      <span class="typ">Distance</span> <span class="kwd">operator</span><span class="pun">-</span> <span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span> <span class="pun">-</span><span class="pln">feet</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span> <span class="pun">-</span><span class="pln">inches</span><span class="pun">;</span>
+         <span class="kwd">return</span> <span class="typ">Distance</span><span class="pun">(</span><span class="pln">feet</span><span class="pun">,</span><span class="pln"> inches</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// overloaded &lt; operator</span>
+      <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">&lt;(</span><span class="kwd">const</span> <span class="typ">Distance</span><span class="pun">&amp;</span><span class="pln"> d</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="kwd">if</span><span class="pun">(</span><span class="pln">feet </span><span class="pun">&lt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">feet</span><span class="pun">)</span> <span class="pun">{</span>
+            <span class="kwd">return</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">if</span><span class="pun">(</span><span class="pln">feet </span><span class="pun">==</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">feet </span><span class="pun">&amp;&amp;</span><span class="pln"> inches </span><span class="pun">&lt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">inches</span><span class="pun">)</span> <span class="pun">{</span>
+            <span class="kwd">return</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">return</span> <span class="kwd">false</span><span class="pun">;</span>
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Distance</span><span class="pln"> D1</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">),</span><span class="pln"> D2</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span> <span class="lit">11</span><span class="pun">);</span>
+ 
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln"> D1 </span><span class="pun">&lt;</span><span class="pln"> D2 </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"D1 is less than D2 "</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"D2 is less than D1 "</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">D2 is less than D1
+</pre>

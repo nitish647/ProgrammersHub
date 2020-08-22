@@ -1,0 +1,47 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//remove duplicate characters from word</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.io.BufferedReader;
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.io.IOException;
+<span style='color:#7f0055; font-weight:bold; '>import</span> java.io.InputStreamReader;
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> RemoveDuplicates
+{
+        <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])throws IOException
+        {
+            BufferedReader br = <span style='color:#7f0055; font-weight:bold; '>new</span> BufferedReader(<span style='color:#7f0055; font-weight:bold; '>new</span> InputStreamReader(System.in));
+            System.out.print(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Enter any word : </span><span style='color:#2a00ff; '>"</span>);
+            <span style='color:#7f0055; font-weight:bold; '>String</span> s = br.readLine();
+            <span style='color:#7f0055; font-weight:bold; '>int</span> l = s.length();<span style='color:#3f7f59; '>//calculate the length of a string</span>
+            <span style='color:#7f0055; font-weight:bold; '>char</span> ch;
+            <span style='color:#7f0055; font-weight:bold; '>String</span> ans=<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '> </span><span style='color:#2a00ff; '>"</span>;
+            <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0; i&lt;l; i++)
+            {
+            	<span style='color:#3f7f59; '>//return character at given index position</span>
+                ch = s.charAt(i);
+                <span style='color:#7f0055; font-weight:bold; '>if</span>(ch!=<span style='color:#2a00ff; '>' '</span>)
+                ans = ans + ch;
+                System.out.println(ans);
+                s = s.<span style='color:#7f0055; font-weight:bold; '>replace</span>(ch,<span style='color:#2a00ff; '>' '</span>); <span style='color:#3f7f59; '>//Replacing all occurrence of the current character by a space</span>
+            }
+
+           System.out.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Word after removing duplicate characters : </span><span style='color:#2a00ff; '>"</span> + ans);
+        }
+}
+
+Output:
+
+       Enter any word : javasimplify
+       j
+       ja
+       jav
+       jav
+       javs
+       javsi
+       javsim
+       javsimp
+       javsimpl
+       javsimpl
+       javsimplf
+       javsimplfy
+       Word after removing duplicate characters :  javsimplfy
+</pre>

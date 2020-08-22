@@ -1,0 +1,16 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//open .pdf file uisng java</span>
+<span style='color:#3f7f59; '>//this program can open any type of file</span>
+
+File file = <span style='color:#7f0055; font-weight:bold; '>new</span> File(filepath);
+    <span style='color:#7f0055; font-weight:bold; '>if</span> (file.toString().endsWith(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>.pdf</span><span style='color:#2a00ff; '>"</span>)) 
+        Runtime.getRuntime().exec(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>rundll32 url.dll,FileProtocolHandler </span><span style='color:#2a00ff; '>"</span> + file);
+    <span style='color:#7f0055; font-weight:bold; '>else</span> {
+        Desktop desktop = Desktop.getDesktop();
+        desktop.open(file);
+}
+
+
+Output:
+
+<span style='color:#3f7f59; '>//No output for this program</span>
+</pre>

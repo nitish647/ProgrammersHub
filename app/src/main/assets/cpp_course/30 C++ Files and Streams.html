@@ -1,0 +1,175 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Files and Streams</h1>
+ 
+<p>So far, we have been using the <strong>iostream</strong> standard library, which provides <strong>cin</strong> and <strong>cout</strong> methods for reading from standard input and writing to standard output respectively.</p>
+<p>This tutorial will teach you how to read and write from a file. This requires another standard C++ library called <strong>fstream</strong>, which defines three new data types &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Data Type &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>ofstream</strong></p>
+<p>This data type represents the output file stream and is used to create files and to write information to files.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>ifstream</strong></p>
+<p>This data type represents the input file stream and is used to read information from files.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>fstream</strong></p>
+<p>This data type represents the file stream generally, and has the capabilities of both ofstream and ifstream which means it can create files, write information to files, and read information from files.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To perform file processing in C++, header files &lt;iostream&gt; and &lt;fstream&gt; must be included in your C++ source file.</p>
+<h2>Opening a File</h2>
+<p>A file must be opened before you can read from it or write to it. Either <strong>ofstream</strong> or <strong>fstream</strong> object may be used to open a file for writing. And ifstream object is used to open a file for reading purpose only.</p>
+<p>Following is the standard syntax for open() function, which is a member of fstream, ifstream, and ofstream objects.</p>
+<pre class="result notranslate">void open(const char *filename, ios::openmode mode);
+</pre>
+<p>Here, the first argument specifies the name and location of the file to be opened and the second argument of the <strong>open()</strong> member function defines the mode in which the file should be opened.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Mode Flag &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>ios::app</strong></p>
+<p>Append mode. All output to that file to be appended to the end.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>ios::ate</strong></p>
+<p>Open a file for output and move the read/write control to the end of the file.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>ios::in</strong></p>
+<p>Open a file for reading.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>ios::out</strong></p>
+<p>Open a file for writing.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>ios::trunc</strong></p>
+<p>If the file already exists, its contents will be truncated before opening the file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can combine two or more of these values by <strong>OR</strong>ing them together. For example if you want to open a file in write mode and want to truncate it in case that already exists, following will be the syntax &minus;</p>
+<pre class="result notranslate">ofstream outfile;
+outfile.open("file.dat", ios::out | ios::trunc );
+</pre>
+<p>Similar way, you can open a file for reading and writing purpose as follows &minus;</p>
+<pre class="result notranslate">fstream  afile;
+afile.open("file.dat", ios::out | ios::in );
+</pre>
+<h2>Closing a File</h2>
+<p>When a C++ program terminates it automatically flushes all the streams, release all the allocated memory and close all the opened files. But it is always a good practice that a programmer should close all the opened files before program termination.</p>
+<p>Following is the standard syntax for close() function, which is a member of fstream, ifstream, and ofstream objects.</p>
+<pre class="result notranslate">void close();
+</pre>
+<h2>Writing to a File</h2>
+<p>While doing C++ programming, you write information to a file from your program using the stream insertion operator (&lt;&lt;) just as you use that operator to output information to the screen. The only difference is that you use an <strong>ofstream</strong> or <strong>fstream</strong> object instead of the <strong>cout</strong> object.</p>
+<h2>Reading from a File</h2>
+<p>You read information from a file into your program using the stream extraction operator (&gt;&gt;) just as you use that operator to input information from the keyboard. The only difference is that you use an <strong>ifstream</strong> or <strong>fstream</strong> object instead of the <strong>cin</strong> object.</p>
+<h2>Read and Write Example</h2>
+<p>Following is the C++ program which opens a file in reading and writing mode. After writing information entered by the user to a file named afile.dat, the program reads information from the file and outputs it onto the screen &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;fstream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">char</span><span class="pln"> data</span><span class="pun">[</span><span class="lit">100</span><span class="pun">];</span>
+
+   <span class="com">// open a file in write mode.</span><span class="pln">
+   ofstream outfile</span><span class="pun">;</span><span class="pln">
+   outfile</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"afile.dat"</span><span class="pun">);</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Writing to the file"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Enter your name: "</span><span class="pun">;</span><span class="pln"> 
+   cin</span><span class="pun">.</span><span class="pln">getline</span><span class="pun">(</span><span class="pln">data</span><span class="pun">,</span> <span class="lit">100</span><span class="pun">);</span>
+
+   <span class="com">// write inputted data into the file.</span><span class="pln">
+   outfile </span><span class="pun">&lt;&lt;</span><span class="pln"> data </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Enter your age: "</span><span class="pun">;</span><span class="pln"> 
+   cin </span><span class="pun">&gt;&gt;</span><span class="pln"> data</span><span class="pun">;</span><span class="pln">
+   cin</span><span class="pun">.</span><span class="pln">ignore</span><span class="pun">();</span>
+   
+   <span class="com">// again write inputted data into the file.</span><span class="pln">
+   outfile </span><span class="pun">&lt;&lt;</span><span class="pln"> data </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// close the opened file.</span><span class="pln">
+   outfile</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+
+   <span class="com">// open a file in read mode.</span><span class="pln">
+   ifstream infile</span><span class="pun">;</span><span class="pln"> 
+   infile</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"afile.dat"</span><span class="pun">);</span><span class="pln"> 
+ 
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Reading from the file"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln"> 
+   infile </span><span class="pun">&gt;&gt;</span><span class="pln"> data</span><span class="pun">;</span> 
+
+   <span class="com">// write the data at the screen.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> data </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="com">// again read the data from the file and display it.</span><span class="pln">
+   infile </span><span class="pun">&gt;&gt;</span><span class="pln"> data</span><span class="pun">;</span><span class="pln"> 
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> data </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span> 
+
+   <span class="com">// close the opened file.</span><span class="pln">
+   infile</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following sample input and output &minus;</p>
+<pre class="result notranslate">$./a.out
+Writing to the file
+Enter your name: Zara
+Enter your age: 9
+Reading from the file
+Zara
+9
+</pre>
+<p>Above examples make use of additional functions from cin object, like getline() function to read the line from outside and ignore() function to ignore the extra characters left by previous read statement.</p>
+<h2>File Position Pointers</h2>
+<p>Both <strong>istream</strong> and <strong>ostream</strong> provide member functions for repositioning the file-position pointer. These member functions are <strong>seekg</strong> ("seek get") for istream and <strong>seekp</strong> ("seek put") for ostream.</p>
+<p>The argument to seekg and seekp normally is a long integer. A second argument can be specified to indicate the seek direction. The seek direction can be <strong>ios::beg</strong> (the default) for positioning relative to the beginning of a stream, <strong>ios::cur</strong> for positioning relative to the current position in a stream or <strong>ios::end</strong> for positioning relative to the end of a stream.</p>
+<p>The file-position pointer is an integer value that specifies the location in the file as a number of bytes from the file's starting location. Some examples of positioning the "get" file-position pointer are &minus;</p>
+<pre class="result notranslate">// position to the nth byte of fileObject (assumes ios::beg)
+fileObject.seekg( n );
+
+// position n bytes forward in fileObject
+fileObject.seekg( n, ios::cur );
+
+// position n bytes back from end of fileObject
+fileObject.seekg( n, ios::end );
+
+// position at end of fileObject
+fileObject.seekg( 0, ios::end );
+</pre>

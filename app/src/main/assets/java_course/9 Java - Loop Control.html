@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0058)https://www.tutorialspoint.com/sql/sql-select-database.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Loop Control</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+    <meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./10_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Loop Control</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>There may be a situation when you need to execute a block of code several number of times. In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on.</p>
+        <p>Programming languages provide various control structures that allow for more complicated execution paths.</p>
+        <p>A <b>loop</b> statement allows us to execute a statement or group of statements multiple times and following is the general form of a loop statement in most of the programming languages −</p>
+        <img src="/java/images/loop_architecture.jpg" alt="Loop Architecture">
+        <p>Java programming language provides the following types of loop to handle looping requirements. Click the following links to check their detail.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Loop &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> while loop
+                    <p>Repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> for loop
+                    <p>Execute a sequence of statements multiple times and abbreviates the code that manages the loop variable.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> do...while loop
+                    <p>Like a while statement, except that it tests the condition at the end of the loop body.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Loop Control Statements</h2>
+        <p>Loop control statements change execution from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.</p>
+        <p>Java supports the following control statements. Click the following links to check their detail.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Control Statement &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> break statement
+                    <p>Terminates the <b>loop</b> or <b>switch</b> statement and transfers execution to the statement immediately following the loop or switch.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> continue statement
+                    <p>Causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.</p></td>
+            </tr>
+            </tbody></table>
+        <h2>Enhanced for loop in Java</h2>
+        <p>As of Java 5, the enhanced for loop was introduced. This is mainly used to traverse collection of elements including arrays.</p>
+        <h3>Syntax</h3>
+        <p>Following is the syntax of enhanced for loop −</p>
+        <pre class="result notranslate">for(declaration : expression) {
+   // Statements
+}
+</pre>
+        <ul class="list">
+            <li><p><b>Declaration</b> − The newly declared block variable, is of a type compatible with the elements of the array you are accessing. The variable will be available within the for block and its value would be the same as the current array element.</p></li>
+            <li><p><b>Expression</b> − This evaluates to the array you need to loop through. The expression can be an array variable or method call that returns an array.</p></li>
+        </ul>
+        <h3>Example</h3>
+
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Test</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> numbers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">};</span><span class="pln">
+
+      </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x </span><span class="pun">:</span><span class="pln"> numbers </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln"> x </span><span class="pun">);</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">","</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"\n"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> names </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">"James"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Larry"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Tom"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Lacy"</span><span class="pun">};</span><span class="pln">
+
+      </span><span class="kwd">for</span><span class="pun">(</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> name </span><span class="pun">:</span><span class="pln"> names </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln"> name </span><span class="pun">);</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">","</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">10, 20, 30, 40, 50,
+James, Larry, Tom, Lacy,
+</pre>
+        <h2>What is Next?</h2>
+        <p>In the following chapter, we will be learning about decision making statements in Java programming.</p>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

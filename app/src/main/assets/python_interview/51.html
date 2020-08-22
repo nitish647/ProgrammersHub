@@ -1,0 +1,36 @@
+<p>
+    The compiling and linking allows the new extensions to be compiled properly
+    without any error and the linking can be done only when it passes the
+    compiled procedure. If the dynamic loading is used then it depends on the
+    style that is being provided with the system. The python interpreter can be
+    used to provide the dynamic loading of the configuration setup files and
+    will rebuild the interpreter.
+</p>
+<p>
+    The steps that are required in this as:
+</p>
+<ol>
+    <li>
+        Create a file with any name and in any language that is supported by
+        the compiler of your system. For example file.c or file.cpp
+    </li>
+    <li>
+        Place this file in the Modules/ directory of the distribution which is
+        getting used.
+    </li>
+    <li>
+        Add a line in the file Setup.local that is present in the Modules/
+        directory.
+    </li>
+    <li>
+        Run the file using spam file.o
+    </li>
+    <li>
+        After a successful run of this rebuild the interpreter by using the
+        make command on the top-level directory.
+    </li>
+    <li>
+        If the file is changed then run rebuildMakefile by using the command as
+        ‘make Makefile’.
+    </li>
+</ol>

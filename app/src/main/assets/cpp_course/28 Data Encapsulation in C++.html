@@ -1,0 +1,73 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Data Encapsulation in C++</h1>
+ 
+<p>All C++ programs are composed of the following two fundamental elements &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Program statements (code)</strong> &minus; This is the part of a program that performs actions and they are called functions.</p>
+</li>
+<li>
+<p><strong>Program data</strong> &minus; The data is the information of the program which gets affected by the program functions.</p>
+</li>
+</ul>
+<p>Encapsulation is an Object Oriented Programming concept that binds together the data and functions that manipulate the data, and that keeps both safe from outside interference and misuse. Data encapsulation led to the important OOP concept of <strong>data hiding</strong>.</p>
+<p><strong>Data encapsulation</strong> is a mechanism of bundling the data, and the functions that use them and <strong>data abstraction</strong> is a mechanism of exposing only the interfaces and hiding the implementation details from the user.</p>
+<p>C++ supports the properties of encapsulation and data hiding through the creation of user-defined types, called <strong>classes</strong>. We already have studied that a class can contain <strong>private, protected </strong> and <strong>public</strong> members. By default, all items defined in a class are private. For example &minus;</p>
+<pre class="result notranslate">class Box {
+   public:
+      double getVolume(void) {
+         return length * breadth * height;
+      }
+
+   private:
+      double length;      // Length of a box
+      double breadth;     // Breadth of a box
+      double height;      // Height of a box
+};
+</pre>
+<p>The variables length, breadth, and height are <strong>private</strong>. This means that they can be accessed only by other members of the Box class, and not by any other part of your program. This is one way encapsulation is achieved.</p>
+<p>To make parts of a class <strong>public</strong> (i.e., accessible to other parts of your program), you must declare them after the <strong>public</strong> keyword. All variables or functions defined after the public specifier are accessible by all other functions in your program.</p>
+<p>Making one class a friend of another exposes the implementation details and reduces encapsulation. The ideal is to keep as many of the details of each class hidden from all other classes as possible.</p>
+<h2>Data Encapsulation Example</h2>
+<p>Any C++ program where you implement a class with public and private members is an example of data encapsulation and data abstraction. Consider the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Adder</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// constructor</span>
+      <span class="typ">Adder</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         total </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// interface to outside world</span>
+      <span class="kwd">void</span><span class="pln"> addNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         total </span><span class="pun">+=</span><span class="pln"> number</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// interface to outside world</span>
+      <span class="kwd">int</span><span class="pln"> getTotal</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> total</span><span class="pun">;</span>
+      <span class="pun">};</span>
+   
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="com">// hidden data from outside world</span>
+      <span class="kwd">int</span><span class="pln"> total</span><span class="pun">;</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Adder</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+   
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span><span class="pln">
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+   a</span><span class="pun">.</span><span class="pln">addNum</span><span class="pun">(</span><span class="lit">30</span><span class="pun">);</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Total "</span> <span class="pun">&lt;&lt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">getTotal</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Total 60
+</pre>
+<p>Above class adds numbers together, and returns the sum. The public members <strong>addNum</strong> and <strong>getTotal </strong> are the interfaces to the outside world and a user needs to know them to use the class. The private member <strong>total</strong> is something that is hidden from the outside world, but is needed for the class to operate properly.</p>
+<h2>Designing Strategy</h2>
+<p>Most of us have learnt to make class members private by default unless we really need to expose them. That's just good <strong>encapsulation</strong>.</p>
+<p>This is applied most frequently to data members, but it applies equally to all members, including virtual functions.</p>

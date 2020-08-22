@@ -1,0 +1,43 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Simple Java For loop Thread Sleep method Example</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Thread_first <span style='color:#7f0055; font-weight:bold; '>extends</span> Thread
+{
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> run()
+	{
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=1;i&lt;=10;i++)
+		{
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(i);
+		<span style='color:#3f7f59; '>//check if exception occured</span>
+		<span style='color:#7f0055; font-weight:bold; '>try</span> {
+			<span style='color:#3f7f59; '>//sleep a thread for the specified amount of time.</span>
+			<span style='color:#7f0055; font-weight:bold; '>Thread</span>.sleep(1000);
+			
+			<span style='color:#3f7f59; '>//catch and throw if exception occured in try block</span>
+		} <span style='color:#7f0055; font-weight:bold; '>catch</span> (<span style='color:#7f0055; font-weight:bold; '>InterruptedException</span> e) {
+			<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated catch block</span>
+			e.printStackTrace();
+		}
+		}
+	}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+{
+Thread_first obj = <span style='color:#7f0055; font-weight:bold; '>new</span> Thread_first();
+<span style='color:#3f7f59; '>//starts the execution of the thread.JVM calls the run() method on the thread</span>
+obj.start();
+}	
+}
+
+
+Output:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre>

@@ -1,0 +1,353 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Difference Between
+Struct And Class In C#</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:white;vertical-align:middle'><b><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>Difference Between
+Struct And Class In C#</span></b></p>
+
+<p style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+0in;line-height:150%;background:white'><span style='font-family:"Cambria",serif;
+color:#212121'>Structs are light versions of classes. Structs are value types
+and can be used to create objects that behave like built-in types.<br
+style='box-sizing: border-box'>
+Structs share many features with classes but with the following limitations as
+compared to classes.</span></p>
+
+<ul type=disc style='box-sizing: border-box'>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Struct cannot have a default constructor (a
+     constructor without parameters) or a destructor.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Structs are value types and are copied on
+     assignment.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Structs are value types while classes are
+     reference types.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Structs can be instantiated without using a
+     new operator.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>A struct cannot inherit from another struct
+     or class, and it cannot be the base of a class. All structs inherit
+     directly from System.ValueType, which inherits from System.Object.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Struct cannot be a base class. So, Struct
+     types cannot abstract and are always implicitly sealed.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Abstract and sealed modifiers are not allowed
+     and struct member cannot be protected or protected internals.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Function members in a struct cannot be
+     abstract or virtual, and the override modifier is allowed only to the
+     override methods inherited from System.ValueType.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>Struct does not allow the instance field
+     declarations to include variable initializers. But, static fields of a
+     struct are allowed to include variable initializers.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>A struct can implement interfaces.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>A struct can be used as a nullable type and
+     can be assigned a null value.</span></li>
+</ul>
+
+<h2 style='margin-top:0in;line-height:150%;background:white;box-sizing: border-box;
+color:inherit'><span style='box-sizing: border-box'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>When to use struct or classes?</span></span></u></b></h2>
+
+<p class=MsoNormal style='line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>&nbsp;To answer this question, we should have a good
+understanding of the differences.</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:white;border-collapse:collapse;box-sizing: border-box;
+ outline: 0px'>
+ <tr style='box-sizing: border-box;outline: 0px'>
+  <td style='border:solid #ABABAB 1.0pt;background:#0270BF;padding:.75pt .75pt .75pt .75pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><strong style='box-sizing: border-box'><span
+  style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+  color:white'>&nbsp;</span></strong><span style='font-size:12.0pt;line-height:
+  150%;font-family:"Cambria",serif;color:white'>S.N</span></p>
+  </td>
+  <td style='border:solid #ABABAB 1.0pt;border-left:none;background:#0270BF;
+  padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:white'>&nbsp;Struct</span></p>
+  </td>
+  <td style='border:solid #ABABAB 1.0pt;border-left:none;background:#0270BF;
+  padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'><span
+  style='box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:white'>&nbsp;Classes</span></span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td style='border:solid #ABABAB 1.0pt;border-top:none;padding:.75pt .75pt .75pt .75pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;1</span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;<span
+  style='box-sizing: border-box'>Structs are value types, allocated either on
+  the stack or inline in containing types.</span></span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'><span
+  style='box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>Classes are
+  reference types, allocated on the heap and garbage-collected.</span>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td style='border:solid #ABABAB 1.0pt;border-top:none;padding:.75pt .75pt .75pt .75pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;2&nbsp;</span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;<span
+  style='box-sizing: border-box'>Allocations and de-allocations of value types
+  are in general cheaper than allocations and de-allocations of reference types.</span></span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;Assignments
+  of large reference types are cheaper than assignments of large value types.</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td style='border:solid #ABABAB 1.0pt;border-top:none;padding:.75pt .75pt .75pt .75pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;3</span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'><span
+  style='box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>In structs, each
+  variable contains its own copy of the data (except in the case of the ref and
+  out parameter variables), and an operation on one variable does not affect
+  another variable.</span></span></p>
+  </td>
+  <td style='border-top:none;border-left:none;border-bottom:solid #ABABAB 1.0pt;
+  border-right:solid #ABABAB 1.0pt;padding:.75pt .75pt .75pt .75pt;box-sizing: border-box'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+  line-height:150%;font-family:"Cambria",serif;color:#333333'>&nbsp;<span
+  style='box-sizing: border-box'>In classes, two variables can contain the
+  reference of the same object and any operation on one variable can affect
+  another variable.</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'><br style='box-sizing: border-box'>
+&nbsp;In this way, struct should be used only when you are sure that,</span></p>
+
+<ul type=disc style='box-sizing: border-box'>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>It logically represents a single value, like
+     primitive types (int, double, etc.).</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>It is immutable.</span></li>
+ <li class=MsoNormal style='color:#212121;line-height:150%;background:white;
+     box-sizing: border-box'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif'>It should not be boxed and un-boxed
+     frequently.</span></li>
+</ul>
+
+<p style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+0in;line-height:150%;background:white;box-sizing: border-box'><span
+style='font-family:"Cambria",serif;color:#212121'>In all other cases, you
+should define your types as classes.<br style='box-sizing: border-box'>
+<br style='box-sizing: border-box'>
+<em style='box-sizing: border-box'><span style='font-family:"Cambria",serif'>e.g.
+Struct</span></em></span></p>
+
+<div style='border:none;border-left:solid #6CE26C 2.25pt;padding:0in 0in 0in 0in;
+background:white;margin-left:.25in;margin-right:0in'>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'><span style='box-sizing: border-box;background-color:inherit'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-family:"Cambria",serif;color:black'><span style='box-sizing: border-box;
+background-color:inherit'>struct&nbsp;Location&nbsp;&nbsp;&nbsp;</span></span></span></p>
+
+<ol start=2 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif;color:black'>{&nbsp;&nbsp;</span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'><span
+style='box-sizing: border-box;background-color:inherit'>&nbsp;&nbsp;&nbsp;&nbsp;publicint&nbsp;x,&nbsp;y;&nbsp;&nbsp;</span></span></p>
+
+<ol start=4 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;publicLocation(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;&nbsp;</span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'><span
+style='box-sizing: border-box;background-color:inherit'>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></span></p>
+
+<ol start=6 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+     style='box-sizing: border-box;background-color:inherit'><span
+     class=attribute>this.x</span></span><span style='box-sizing: border-box;
+     background-color:inherit'>&nbsp;=&nbsp;x;&nbsp;&nbsp;</span></span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'><span
+style='box-sizing: border-box;background-color:inherit'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='box-sizing: border-box;background-color:inherit'><span class=attribute>this.y</span></span><span
+style='box-sizing: border-box;background-color:inherit'>&nbsp;=&nbsp;y;&nbsp;&nbsp;</span></span></span></p>
+
+<ol start=8 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif;color:black'><span
+style='box-sizing: border-box;background-color:inherit'>}&nbsp;&nbsp;</span></span></p>
+
+<ol start=10 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='box-sizing: border-box;background-color:
+     inherit'><span class=attribute><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>Locationa</span></span><span
+     style='box-sizing: border-box;background-color:inherit'></span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;=&nbsp;</span><span class=attribute-value><span
+     style='box-sizing: border-box;background-color:inherit'>new</span></span><span
+     style='box-sizing: border-box;background-color:inherit'>&nbsp;Location(20,&nbsp;20);&nbsp;&nbsp;</span></span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'><span style='box-sizing: border-box;background-color:inherit'>11.<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+class=attribute><span style='font-family:"Cambria",serif;color:black'><span
+style='box-sizing: border-box;background-color:inherit'>Locationb</span></span><span
+style='box-sizing: border-box;background-color:inherit'></span><span
+style='font-family:"Cambria",serif;color:black'>&nbsp;=&nbsp;a;&nbsp;&nbsp;</span></span></span></p>
+
+<ol start=12 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='box-sizing: border-box;background-color:
+     inherit'><span class=attribute><span style='font-size:12.0pt;line-height:
+     150%;font-family:"Cambria",serif;color:black'>a.x</span></span><span
+     style='box-sizing: border-box;background-color:inherit'></span><span
+     style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+     color:black'>&nbsp;=&nbsp;</span><span class=attribute-value><span
+     style='box-sizing: border-box;background-color:inherit'>100</span></span><span
+     style='box-sizing: border-box;background-color:inherit'>;&nbsp;&nbsp;</span></span></span></li>
+</ol>
+
+<p class=alt style='margin-left:.25in;text-indent:-.25in;line-height:150%;
+background:white;border:none;padding:0in'><span style='font-family:"Cambria",serif;
+color:#5C5C5C'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-family:"Cambria",serif;color:black'><span style='box-sizing: border-box;
+background-color:inherit'>System.Console.WriteLine(b.x)&nbsp;&nbsp;</span></span></p>
+
+<ol start=14 type=1>
+ <li class=MsoNormal style='color:#5C5C5C;margin-left:.25in;line-height:150%;
+     background:#F8F8F8;border:none;padding:0in;box-sizing: border-box;
+     border-image: initial;list-style-type:decimal-leading-zero;list-style-image:
+     initial;list-style-position:outside'><span style='box-sizing: border-box;
+     background-color:inherit'><span style='font-size:12.0pt;line-height:150%;
+     font-family:"Cambria",serif;color:black'>;&nbsp;&nbsp;</span></span></li>
+</ol>
+
+</div>
+
+<p class=MsoNormal style='line-height:150%;background:white'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#212121'>The output will be 20. Value of &quot;b&quot; is a copy of
+&quot;a&quot;, so &quot;b&quot; is unaffected by change of &quot;a.x&quot;. But
+in class, the output will be 100 because &quot;a&quot; and &quot;b&quot; will
+reference the same object.<br style='box-sizing: border-box'>
+<br style='box-sizing: border-box'>
+I believe this blog has clarified most of the doubts about struct. If you find
+further queries about struct, please share with me so that everyone can have a
+clear understanding of this topic.</span></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1987 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - Operator Overloading</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>C# - Operator Overloading</span></b></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+20.0pt;line-height:150%;font-family:"Cambria","serif";color:#0070C0;letter-spacing:
+-.75pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>You can redefine or overload most of the built-in operators
+available in C#. Thus a programmer can use operators with user-defined types as
+well. Overloaded operators are functions with special names the keyword&nbsp;<b>operator</b>&nbsp;followed
+by the symbol for the operator being defined. similar to any other function, an
+overloaded operator has a return type and a parameter list.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>For example, go through the following function:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>publicstatic</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>operator</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+(</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+b</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Box</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> c</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#7F0055'>Box</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#313131'> box </span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>   box</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>length
+</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> b</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+c</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>length</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>   box</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>breadth
+</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> b</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+c</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>breadth</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>   box</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>height
+</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'> b</span><span lang=EN-IN style='line-height:
+150%;font-family:"Cambria","serif";color:#666600'>.</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>
+c</span><span lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#313131'>height</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#000088'>return</span><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'> box</span><span
+lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;background:#EEEEEE;
+border:none;padding:0in'><span lang=EN-IN style='line-height:150%;font-family:
+"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The above function implements the addition operator (+) for a
+user-defined class Box. It adds the attributes of two Box objects and returns
+the resultant Box object.</span></p>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Implementing the Operator Overloading</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following program shows the complete implementation:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>OperatorOvlApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> length</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Length of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Breadth of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Height of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicdouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> len </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+length </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> len</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> bre </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+breadth </span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> bre</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> hei </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+height </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> hei</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Overload + operator to add two Box objects.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstatic</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>operator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> box </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Tester</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> args</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box1
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box2
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box3
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> volume </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Store the
+volume of a box here</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+box 1 specification</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>6.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>7.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>5.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+box 2 specification</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>12.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>13.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>10.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 1</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box1 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 2</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box2 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Add two object as follows:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 3</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box3 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box1 : 210</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box2 : 1560</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box3 : 5400</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><u><span lang=EN-IN
+style='font-size:16.0pt;line-height:150%;font-family:"Cambria","serif";
+color:#00B0F0;letter-spacing:-.75pt'>Overloadable and Non-Overloadable
+Operators</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>The following table describes the overload ability of the
+operators in C#:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=604
+ style='width:453.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=150 valign=top style='width:112.5pt;border:solid #DDDDDD 1.0pt;
+  background:#EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Operators</span></b></p>
+  </td>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-left:none;background:
+  #EEEEEE;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><b><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>+,
+  -, !, ~, ++, --</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>These
+  unary operators take one operand and can be overloaded.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>+,
+  -, *, /, %</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>These
+  binary operators take one operand and can be overloaded.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>==,
+  !=, &lt;, &gt;, &lt;=, &gt;=</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+  comparison operators can be overloaded</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>&amp;&amp;,
+  ||</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+  conditional logical operators cannot be overloaded directly.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>+=,
+  -=, *=, /=, %=</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>The
+  assignment operators cannot be overloaded.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #DDDDDD 1.0pt;border-top:none;padding:
+  6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>=,
+  ., ?:, -&gt;, new, is, sizeof, typeof</span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;
+  border-right:solid #DDDDDD 1.0pt;padding:6.0pt 6.0pt 6.0pt 6.0pt'>
+  <p class=MsoNormal style='margin-bottom:15.0pt;line-height:150%'><span
+  lang=EN-IN style='line-height:150%;font-family:"Cambria","serif";color:#313131'>These
+  operators cannot be overloaded.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:2.4pt;margin-right:2.4pt;margin-bottom:
+2.4pt;margin-left:0in;line-height:150%'><b><span lang=EN-IN style='font-size:
+16.0pt;line-height:150%;font-family:"Cambria","serif";color:#00B050;letter-spacing:
+-.75pt'>Example</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>In the light of the above discussions, let us extend the preceding
+example, and overload few more operators:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>using</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>System</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>namespace</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>OperatorOvlApplication</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> length</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Length of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Breadth of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>privatedouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Height of a
+box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicdouble</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>*</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> len </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+length </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> len</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> bre </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+breadth </span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>=</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> bre</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> hei </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+height </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> hei</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Overload + operator to add two Box objects.</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstatic</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>operator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> box </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+box</span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> b</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> c</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>==(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>!=(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>!=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>||</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>!=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>||</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>!=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicstaticbooloperator</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>,</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>bool</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>false</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>length </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>height </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&amp;&amp;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> lhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> rhs</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>breadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>           
+status </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>true</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> status</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>publicoverridestring</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ToString</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>return</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>String</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Format</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;({0}, {1},
+{2})&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> length</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> breadth</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> height</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>class</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Tester</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>staticvoid</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Main</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>string</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>[]</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> args</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box1
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box2
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Declare Box3
+of type Box</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>BoxBox4</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>new</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>double</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'> volume </span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>0.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>// Store the
+volume of a box here</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+box 1 specification</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>6.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>7.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>5.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+box 2 specification</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setLength</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>12.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setBreadth</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>13.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>setHeight</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#006666'>10.0</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//displaying
+the Boxes using the overloaded ToString():</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box 1:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>Box1</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>ToString</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box 2:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>Box2</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>ToString</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 1</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box1 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 2</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box2 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+Add two object as follows:</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>+</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box 3:
+{0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>Box3</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>.</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#7F0055'>ToString</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>());</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//
+volume of box 3</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>        
+volume </span><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>getVolume</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Volume of
+Box3 : {0}&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>,</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#313131'> volume</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#880000'>//comparing
+the boxes</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+greater than Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is 
+greater than Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+less than Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+not less than Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&gt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+greater or equal to Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+not greater or equal to Box2&quot;</span><span lang=EN-IN style='font-family:
+"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>&lt;=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+less or equal to Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+not less or equal to Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box1</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>!=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box2</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+not equal to Box2&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box1 is
+not greater or equal to Box2&quot;</span><span lang=EN-IN style='font-family:
+"Cambria","serif";color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box4</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>=</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>if</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box3</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>==</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Box4</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box3 is
+equal to Box4&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#000088'>else</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>WriteLine</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>(</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#008800'>&quot;Box3 is
+not equal to Box4&quot;</span><span lang=EN-IN style='font-family:"Cambria","serif";
+color:#666600'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#313131'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>Console</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>.</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#7F0055'>ReadKey</span><span
+lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>();</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:150%;border:none;
+padding:0in'><span lang=EN-IN style='font-family:"Cambria","serif";color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:2.4pt;margin-bottom:12.0pt;
+margin-left:2.4pt;text-align:justify;line-height:150%'><span lang=EN-IN
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria","serif";
+color:black'>When the above code is compiled and executed, it produces the
+following result:</span></p>
+
+<div style='border:solid #D6D6D6 1.0pt;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+background:#F1F1F1'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box 1: (6,
+7, 5)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box 2:
+(12, 13, 10)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box1 : 210</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box2 : 1560</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box 3:
+(18, 20, 15)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Volume of
+Box3 : 5400</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box1 is
+not greater than Box2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box1 is
+less than Box2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box1 is
+not greater or equal to Box2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box1 is
+less or equal to Box2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box1 is
+not equal to Box2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#F1F1F1;border:none;padding:0in'><span lang=EN-IN
+style='line-height:150%;font-family:"Cambria","serif";color:#313131'>Box3 is
+equal to Box4</span></p>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

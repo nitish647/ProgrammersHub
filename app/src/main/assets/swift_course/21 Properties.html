@@ -1,0 +1,246 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Properties</h1>
+
+<p>Swift language provides properties for class, enumeration or structure to associate values. Properties can be further classified into Stored properties and Computed properties.</p>
+<p>Difference between Stored Properties and Computed Properties.</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Stored Property</th><th>Computed Property</th></tr>
+<tr>
+<td>Store constant and variable values as instance.</td>
+<td>Calculate a value rather than storing the value.</td>
+</tr>
+<tr>
+<td>Provided by classes and structures.</td>
+<td>Provided by classes, enumerations and structures.</td>
+</tr>
+</tbody>
+</table>
+<p>Both Stored and Computed properties are associated with instances type. When the properties are associated with its type values then it is defined as 'Type Properties'. Stored and computed properties are usually associated with instances of a particular type. However, properties can also be associated with the type itself. Such properties are known as type properties. Property observers are also used.</p>
+<ul class="list">
+<li>To observe the value of the stored properties.</li>
+<li>To observe the property of inherited subclass derived from superclass.</li>
+</ul>
+<h2>Stored Properties</h2>
+<p>Swift introduces Stored Property concept to store the instances of constants and variables. Stored properties of constants are defined by the 'let' keyword and Stored properties of variables are defined by the 'var' keyword.</p>
+<ul class="list">
+<li>During definition Stored property provides 'default value'.</li>
+<li>During Initialization the user can initialize and modify the initial values.</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span> <span class="typ">Number</span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> digits</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> pi </span><span class="pun">=</span> <span class="lit">3.1415</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span> <span class="typ">Number</span><span class="pun">(</span><span class="pln">digits</span><span class="pun">:</span> <span class="lit">12345</span><span class="pun">)</span><span class="pln">
+n</span><span class="pun">.</span><span class="pln">digits </span><span class="pun">=</span> <span class="lit">67</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"\(n.digits)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(n.pi)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">67
+3.1415
+</pre>
+<p>Consider the following line in the above code &minus;</p>
+<pre class="result notranslate">let pi = 3.1415
+</pre>
+<p>Here, the variable pi is initialized as a stored property value with the instance pi = 3.1415. So, whenever the instance is referred it will hold the value 3.1415 alone.</p>
+<p>Another method to have stored property is to have as constant structures. So the whole instance of the structures will be considered as 'Stored Properties of Constants'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span> <span class="typ">Number</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> digits</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> numbers </span><span class="pun">=</span> <span class="lit">3.1415</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span> <span class="typ">Number</span><span class="pun">(</span><span class="pln">digits</span><span class="pun">:</span> <span class="lit">12345</span><span class="pun">)</span><span class="pln">
+n</span><span class="pun">.</span><span class="pln">digits </span><span class="pun">=</span> <span class="lit">67</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"\(n.digits)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"\(n.numbers)"</span><span class="pun">)</span><span class="pln">
+n</span><span class="pun">.</span><span class="pln">numbers </span><span class="pun">=</span> <span class="lit">8.7</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">error: cannot assign to 'numbers' in 'n'
+n.numbers = 8.7
+</pre>
+<p>Instead of reinitializing the 'number' to 8.7 it will return an error message indicating that the 'number' is declared as constant.</p>
+<h2>Lazy Stored Property</h2>
+<p>Swift provides a flexible property called 'Lazy Stored Property' where it won't calculate the initial values when the variable is initialized for the first time. 'lazy' modifier is used before the variable declaration to have it as a lazy stored property.</p>
+<p>Lazy Properties are used &minus;</p>
+<ul class="list">
+<li>To delay object creation.</li>
+<li>When the property is dependent on other parts of a class, that are not known yet.</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> sample </span><span class="pun">{</span><span class="pln">
+   lazy </span><span class="kwd">var</span> <span class="kwd">no</span> <span class="pun">=</span><span class="pln"> number</span><span class="pun">()</span> <span class="com">// `var` declaration is required.</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> number </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span> <span class="str">"Swift"</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> firstsample </span><span class="pun">=</span><span class="pln"> sample</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">firstsample</span><span class="pun">.</span><span class="kwd">no</span><span class="pun">.</span><span class="pln">name</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Swift
+</pre>
+<h2>Instance Variables</h2>
+<p>In Objective C, Stored properties also have instance variables for back up purposes to store the values declared in stored property.</p>
+<p>Swift integrates both these concepts into a single 'stored property' declaration. Instead of having a corresponding instance variable and back up value 'stored property' contains all integrated information defined in a single location about the variables property by variable name, data type and memory management functionalities.</p>
+<h2>Computed Properties</h2>
+<p>Rather than storing the values computed properties provide a getter and an optional setter to retrieve and set other properties and values indirectly.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> sample </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1 </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">,</span><span class="pln"> no2 </span><span class="pun">=</span> <span class="lit">0.0</span>
+   <span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span> <span class="lit">300.0</span><span class="pun">,</span><span class="pln"> breadth </span><span class="pun">=</span> <span class="lit">150.0</span>
+
+   <span class="kwd">var</span><span class="pln"> middle</span><span class="pun">:</span> <span class="pun">(</span><span class="typ">Double</span><span class="pun">,</span> <span class="typ">Double</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">get</span><span class="pun">{</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">length </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">,</span><span class="pln"> breadth </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">)</span>
+      <span class="pun">}</span><span class="kwd">set</span><span class="pun">(</span><span class="pln">axis</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         no1 </span><span class="pun">=</span><span class="pln"> axis</span><span class="pun">.</span><span class="lit">0</span> <span class="pun">-</span> <span class="pun">(</span><span class="pln">length </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">)</span><span class="pln">
+         no2 </span><span class="pun">=</span><span class="pln"> axis</span><span class="pun">.</span><span class="lit">1</span> <span class="pun">-</span> <span class="pun">(</span><span class="pln">breadth </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">)</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> sample</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">result</span><span class="pun">.</span><span class="pln">middle</span><span class="pun">)</span><span class="pln">
+result</span><span class="pun">.</span><span class="pln">middle </span><span class="pun">=</span> <span class="pun">(</span><span class="lit">0.0</span><span class="pun">,</span> <span class="lit">10.0</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">result</span><span class="pun">.</span><span class="pln">no1</span><span class="pun">)</span><span class="pln">               
+println</span><span class="pun">(</span><span class="pln">result</span><span class="pun">.</span><span class="pln">no2</span><span class="pun">)</span>  </pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">(150.0, 75.0)
+-150.0
+-65.0
+</pre>
+<p>When a computed property left the new value as undefined, the default value will be set for that particular variable.</p>
+<h3>Computed Properties as Read-Only Properties</h3>
+<p>A read-only property in computed property is defined as a property with getter but no setter. It is always used to return a value. The variables are further accessed through a '.' Syntax but cannot be set to another value.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> film </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> head </span><span class="pun">=</span> <span class="str">""</span>
+   <span class="kwd">var</span><span class="pln"> duration </span><span class="pun">=</span> <span class="lit">0.0</span>
+   <span class="kwd">var</span><span class="pln"> metaInfo</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">String</span><span class="pun">:</span><span class="typ">String</span><span class="pun">]</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="pun">[</span>
+         <span class="str">"head"</span><span class="pun">:</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">head</span><span class="pun">,</span>
+         <span class="str">"duration"</span><span class="pun">:</span><span class="str">"\(self.duration)"</span>
+      <span class="pun">]</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> movie </span><span class="pun">=</span><span class="pln"> film</span><span class="pun">()</span><span class="pln">
+movie</span><span class="pun">.</span><span class="pln">head </span><span class="pun">=</span> <span class="str">"Swift Properties"</span><span class="pln">
+movie</span><span class="pun">.</span><span class="pln">duration </span><span class="pun">=</span> <span class="lit">3.09</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">movie</span><span class="pun">.</span><span class="pln">metaInfo</span><span class="pun">[</span><span class="str">"head"</span><span class="pun">]!)</span><span class="pln">      
+println</span><span class="pun">(</span><span class="pln">movie</span><span class="pun">.</span><span class="pln">metaInfo</span><span class="pun">[</span><span class="str">"duration"</span><span class="pun">]!)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Swift Properties
+3.09
+</pre>
+<h3>Computed Properties as Property Observers</h3>
+<p>In Swift to observe and respond to property values Property Observers are used. Each and every time when property values are set property observers are called. Except lazy stored properties we can add property observers to 'inherited' property by method 'overriding'.</p>
+<p>Property Observers can be defined by either.</p>
+<ul class="list">
+<li>
+<p>Before Storing the value - willset.</p>
+</li>
+<li>
+<p>After Storing the new value - didset.</p>
+</li>
+<li>
+<p>When a property is set in an initializer willset and didset observers cannot be called.</p>
+</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span> <span class="typ">Samplepgm</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> counter</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">0</span> <span class="pun">{</span><span class="pln">
+      willSet</span><span class="pun">(</span><span class="pln">newTotal</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">"Total Counter is: \(newTotal)"</span><span class="pun">)</span>
+      <span class="pun">}</span><span class="pln">
+      didSet </span><span class="pun">{</span>
+         <span class="kwd">if</span><span class="pln"> counter </span><span class="pun">&gt;</span><span class="pln"> oldValue </span><span class="pun">{</span><span class="pln">
+            println</span><span class="pun">(</span><span class="str">"Newly Added Counter \(counter - oldValue)"</span><span class="pun">)</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">let</span> <span class="typ">NewCounter</span> <span class="pun">=</span> <span class="typ">Samplepgm</span><span class="pun">()</span>
+<span class="typ">NewCounter</span><span class="pun">.</span><span class="pln">counter </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="typ">NewCounter</span><span class="pun">.</span><span class="pln">counter </span><span class="pun">=</span> <span class="lit">800</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Total Counter is: 100
+Newly Added Counter 100
+Total Counter is: 800
+Newly Added Counter 700
+</pre>
+<h2>Local and Global Variables</h2>
+<p>Local and global variable are declared for computing and observing the properties.</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Local Variables</th><th>Global Variables</th></tr>
+<tr>
+<td>Variables that are defined within a function, method, or closure context.</td>
+<td>Variables that are defined outside function, method, closure, or type context.</td>
+</tr>
+<tr>
+<td>Used to store and retrieve values.</td>
+<td>Used to store and retrieve values.</td>
+</tr>
+<tr>
+<td>Stored properties is used to get and set the values.</td>
+<td>Stored properties is used to get and set the values.</td>
+</tr>
+<tr>
+<td>Computed properties are also used.</td>
+<td>Computed properties are also used.</td>
+</tr>
+</tbody>
+</table>
+<h2>Type Properties</h2>
+<p>Properties are defined in the Type definition section with curly braces {} and scope of the variables are also defined previously. For defining type properties for value types 'static' keyword is used and for class types 'class' keyword is used.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">struct</span> <span class="typ">Structname</span> <span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">var</span><span class="pln"> storedTypeProperty </span><span class="pun">=</span> <span class="str">" "</span>
+   <span class="kwd">static</span> <span class="kwd">var</span><span class="pln"> computedTypeProperty</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="com">// return an Int value here</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">enum</span> <span class="typ">Enumname</span> <span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">var</span><span class="pln"> storedTypeProperty </span><span class="pun">=</span> <span class="str">" "</span>
+   <span class="kwd">static</span> <span class="kwd">var</span><span class="pln"> computedTypeProperty</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="com">// return an Int value here</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Classname</span> <span class="pun">{</span>
+   <span class="kwd">class</span> <span class="kwd">var</span><span class="pln"> computedTypeProperty</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="com">// return an Int value here</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<h2>Querying and Setting Properties</h2>
+<p>Just like instance properties Type properties are queried and set with '.' Syntax just on the type alone instead of pointing to the instance.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span> <span class="typ">StudMarks</span> <span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">let</span><span class="pln"> markCount </span><span class="pun">=</span> <span class="lit">97</span>
+   <span class="kwd">static</span> <span class="kwd">var</span><span class="pln"> totalCount </span><span class="pun">=</span> <span class="lit">0</span>
+   <span class="kwd">var</span> <span class="typ">InternalMarks</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">0</span> <span class="pun">{</span><span class="pln">
+      didSet </span><span class="pun">{</span>
+         <span class="kwd">if</span> <span class="typ">InternalMarks</span> <span class="pun">&gt;</span> <span class="typ">StudMarks</span><span class="pun">.</span><span class="pln">markCount </span><span class="pun">{</span>
+            <span class="typ">InternalMarks</span> <span class="pun">=</span> <span class="typ">StudMarks</span><span class="pun">.</span><span class="pln">markCount
+         </span><span class="pun">}</span>
+         <span class="kwd">if</span> <span class="typ">InternalMarks</span> <span class="pun">&gt;</span> <span class="typ">StudMarks</span><span class="pun">.</span><span class="pln">totalCount </span><span class="pun">{</span>
+            <span class="typ">StudMarks</span><span class="pun">.</span><span class="pln">totalCount </span><span class="pun">=</span> <span class="typ">InternalMarks</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> stud1Mark1 </span><span class="pun">=</span> <span class="typ">StudMarks</span><span class="pun">()</span>
+<span class="kwd">var</span><span class="pln"> stud1Mark2 </span><span class="pun">=</span> <span class="typ">StudMarks</span><span class="pun">()</span><span class="pln">
+
+stud1Mark1</span><span class="pun">.</span><span class="typ">InternalMarks</span> <span class="pun">=</span> <span class="lit">98</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">stud1Mark1</span><span class="pun">.</span><span class="typ">InternalMarks</span><span class="pun">)</span><span class="pln"> 
+
+stud1Mark2</span><span class="pun">.</span><span class="typ">InternalMarks</span> <span class="pun">=</span> <span class="lit">87</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">stud1Mark2</span><span class="pun">.</span><span class="typ">InternalMarks</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">97
+87
+-</pre>

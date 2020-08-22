@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-insert-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+   <title>Java - Character Class</title>
+   <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+   <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+   <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./13_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+   <div class="col-md-7 middle-col">
+      <h1>Java - Character Class</h1>
+
+      <div class="clearer"></div>
+      <hr>
+      <p>Normally, when we work with characters, we use primitive data  types char.</p>
+      <h3>Example</h3>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">char</span><span class="pln"> ch </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// Unicode for uppercase Greek omega character</span><span class="pln">
+</span><span class="kwd">char</span><span class="pln"> uniChar </span><span class="pun">=</span><span class="pln"> </span><span class="str">'\u039A'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// an array of chars</span><span class="pln">
+</span><span class="kwd">char</span><span class="pun">[]</span><span class="pln"> charArray </span><span class="pun">={</span><span class="pln"> </span><span class="str">'a'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'b'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'c'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'e'</span><span class="pln"> </span><span class="pun">};</span><span class="pln"> </span></pre>
+      <p>However in development, we come across situations where we need to use objects instead of primitive data types. In order to achieve this, Java provides wrapper class <b>Character</b> for primitive data type char.</p>
+      <p>The Character class offers a number of useful class (i.e., static) methods for manipulating characters. You can create a Character object with the Character constructor −</p>
+      <pre class="result notranslate">Character ch = new Character('a');
+</pre>
+      <p>The Java compiler will also create a Character object for you under some circumstances. For example, if you pass a primitive char into a method that expects an object, the compiler automatically converts the char to a Character for you. This feature is called autoboxing or unboxing, if the conversion goes the other way.</p>
+      <h3>Example</h3>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// Here following primitive char 'a'</span><span class="pln">
+</span><span class="com">// is boxed into the Character object ch</span><span class="pln">
+</span><span class="typ">Character</span><span class="pln"> ch </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// Here primitive 'x' is boxed for method test,</span><span class="pln">
+</span><span class="com">// return is unboxed to char 'c'</span><span class="pln">
+</span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> test</span><span class="pun">(</span><span class="str">'x'</span><span class="pun">);</span></pre>
+      <h2>Escape Sequences</h2>
+      <p>A character preceded by a backslash (\) is an escape sequence and has a special meaning to the compiler.</p>
+      <p>The newline character (\n) has been used frequently in this tutorial in System.out.println() statements to advance to the next line after the string is printed.</p>
+      <p>Following table shows the Java escape sequences −</p>
+      <table class="table table-bordered">
+         <tbody><tr>
+            <th>Escape Sequence</th>
+            <th style="text-align:center;">Description</th>
+         </tr>
+         <tr>
+            <td style="text-align:center;">\t</td>
+            <td>Inserts a tab in the text at this point.</td>
+         </tr>
+         <tr>
+            <td style="text-align:center;">\b</td>
+            <td>Inserts a backspace in the text at this point.</td>
+         </tr>
+         <tr>
+            <td style="text-align:center;">\n</td>
+            <td>Inserts a newline in the text at this point.</td>
+         </tr>
+         <tr>
+            <td style="text-align:center;">\r</td>
+            <td>Inserts a carriage return in the text at this point.</td>
+         </tr>
+         <tr>
+            <td style="text-align:center;">\f</td>
+            <td>Inserts a form feed in the text at this point.</td>
+         </tr>
+         <tr>
+            <td class="ts">\'</td>
+            <td>Inserts a single quote character in the text at this point.</td>
+         </tr>
+         <tr>
+            <td class="ts">\"</td>
+            <td>Inserts a double quote character in the text at this point.</td>
+         </tr>
+         <tr>
+            <td class="ts">\\</td>
+            <td>Inserts a backslash character in the text at this point.</td>
+         </tr>
+         </tbody></table>
+      <p>When an escape sequence is encountered in a print statement, the compiler interprets it accordingly.</p>
+      <h3>Example</h3>
+      <p>If you want to put quotes within quotes, you must use the escape sequence, \", on the interior quotes −</p>
+      <a href="http://tpcg.io/niJPYX" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+      <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Test</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"She said \"Hello!\" to me."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+      <p>This will produce the following result −</p>
+      <h3>Output</h3>
+      <pre class="result notranslate">She said "Hello!" to me.
+</pre>
+      <h2>Character Methods</h2>
+      <p>Following is the list of the important instance methods that all the subclasses of the Character class implement −</p>
+      <table class="table table-bordered">
+         <tbody><tr>
+            <th>Sr.No.</th>
+            <th style="text-align:center;">Method &amp; Description</th>
+         </tr>
+         <tr>
+            <td class="ts">1</td>
+            <td><a href="/java/character_isletter.htm">isLetter()</a>
+               <p>Determines whether the specified char value is a letter.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">2</td>
+            <td><a href="/java/character_isdigit.htm">isDigit()</a>
+               <p>Determines whether the specified char value is a digit.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">3</td>
+            <td><a href="/java/character_iswhitespace.htm">isWhitespace()</a>
+               <p>Determines whether the specified char value is white space.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">4</td>
+            <td><a href="/java/character_isuppercase.htm">isUpperCase()</a>
+               <p>Determines whether the specified char value is uppercase.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">5</td>
+            <td><a href="/java/character_islowercase.htm">isLowerCase()</a>
+               <p>Determines whether the specified char value is lowercase.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">6</td>
+            <td><a href="/java/character_touppercase.htm">toUpperCase()</a>
+               <p>Returns the uppercase form of the specified char value.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">7</td>
+            <td><a href="/java/character_tolowercase.htm">toLowerCase()</a>
+               <p>Returns the lowercase form of the specified char value.</p></td>
+         </tr>
+         <tr>
+            <td class="ts">8</td>
+            <td><a href="/java/character_tostring.htm">toString()</a>
+               <p>Returns a String object representing the specified character value that is, a one-character string.</p></td>
+         </tr>
+         </tbody></table>
+      <p>For a complete list of methods, please refer to the java.lang.Character API specification.</p>
+      <h2>What is Next?</h2>
+      <p>In the next section, we will be going through the String class in Java. You will be learning how to declare and use Strings efficiently as well as some of the important methods in the String class.</p>
+      <hr>
+
+
+</div></div></div></div></div></div>
+
+
+</body></html>

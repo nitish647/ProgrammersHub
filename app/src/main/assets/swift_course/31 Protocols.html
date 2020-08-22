@@ -1,0 +1,435 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Protocols</h1>
+
+<p>Protocols provide a blueprint for Methods, properties and other requirements functionality. It is just described as a methods or properties skeleton instead of implementation. Methods and properties implementation can further be done by defining classes, functions and enumerations. Conformance of a protocol is defined as the methods or properties satisfying the requirements of the protocol.</p>
+<h3>Syntax</h3>
+<p>Protocols also follow the similar syntax as that of classes, structures, and enumerations &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">protocol </span><span class="typ">SomeProtocol</span> <span class="pun">{</span>
+   <span class="com">// protocol definition </span>
+<span class="pun">}</span></pre>
+<p>Protocols are declared after the class, structure or enumeration type names. Single and Multiple protocol declarations are also possible. If multiple protocols are defined they have to be separated by commas.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">struct</span> <span class="typ">SomeStructure</span><span class="pun">:</span> <span class="typ">Protocol1</span><span class="pun">,</span> <span class="typ">Protocol2</span> <span class="pun">{</span>
+   <span class="com">// structure definition </span>
+<span class="pun">}</span></pre>
+<p>When a protocol has to be defined for super class, the protocol name should follow the super class name with a comma.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">class</span> <span class="typ">SomeClass</span><span class="pun">:</span> <span class="typ">SomeSuperclass</span><span class="pun">,</span> <span class="typ">Protocol1</span><span class="pun">,</span> <span class="typ">Protocol2</span> <span class="pun">{</span>
+   <span class="com">// class definition </span>
+<span class="pun">}</span></pre>
+<h2>Property and Method Requirements</h2>
+<p>Protocol is used to specify particular class type property or instance property. It just specifies the type or instance property alone rather than specifying whether it is a stored or computed property. Also, it is used to specify whether the property is 'gettable' or 'settable'.</p>
+<p>Property requirements are declared by 'var' keyword as property variables. {get set} is used to declare gettable and settable properties after their type declaration. Gettable is mentioned by {get} property after their type declaration.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol classa </span><span class="pun">{</span>
+   
+   <span class="kwd">var</span><span class="pln"> marks</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="kwd">set</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> result</span><span class="pun">:</span> <span class="typ">Bool</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span><span class="pln">
+   
+   func attendance</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pln">
+   func markssecured</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span>
+
+<span class="pun">}</span><span class="pln">
+
+protocol classb</span><span class="pun">:</span><span class="pln"> classa </span><span class="pun">{</span>
+
+   <span class="kwd">var</span><span class="pln"> present</span><span class="pun">:</span> <span class="typ">Bool</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="kwd">set</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> subject</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="kwd">set</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> stname</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="kwd">set</span> <span class="pun">}</span>
+   
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> classc</span><span class="pun">:</span><span class="pln"> classb </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> marks </span><span class="pun">=</span> <span class="lit">96</span>
+   <span class="kwd">let</span><span class="pln"> result </span><span class="pun">=</span> <span class="kwd">true</span>
+   <span class="kwd">var</span><span class="pln"> present </span><span class="pun">=</span> <span class="kwd">false</span>
+   <span class="kwd">var</span><span class="pln"> subject </span><span class="pun">=</span> <span class="str">"Swift Protocols"</span>
+   <span class="kwd">var</span><span class="pln"> stname </span><span class="pun">=</span> <span class="str">"Protocols"</span><span class="pln">
+
+   func attendance</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="str">"The \(stname) has secured 99% attendance"</span>
+   <span class="pun">}</span><span class="pln">
+
+   func markssecured</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="str">"\(stname) has scored \(marks)"</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> studdet </span><span class="pun">=</span><span class="pln"> classc</span><span class="pun">()</span><span class="pln">
+studdet</span><span class="pun">.</span><span class="pln">stname </span><span class="pun">=</span> <span class="str">"Swift"</span><span class="pln">
+studdet</span><span class="pun">.</span><span class="pln">marks </span><span class="pun">=</span> <span class="lit">98</span><span class="pln">
+studdet</span><span class="pun">.</span><span class="pln">markssecured</span><span class="pun">()</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">studdet</span><span class="pun">.</span><span class="pln">marks</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">studdet</span><span class="pun">.</span><span class="pln">result</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">studdet</span><span class="pun">.</span><span class="pln">present</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">studdet</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">studdet</span><span class="pun">.</span><span class="pln">stname</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">98
+true
+false
+Swift Protocols
+Swift
+</pre>
+<h2>Mutating Method Requirements</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol daysofaweek </span><span class="pun">{</span><span class="pln">
+   mutating func </span><span class="kwd">print</span><span class="pun">()</span>
+<span class="pun">}</span>
+
+<span class="kwd">enum</span><span class="pln"> days</span><span class="pun">:</span><span class="pln"> daysofaweek </span><span class="pun">{</span>
+   <span class="kwd">case</span><span class="pln"> sun</span><span class="pun">,</span><span class="pln"> mon</span><span class="pun">,</span><span class="pln"> tue</span><span class="pun">,</span><span class="pln"> wed</span><span class="pun">,</span><span class="pln"> thurs</span><span class="pun">,</span><span class="pln"> fri</span><span class="pun">,</span><span class="pln"> sat
+   mutating func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span>
+      <span class="kwd">switch</span> <span class="kwd">self</span> <span class="pun">{</span>
+      <span class="kwd">case</span><span class="pln"> sun</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> sun
+         println</span><span class="pun">(</span><span class="str">"Sunday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> mon</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> mon
+         println</span><span class="pun">(</span><span class="str">"Monday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> tue</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> tue
+         println</span><span class="pun">(</span><span class="str">"Tuesday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> wed</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> wed
+         println</span><span class="pun">(</span><span class="str">"Wednesday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> mon</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> thurs
+         println</span><span class="pun">(</span><span class="str">"Thursday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> tue</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> fri
+         println</span><span class="pun">(</span><span class="str">"Friday"</span><span class="pun">)</span>
+      <span class="kwd">case</span><span class="pln"> sat</span><span class="pun">:</span>
+         <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> sat
+         println</span><span class="pun">(</span><span class="str">"Saturday"</span><span class="pun">)</span>
+      <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">"NO Such Day"</span><span class="pun">)</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> days</span><span class="pun">.</span><span class="pln">wed
+res</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Wednesday
+</pre>
+<h2>Initializer Requirements</h2>
+<p>Swing allows the user to initialize protocols to follow type conformance similar to that of normal initializers.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">protocol </span><span class="typ">SomeProtocol</span> <span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">someParameter</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<h3>For example</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">protocol tcpprotocol </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">aprot</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<h2>Class Implementations of Protocol Initializer Requirements</h2>
+<p>Designated or convenience initializer allows the user to initialize a protocol to conform its standard by the reserved 'required' keyword.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">class</span> <span class="typ">SomeClass</span><span class="pun">:</span> <span class="typ">SomeProtocol</span> <span class="pun">{</span><span class="pln">
+   required init</span><span class="pun">(</span><span class="pln">someParameter</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="com">// initializer implementation statements</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+protocol tcpprotocol </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">aprot</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> tcpClass</span><span class="pun">:</span><span class="pln"> tcpprotocol </span><span class="pun">{</span><span class="pln">
+   required init</span><span class="pun">(</span><span class="pln">aprot</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{}</span>
+<span class="pun">}</span></pre>
+<p>Protocol conformance is ensured on all subclasses for explicit or inherited implementation by 'required' modifier.</p>
+<p>When a subclass overrides its super class initialization requirement it is specified by the 'override' modifier keyword.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol tcpprotocol </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> mainClass </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1</span><span class="pun">:</span> <span class="typ">Int</span> <span class="com">// local storage</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no1 </span><span class="pun">=</span><span class="pln"> no1 </span><span class="com">// initialization</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> subClass</span><span class="pun">:</span><span class="pln"> mainClass</span><span class="pun">,</span><span class="pln"> tcpprotocol </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2 </span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no2 </span><span class="pun">=</span><span class="pln"> no2
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="com">// Requires only one parameter for convenient method</span><span class="pln">
+   required </span><span class="kwd">override</span><span class="pln"> convenience init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>  <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span><span class="lit">0</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> mainClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">20</span><span class="pun">)</span>
+<span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> subClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">30</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">50</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"res is: \(res.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">res is: 20
+res is: 30
+res is: 50
+</pre>
+<h2>Protocols as Types</h2>
+<p>Instead of implementing functionalities in a protocol they are used as types for functions, classes, methods etc.</p>
+<p>Protocols can be accessed as types in &minus;</p>
+<ul class="list">
+<li>Function, method or initialize as a parameter or return type.</li>
+<li>Constant, variable or property.</li>
+<li>Arrays, dictionaries or other containers as items.</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol </span><span class="typ">Generator</span> <span class="pun">{</span><span class="pln">
+   typealias members
+   func </span><span class="kwd">next</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> members</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="lit">10</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">30</span><span class="pun">].</span><span class="pln">generate</span><span class="pun">()</span>
+<span class="kwd">while</span> <span class="kwd">let</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> items</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">x</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">for</span><span class="pln"> lists </span><span class="kwd">in</span><span class="pln"> map</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],</span> <span class="pun">{</span><span class="pln">i </span><span class="kwd">in</span><span class="pln"> i</span><span class="pun">*</span><span class="lit">5</span><span class="pun">})</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">lists</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+
+println</span><span class="pun">([</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">300</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">map</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],</span> <span class="pun">{</span><span class="pln">i </span><span class="kwd">in</span><span class="pln"> i</span><span class="pun">*</span><span class="lit">10</span><span class="pun">}))</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">10
+20
+30
+5
+10
+15
+[100, 200, 300]
+[10, 20, 30]
+</pre>
+<h2>Adding Protocol Conformance with an Extension</h2>
+<p>Existing type can be adopted and conformed to a new protocol by making use of extensions. New properties, methods and subscripts can be added to existing types with the help of extensions.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">protocol </span><span class="typ">AgeClasificationProtocol</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> age</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span><span class="pln">
+   func agetype</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Person</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> firstname</span><span class="pun">:</span> <span class="typ">String</span>
+   <span class="kwd">let</span><span class="pln"> lastname</span><span class="pun">:</span> <span class="typ">String</span>
+   <span class="kwd">var</span><span class="pln"> age</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">firstname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> lastname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">firstname </span><span class="pun">=</span><span class="pln"> firstname
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">lastname </span><span class="pun">=</span><span class="pln"> lastname
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">age </span><span class="pun">=</span> <span class="lit">10</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+extension </span><span class="typ">Person</span> <span class="pun">:</span> <span class="typ">AgeClasificationProtocol</span> <span class="pun">{</span><span class="pln">
+   func fullname</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">var</span><span class="pln"> c</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+      c </span><span class="pun">=</span><span class="pln"> firstname </span><span class="pun">+</span> <span class="str">" "</span> <span class="pun">+</span><span class="pln"> lastname
+      </span><span class="kwd">return</span><span class="pln"> c
+   </span><span class="pun">}</span><span class="pln">
+
+   func agetype</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">switch</span><span class="pln"> age </span><span class="pun">{</span>
+      <span class="kwd">case</span> <span class="lit">0.</span><span class="pun">..</span><span class="lit">2</span><span class="pun">:</span>
+         <span class="kwd">return</span> <span class="str">"Baby"</span>
+      <span class="kwd">case</span> <span class="lit">2.</span><span class="pun">..</span><span class="lit">12</span><span class="pun">:</span>
+         <span class="kwd">return</span> <span class="str">"Child"</span>
+      <span class="kwd">case</span> <span class="lit">13.</span><span class="pun">..</span><span class="lit">19</span><span class="pun">:</span>
+         <span class="kwd">return</span> <span class="str">"Teenager"</span>
+      <span class="kwd">case</span> <span class="kwd">let</span><span class="pln"> x </span><span class="kwd">where</span><span class="pln"> x </span><span class="pun">&gt;</span> <span class="lit">65</span><span class="pun">:</span>
+         <span class="kwd">return</span> <span class="str">"Elderly"</span>
+      <span class="kwd">default</span><span class="pun">:</span>
+         <span class="kwd">return</span> <span class="str">"Normal"</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<h2>Protocol Inheritance</h2>
+<p>Swift allows protocols to inherit properties from its defined properties. It is similar to that of class inheritance, but with the choice of listing multiple inherited protocols separated by commas.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol classa </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="kwd">set</span> <span class="pun">}</span><span class="pln">
+   func calc</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span><span class="pln">
+
+protocol result </span><span class="pun">{</span><span class="pln">
+   func </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">target</span><span class="pun">:</span><span class="pln"> classa</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> student2</span><span class="pun">:</span><span class="pln"> result </span><span class="pun">{</span><span class="pln">
+   func </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">target</span><span class="pun">:</span><span class="pln"> classa</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      target</span><span class="pun">.</span><span class="pln">calc</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> classb</span><span class="pun">:</span><span class="pln"> result </span><span class="pun">{</span><span class="pln">
+   func </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">target</span><span class="pun">:</span><span class="pln"> classa</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      target</span><span class="pun">.</span><span class="pln">calc</span><span class="pun">(</span><span class="lit">5</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> student</span><span class="pun">:</span><span class="pln"> classa </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">10</span><span class="pln">
+   
+   func calc</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      no1 </span><span class="pun">-=</span><span class="pln"> sum
+      println</span><span class="pun">(</span><span class="str">"Student attempted \(sum) times to pass"</span><span class="pun">)</span>
+      
+      <span class="kwd">if</span><span class="pln"> no1 </span><span class="pun">&lt;=</span> <span class="lit">0</span> <span class="pun">{</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">"Student is absent for exam"</span><span class="pun">)</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Player</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> stmark</span><span class="pun">:</span><span class="pln"> result</span><span class="pun">!</span><span class="pln">
+   
+   init</span><span class="pun">(</span><span class="pln">stmark</span><span class="pun">:</span><span class="pln"> result</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">stmark </span><span class="pun">=</span><span class="pln"> stmark
+   </span><span class="pun">}</span><span class="pln">
+   
+   func </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">target</span><span class="pun">:</span><span class="pln"> classa</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      stmark</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">target</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> marks </span><span class="pun">=</span> <span class="typ">Player</span><span class="pun">(</span><span class="pln">stmark</span><span class="pun">:</span><span class="pln"> student2</span><span class="pun">())</span>
+<span class="kwd">var</span><span class="pln"> marksec </span><span class="pun">=</span><span class="pln"> student</span><span class="pun">()</span><span class="pln">
+
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span><span class="pln">
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span><span class="pln">
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span><span class="pln">
+marks</span><span class="pun">.</span><span class="pln">stmark </span><span class="pun">=</span><span class="pln"> classb</span><span class="pun">()</span><span class="pln">
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span><span class="pln">
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span><span class="pln">
+marks</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">marksec</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Student attempted 1 times to pass
+Student attempted 1 times to pass
+Student attempted 1 times to pass
+Student attempted 5 times to pass
+Student attempted 5 times to pass
+Student is absent for exam
+Student attempted 5 times to pass
+Student is absent for exam
+</pre>
+<h2>Class Only Protocols</h2>
+<p>When protocols are defined and the user wants to define protocol with classes it should be added by defining class first followed by protocol's inheritance list.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol tcpprotocol </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> mainClass </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1</span><span class="pun">:</span> <span class="typ">Int</span> <span class="com">// local storage</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no1 </span><span class="pun">=</span><span class="pln"> no1 </span><span class="com">// initialization</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> subClass</span><span class="pun">:</span><span class="pln"> mainClass</span><span class="pun">,</span><span class="pln"> tcpprotocol </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2 </span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">no2 </span><span class="pun">=</span><span class="pln"> no2
+      </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="com">// Requires only one parameter for convenient method</span><span class="pln">
+   required </span><span class="kwd">override</span><span class="pln"> convenience init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span>  <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span><span class="pln">no1</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span><span class="lit">0</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> mainClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">20</span><span class="pun">)</span>
+<span class="kwd">let</span> <span class="kwd">print</span> <span class="pun">=</span><span class="pln"> subClass</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">30</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">50</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"res is: \(res.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"res is: \(print.no2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">res is: 20
+res is: 30
+res is: 50
+</pre>
+<h2>Protocol Composition</h2>
+<p>Swift allows multiple protocols to be called at once with the help of protocol composition.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">protocol</span><span class="pun">&lt;</span><span class="typ">SomeProtocol</span><span class="pun">,</span> <span class="typ">AnotherProtocol</span><span class="pun">&gt;</span></pre>
+<h3>Example</h3>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">protocol stname </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> name</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+protocol stage </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> age</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span> <span class="typ">Person</span><span class="pun">:</span><span class="pln"> stname</span><span class="pun">,</span><span class="pln"> stage </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> name</span><span class="pun">:</span> <span class="typ">String</span>
+   <span class="kwd">var</span><span class="pln"> age</span><span class="pun">:</span> <span class="typ">Int</span>
+<span class="pun">}</span><span class="pln">
+
+func </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">celebrator</span><span class="pun">:</span><span class="pln"> protocol</span><span class="pun">&lt;</span><span class="pln">stname</span><span class="pun">,</span><span class="pln"> stage</span><span class="pun">&gt;)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"\(celebrator.name) is \(celebrator.age) years old"</span><span class="pun">)</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> studname </span><span class="pun">=</span> <span class="typ">Person</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span> <span class="str">"Priya"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span> <span class="lit">21</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">studname</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> stud </span><span class="pun">=</span> <span class="typ">Person</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span> <span class="str">"Rehan"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span> <span class="lit">29</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">stud</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> student </span><span class="pun">=</span> <span class="typ">Person</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span> <span class="str">"Roshan"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span> <span class="lit">19</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">student</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Priya is 21 years old
+Rehan is 29 years old
+Roshan is 19 years old
+</pre>
+<h2>Checking for Protocol Conformance</h2>
+<p>Protocol conformance is tested by 'is' and 'as' operators similar to that of type casting.</p>
+<ul class="list">
+<li>
+<p>The is operator returns true if an instance conforms to protocol standard and returns false if it fails.</p>
+</li>
+<li>
+<p>The <strong>as?</strong> version of the downcast operator returns an optional value of the protocol's type, and this value is nil if the instance does not conform to that protocol.</p>
+</li>
+<li>
+<p>The as version of the downcast operator forces the downcast to the protocol type and triggers a runtime error if the downcast does not succeed.</p>
+</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Foundation</span>
+
+<span class="lit">@objc</span><span class="pln"> protocol rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">Double</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="lit">@objc</span> <span class="kwd">class</span> <span class="typ">Circle</span><span class="pun">:</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> pi </span><span class="pun">=</span> <span class="lit">3.1415927</span>
+   <span class="kwd">var</span><span class="pln"> radius</span><span class="pun">:</span> <span class="typ">Double</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">Double</span> <span class="pun">{</span> <span class="kwd">return</span><span class="pln"> pi </span><span class="pun">*</span><span class="pln"> radius </span><span class="pun">*</span><span class="pln"> radius </span><span class="pun">}</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">:</span> <span class="typ">Double</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span><span class="pln"> radius </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="lit">@objc</span> <span class="kwd">class</span><span class="pln"> result</span><span class="pun">:</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">Double</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">area</span><span class="pun">:</span> <span class="typ">Double</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">area </span><span class="pun">=</span><span class="pln"> area </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">class</span><span class="pln"> sides </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> rectsides</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">rectsides</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">rectsides </span><span class="pun">=</span><span class="pln"> rectsides </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> objects</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">AnyObject</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">[</span><span class="typ">Circle</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">2.0</span><span class="pun">),</span><span class="pln">result</span><span class="pun">(</span><span class="pln">area</span><span class="pun">:</span> <span class="lit">198</span><span class="pun">),</span><span class="pln">sides</span><span class="pun">(</span><span class="pln">rectsides</span><span class="pun">:</span> <span class="lit">4</span><span class="pun">)]</span>
+
+<span class="kwd">for</span> <span class="kwd">object</span> <span class="kwd">in</span><span class="pln"> objects </span><span class="pun">{</span>
+   <span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> objectWithArea </span><span class="pun">=</span> <span class="kwd">object</span> <span class="kwd">as</span><span class="pun">?</span><span class="pln"> rectangle </span><span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Area is \(objectWithArea.area)"</span><span class="pun">)</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Rectangle area is not defined"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Area is 12.5663708
+Area is 198.0
+Rectangle area is not defined
+</pre>

@@ -1,0 +1,276 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Generics</h1>
+
+<p>Swift language provides 'Generic' features to write flexible and reusable functions and types. Generics are used to avoid duplication and to provide abstraction. Swift standard libraries are built with generics code. Swifts 'Arrays' and 'Dictionary' types belong to generic collections. With the help of arrays and dictionaries the arrays are defined to hold 'Int' values and 'String' values or any other types.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func exchange</span><span class="pun">(</span><span class="pln">inout a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> inout b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> temp </span><span class="pun">=</span><span class="pln"> a
+   a </span><span class="pun">=</span><span class="pln"> b
+   b </span><span class="pun">=</span><span class="pln"> temp
+</span><span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> numb1 </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="kwd">var</span><span class="pln"> numb2 </span><span class="pun">=</span> <span class="lit">200</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Before Swapping values are: \(numb1) and \(numb2)"</span><span class="pun">)</span><span class="pln">
+exchange</span><span class="pun">(&amp;</span><span class="pln">numb1</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">numb2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"After Swapping values are: \(numb1) and \(numb2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Before Swapping values are: 100 and 200
+After Swapping values are: 200 and 100
+</pre>
+<h2>Generic Functions: Type Parameters</h2>
+<p>Generic functions can be used to access any data type like 'Int' or 'String'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func exchange</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;(</span><span class="pln">inout a</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">,</span><span class="pln"> inout b</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> temp </span><span class="pun">=</span><span class="pln"> a
+   a </span><span class="pun">=</span><span class="pln"> b
+   b </span><span class="pun">=</span><span class="pln"> temp
+</span><span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> numb1 </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="kwd">var</span><span class="pln"> numb2 </span><span class="pun">=</span> <span class="lit">200</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Before Swapping Int values are: \(numb1) and \(numb2)"</span><span class="pun">)</span><span class="pln">
+exchange</span><span class="pun">(&amp;</span><span class="pln">numb1</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">numb2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"After Swapping Int values are: \(numb1) and \(numb2)"</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> str1 </span><span class="pun">=</span> <span class="str">"Generics"</span>
+<span class="kwd">var</span><span class="pln"> str2 </span><span class="pun">=</span> <span class="str">"Functions"</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Before Swapping String values are: \(str1) and \(str2)"</span><span class="pun">)</span><span class="pln">
+exchange</span><span class="pun">(&amp;</span><span class="pln">str1</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">str2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"After Swapping String values are: \(str1) and \(str2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Before Swapping Int values are: 100 and 200
+After Swapping Int values are: 200 and 100
+Before Swapping String values are: Generics and Functions
+After Swapping String values are: Functions and Generics
+</pre>
+<p>The function exchange() is used to swap values which is described in the above program and &lt;T&gt; is used as a type parameter. For the first time, function exchange() is called to return 'Int' values and second call to the function exchange() will return 'String' values. Multiple parameter types can be included inside the angle brackets separated by commas.</p>
+<p>Type parameters are named as user defined to know the purpose of the type parameter that it holds. Swift provides &lt;T&gt; as generic type parameter name. However type parameters like Arrays and Dictionaries can also be named as key, value to identify that they belong to type 'Dictionary'.</p>
+<h2>Generic Types</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span><span class="pln">
+   mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+   
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Naming Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> deletetos </span><span class="pun">=</span><span class="pln"> tos</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Type Parameters]
+[Swift, Generics, Type Parameters, Naming Type Parameters]
+</pre>
+<h2>Extending a Generic Type</h2>
+<p>Extending the stack property to know the top of the item is included with 'extension' keyword.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span><span class="pln">
+   mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Naming Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+extension TOS </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> first</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">isEmpty </span><span class="pun">?</span> <span class="kwd">nil</span> <span class="pun">:</span><span class="pln"> items</span><span class="pun">[</span><span class="pln">items</span><span class="pun">.</span><span class="pln">count </span><span class="pun">-</span> <span class="lit">1</span><span class="pun">]</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> first </span><span class="pun">=</span><span class="pln"> tos</span><span class="pun">.</span><span class="pln">first </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"The top item on the stack is \(first)."</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Type Parameters]
+[Swift, Generics, Type Parameters, Naming Type Parameters]
+The top item on the stack is Naming Type Parameters.
+</pre>
+<p>The top item on the stack is Naming Type Parameters.</p>
+<h2>Type Constraints</h2>
+<p>Swift language allows 'type constraints' to specify whether the type parameter inherits from a specific class, or to ensure protocol conformance standard.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">func exchange</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;(</span><span class="pln">inout a</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">,</span><span class="pln"> inout b</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> temp </span><span class="pun">=</span><span class="pln"> a
+   a </span><span class="pun">=</span><span class="pln"> b
+   b </span><span class="pun">=</span><span class="pln"> temp
+</span><span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> numb1 </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="kwd">var</span><span class="pln"> numb2 </span><span class="pun">=</span> <span class="lit">200</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Before Swapping Int values are: \(numb1) and \(numb2)"</span><span class="pun">)</span><span class="pln">
+exchange</span><span class="pun">(&amp;</span><span class="pln">numb1</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">numb2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"After Swapping Int values are: \(numb1) and \(numb2)"</span><span class="pun">)</span>
+
+   
+<span class="kwd">var</span><span class="pln"> str1 </span><span class="pun">=</span> <span class="str">"Generics"</span>
+<span class="kwd">var</span><span class="pln"> str2 </span><span class="pun">=</span> <span class="str">"Functions"</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Before Swapping String values are: \(str1) and \(str2)"</span><span class="pun">)</span><span class="pln">
+exchange</span><span class="pun">(&amp;</span><span class="pln">str1</span><span class="pun">,</span> <span class="pun">&amp;</span><span class="pln">str2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"After Swapping String values are: \(str1) and \(str2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Before Swapping Int values are: 100 and 200
+After Swapping Int values are: 200 and 100
+Before Swapping String values are: Generics and Functions
+After Swapping String values are: Functions and Generics
+</pre>
+<h2>Associated Types</h2>
+<p>Swift allows associated types to be declared inside the protocol definition by the keyword 'typealias'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">protocol </span><span class="typ">Container</span> <span class="pun">{</span><span class="pln">
+   typealias </span><span class="typ">ItemType</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span> <span class="typ">ItemType</span><span class="pun">)</span>
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">ItemType</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;:</span> <span class="typ">Container</span> <span class="pun">{</span>
+   <span class="com">// original Stack&lt;T&gt; implementation</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span><span class="pln">
+   mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+   
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+
+   <span class="com">// conformance to the Container protocol</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span><span class="pln"> TOS</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Naming Type Parameters"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Type Parameters]
+[Swift, Generics, Type Parameters, Naming Type Parameters]
+</pre>
+<h2>Where Clauses</h2>
+<p>Type constraints enable the user to define requirements on the type parameters associated with a generic function or type. For defining requirements for associated types 'where' clauses are declared as part of type parameter list. 'where' keyword is placed immediately after the list of type parameters followed by constraints of associated types, equality relationships between types and associated types.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">protocol </span><span class="typ">Container</span> <span class="pun">{</span><span class="pln">
+   typealias </span><span class="typ">ItemType</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span> <span class="typ">ItemType</span><span class="pun">)</span>
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">ItemType</span> <span class="pun">{</span> <span class="kwd">get</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span> <span class="typ">Stack</span><span class="pun">&lt;</span><span class="pln">T</span><span class="pun">&gt;:</span> <span class="typ">Container</span> <span class="pun">{</span>
+   <span class="com">// original Stack&lt;T&gt; implementation</span>
+   <span class="kwd">var</span><span class="pln"> items </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">T</span><span class="pun">]()</span><span class="pln">
+   mutating func push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      items</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+
+   mutating func pop</span><span class="pun">()</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">removeLast</span><span class="pun">()</span>
+   <span class="pun">}</span>
+
+   <span class="com">// conformance to the Container protocol</span><span class="pln">
+   mutating func append</span><span class="pun">(</span><span class="pln">item</span><span class="pun">:</span><span class="pln"> T</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> T </span><span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> items</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+func allItemsMatch</span><span class="pun">&lt;</span><span class="pln">
+   C1</span><span class="pun">:</span> <span class="typ">Container</span><span class="pun">,</span><span class="pln"> C2</span><span class="pun">:</span> <span class="typ">Container</span>
+   <span class="kwd">where</span><span class="pln"> C1</span><span class="pun">.</span><span class="typ">ItemType</span> <span class="pun">==</span><span class="pln"> C2</span><span class="pun">.</span><span class="typ">ItemType</span><span class="pun">,</span><span class="pln"> C1</span><span class="pun">.</span><span class="typ">ItemType</span><span class="pun">:</span> <span class="typ">Equatable</span><span class="pun">&gt;</span>
+
+   <span class="pun">(</span><span class="pln">someContainer</span><span class="pun">:</span><span class="pln"> C1</span><span class="pun">,</span><span class="pln"> anotherContainer</span><span class="pun">:</span><span class="pln"> C2</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Bool</span> <span class="pun">{</span>
+
+      <span class="com">// check that both containers contain the same number of items</span>
+      <span class="kwd">if</span><span class="pln"> someContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">!=</span><span class="pln"> anotherContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">false</span>
+      <span class="pun">}</span>
+
+      <span class="com">// check each pair of items to see if they are equivalent</span>
+      <span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span> <span class="lit">0.</span><span class="pun">.&lt;</span><span class="pln">someContainer</span><span class="pun">.</span><span class="pln">count </span><span class="pun">{</span>
+         <span class="kwd">if</span><span class="pln"> someContainer</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">!=</span><span class="pln"> anotherContainer</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">{</span>
+            <span class="kwd">return</span> <span class="kwd">false</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      <span class="com">// all items match, so return true</span>
+      <span class="kwd">return</span> <span class="kwd">true</span>
+   <span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> tos </span><span class="pun">=</span> <span class="typ">Stack</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;()</span><span class="pln">
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Generics"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span><span class="pln">
+
+tos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">"Where Clause"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">tos</span><span class="pun">.</span><span class="pln">items</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> eos </span><span class="pun">=</span> <span class="pun">[</span><span class="str">"Swift"</span><span class="pun">,</span> <span class="str">"Generics"</span><span class="pun">,</span> <span class="str">"Where Clause"</span><span class="pun">]</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">eos</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">[Swift]
+[Swift, Generics]
+[Swift, Generics, Where Clause]
+[Swift, Generics, Where Clause]
+</pre>

@@ -1,0 +1,32 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span> <span style='color:#7f0055; '>java</span>.<span style='color:#7f0055; '>util</span>.<span style='color:#7f0055; '>Scanner</span>;
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> PalindromeString {
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(String[] args)
+	{
+		Scanner scan = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(System.<span style='color:#7f0055; font-weight:bold; '>in</span>);
+		<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>taking input from user</span>
+		String str = scan.next();
+		
+		String revstring=<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>"</span>;
+	   <span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>reverse string without using string function</span>
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=str.length()-1;i>=0;--i){
+			revstring +=str.charAt(i);
+		}
+		<span style='color:#7f0055; font-weight:bold; '>if</span>(str.compareTo(revstring) ==0)
+		{
+			System.<span style='color:#7f0055; font-weight:bold; '>out</span>.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>Yes</span><span style='color:#2a00ff; '>"</span>);
+		}<span style='color:#7f0055; font-weight:bold; '>else</span>
+		{
+		 System.<span style='color:#7f0055; font-weight:bold; '>out</span>.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>No</span><span style='color:#2a00ff; '>"</span>);	 
+		}
+	}
+}
+
+Output:
+
+       javasimplify
+       <span style='color:#7f0055; font-weight:bold; '>No</span>
+
+       madam 
+       <span style='color:#7f0055; font-weight:bold; '>Yes</span>
+</pre>

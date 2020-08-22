@@ -1,0 +1,37 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span> <span style='color:#7f0055; '>java</span>.<span style='color:#7f0055; '>io</span>.<span style='color:#7f0055; '>File</span>;
+<span style='color:#7f0055; font-weight:bold; '>import</span> <span style='color:#7f0055; '>java</span>.<span style='color:#7f0055; '>io</span>.<span style='color:#7f0055; '>FileNotFoundException</span>;
+<span style='color:#7f0055; font-weight:bold; '>import</span> <span style='color:#7f0055; '>java</span>.<span style='color:#7f0055; '>util</span>.<span style='color:#7f0055; '>Scanner</span>;
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> SearchWordFromText {
+	
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> <span style='color:#7f0055; font-weight:bold; '>main</span>(String[] args) throws <span style='color:#7f0055; font-weight:bold; '>Exception</span>
+	{
+		<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>If your are using eclipse then copy file.txt in your project workspace</span>
+		<span style='color:#7f0055; font-weight:bold; '>File</span> file = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>File</span>(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>file.txt</span><span style='color:#2a00ff; '>"</span>);
+
+		<span style='color:#7f0055; font-weight:bold; '>try</span> {
+			<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>this will scan you file </span>
+		    Scanner scanner = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(file);
+
+		    <span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>now read the file line by line...</span>
+		    <span style='color:#7f0055; font-weight:bold; '>int</span> lineNum = 0;
+		    <span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>check until it found</span>
+		    <span style='color:#7f0055; font-weight:bold; '>while</span> (scanner.hasNextLine()) {
+		        String line = scanner.nextLine();
+		        lineNum++;<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>print line number</span>
+		        	System.<span style='color:#7f0055; font-weight:bold; '>out</span>.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>String is: </span><span style='color:#2a00ff; '>"</span>+line);<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>print found string</span>
+		            System.<span style='color:#7f0055; font-weight:bold; '>out</span>.println(<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>I found it on line </span><span style='color:#2a00ff; '>"</span> +lineNum);<span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>print line number</span>
+		       
+		    }
+		} <span style='color:#7f0055; font-weight:bold; '>catch</span>(FileNotFoundException e) { 
+		    <span style='color:#3f7f59; '>//</span><span style='color:#3f7f59; '>handle this</span>
+			e.printStackTrace();
+		}
+	}
+}
+
+Output:
+
+      String is: hello world
+      I found it on line 1
+</pre>

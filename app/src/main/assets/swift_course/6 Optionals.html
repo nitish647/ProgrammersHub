@@ -1,0 +1,97 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Optionals</h1>
+
+<p>Swift also introduces <strong>Optionals</strong> type, which handles the absence of a value. Optionals say either "there is a value, and it equals x" or "there isn't a value at all".</p>
+<p>An Optional is a type on its own, actually one of Swift&rsquo;s new super-powered enums. It has two possible values, <strong>None</strong> and <strong>Some(T)</strong>, where <strong>T</strong> is an associated value of the correct data type available in Swift.</p>
+<p>Here&rsquo;s an optional Integer declaration &minus;</p>
+<pre class="result notranslate">var perhapsInt: Int?
+</pre>
+<p>Here&rsquo;s an optional String declaration &minus;</p>
+<pre class="result notranslate">var perhapsStr: String?
+</pre>
+<p>The above declaration is equivalent to explicitly initializing it to <strong>nil</strong> which means no value &minus;</p>
+<pre class="result notranslate">var perhapsStr: String?  = nil
+</pre>
+<p>Let's take the following example to understand how optionals work in Swift &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> myString</span><span class="pun">:</span><span class="typ">String</span><span class="pun">?</span> <span class="pun">=</span> <span class="kwd">nil</span>
+
+<span class="kwd">if</span><span class="pln"> myString </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"myString has nil value"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">myString has nil value
+</pre>
+<p>Optionals are similar to using <strong>nil</strong> with pointers in Objective-C, but they work for any type, not just classes.</p>
+<h2>Forced Unwrapping</h2>
+<p>If you defined a variable as <strong>optional</strong>, then to get the value from this variable, you will have to <strong>unwrap</strong> it. This just means putting an exclamation mark at the end of the variable.</p>
+<p>Let's take a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> myString</span><span class="pun">:</span><span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+myString </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span>
+
+<span class="kwd">if</span><span class="pln"> myString </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"myString has nil value"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Optional("Hello, Swift!")
+</pre>
+<p>Now let's apply unwrapping to get the correct value of the variable &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> myString</span><span class="pun">:</span><span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+myString </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span>
+
+<span class="kwd">if</span><span class="pln"> myString </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln"> myString</span><span class="pun">!</span> <span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"myString has nil value"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Hello, Swift!
+</pre>
+<h2>Automatic Unwrapping</h2>
+<p>You can declare optional variables using exclamation mark instead of a question mark. Such optional variables will unwrap automatically and you do not need to use any further exclamation mark at the end of the variable to get the assigned value. Let's take a simple example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> myString</span><span class="pun">:</span><span class="typ">String</span><span class="pun">!</span><span class="pln">
+
+myString </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span>
+
+<span class="kwd">if</span><span class="pln"> myString </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"myString has nil value"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Hello, Swift!
+</pre>
+<h2>Optional Binding</h2>
+<p>Use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable.</p>
+<p>An optional binding for the <strong>if</strong> statement is as follows &minus;</p>
+<pre class="result notranslate">if let constantName = someOptional {
+   statements
+}
+</pre>
+<p>Let's take a simple example to understand the usage of optional binding &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> myString</span><span class="pun">:</span><span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+myString </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span>
+
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> yourString </span><span class="pun">=</span><span class="pln"> myString </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Your string has - \(yourString)"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Your string does not have a value"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Your string has - Hello, Swift!
+</pre>

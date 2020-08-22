@@ -1,0 +1,121 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Structures</h1>
+
+<p>Swift provides a flexible building block of making use of constructs as Structures. By making use of these structures once can define constructs methods and properties.</p>
+<h2>Unlike C and Objective C</h2>
+<ul class="list">
+<li>
+<p>Structure need not require implementation files and interface.</p>
+</li>
+<li>
+<p>Structure allows us to create a single file and to extend its interface automatically to other blocks.</p>
+</li>
+</ul>
+<p>In Structure the variable values are copied and passed in subsequent codes by returning a copy of the old values so that the values cannot be altered.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">Structures</span><span class="pln"> are </span><span class="kwd">defined</span> <span class="kwd">with</span><span class="pln"> a </span><span class="str">'Struct'</span> <span class="typ">Keyword</span><span class="pun">.</span>
+<span class="kwd">struct</span><span class="pln"> nameStruct </span><span class="pun">{</span>
+   <span class="typ">Definition</span> <span class="lit">1</span>
+   <span class="typ">Definition</span> <span class="lit">2</span>
+    <span class="pun">---</span> 
+   <span class="typ">Definition</span><span class="pln"> N
+</span><span class="pun">}</span></pre>
+<h2>Definition of a Structure</h2>
+<p>Consider for example, suppose we have to access students record containing marks of three subjects and to find out the total of three subjects. Here markStruct is used to initialize a structure with three marks as datatype 'Int'.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">struct</span> <span class="typ">MarkStruct</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span>
+<span class="pun">}</span></pre>
+<h2>Accessing the Structure and its Properties</h2>
+<p>The members of the structure are accessed by its structure name. The instances of the structure are initialized by the 'let' keyword.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> studentMarks </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark1 </span><span class="pun">=</span> <span class="lit">100</span>
+   <span class="kwd">var</span><span class="pln"> mark2 </span><span class="pun">=</span> <span class="lit">200</span>
+   <span class="kwd">var</span><span class="pln"> mark3 </span><span class="pun">=</span> <span class="lit">300</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> marks </span><span class="pun">=</span><span class="pln"> studentMarks</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark1 is \(marks.mark1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark2 is \(marks.mark2)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mark3 is \(marks.mark3)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Mark1 is 100
+Mark2 is 200
+Mark3 is 300
+</pre>
+<p>Students marks are accessed by the structure name 'studentMarks'. The structure members are initialized as mark1, mark2, mark3 with integer type values. Then the structure studentMarks() is passed to the 'marks' with 'let' keyword. Hereafter 'marks' will contain the structure member values. Now the values are printed by accessing the structure member values by '.' with its initialized names.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span> <span class="typ">MarksStruct</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">mark</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">mark </span><span class="pun">=</span><span class="pln"> mark
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> aStruct </span><span class="pun">=</span> <span class="typ">MarksStruct</span><span class="pun">(</span><span class="pln">mark</span><span class="pun">:</span> <span class="lit">98</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> bStruct </span><span class="pun">=</span><span class="pln"> aStruct </span><span class="com">// aStruct and bStruct are two structs with the same value!</span><span class="pln">
+bStruct</span><span class="pun">.</span><span class="pln">mark </span><span class="pun">=</span> <span class="lit">97</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">aStruct</span><span class="pun">.</span><span class="pln">mark</span><span class="pun">)</span> <span class="com">// 98</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">bStruct</span><span class="pun">.</span><span class="pln">mark</span><span class="pun">)</span> <span class="com">// 97</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">98
+97
+</pre>
+<h2>Best Usage Practices of Structures</h2>
+<p>Swift language provides the functionality to define structures as custom data types for building the function blocks. The instances of structure are passed by its value to the defined blocks for further manipulations.</p>
+<h3>Need for having structures</h3>
+<ul class="list">
+<li>
+<p>To encapsulate simple data values.</p>
+</li>
+<li>
+<p>To copy the encapsulated data and its associated properties by 'values' rather than by 'references'.</p>
+</li>
+<li>
+<p>Structure to 'Copy' and 'Reference'.</p>
+</li>
+</ul>
+<p>Structures in swift pass their members with their values rather than by its references.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> markStruct </span><span class="pun">{</span> 
+   <span class="kwd">var</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">mark1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">mark1 </span><span class="pun">=</span><span class="pln"> mark1
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark2 </span><span class="pun">=</span><span class="pln"> mark2
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark3 </span><span class="pun">=</span><span class="pln"> mark3
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> marks </span><span class="pun">=</span><span class="pln"> markStruct</span><span class="pun">(</span><span class="pln">mark1</span><span class="pun">:</span> <span class="lit">98</span><span class="pun">,</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="lit">96</span><span class="pun">,</span><span class="pln"> mark3</span><span class="pun">:</span><span class="lit">100</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">marks</span><span class="pun">.</span><span class="pln">mark1</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">marks</span><span class="pun">.</span><span class="pln">mark2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">marks</span><span class="pun">.</span><span class="pln">mark3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">98
+96
+100
+</pre>
+<h2>Another Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> markStruct </span><span class="pun">{</span> 
+   <span class="kwd">var</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">var</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">mark1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">){</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">mark1 </span><span class="pun">=</span><span class="pln"> mark1
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark2 </span><span class="pun">=</span><span class="pln"> mark2
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark3 </span><span class="pun">=</span><span class="pln"> mark3
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> fail </span><span class="pun">=</span><span class="pln"> markStruct</span><span class="pun">(</span><span class="pln">mark1</span><span class="pun">:</span> <span class="lit">34</span><span class="pun">,</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="lit">42</span><span class="pun">,</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="lit">13</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">fail</span><span class="pun">.</span><span class="pln">mark1</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">fail</span><span class="pun">.</span><span class="pln">mark2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">fail</span><span class="pun">.</span><span class="pln">mark3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">34
+42
+13
+</pre>
+<p>The structure 'markStruct' is defined first with its members mark1, mark2 and mark3. Now the variables of member classes are initialized to hold integer values. Then the copy of the structure members are created with 'self' Keyword. Once the copy of the structure members are created structure block with its parameter marks are passed to 'marks' variable which will now hold the students marks. Then the marks are printed as 98, 96, 100. Next step for the same structure members another instance named 'fail' is used to point the same structure members with different marks. Then the results are now printed as 34, 42, 13. This clearly explains that structures will have a copy of the member variables then pass the members to their upcoming function blocks.</p>

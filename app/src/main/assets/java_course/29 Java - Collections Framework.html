@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Collections Framework</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Collections Framework</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Prior to Java 2, Java provided ad hoc classes such as <b>Dictionary, Vector, Stack,</b> and <b>Properties</b> to store and manipulate groups of objects. Although these classes were quite useful, they lacked a central, unifying theme. Thus, the way that you used Vector was different from the way that you used Properties.</p>
+        <p>The collections framework was designed to meet several goals, such as −</p>
+        <ul class="list">
+            <li><p>The framework had to be high-performance. The implementations for the fundamental collections (dynamic arrays, linked lists, trees, and hashtables) were to be highly efficient.</p></li>
+            <li><p>The framework had to allow different types of collections to work in a similar manner and with a high degree of interoperability.</p></li>
+            <li><p>The framework had to extend and/or adapt a collection easily.</p></li>
+        </ul>
+        <p>Towards this end, the entire collections framework is designed around a set of standard interfaces. Several standard implementations such as <b>LinkedList, HashSet,</b> and <b>TreeSet</b>, of these interfaces are provided that you may use as-is and you may also implement your own collection, if you choose.</p>
+        <p>A collections framework is a unified architecture for representing and manipulating collections. All collections frameworks contain the following −</p>
+        <ul class="list">
+            <li><p><b>Interfaces</b> − These are abstract data types that represent collections. Interfaces allow collections to be manipulated independently of the details of their representation. In object-oriented languages, interfaces generally form a hierarchy.</p></li>
+            <li><p><b>Implementations, i.e., Classes</b> − These are the concrete implementations of the collection interfaces. In essence, they are reusable data structures.</p></li>
+            <li><p><b>Algorithms</b> − These are the methods that perform useful computations, such as searching and sorting, on objects that implement collection interfaces. The algorithms are said to be polymorphic: that is, the same method can be used on many different implementations of the appropriate collection interface.</p></li>
+        </ul>
+        <p>In addition to collections, the framework defines several map interfaces and classes. Maps store key/value pairs. Although maps are not <i>collections</i> in the proper use of the term, but they are fully integrated with collections.</p>
+        <h2>The Collection Interfaces</h2>
+        <p>The collections framework defines several interfaces. This section provides an overview of each interface −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Interface &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> The Collection Interface
+                    <p>This enables you to work with groups of objects; it is at the top of the collections hierarchy.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> The List Interface
+                    <p>This extends <b>Collection</b> and an instance of List stores an ordered collection of elements.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> The Set
+                    <p>This extends Collection to handle sets, which must contain unique elements.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> The SortedSet
+                    <p>This extends Set to handle sorted sets.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> The Map
+                    <p>This maps unique keys to values.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> The Map.Entry
+                    <p>This describes an element (a key/value pair) in a map. This is an inner class of Map.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> The SortedMap
+                    <p>This extends Map so that the keys are maintained in an ascending order.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> The Enumeration
+                    <p>This is legacy interface defines the methods by which you can enumerate (obtain one at a time) the elements in a collection of objects. This legacy interface has been superceded by Iterator.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>The Collection Classes</h2>
+        <p>Java provides a set of standard collection classes that implement Collection interfaces. Some of the classes provide full implementations that can be used as-is and others are abstract class, providing skeletal implementations that are used as starting points for creating concrete collections.</p>
+        <p>The standard collection classes are summarized in the following table −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Class &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>AbstractCollection</b></p>
+                    <p>Implements most of the Collection interface.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>AbstractList</b></p>
+                    <p>Extends AbstractCollection and implements most of the List interface.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>AbstractSequentialList</b></p>
+                    <p>Extends AbstractList for use by a collection that uses sequential rather than random access of its elements.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> LinkedList
+                    <p>Implements a linked list by extending AbstractSequentialList.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> ArrayList
+                    <p>Implements a dynamic array by extending AbstractList.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>AbstractSet</b></p>
+                    <p>Extends AbstractCollection and implements most of the Set interface.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> HashSet
+                    <p>Extends AbstractSet for use with a hash table.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> LinkedHashSet
+                    <p>Extends HashSet to allow insertion-order iterations.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> TreeSet
+                    <p>Implements a set stored in a tree. Extends AbstractSet.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td><p><b>AbstractMap</b></p>
+                    <p>Implements most of the Map interface.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> HashMap
+                    <p>Extends AbstractMap to use a hash table.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> TreeMap
+                    <p>Extends AbstractMap to use a tree.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> WeakHashMap
+                    <p>Extends AbstractMap to use a hash table with weak keys.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> LinkedHashMap
+                    <p>Extends HashMap to allow insertion-order iterations.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> IdentityHashMap
+                    <p>Extends AbstractMap and uses reference equality when comparing documents.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <p>The <i>AbstractCollection, AbstractSet, AbstractList, AbstractSequentialList</i> and <i>AbstractMap</i> classes provide skeletal implementations of the core collection interfaces, to minimize the effort required to implement them.</p>
+        <p>The following legacy classes defined by java.util have been discussed in the previous chapter −</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Class &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> Vector
+                    <p>This implements a dynamic array. It is similar to ArrayList, but with some differences.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> Stack
+                    <p>Stack is a subclass of Vector that implements a standard last-in, first-out stack.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> Dictionary
+                    <p>Dictionary is an abstract class that represents a key/value storage repository and operates much like Map.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> Hashtable
+                    <p>Hashtable was part of the original java.util and is a concrete implementation of a Dictionary.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> Properties
+                    <p>Properties is a subclass of Hashtable. It is used to maintain lists of values in which the key is a String and the value is also a String.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> BitSet
+                    <p>A BitSet class creates a special type of array that holds bit values. This array can increase in size as needed.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>The Collection Algorithms</h2>
+        <p>The collections framework defines several algorithms that can be applied to collections and maps. These algorithms are defined as static methods within the Collections class.</p>
+        <p>Several of the methods can throw a <b>ClassCastException</b>, which occurs when an attempt is made to compare incompatible types, or an <b>UnsupportedOperationException</b>, which occurs when an attempt is made to modify an unmodifiable collection.</p>
+        <p>Collections define three static variables: EMPTY_SET, EMPTY_LIST, and EMPTY_MAP. All are immutable.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Algorithm &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> The Collection Algorithms
+                    <p>Here is a list of all the algorithm implementation.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>How to Use an Iterator ?</h2>
+        <p>Often, you will want to cycle through the elements in a collection. For example, you might want to display each element.</p>
+        <p>The easiest way to do this is to employ an iterator, which is an object that implements either the Iterator or the ListIterator interface.</p>
+        <p>Iterator enables you to cycle through a collection, obtaining or removing elements. ListIterator extends Iterator to allow bidirectional traversal of a list and the modification of elements.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Iterator Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> Using Java Iterator
+                    <p>Here is a list of all the methods with examples provided by Iterator  and ListIterator interfaces.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>How to Use a Comparator ?</h2>
+        <p>Both TreeSet and TreeMap store elements in a sorted order. However, it is the comparator that defines precisely what <i>sorted order</i> means.</p>
+        <p>This interface lets us sort a given collection any number of different ways. Also this interface can be used to sort any instances of any class (even classes we cannot modify).</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Iterator Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> Using Java Comparator
+                    <p>Here is a list of all the methods with examples provided by Comparator Interface.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>Summary</h2>
+        <p>The Java collections framework gives the programmer access to prepackaged data structures as well as to algorithms for manipulating them.</p>
+        <p>A collection is an object that can hold references to other objects. The collection interfaces declare the operations that can be performed on each type of collection.</p>
+        <p>The classes and interfaces of the collections framework are in package java.util.</p>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

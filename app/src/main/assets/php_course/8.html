@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.tutorialspoint.com/sql/sql-expressions.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - Loop Types</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="./7_files/pubads_impl_rendering_170.js.download"></script><script src="./7_files/ads"></script><script src="./7_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="./7_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./7_files/style-min.css">
+<script async="async" src="./7_files/gpt.js.download"></script>
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./7_files/integrator.js.download" as="script"><script type="text/javascript" src="./7_files/integrator.js.download"></script><link rel="preload" href="./7_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./7_files/integrator.js(1).download"></script><script src="./7_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>PHP - Loop Types</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Loops in PHP are used to execute the same block of code a specified number of times. PHP supports following four loop types.</p>
+        <ul class="list">
+            <li><p><b>for</b> − loops through a block of code a specified number of times.</p></li>
+            <li><p><b>while</b> − loops through a block of code if and as long as a specified condition is true.</p></li>
+            <li><p><b>do...while</b> − loops through a block of code once, and then repeats the loop as long as a special condition is true.</p></li>
+            <li><p><b>foreach</b> − loops through a block of code for each element in an array.</p></li>
+        </ul>
+        <p>We will discuss about <b>continue</b> and <b>break</b> keywords used to control the loops execution.</p>
+        <h2>The for loop statement</h2>
+        <p>The for statement is used when you know how many times you want to execute a statement or a block of statements.</p>
+        <img src="../img/2.PNG" alt="for loop in Php">
+        <h3>Syntax</h3>
+        <pre class="result notranslate">for (<i>initialization</i>; <i>condition</i>; <i>increment</i>){
+   <i>code to be executed;</i>
+}
+</pre>
+        <p>The initializer is used to set the start value for the counter of the number of loop iterations. A variable may be declared here for this purpose and it is traditional to name it $i.</p>
+        <h3>Example</h3>
+        <p>The following example makes five iterations and changes the assigned value of two variables on each pass of the loop −</p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+         $b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="pln"> $i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> $i</span><span class="pun">&lt;</span><span class="lit">5</span><span class="pun">;</span><span class="pln"> $i</span><span class="pun">++</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $a </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+            $b </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         echo </span><span class="pun">(</span><span class="str">"At the end of the loop a = $a and b = $b"</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">At the end of the loop a = 50 and b = 25
+</pre>
+        <h2>The while loop statement</h2>
+        <p>The while statement will execute a block of code if and as long as a test expression is true.</p>
+        <p>If the test expression is true then the code block will be executed. After the code has executed the test expression will again be evaluated and the loop will continue until the test expression is found to be false.</p>
+        <img src="../img/3.PNG" alt="for loop in PHP">
+        <h3>Syntax</h3>
+        <pre class="result notranslate">while (<i>condition</i>) {
+   <i>code to be executed</i>;
+}
+</pre>
+        <h3>Example</h3>
+        <p>This example decrements a variable value on each iteration of the loop and the counter increments until it reaches 10 when the evaluation is false and the loop ends.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+         $num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">50</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">while</span><span class="pun">(</span><span class="pln"> $i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $num</span><span class="pun">--;</span><span class="pln">
+            $i</span><span class="pun">++;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         echo </span><span class="pun">(</span><span class="str">"Loop stopped at i = $i and num = $num"</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">Loop stopped at i = 10 and num = 40
+</pre>
+        <h2>The do...while loop statement</h2>
+        <p>The do...while statement will execute a block of code at least once - it then will repeat the loop as long as a condition is true.</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">do {
+   <i>code to be executed;</i>
+}
+while (<i>condition</i>);
+</pre>
+        <h3>Example</h3>
+        <p>The following example will increment the value of i at least once, and it will continue incrementing the variable i as long as it has a value of less than 10 −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+         $num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $i</span><span class="pun">++;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         </span><span class="kwd">while</span><span class="pun">(</span><span class="pln"> $i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+         echo </span><span class="pun">(</span><span class="str">"Loop stopped at i = $i"</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">Loop stopped at i = 10
+</pre>
+        <h2>The foreach loop statement</h2>
+        <p>The foreach statement is used to loop through arrays. For each pass the value of the current array element is assigned to $value and the array pointer is moved by one and in the next pass next element will be processed.</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">foreach (<i>array </i>as<i> value</i>) {
+   <i>code to be executed;</i>
+}
+</pre>
+        <h3>Example</h3>
+        <p>Try out following example to list out the values of an array.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $array </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln"> $array </span><span class="kwd">as</span><span class="pln"> $value </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            echo </span><span class="str">"Value is $value &lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">Value is 1
+Value is 2
+Value is 3
+Value is 4
+Value is 5
+</pre>
+        <h2>The break statement</h2>
+        <p>The PHP <b>break</b> keyword is used to terminate the execution of a loop prematurely.</p>
+        <p>The <b>break</b> statement is situated inside the statement block. It gives you full control and whenever you want to exit from the loop you can come out. After coming out of a loop immediate statement to the loop will be executed.</p>
+        <img src="../img/4.PNG" alt="PHP Break Statement">
+        <h3>Example</h3>
+        <p>In the following example condition test becomes true when the counter value reaches 3 and loop terminates.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">while</span><span class="pun">(</span><span class="pln"> $i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $i</span><span class="pun">++;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> $i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">)</span><b><span class="kwd">break</span><span class="pun">;</span></b><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+         echo </span><span class="pun">(</span><span class="str">"Loop stopped at i = $i"</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">Loop stopped at i = 3
+</pre>
+        <h2>The continue statement</h2>
+        <p>The PHP <b>continue</b> keyword is used to halt the current iteration of a loop but it does not terminate the loop.</p>
+        <p>Just like the <b>break</b> statement the <b>continue</b> statement is situated inside the statement block containing the code that the loop executes, preceded by a conditional test. For the pass encountering <b>continue</b> statement, rest of the loop code is skipped and next pass starts.</p>
+        <img src="../img/5.PNG" alt="PHP Continue Statement">
+        <h3>Example</h3>
+        <p>In the following example loop prints the value of array but for which condition becomes true it just skip the code and next value is printed.</p>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         $array </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln"> $array </span><span class="kwd">as</span><span class="pln"> $value </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> $value </span><span class="pun">==</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">)</span><b><span class="kwd">continue</span><span class="pun">;</span></b><span class="pln">
+            echo </span><span class="str">"Value is $value &lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>This will produce the following result −</p>
+        <pre class="result notranslate">Value is 1
+Value is 2
+Value is 4
+Value is 5
+</pre>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

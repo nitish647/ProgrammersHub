@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Void Keyword</title>
+    <meta name="description" content="JavaScript Void Keyword - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Void Keyword</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p><b>void</b> is an important keyword in JavaScript which can be used as a unary operator that appears before its single operand, which may be of any type. This operator specifies an expression to be evaluated without returning a value.</p>
+        <h2>Syntax</h2>
+        <p>The syntax of <b>void</b> can be either of the following two −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;!--</span><span class="pln">
+         </span><span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span><span class="pln">
+         javascript</span><span class="pun">:</span><span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span><span class="pln">
+
+         or</span><span class="pun">:</span><span class="pln">
+
+         </span><span class="kwd">void</span><span class="pun">(</span><span class="pln">func</span><span class="pun">())</span><span class="pln">
+         javascript</span><span class="pun">:</span><span class="kwd">void</span><span class="pun">(</span><span class="pln">func</span><span class="pun">())</span><span class="pln">
+      </span><span class="com">//--&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;/head&gt;</span></pre>
+        <h3>Example 1</h3>
+        <p>The most common use of this operator is in a client-side <i>javascript:</i> URL, where it allows you to evaluate an expression for its side-effects without the browser displaying the value of the evaluated expression.</p>
+        <p>Here the expression <b>alert ('Warning!!!')</b> is evaluated but it is not loaded back into the current document −</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following, This won't react at all...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+      </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"javascript:void(alert('Warning!!!'))"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/a&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/void.htm" height="90px" width="600px" style="visibility: visible; height: 75px;"></iframe>
+        <h3>Example 2</h3>
+        <p>Take a look at the following example. The following link does nothing because the expression "0" has no effect in JavaScript. Here the expression "0" is evaluated, but it is not loaded back into the current document.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following, This won't react at all...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+      </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"javascript:void(0)"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/a&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/void1.htm" height="90px" width="600px" style="visibility: visible; height: 75px;"></iframe>
+        <h3>Example 3</h3>
+        <p>Another use of <b>void</b> is to purposely generate the <b>undefined</b> value as follows.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> getValue</span><span class="pun">(){</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> a</span><span class="pun">,</span><span class="pln">b</span><span class="pun">,</span><span class="pln">c</span><span class="pun">;</span><span class="pln">
+
+               a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">'a = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="str">' b = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b </span><span class="pun">+</span><span class="str">' c = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> c </span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the following to see the result:</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Click Me"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getValue</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/void3.htm" height="90px" width="600px" style="visibility: visible; height: 85px;"></iframe>
+        <hr>
+    </div></div></div></div></div></div></body></html>

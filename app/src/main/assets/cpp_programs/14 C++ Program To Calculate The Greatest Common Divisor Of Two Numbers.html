@@ -1,0 +1,33 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #75715e">#include&lt;cmath&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">GCD</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">remainder;</span>
+  <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">remainder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">b;</span>
+    <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
+    <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">remainder;</span>
+   <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;To find the greatest common divisor </span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Value 1: &quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Value 2: &quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">y;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">The Greatest Common Divisor of &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; and &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; is &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">GCD(x,</span> <span style="color: #f8f8f2">y)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output:</span>
+<span style="color: #f8f8f2">To</span> <span style="color: #f8f8f2">find</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">greatest</span> <span style="color: #f8f8f2">common</span> <span style="color: #f8f8f2">divisor</span>
+<span style="color: #f8f8f2">Value</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9</span>
+<span style="color: #f8f8f2">Value</span> <span style="color: #ae81ff">2</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">87</span>
+
+<span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Greatest</span> <span style="color: #f8f8f2">Common</span> <span style="color: #f8f8f2">Divisor</span> <span style="color: #f8f8f2">of</span> <span style="color: #ae81ff">9</span> <span style="color: #f8f8f2">and</span> <span style="color: #ae81ff">87</span> <span style="color: #f8f8f2">is</span> <span style="color: #ae81ff">3</span>
+</pre></div>

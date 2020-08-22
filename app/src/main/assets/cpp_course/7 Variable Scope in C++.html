@@ -1,0 +1,105 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Variable Scope in C++</h1>
+ 
+<p>A scope is a region of the program and broadly speaking there are three places, where variables can be declared &minus;</p>
+<ul class="list">
+<li>
+<p>Inside a function or a block which is called local variables,</p>
+</li>
+<li>
+<p>In the definition of function parameters which is called formal parameters.</p>
+</li>
+<li>
+<p>Outside of all functions which is called global variables.</p>
+</li>
+</ul>
+<p>We will learn what is a function and it's parameter in subsequent chapters. Here let us explain what are local and global variables.</p>
+<h2>Local Variables</h2>
+<p>Variables that are declared inside a function or block are local variables. They can be used only by statements that are inside that function or block of code. Local variables are not known to functions outside their own. Following is the example using local variables &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// Local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln"> c</span><span class="pun">;</span>
+ 
+   <span class="com">// actual initialization</span><span class="pln">
+   a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln">
+   b </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span><span class="pln">
+   c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> c</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<h2>Global Variables</h2>
+<p>Global variables are defined outside of all the functions, usually on top of the program. The global variables will hold their value throughout the life-time of your program.</p>
+<p>A global variable can be accessed by any function. That is, a global variable is available for use throughout your entire program after its declaration. Following is the example using global and local variables &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// Global variable declaration:</span>
+<span class="kwd">int</span><span class="pln"> g</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// Local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">;</span>
+ 
+   <span class="com">// actual initialization</span><span class="pln">
+   a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln">
+   b </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span><span class="pln">
+   g </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+  
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> g</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>A program can have same name for local and global variables but value of local variable inside a function will take preference. For example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// Global variable declaration:</span>
+<span class="kwd">int</span><span class="pln"> g </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="com">// Local variable declaration:</span>
+   <span class="kwd">int</span><span class="pln"> g </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln">
+ 
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> g</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">10
+</pre>
+<h2>Initializing Local and Global Variables</h2>
+<p>When a local variable is defined, it is not initialized by the system, you must initialize it yourself. Global variables are initialized automatically by the system when you define them as follows &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;" width="50%">Data Type</th>
+<th style="text-align: center;">Initializer</th>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>char</td>
+<td>'\0'</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0</td>
+</tr>
+<tr>
+<td>pointer</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>It is a good programming practice to initialize variables properly, otherwise sometimes program would produce unexpected result.</p>

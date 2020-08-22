@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.tutorialspoint.com/sql/sql-expressions.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Modifier Types</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="./7_files/pubads_impl_rendering_170.js.download"></script><script src="./7_files/ads"></script><script src="./7_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="./7_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./7_files/style-min.css">
+<script async="async" src="./7_files/gpt.js.download"></script>
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./7_files/integrator.js.download" as="script"><script type="text/javascript" src="./7_files/integrator.js.download"></script><link rel="preload" href="./7_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./7_files/integrator.js(1).download"></script><script src="./7_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+
+    <div class="col-md-7 middle-col">
+        <h1>Java - Modifier Types</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Modifiers are keywords that you add to those definitions to change their meanings. Java language has a wide variety of modifiers, including the following −</p>
+        <ul class="list">
+            <li><p>  Java Access Modifiers </p></li>
+            <li><p> Non Access Modifiers </p></li>
+        </ul>
+        <p>To use a modifier, you include its keyword in the definition of a class, method, or variable. The modifier precedes the rest of the statement, as in the following example.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate"><i>public</i> class className {
+   // ...
+}
+
+<i>private</i> boolean myFlag;
+<i>static final</i> double weeks = 9.5;
+<i>protected static final</i> int BOXWIDTH = 42;
+
+<i>public static</i> void main(String[] arguments) {
+   // body of method
+}
+</pre>
+        <h2>Access Control Modifiers</h2>
+        <p>Java provides a number of access modifiers to set access levels for classes, variables, methods and constructors. The four access levels are −</p>
+        <ul class="list">
+            <li>Visible to the package, the default. No modifiers are needed.</li>
+            <li>Visible to the class only (private).</li>
+            <li>Visible to the world (public).</li>
+            <li>Visible to the package and all subclasses (protected).</li>
+        </ul>
+        <h2>Non-Access Modifiers</h2>
+        <p>Java provides a number of non-access modifiers to achieve many other functionality.</p>
+        <ul class="list">
+            <li><p>The <i>static</i> modifier for creating class methods and variables.</p></li>
+            <li><p>The <i>final</i> modifier for finalizing the implementations of classes, methods, and variables.</p></li>
+            <li><p>The <i>abstract</i> modifier for creating abstract classes and methods.</p></li>
+            <li><p>The <i>synchronized</i> and <i>volatile</i> modifiers, which are used for threads.</p></li>
+        </ul>
+        <h2>What is Next?</h2>
+        <p>In the next section, we will be discussing about Basic Operators used in Java Language. The chapter will give you an overview of how these operators can be used during application development.</p>
+        <hr></div></div></div></div></div></div>
+
+</body></html>

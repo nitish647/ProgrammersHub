@@ -1,0 +1,141 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Copy Constructor</h1>
+
+<p>The <strong>copy constructor</strong> is a constructor which creates an object by initializing it with an object of the same class, which has been created previously. The copy constructor is used to &minus;</p>
+<ul class="list">
+<li>Initialize one object from another of the same type.</li>
+<li>Copy an object to pass it as an argument to a function.</li>
+<li>Copy an object to return it from a function.</li>
+</ul>
+<p>If a copy constructor is not defined in a class, the compiler itself defines one.If the class has pointer variables and has some dynamic memory allocations, then it is a must to have a copy constructor. The most common form of copy constructor is shown here &minus;</p>
+<pre class="result notranslate">classname (const classname &amp;obj) {
+   // body of constructor
+}
+</pre>
+<p>Here, <strong>obj</strong> is a reference to an object that is being used to initialize another object.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+      <span class="typ">Line</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> len </span><span class="pun">);</span>             <span class="com">// simple constructor</span>
+      <span class="typ">Line</span><span class="pun">(</span> <span class="kwd">const</span> <span class="typ">Line</span> <span class="pun">&amp;</span><span class="pln">obj</span><span class="pun">);</span>  <span class="com">// copy constructor</span>
+      <span class="pun">~</span><span class="typ">Line</span><span class="pun">();</span>                     <span class="com">// destructor</span>
+
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">int</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+<span class="pun">};</span>
+
+<span class="com">// Member functions definitions including constructor</span>
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> len</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Normal constructor allocating ptr"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="com">// allocate memory for the pointer;</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">;</span>
+   <span class="pun">*</span><span class="pln">ptr </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">const</span> <span class="typ">Line</span> <span class="pun">&amp;</span><span class="pln">obj</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Copy constructor allocating ptr."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">;</span>
+   <span class="pun">*</span><span class="pln">ptr </span><span class="pun">=</span> <span class="pun">*</span><span class="pln">obj</span><span class="pun">.</span><span class="pln">ptr</span><span class="pun">;</span> <span class="com">// copy the value</span>
+<span class="pun">}</span>
+
+<span class="typ">Line</span><span class="pun">::~</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Freeing memory!"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="kwd">delete</span><span class="pln"> ptr</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">int</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">void</span><span class="pln"> display</span><span class="pun">(</span><span class="typ">Line</span><span class="pln"> obj</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> obj</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Line</span><span class="pln"> line</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span><span class="pln">
+
+   display</span><span class="pun">(</span><span class="pln">line</span><span class="pun">);</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Normal constructor allocating ptr
+Copy constructor allocating ptr.
+Length of line : 10
+Freeing memory!
+Freeing memory!
+</pre>
+<p>Let us see the same example but with a small change to create another object using existing object of the same type &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Line</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">);</span>
+      <span class="typ">Line</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> len </span><span class="pun">);</span>             <span class="com">// simple constructor</span>
+      <span class="typ">Line</span><span class="pun">(</span> <span class="kwd">const</span> <span class="typ">Line</span> <span class="pun">&amp;</span><span class="pln">obj</span><span class="pun">);</span>  <span class="com">// copy constructor</span>
+      <span class="pun">~</span><span class="typ">Line</span><span class="pun">();</span>                     <span class="com">// destructor</span>
+
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">int</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+<span class="pun">};</span>
+
+<span class="com">// Member functions definitions including constructor</span>
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> len</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Normal constructor allocating ptr"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="com">// allocate memory for the pointer;</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">;</span>
+   <span class="pun">*</span><span class="pln">ptr </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="typ">Line</span><span class="pun">::</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">const</span> <span class="typ">Line</span> <span class="pun">&amp;</span><span class="pln">obj</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Copy constructor allocating ptr."</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   ptr </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">;</span>
+   <span class="pun">*</span><span class="pln">ptr </span><span class="pun">=</span> <span class="pun">*</span><span class="pln">obj</span><span class="pun">.</span><span class="pln">ptr</span><span class="pun">;</span> <span class="com">// copy the value</span>
+<span class="pun">}</span>
+
+<span class="typ">Line</span><span class="pun">::~</span><span class="typ">Line</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Freeing memory!"</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="kwd">delete</span><span class="pln"> ptr</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">int</span> <span class="typ">Line</span><span class="pun">::</span><span class="pln">getLength</span><span class="pun">(</span> <span class="kwd">void</span> <span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span> <span class="pun">*</span><span class="pln">ptr</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="kwd">void</span><span class="pln"> display</span><span class="pun">(</span><span class="typ">Line</span><span class="pln"> obj</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Length of line : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> obj</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+
+   <span class="typ">Line</span><span class="pln"> line1</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span>
+
+   <span class="typ">Line</span><span class="pln"> line2 </span><span class="pun">=</span><span class="pln"> line1</span><span class="pun">;</span> <span class="com">// This also calls copy constructor</span><span class="pln">
+
+   display</span><span class="pun">(</span><span class="pln">line1</span><span class="pun">);</span><span class="pln">
+   display</span><span class="pun">(</span><span class="pln">line2</span><span class="pun">);</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Normal constructor allocating ptr
+Copy constructor allocating ptr.
+Copy constructor allocating ptr.
+Length of line : 10
+Freeing memory!
+Copy constructor allocating ptr.
+Length of line : 10
+Freeing memory!
+Freeing memory!
+Freeing memory!
+</pre>

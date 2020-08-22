@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-where-clause.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Events</title>
+    <meta name="description" content="JavaScript Events - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./15_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Events</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <h2>What is an Event ?</h2>
+        <p>JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page.</p>
+        <p>When the page loads, it is called an event. When the user clicks a button, that click too is an event. Other examples include events like pressing any key, closing a window, resizing a window, etc.</p>
+        <p>Developers can use these events to execute JavaScript coded responses, which cause buttons to close windows, messages to be displayed to users, data to be validated, and virtually any other type of response imaginable.</p>
+        <p>Events are a part of the Document Object Model (DOM) Level 3 and every HTML element contains a set of events which can trigger JavaScript Code.</p>
+         <h2>onclick Event Type</h2>
+        <p>This is the most frequently used event type which occurs when a user clicks the left button of his mouse. You can put your validation, warning etc., against this event type.</p>
+        <h3>Example</h3>
+        <p>Try the following example.</p>
+        <pre class="prettyprint notranslate tryit">&lt;html&gt;
+   &lt;head&gt;
+
+      &lt;script type="text/javascript"&gt;
+         &lt;!--
+            function sayHello() {
+               alert("Hello World")
+            }
+         //--&gt;
+      &lt;/script&gt;
+
+   &lt;/head&gt;
+
+   &lt;body&gt;
+      &lt;p&gt;Click the following button and see result&lt;/p&gt;
+
+      &lt;form&gt;
+         &lt;input type="button" onclick="sayHello()" value="Say Hello" /&gt;
+      &lt;/form&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/onclick_event.htm" height="90px" width="600px" style="visibility: visible; height: 85px;"></iframe>
+        <h2>onsubmit Event type</h2>
+        <p><b>onsubmit</b> is an event that occurs when you try to submit a form. You can put your form validation against this event type.</p>
+        <h3>Example</h3>
+        <p>The following example shows how to use onsubmit. Here we are calling a <b>validate()</b> function before submitting a form data to the webserver. If <b>validate()</b> function returns true, the form will be submitted, otherwise it will not submit the data.</p>
+        <p>Try the following example.</p>
+        <pre class="prettyprint notranslate">&lt;html&gt;
+   &lt;head&gt;
+
+      &lt;script type="text/javascript"&gt;
+         &lt;!--
+            function validation() {
+               all validation goes here
+               .........
+               return either true or false
+            }
+         //--&gt;
+      &lt;/script&gt;
+
+   &lt;/head&gt;
+   &lt;body&gt;
+
+      &lt;form method="POST" action="t.cgi" onsubmit="return validate()"&gt;
+         .......
+         &lt;input type="submit" value="Submit" /&gt;
+      &lt;/form&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <h2>onmouseover and onmouseout</h2>
+        <p>These two event types will help you create nice effects with images or even with text as well. The <b>onmouseover</b> event triggers when you bring your mouse over any element and the <b>onmouseout</b> triggers when you move your mouse out from that element. Try the following example.</p>
+        <pre class="prettyprint notranslate tryit">&lt;html&gt;
+   &lt;head&gt;
+
+      &lt;script type="text/javascript"&gt;
+         &lt;!--
+            function over() {
+               document.write ("Mouse Over");
+            }
+
+            function out() {
+               document.write ("Mouse Out");
+            }
+
+         //--&gt;
+      &lt;/script&gt;
+
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p&gt;Bring your mouse inside the division to see the result:&lt;/p&gt;
+
+      &lt;div onmouseover="over()" onmouseout="out()"&gt;
+         &lt;h2&gt; This is inside the division &lt;/h2&gt;
+      &lt;/div&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/onmouseover_evnet.htm" height="120px" width="600px" style="visibility: visible; height: 99px;"></iframe>
+        <h2>HTML 5 Standard Events</h2>
+        <p>The standard HTML 5 events are listed here for your reference. Here script indicates a Javascript function to be executed against that event.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Attribute</th>
+                <th style="text-align:center;">Value</th>
+                <th style="text-align:center;">Description</th>
+            </tr>
+            <tr>
+                <td>Offline</td>
+                <td>script</td>
+                <td>Triggers when the document goes offline</td>
+            </tr>
+            <tr>
+                <td>Onabort</td>
+                <td>script</td>
+                <td>Triggers on an abort event</td>
+            </tr>
+            <tr>
+                <td>onafterprint</td>
+                <td>script</td>
+                <td>Triggers after the document is printed</td>
+            </tr>
+            <tr>
+                <td>onbeforeonload</td>
+                <td>script</td>
+                <td>Triggers before the document loads</td>
+            </tr>
+            <tr>
+                <td>onbeforeprint</td>
+                <td>script</td>
+                <td>Triggers before the document is printed</td>
+            </tr>
+            <tr>
+                <td>onblur</td>
+                <td>script</td>
+                <td>Triggers when the window loses focus</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">oncanplay</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when media can start play, but might has to stop for buffering</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">oncanplaythrough</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when media can be played to the end, without stopping for buffering</td>
+            </tr>
+            <tr>
+                <td>onchange</td>
+                <td>script</td>
+                <td>Triggers when an element changes</td>
+            </tr>
+            <tr>
+                <td>onclick</td>
+                <td>script</td>
+                <td>Triggers on a mouse click</td>
+            </tr>
+            <tr>
+                <td>oncontextmenu</td>
+                <td>script</td>
+                <td>Triggers when a context menu is triggered</td>
+            </tr>
+            <tr>
+                <td>ondblclick</td>
+                <td>script</td>
+                <td>Triggers on a mouse double-click</td>
+            </tr>
+            <tr>
+                <td>ondrag</td>
+                <td>script</td>
+                <td>Triggers when an element is dragged</td>
+            </tr>
+            <tr>
+                <td>ondragend</td>
+                <td>script</td>
+                <td>Triggers at the end of a drag operation</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">ondragenter</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when an element has been dragged to a valid drop target</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">ondragleave</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when an element is being dragged over a valid drop target</td>
+            </tr>
+            <tr>
+                <td>ondragover</td>
+                <td>script</td>
+                <td>Triggers at the start of a drag operation</td>
+            </tr>
+            <tr>
+                <td>ondragstart</td>
+                <td>script</td>
+                <td>Triggers at the start of a drag operation</td>
+            </tr>
+            <tr>
+                <td>ondrop</td>
+                <td>script</td>
+                <td>Triggers when dragged element is being dropped</td>
+            </tr>
+            <tr>
+                <td>ondurationchange</td>
+                <td>script</td>
+                <td>Triggers when the length of the media is changed</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onemptied</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when a media resource element suddenly becomes empty.</td>
+            </tr>
+            <tr>
+                <td>onended</td>
+                <td>script</td>
+                <td>Triggers when media has reach the end</td>
+            </tr>
+            <tr>
+                <td>onerror</td>
+                <td>script</td>
+                <td>Triggers when an error occur</td>
+            </tr>
+            <tr>
+                <td>onfocus</td>
+                <td>script</td>
+                <td>Triggers when the window gets focus</td>
+            </tr>
+            <tr>
+                <td>onformchange</td>
+                <td>script</td>
+                <td>Triggers when a form changes</td>
+            </tr>
+            <tr>
+                <td>onforminput</td>
+                <td>script</td>
+                <td>Triggers when a form gets user input</td>
+            </tr>
+            <tr>
+                <td>onhaschange</td>
+                <td>script</td>
+                <td>Triggers when the document has change</td>
+            </tr>
+            <tr>
+                <td>oninput</td>
+                <td>script</td>
+                <td>Triggers when an element gets user input</td>
+            </tr>
+            <tr>
+                <td>oninvalid</td>
+                <td>script</td>
+                <td>Triggers when an element is invalid</td>
+            </tr>
+            <tr>
+                <td>onkeydown</td>
+                <td>script</td>
+                <td>Triggers when a key is pressed</td>
+            </tr>
+            <tr>
+                <td>onkeypress</td>
+                <td>script</td>
+                <td>Triggers when a key is pressed and released</td>
+            </tr>
+            <tr>
+                <td>onkeyup</td>
+                <td>script</td>
+                <td>Triggers when a key is released</td>
+            </tr>
+            <tr>
+                <td>onload</td>
+                <td>script</td>
+                <td>Triggers when the document loads</td>
+            </tr>
+            <tr>
+                <td>onloadeddata</td>
+                <td>script</td>
+                <td>Triggers when media data is loaded</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onloadedmetadata</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the duration and other media data of a media element is loaded</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onloadstart</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the browser starts to load the media data</td>
+            </tr>
+            <tr>
+                <td>onmessage</td>
+                <td>script</td>
+                <td>Triggers when the message is triggered</td>
+            </tr>
+            <tr>
+                <td>onmousedown</td>
+                <td>script</td>
+                <td>Triggers when a mouse button is pressed</td>
+            </tr>
+            <tr>
+                <td>onmousemove</td>
+                <td>script</td>
+                <td>Triggers when the mouse pointer moves</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onmouseout</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the mouse pointer moves out of an element</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onmouseover</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the mouse pointer moves over an element</td>
+            </tr>
+            <tr>
+                <td>onmouseup</td>
+                <td>script</td>
+                <td>Triggers when a mouse button is released</td>
+            </tr>
+            <tr>
+                <td>onmousewheel</td>
+                <td>script</td>
+                <td>Triggers when the mouse wheel is being rotated</td>
+            </tr>
+            <tr>
+                <td>onoffline</td>
+                <td>script</td>
+                <td>Triggers when the document goes offline</td>
+            </tr>
+            <tr>
+                <td>onoine</td>
+                <td>script</td>
+                <td>Triggers when the document comes online</td>
+            </tr>
+            <tr>
+                <td>ononline</td>
+                <td>script</td>
+                <td>Triggers when the document comes online</td>
+            </tr>
+            <tr>
+                <td>onpagehide</td>
+                <td>script</td>
+                <td>Triggers when the window is hidden</td>
+            </tr>
+            <tr>
+                <td>onpageshow</td>
+                <td>script</td>
+                <td>Triggers when the window becomes visible</td>
+            </tr>
+            <tr>
+                <td>onpause</td>
+                <td>script</td>
+                <td>Triggers when media data is paused</td>
+            </tr>
+            <tr>
+                <td>onplay</td>
+                <td>script</td>
+                <td>Triggers when media data is going to start playing</td>
+            </tr>
+            <tr>
+                <td>onplaying</td>
+                <td>script</td>
+                <td>Triggers when media data has start playing</td>
+            </tr>
+            <tr>
+                <td>onpopstate</td>
+                <td>script</td>
+                <td>Triggers when the window's history changes</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onprogress</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the browser is fetching the media data</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onratechange</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the media data's playing rate has changed</td>
+            </tr>
+            <tr>
+                <td>onreadystatechange</td>
+                <td>script</td>
+                <td>Triggers when the ready-state changes</td>
+            </tr>
+            <tr>
+                <td>onredo</td>
+                <td>script</td>
+                <td>Triggers when the document performs a redo</td>
+            </tr>
+            <tr>
+                <td>onresize</td>
+                <td>script</td>
+                <td>Triggers when the window is resized</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onscroll</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when an element's scrollbar is being scrolled</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onseeked</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when a media element's seeking attribute is no longer true, and the seeking has ended</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onseeking</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when a media element's seeking attribute is true, and the seeking has begun</td>
+            </tr>
+            <tr>
+                <td>onselect</td>
+                <td>script</td>
+                <td>Triggers when an element is selected</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onstalled</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when there is an error in fetching media data</td>
+            </tr>
+            <tr>
+                <td>onstorage</td>
+                <td>script</td>
+                <td>Triggers when a document loads</td>
+            </tr>
+            <tr>
+                <td>onsubmit</td>
+                <td>script</td>
+                <td>Triggers when a form is submitted</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onsuspend</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when the browser has been fetching media data, but stopped before the entire media file was fetched</td>
+            </tr>
+            <tr>
+                <td>ontimeupdate</td>
+                <td>script</td>
+                <td>Triggers when media changes its playing position</td>
+            </tr>
+            <tr>
+                <td>onundo</td>
+                <td>script</td>
+                <td>Triggers when a document performs an undo</td>
+            </tr>
+            <tr>
+                <td>onunload</td>
+                <td>script</td>
+                <td>Triggers when the user leaves the document</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onvolumechange</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when media changes the volume, also when volume is set to "mute"</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">onwaiting</td>
+                <td style="vertical-align:middle;">script</td>
+                <td>Triggers when media has stopped playing, but is expected to resume</td>
+            </tr>
+            </tbody></table>
+        <hr>
+    </div></div></div></div></div></div></body></html>

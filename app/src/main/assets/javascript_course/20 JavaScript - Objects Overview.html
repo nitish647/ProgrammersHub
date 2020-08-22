@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Objects Overview</title>
+    <meta name="description" content="JavaScript Objects Overview - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Objects Overview</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>JavaScript is an Object Oriented Programming (OOP) language. A programming language can be called object-oriented if it provides four basic capabilities to developers −</p>
+        <ul class="list">
+            <li><p><b>Encapsulation</b> − the capability to store related information, whether data or methods, together in an object.</p></li>
+            <li><p><b>Aggregation</b> − the capability to store one object inside another object.</p></li>
+            <li><p><b>Inheritance</b> − the capability of a class to rely upon another class (or number of classes) for some of its properties and methods.</p></li>
+            <li><p><b>Polymorphism</b> − the capability to write one function or method that works in a variety of different ways.</p></li>
+        </ul>
+        <p>Objects are composed of attributes. If an attribute contains a function, it is considered to be a method of the object, otherwise the attribute is considered a property.</p>
+        <h2>Object Properties</h2>
+        <p>Object properties can be any of the three primitive data types, or any of the abstract data types, such as another object. Object properties are usually variables that are used internally in the object's methods, but can also be globally visible variables that are used throughout the page.</p>
+        <p>The syntax for adding a property to an object is −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">objectName</span><span class="pun">.</span><span class="pln">objectProperty </span><span class="pun">=</span><span class="pln"> propertyValue</span><span class="pun">;</span></pre>
+        <p><b>For example</b> − The following code gets the document title using the <b>"title"</b> property of the <b>document</b> object.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">title</span><span class="pun">;</span></pre>
+        <h2>Object Methods</h2>
+        <p>Methods are the functions that let the object do something or let something be done to it. There is a small difference between a function and a method – at a function is a standalone unit of statements and a method is attached to an object and can be referenced by the <b>this</b> keyword.</p>
+        <p>Methods are useful for everything from displaying the contents of the object to the screen to performing complex mathematical operations on a group of local properties and parameters.</p>
+        <p><b>For example</b> − Following is a simple example to show how to use the <b>write()</b> method of document object to write any content on the document.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"This is test"</span><span class="pun">);</span></pre>
+        <h2>User-Defined Objects</h2>
+        <p>All user-defined objects and built-in objects are descendants of an object called <b>Object</b>.</p>
+        <h3>The new Operator</h3>
+        <p>The <b>new</b> operator is used to create an instance of an object. To create an object, the <b>new</b> operator is followed by the constructor method.</p>
+        <p>In the following example, the constructor methods are Object(), Array(), and Date(). These constructors are built-in JavaScript functions.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> employee </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> books </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">(</span><span class="str">"C++"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Perl"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Java"</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> day </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">"August 15, 1947"</span><span class="pun">);</span></pre>
+        <h3>The Object() Constructor</h3>
+        <p>A constructor is a function that creates and initializes an object. JavaScript provides a special constructor function called <b>Object()</b> to build the object. The return value of the <b>Object()</b> constructor is assigned to a variable.</p>
+        <p>The variable contains a reference to the new object. The properties assigned to the object are not variables and are not defined with the <b>var</b> keyword.</p>
+        <h3>Example 1</h3>
+        <p>Try the following example; it demonstrates how to create an Object.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">User-defined objects</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">var</span><span class="pln"> book </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">();</span><span class="pln">   </span><span class="com">// Create the object</span><span class="pln">
+         book</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Perl"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Assign properties to the object</span><span class="pln">
+         book</span><span class="pun">.</span><span class="pln">author  </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mohtashim"</span><span class="pun">;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book name is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book author is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">author </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Book name is : Perl
+Book author is : Mohtashim
+</pre>
+        <h3>Example 2</h3>
+        <p>This example demonstrates how to create an object with a User-Defined Function. Here <b>this</b> keyword is used to refer to the object that has been passed to a function.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">User-defined objects</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> book</span><span class="pun">(</span><span class="pln">title</span><span class="pun">,</span><span class="pln"> author</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">title </span><span class="pun">=</span><span class="pln"> title</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">author  </span><span class="pun">=</span><span class="pln"> author</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">var</span><span class="pln"> myBook </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> book</span><span class="pun">(</span><span class="str">"Perl"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Mohtashim"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book title is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">title </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book author is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">author </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Book title is : Perl
+Book author is : Mohtashim
+</pre>
+        <h2>Defining Methods for an Object</h2>
+        <p>The previous examples demonstrate how the constructor creates the object and assigns properties. But we need to complete the definition of an object by assigning methods to it.</p>
+        <h3>Example</h3>
+        <p>Try the following example; it shows how to add a function along with an object.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">User-defined objects</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="com">// Define a function which will work as a method</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> addPrice</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">price </span><span class="pun">=</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         </span><span class="kwd">function</span><span class="pln"> book</span><span class="pun">(</span><span class="pln">title</span><span class="pun">,</span><span class="pln"> author</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">title </span><span class="pun">=</span><span class="pln"> title</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">author  </span><span class="pun">=</span><span class="pln"> author</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">addPrice </span><span class="pun">=</span><span class="pln"> addPrice</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Assign that method as property.</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">var</span><span class="pln"> myBook </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> book</span><span class="pun">(</span><span class="str">"Perl"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Mohtashim"</span><span class="pun">);</span><span class="pln">
+         myBook</span><span class="pun">.</span><span class="pln">addPrice</span><span class="pun">(</span><span class="lit">100</span><span class="pun">);</span><span class="pln">
+
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book title is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">title </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book author is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">author </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book price is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">price </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Book title is : Perl
+Book author is : Mohtashim
+Book price is : 100
+</pre>
+        <h2>The 'with' Keyword</h2>
+        <p>The <b>‘with’</b> keyword is used as a kind of shorthand for referencing an object's properties or methods.</p>
+        <p>The object specified as an argument to <b>with</b> becomes the default object for the duration of the block that follows. The properties and methods for the object can be used without naming the object.</p>
+        <h3>Syntax</h3>
+        <p>The syntax for with object is as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">with</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">object</span><span class="pun">){</span><span class="pln">
+   properties used without the </span><span class="kwd">object</span><span class="pln"> name </span><span class="kwd">and</span><span class="pln"> dot
+</span><span class="pun">}</span></pre>
+        <h3>Example</h3>
+        <p>Try the following example.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;title&gt;</span><span class="pln">User-defined objects</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="com">// Define a function which will work as a method</span><span class="pln">
+         </span><span class="kwd">function</span><span class="pln"> addPrice</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">with</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">){</span><span class="pln">
+               price </span><span class="pun">=</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         </span><span class="kwd">function</span><span class="pln"> book</span><span class="pun">(</span><span class="pln">title</span><span class="pun">,</span><span class="pln"> author</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">title </span><span class="pun">=</span><span class="pln"> title</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">author  </span><span class="pun">=</span><span class="pln"> author</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">price </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">addPrice </span><span class="pun">=</span><span class="pln"> addPrice</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Assign that method as property.</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="kwd">var</span><span class="pln"> myBook </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> book</span><span class="pun">(</span><span class="str">"Perl"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Mohtashim"</span><span class="pun">);</span><span class="pln">
+         myBook</span><span class="pun">.</span><span class="pln">addPrice</span><span class="pun">(</span><span class="lit">100</span><span class="pun">);</span><span class="pln">
+
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book title is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">title </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book author is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">author </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+         document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Book price is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myBook</span><span class="pun">.</span><span class="pln">price </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br&gt;"</span><span class="pun">);</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        Output
+        <pre class="result notranslate">Book title is : Perl
+Book author is : Mohtashim
+Book price is : 100
+</pre>
+        <h2>JavaScript Native Objects</h2>
+        <p>JavaScript has several built-in or native objects. These objects are accessible anywhere in your program and will work the same way in any browser running in any operating system.</p>
+        <p>Here is the list of all important JavaScript Native Objects −</p>
+        <ul class="list">
+            <li><p> JavaScript Number Object </p></li>
+            <li><p> JavaScript Boolean Object </p></li>
+            <li><p> JavaScript String Object </p></li>
+            <li><p> JavaScript Array Object </p></li>
+            <li><p> JavaScript Date Object </p></li>
+            <li><p> JavaScript Math Object </p></li>
+            <li><p> JavaScript RegExp Object </p></li>
+        </ul>
+        <hr>
+    </div></div></div></div></div></div></body></html>

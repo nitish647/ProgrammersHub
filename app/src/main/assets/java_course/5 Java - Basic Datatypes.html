@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6.html -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Basic Datatypes</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <!--<base href="https://www.tutorialspoint.com/">--><!--<base href=".">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/pubads_impl_rendering_170.js.download"></script><script src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/ads"></script><script src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/style-min.css">
+<script async="async" src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/gpt.js.download"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./6_files/integrator.js.download" as="script"><script type="text/javascript" src="./6_files/integrator.js.download"></script><link rel="preload" href="./6_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./6_files/integrator.js(1).download"></script><script src="file:///C:/Users/IhsanAli/Desktop/Data%20for%20Apps/New%20folder/LearnSQLoffline/app/src/main/assets/allfiles/6_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Basic Datatypes</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Variables are nothing but reserved memory locations to store values. This means that when you create a variable you reserve some space in the memory.</p>
+        <p>Based on the data type of a variable, the operating system allocates memory and decides what can be stored in the reserved memory. Therefore, by assigning different data types to variables, you can store integers, decimals, or characters in these variables.</p>
+        <p>There are two data types available in Java −</p>
+        <ul class="list">
+            <li>Primitive Data Types</li>
+            <li>Reference/Object Data Types</li>
+        </ul>
+        <h2>Primitive Data Types</h2>
+        <p>There are eight primitive datatypes supported by Java. Primitive datatypes are predefined by the language and named by a keyword. Let us now look into the eight primitive data types in detail.</p>
+        <h3>byte</h3>
+        <ul class="list">
+            <li><p>Byte data type is an 8-bit signed two's complement integer</p></li>
+            <li><p>Minimum value is -128 (-2^7)</p></li>
+            <li><p>Maximum value is 127 (inclusive)(2^7 -1)</p></li>
+            <li><p>Default value is 0</p></li>
+            <li><p>Byte data type is used to save space in large arrays, mainly in place of integers, since a byte is four times smaller than an integer.</p></li>
+            <li><p>Example: byte a = 100, byte b = -50</p></li>
+        </ul>
+        <h3>short</h3>
+        <ul class="list">
+            <li><p>Short data type is a 16-bit signed two's complement integer</p></li>
+            <li><p>Minimum value is -32,768 (-2^15)</p></li>
+            <li><p>Maximum value is 32,767 (inclusive) (2^15 -1)</p></li>
+            <li><p>Short data type can also be used to save memory as byte data type. A short is 2 times smaller than an integer</p></li>
+            <li><p>Default value is 0.</p></li>
+            <li><p>Example: short  s = 10000, short r = -20000</p></li>
+        </ul>
+        <h3>int</h3>
+        <ul class="list">
+            <li><p>Int data type is a 32-bit signed two's complement integer.</p></li>
+            <li><p>Minimum value is - 2,147,483,648 (-2^31)</p></li>
+            <li><p>Maximum value is 2,147,483,647(inclusive) (2^31 -1)</p></li>
+            <li><p>Integer is generally used as the default data type for integral values unless there is a concern about memory.</p></li>
+            <li><p>The default value is 0</p></li>
+            <li><p>Example: int a = 100000, int b = -200000</p></li>
+        </ul>
+        <h3>long</h3>
+        <ul class="list">
+            <li>Long data type is a 64-bit signed two's complement integer</li>
+            <li>Minimum value is -9,223,372,036,854,775,808(-2^63)</li>
+            <li>Maximum value is 9,223,372,036,854,775,807 (inclusive)(2^63 -1)</li>
+            <li>This type is used when a wider range than int is needed</li>
+            <li>Default value is 0L</li>
+            <li>Example: long a = 100000L, long b = -200000L</li>
+        </ul>
+        <h3>float</h3>
+        <ul class="list">
+            <li><p>Float data type is a single-precision 32-bit IEEE 754 floating point</p></li>
+            <li><p>Float is mainly used to save memory in large arrays of floating point numbers</p></li>
+            <li><p>Default value is 0.0f</p></li>
+            <li><p>Float data type is never used for precise values such as currency</p></li>
+            <li><p>Example: float f1 = 234.5f</p></li>
+        </ul>
+        <h3>double</h3>
+        <ul class="list">
+            <li><p>double data type is a double-precision 64-bit IEEE 754 floating point</p></li>
+            <li><p>This data type is generally used as the default data type for decimal values, generally the default choice</p></li>
+            <li><p>Double data type should never be used for precise values such as currency</p></li>
+            <li><p>Default value is 0.0d</p></li>
+            <li><p>Example: double d1 = 123.4</p></li>
+        </ul>
+        <h3>boolean</h3>
+        <ul class="list">
+            <li>boolean data type represents one bit of information</li>
+            <li>There are only two possible values: true and false</li>
+            <li>This data type is used for simple flags that track true/false conditions</li>
+            <li>Default value is false</li>
+            <li>Example: boolean one = true</li>
+        </ul>
+        <h3>char</h3>
+        <ul class="list">
+            <li>char data type is a single 16-bit Unicode character</li>
+            <li>Minimum value is '\u0000' (or 0)</li>
+            <li>Maximum value is  '\uffff' (or 65,535 inclusive)</li>
+            <li>Char data type is used to store any character</li>
+            <li>Example: char letterA = 'A'</li>
+        </ul>
+        <h2>Reference Datatypes</h2>
+        <ul class="list">
+            <li><p>Reference variables are created using defined constructors of the classes. They are used to access objects. These variables are declared to be of a specific type that cannot be changed. For example, Employee, Puppy, etc.</p></li>
+            <li><p>Class objects and various type of array variables come under reference datatype.</p></li>
+            <li><p>Default value of any reference variable is null.</p></li>
+            <li><p>A reference variable can be used to refer any object of the declared type or any compatible type.</p></li>
+            <li><p>Example: Animal animal = new Animal("giraffe");</p></li>
+        </ul>
+        <h2>Java Literals</h2>
+        <p>A literal is a source code representation of a fixed value. They are represented directly in the code without any computation.</p>
+        <p>Literals can be assigned to any primitive type variable. For example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">byte</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">68</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">char</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="str">'A'</span><span class="pun">;</span></pre>
+        <p>byte, int, long, and short can be expressed in decimal(base 10), hexadecimal(base 16) or octal(base 8) number systems as well.</p>
+        <p>Prefix 0 is used to indicate octal, and prefix 0x indicates hexadecimal when using these number systems for literals. For example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">int</span><span class="pln"> </span><span class="kwd">decimal</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> octal </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0144</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> hexa </span><span class="pun">=</span><span class="pln">  </span><span class="lit">0x64</span><span class="pun">;</span></pre>
+        <p>String literals in Java are specified like they are in most other languages by enclosing a sequence of characters between a pair of double quotes. Examples of string literals are −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="str">"Hello World"</span><span class="pln">
+</span><span class="str">"two\nlines"</span><span class="pln">
+</span><span class="str">"\"This is in quotes\""</span></pre>
+        <p>String and char types of literals can contain any Unicode characters. For example −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">char</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="str">'\u0001'</span><span class="pun">;</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="str">"\u0001"</span><span class="pun">;</span></pre>
+        <p>Java language supports few special escape sequences for String and char literals as well. They are −</p>
+        <table class="table table-bordered" style="text-align:center;">
+            <tbody><tr>
+                <th style="text-align:center;">Notation</th>
+                <th style="text-align:center;">Character represented</th>
+            </tr>
+            <tr>
+                <td>\n</td>
+                <td>Newline (0x0a)</td>
+            </tr>
+            <tr>
+                <td>\r</td>
+                <td>Carriage return (0x0d)</td>
+            </tr>
+            <tr>
+                <td>\f</td>
+                <td>Formfeed (0x0c)</td>
+            </tr>
+            <tr>
+                <td>\b</td>
+                <td>Backspace (0x08)</td>
+            </tr>
+            <tr>
+                <td>\s</td>
+                <td>Space (0x20)</td>
+            </tr>
+            <tr>
+                <td>\t</td>
+                <td>tab</td>
+            </tr>
+            <tr>
+                <td>\" </td>
+                <td>Double quote</td>
+            </tr>
+            <tr>
+                <td>\'</td>
+                <td>Single quote</td>
+            </tr>
+            <tr>
+                <td>\\</td>
+                <td>backslash</td>
+            </tr>
+            <tr>
+                <td>\ddd</td>
+                <td>Octal character (ddd)</td>
+            </tr>
+            <tr>
+                <td>\uxxxx</td>
+                <td>Hexadecimal UNICODE character (xxxx)</td>
+            </tr>
+            </tbody></table>
+        <h2>What is Next?</h2>
+        <p>This chapter explained the various data types. The next topic explains different variable types and their usage. This will give you a good understanding on how they can be used in the Java classes, interfaces, etc.</p>
+        <hr>
+
+    </div>
+
+
+
+</div></div></div></div></div>
+
+</body></html>

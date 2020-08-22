@@ -1,0 +1,43 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;* Area of triangle using function declaration by passing parameters</span>
+<span style='color:#3f7f59; '>&#xa0;*/</span>
+<span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> assignments</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>geom</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Area</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>BufferedReader</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>InputStreamReader</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f5fbf; '>/**</span>
+<span style='color:#3f5fbf; '>&#xa0;</span><span style='color:#7f9fbf; font-weight:bold; '>*</span><span style='color:#3f5fbf; '></span>
+<span style='color:#3f5fbf; '>&#xa0;</span><span style='color:#7f9fbf; font-weight:bold; '>*</span><span style='color:#3f5fbf; '> </span><span style='color:#7f9fbf; font-weight:bold; '>@author</span><span style='color:#3f5fbf; '> </span><span style='color:#7f9fbf; font-weight:bold; '>rushikesh</span><span style='color:#3f5fbf; '></span>
+<span style='color:#3f5fbf; '>&#xa0;*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Area_of_triangle {
+    
+    <span style='color:#7f0055; font-weight:bold; '>void</span> area(<span style='color:#7f0055; font-weight:bold; '>int</span> b,<span style='color:#7f0055; font-weight:bold; '>long</span> h)
+    {
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Area of triangle is: "</span>+0.5 * b * h);
+    }  
+    
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span>
+    {
+        Area_of_triangle obj = <span style='color:#7f0055; font-weight:bold; '>new</span> Area_of_triangle();
+       <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span> bufferedReader = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span>(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>InputStreamReader</span>(<span style='color:#7f0055; font-weight:bold; '>System</span>.in));
+       <span style='color:#7f0055; font-weight:bold; '>int</span> a, b;
+       <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter the base of triangle"</span>);
+       a = <span style='color:#7f0055; font-weight:bold; '>Integer</span>.parseInt(bufferedReader.readLine());
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter the height of triangle"</span>);
+       b = <span style='color:#7f0055; font-weight:bold; '>Integer</span>.parseInt(bufferedReader.readLine());
+       
+         obj.area(a,b);
+    }    
+}
+
+
+Output:
+
+ Enter the base of triangle
+ 4
+ Enter the height of triangle
+ 5
+ Area of triangle is: 10.0
+</pre>

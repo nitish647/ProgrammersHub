@@ -1,0 +1,677 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C – Dynamic memory allocation</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:15.0pt;font-family:"Montserrat","serif";color:#444444'>C
+– Dynamic memory allocation</span></b></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>DYNAMIC MEMORY
+ALLOCATION IN C</span><strong style='box-sizing: border-box;font-style:inherit;
+font-variant:inherit;font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>:</span></strong></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>The
+process of allocating memory during program execution is called dynamic memory
+allocation.</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>DYNAMIC MEMORY ALLOCATION FUNCTIONS IN C:</span></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>C
+language offers 4 dynamic memory allocation functions. They are,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN>malloc()</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN>calloc()</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN>realloc()</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN>free()</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=555
+ style='width:416.25pt;border-collapse:collapse;border:none;box-sizing: border-box;
+ border-spacing: 0px'>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:baseline'><strong
+  style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+  font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+  style='font-family:"inherit","serif"'>Function</span></strong></p>
+  </td>
+  <td valign=bottom style='border:solid black 1.0pt;border-left:none;
+  padding:5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:baseline'><strong
+  style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+  font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+  style='font-family:"inherit","serif"'>Syntax</span></strong></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal>malloc ()</p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal>malloc (number *sizeof(int));</p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal>calloc ()</p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal>calloc (number, sizeof(int));</p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal>realloc ()</p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal>realloc (pointer_name, number * sizeof(int));</p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal>free ()</p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal>free (pointer_name);</p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;vertical-align:
+baseline;box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>1. MALLOC() FUNCTION
+IN C</span><strong style='box-sizing: border-box;font-style:inherit;font-variant:
+inherit;font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>malloc () function is used to allocate space in
+memory during the execution of the program.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>malloc () does not initialize the memory
+allocated during execution.&nbsp; It carries garbage value.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>malloc () function returns null pointer if it
+couldn’t able to allocate requested amount of memory.</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;vertical-align:
+baseline;box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>EXAMPLE PROGRAM
+FOR MALLOC() FUNCTION IN C</span><strong style='box-sizing: border-box;
+font-style:inherit;font-variant:inherit;font-stretch: inherit;font-size:inherit;
+line-height:inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span style='box-sizing: border-box;font-style:
+inherit;font-variant:inherit;font-weight:inherit !important;font-stretch: inherit;
+font-size:inherit !important;line-height:inherit !important;height:inherit;
+float:left'><span lang=EN-IN>#include &lt;stdio.h&gt;</span></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;string.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>int main()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; char *mem_allocation;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; /* memory
+is allocated dynamically */</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; mem_allocation
+= malloc( 20 * sizeof(char) );</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; if( mem_allocation==
+NULL )</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;Couldn't
+able to allocate requested memory\n&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; else</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(
+mem_allocation,&quot;fresh2refresh.com&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;Dynamically
+allocated memory content : &quot; \</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;%s\n&quot;,
+mem_</span><span lang=EN-IN style='font-size:9.0pt;font-family:"Courier New";
+color:black'>allocation</span><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'> );</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; free(mem_allocation);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'>Dynamically allocated memory content
+: fresh2refresh.com</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>2. CALLOC() FUNCTION IN C</span></b><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>calloc () function is also like malloc () function. But calloc ()
+initializes the allocated memory to zero. But, malloc() doesn’t.</span></p>
+
+<p class=MsoNormal style='margin-bottom:9.0pt;text-align:justify;line-height:
+normal;background:#FBFBFB;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR CALLOC() FUNCTION IN C:</span></b></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;string.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     char *mem_allocation;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     /* memory is allocated dynamically */</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     mem_allocation = calloc( 20,
+sizeof(char) );</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     if( mem_allocation== NULL )</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>        printf(&quot;Couldn't able to
+allocate requested memory\n&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     else</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>         strcpy( mem_allocation,&quot;fresh2refresh.com&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>     }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>         printf(&quot;Dynamically allocated
+memory content   : &quot; \</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>                &quot;%s\n&quot;,
+mem_allocation );</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>         free(mem_allocation);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>}</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'>Dynamically allocated memory content
+: fresh2refresh.com</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:9.0pt;text-align:justify;line-height:
+normal;vertical-align:baseline'><b><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Montserrat","serif";color:#222222;text-transform:uppercase'>3. REALLOC()
+FUNCTION IN C:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>realloc
+() function modifies the allocated memory size by malloc () and calloc ()
+functions to new size.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>If
+enough space doesn’t exist in memory of current block to extend, new block is
+allocated for the full size of reallocation, then copies the existing data to
+new block and then frees the old block.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>&nbsp;4. FREE() FUNCTION IN C</span></b><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>free
+() function frees the allocated memory by malloc (), calloc (), realloc ()
+functions and returns the memory to the system.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR REALLOC() AND FREE() FUNCTIONS IN
+C</span></b><b><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></b></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;string.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdlib.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    char *mem_allocation;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    /* memory is allocated dynamically */</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    mem_allocation = malloc( 20 *
+sizeof(char) );</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    if( mem_allocation == NULL )</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>        printf(&quot;Couldn't able to
+allocate requested memory\n&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    else</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>       strcpy(
+mem_allocation,&quot;fresh2refresh.com&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    printf(&quot;Dynamically allocated
+memory content  : &quot; \</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>           &quot;%s\n&quot;, mem_allocation
+);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    mem_allocation=realloc(mem_allocation,100*sizeof(char));</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    if( mem_allocation == NULL )</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>        printf(&quot;Couldn't able to
+allocate requested memory\n&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    else</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    {</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>        strcpy( mem_allocation,&quot;space
+is extended upto &quot; \</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>                               &quot;100
+characters&quot;);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    }</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    printf(&quot;Resized memory :
+%s\n&quot;, mem_allocation );</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    free(mem_allocation);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>}</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'>Dynamically allocated memory content
+: fresh2refresh.com<br>
+Resized memory : space is extended upto 100 characters</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>DIFFERENCE
+BETWEEN&nbsp;STATIC MEMORY ALLOCATION AND DYNAMIC MEMORY ALLOCATION IN C</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>:</span></strong></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=555
+ style='width:416.25pt;background:#FBFBFB;border-collapse:collapse;border:none;
+ box-sizing: border-box;border-spacing: 0px;font-variant-ligatures: normal;
+ font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;
+ font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+ text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+ 0px'>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal align=center style='text-align:center'><strong
+  style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+  font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+  style='font-size:10.0pt;line-height:106%;font-family:"inherit","serif";
+  color:#444444'>Static memory allocation</span></strong></p>
+  </td>
+  <td valign=bottom style='border:solid black 1.0pt;border-left:none;
+  padding:5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal align=center style='text-align:center'><strong
+  style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+  font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+  style='font-size:10.0pt;line-height:106%;font-family:"inherit","serif";
+  color:#444444'>Dynamic memory allocation</span></strong></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>In static memory allocation, memory is allocated
+  while writing the C program. Actually, user requested memory will be
+  allocated at compile time.</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>In dynamic memory allocation, memory is
+  allocated while executing the program. That means at run time.</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt;box-sizing: border-box'><span style='box-sizing: border-box;
+  font-style:inherit;font-variant:inherit;font-weight:inherit;font-stretch: inherit;
+  font-size:inherit'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "inherit","serif";color:#444444'>Memory size can’t be modified while
+  execution.&nbsp;</span></span><span style='font-size:10.0pt;line-height:106%;
+  font-family:"Merriweather","serif";color:#444444'><br style='box-sizing: border-box'>
+  </span><span style='font-size:10.0pt;line-height:106%;font-family:"inherit","serif";
+  color:#444444'><span style='box-sizing: border-box;font-style:inherit;
+  font-variant:inherit;font-weight:inherit;font-stretch: inherit;font-size:
+  inherit'>Example: array</span></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'><span style='box-sizing: border-box;font-style:inherit;
+  font-variant:inherit;font-weight:inherit;font-stretch: inherit;font-size:
+  inherit'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "inherit","serif";color:#444444'>Memory size can be modified while execution.&nbsp;</span></span><span
+  style='font-size:10.0pt;line-height:106%;font-family:"Merriweather","serif";
+  color:#444444'><br style='box-sizing: border-box'>
+  </span><span style='font-size:10.0pt;line-height:106%;font-family:"inherit","serif";
+  color:#444444'><span style='box-sizing: border-box;font-style:inherit;
+  font-variant:inherit;font-weight:inherit;font-stretch: inherit;font-size:
+  inherit'>Example: Linked list</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;
+font-stretch: inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";
+color:#222222;text-transform:uppercase'>DIFFERENCE BETWEEN MALLOC() AND
+CALLOC() FUNCTIONS IN C</span><strong style='box-sizing: border-box;font-style:
+inherit;font-variant:inherit;font-stretch: inherit;font-size:inherit;
+line-height:inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></strong></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=555
+ style='width:416.25pt;background:#FBFBFB;border-collapse:collapse;border:none;
+ box-sizing: border-box;border-spacing: 0px;font-variant-ligatures: normal;
+ font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;
+ font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+ text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+ 0px'>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>malloc()</span></p>
+  </td>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>calloc()</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>It allocates only single block of requested
+  memory</span></p>
+  </td>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>It allocates multiple blocks of
+  requested memory</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>int *ptr;ptr = malloc( 20 * sizeof(int)
+  );For the above, 20*4 bytes of memory only allocated in one block.<br
+  style='box-sizing: border-box'>
+  Total = 80 bytes</span></p>
+  </td>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>int *ptr;Ptr = calloc( 20, 20 * sizeof(int)
+  );For the above, 20 blocks of memory will be created and each contains 20*4
+  bytes of memory.<br style='box-sizing: border-box'>
+  Total = 1600 bytes</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>malloc () doesn’t initializes the
+  allocated memory. It contains garbage values</span></p>
+  </td>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>calloc () initializes the allocated
+  memory to zero</span></p>
+  </td>
+ </tr>
+ <tr style='box-sizing: border-box'>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>type cast must be done since this function
+  returns void pointer int *ptr;ptr = (int*)malloc(sizeof(int)*20 );</span></p>
+  </td>
+  <td valign=bottom style='border:none;padding:5.25pt 11.25pt 5.25pt 11.25pt;
+  box-sizing: border-box'>
+  <p class=MsoNormal><span style='font-size:10.0pt;line-height:106%;font-family:
+  "Merriweather","serif";color:#444444'>Same as malloc () function int *ptr;ptr
+  = (int*)calloc( 20, 20 * sizeof(int) );</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

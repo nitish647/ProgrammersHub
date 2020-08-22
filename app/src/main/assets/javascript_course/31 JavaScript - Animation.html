@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Animation</title>
+    <meta name="description" content="JavaScript Animation - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Animation</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>You can use JavaScript to create a complex animation having, but not limited to, the following elements −</p>
+        <ul class="list">
+            <li>Fireworks</li>
+            <li>Fade Effect</li>
+            <li>Roll-in or Roll-out</li>
+            <li>Page-in or Page-out</li>
+            <li>Object movements</li>
+        </ul>
+
+        <p>This tutorial provides a basic understanding of how to use JavaScript to create an animation.</p>
+        <p>JavaScript can be used to move a number of DOM elements (&lt;img /&gt;, &lt;div&gt; or any other HTML element) around the page according to some sort of pattern determined by a logical equation or function.</p>
+        <p>JavaScript provides the following two functions to be frequently used in animation programs.</p>
+        <ul class="list">
+            <li><p><b>setTimeout( function, duration)</b> − This function calls <b>function</b> after <b>duration</b> milliseconds from now.</p></li>
+            <li><p><b>setInterval(function, duration)</b> − This function calls <b>function</b> after every <b>duration</b> milliseconds.</p></li>
+            <li><p><b>clearTimeout(setTimeout_variable)</b> − This function calls clears any timer set by the setTimeout() functions.</p></li>
+        </ul>
+        <p>JavaScript can also set a number of attributes of a DOM object including its position on the screen. You can set <i>top</i> and left attribute of an object to position it anywhere on the screen. Here is its syntax.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// Set distance from left edge of the screen.</span><span class="pln">
+</span><span class="kwd">object</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> distance </span><span class="kwd">in</span><span class="pln"> pixels </span><span class="kwd">or</span><span class="pln"> points</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">or</span><span class="pln">
+
+</span><span class="com">// Set distance from top edge of the screen.</span><span class="pln">
+</span><span class="kwd">object</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">top </span><span class="pun">=</span><span class="pln"> distance </span><span class="kwd">in</span><span class="pln"> pixels </span><span class="kwd">or</span><span class="pln"> points</span><span class="pun">;</span><span class="pln"> </span></pre>
+        <h2>Manual Animation</h2>
+        <p>So let's implement one simple animation using DOM object properties and JavaScript functions as follows. The following list contains different DOM methods.</p>
+        <ul class="list">
+            <li><p>We are using the JavaScript function <b>getElementById()</b> to get a DOM object and then assigning it to a global variable <b>imgObj</b>.</p></li>
+            <li><p>We have defined an initialization function <b>init()</b> to initialize <b>imgObj</b> where we have set its <b>position</b> and <b>left</b> attributes.</p></li>
+            <li><p>We are calling initialization function at the time of window load.</p></li>
+            <li><p>Finally, we are calling <b>moveRight()</b> function to increase the left distance by 10 pixels. You could also set it to a negative value to move it to the left side.</p></li>
+        </ul>
+        <h3>Example</h3>
+        <p>Try the following example.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">JavaScript Animation</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> imgObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">(){</span><span class="pln">
+               imgObj </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myImage'</span><span class="pun">);</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">position</span><span class="pun">=</span><span class="pln"> </span><span class="str">'relative'</span><span class="pun">;</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="str">'0px'</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">function</span><span class="pln"> moveRight</span><span class="pun">(){</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'px'</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln">init</span><span class="pun">;</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myImage"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"/images/html.gif"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;p&gt;</span><span class="pln">Click button below to move the image to right</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Click Me"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">moveRight</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/animation.htm" height="250px" width="600px" style="visibility: visible; height: 246px;"></iframe>
+        <h2>Automated Animation</h2>
+        <p>In the above example, we saw how an image moves to right with every click. We can automate this process by using the JavaScript function <b>setTimeout()</b> as follows −</p>
+        <p>Here we have added more methods. So let's see what is new here −</p>
+        <ul class="list">
+            <li><p>The <b>moveRight()</b> function is calling <b>setTimeout()</b> function to set the position of <i>imgObj</i>.</p></li>
+            <li><p>We have added a new function <b>stop()</b> to clear the timer set by <b>setTimeout()</b> function and to set the object at its initial position.</p></li>
+        </ul>
+        <h3>Example</h3>
+        <p>Try the following example code.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">JavaScript Animation</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> imgObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> animate </span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">(){</span><span class="pln">
+               imgObj </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myImage'</span><span class="pun">);</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">position</span><span class="pun">=</span><span class="pln"> </span><span class="str">'relative'</span><span class="pun">;</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="str">'0px'</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">function</span><span class="pln"> moveRight</span><span class="pun">(){</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'px'</span><span class="pun">;</span><span class="pln">
+               animate </span><span class="pun">=</span><span class="pln"> setTimeout</span><span class="pun">(</span><span class="pln">moveRight</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span><span class="pln"> </span><span class="com">// call moveRight in 20msec</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">(){</span><span class="pln">
+               clearTimeout</span><span class="pun">(</span><span class="pln">animate</span><span class="pun">);</span><span class="pln">
+               imgObj</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="str">'0px'</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln">init</span><span class="pun">;</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form&gt;</span><span class="pln">
+         </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myImage"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"/images/html.gif"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;p&gt;</span><span class="pln">Click the buttons below to handle animation</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Start"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">moveRight</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Stop"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stop</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/animation2.htm" height="250px" width="600px" style="visibility: visible; height: 246px;"></iframe>
+        <h2>Rollover with a Mouse Event</h2>
+        <p>Here is a simple example showing image rollover with a mouse event.</p>
+        <p>Let's see what we are using in the following example −</p>
+        <ul class="list">
+            <li><p>At the time of loading this page, the ‘if’ statement checks for the existence of the image object. If the image object is unavailable, this block will not be executed.</p></li>
+            <li><p>The <b>Image()</b> constructor creates and preloads a new image object called <b>image1</b>.</p></li>
+            <li><p>The src property is assigned the name of the external image file called /images/html.gif.</p></li>
+            <li><p>Similarly, we have created <b>image2</b> object and assigned /images/http.gif in this object.</p></li>
+            <li><p>The # (hash mark) disables the link so that the browser does not try to go to a URL when clicked. This link is an image.</p></li>
+            <li><p>The <b>onMouseOver</b> event handler is triggered when the user's mouse moves onto the link, and the <b>onMouseOut</b> event handler is triggered when the user's mouse moves away from the link (image).</p></li>
+            <li><p>When the mouse moves over the image, the HTTP image changes from the first image to the second one. When the mouse is moved away from the image, the original image is displayed.</p></li>
+            <li><p>When the mouse is moved away from the link, the initial image html.gif will reappear on the screen.</p></li>
+        </ul>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">Rollover with a Mouse Events</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">images</span><span class="pun">){</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> image1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Preload an image</span><span class="pln">
+               image1</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/images/html.gif"</span><span class="pun">;</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> image2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Preload second image</span><span class="pln">
+               image2</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/images/http.gif"</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Move your mouse over the image to see the result</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#"</span><span class="pln"> </span><span class="atn">onMouseOver</span><span class="pun">=</span><span class="atv">"</span><span class="pln">document</span><span class="pun">.</span><span class="pln">myImage</span><span class="pun">.</span><span class="pln">src</span><span class="pun">=</span><span class="pln">image2</span><span class="pun">.</span><span class="pln">src</span><span class="pun">;</span><span class="atv">"</span><span class="pln"> </span><span class="atn">onMouseOut</span><span class="pun">=</span><span class="atv">"</span><span class="pln">document</span><span class="pun">.</span><span class="pln">myImage</span><span class="pun">.</span><span class="pln">src</span><span class="pun">=</span><span class="pln">image1</span><span class="pun">.</span><span class="pln">src</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+      </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myImage"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"/images/html.gif"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/a&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/animation3.htm" height="250px" width="600px" style="visibility: visible; height: 201px;"></iframe>
+        <hr>
+    </div></div></div></div></div></div></body></html>

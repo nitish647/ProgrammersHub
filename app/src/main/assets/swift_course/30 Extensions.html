@@ -1,0 +1,227 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Extensions</h1>
+
+<p>Functionality of an existing class, structure or enumeration type can be added with the help of extensions. Type functionality can be added with extensions but overriding the functionality is not possible with extensions.</p>
+<p><strong>Swift Extension Functionalities</strong> &minus;</p>
+<ul class="list">
+<li>Adding computed properties and computed type properties.</li>
+<li>Defining instance and type methods.</li>
+<li>Providing new initializers.</li>
+<li>Defining subscripts.</li>
+<li>Defining and using new nested types.</li>
+<li>Making an existing type conform to a protocol.</li>
+</ul>
+<p>Extensions are declared with the keyword 'extension'.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">extension </span><span class="typ">SomeType</span> <span class="pun">{</span>
+   <span class="com">// new functionality can be added here</span>
+<span class="pun">}</span></pre>
+<p>Existing type can also be added with extensions to make it as a protocol standard and its syntax is similar to that of classes or structures.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">extension </span><span class="typ">SomeType</span><span class="pun">:</span> <span class="typ">SomeProtocol</span><span class="pun">,</span> <span class="typ">AnotherProtocol</span> <span class="pun">{</span>
+   <span class="com">// protocol requirements is described here</span>
+<span class="pun">}</span></pre>
+<h2>Computed Properties</h2>
+<p>Computed 'instance' and 'type' properties can also be extended with the help of extensions.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">extension </span><span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> add</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span><span class="kwd">return</span> <span class="kwd">self</span> <span class="pun">+</span> <span class="lit">100</span> <span class="pun">}</span>
+   <span class="kwd">var</span> <span class="kwd">sub</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">return</span> <span class="kwd">self</span> <span class="pun">-</span> <span class="lit">10</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> mul</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">return</span> <span class="kwd">self</span> <span class="pun">*</span> <span class="lit">10</span> <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> div</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span> <span class="kwd">return</span> <span class="kwd">self</span> <span class="pun">/</span> <span class="lit">5</span> <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> addition </span><span class="pun">=</span> <span class="lit">3.add</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Addition is \(addition)"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> subtraction </span><span class="pun">=</span> <span class="lit">120.sub</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Subtraction is \(subtraction)"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> multiplication </span><span class="pun">=</span> <span class="lit">39.mul</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Multiplication is \(multiplication)"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> division </span><span class="pun">=</span> <span class="lit">55.div</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Division is \(division)"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> mix </span><span class="pun">=</span> <span class="lit">30.add</span> <span class="pun">+</span> <span class="lit">34.sub</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Mixed Type is \(mix)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Addition is 103
+Subtraction is 110
+Multiplication is 390
+Division is 11
+Mixed Type is 154
+</pre>
+<h2>Initializers</h2>
+<p>Swift provides the flexibility to add new initializers to an existing type by extensions. The user can add their own custom types to extend the types already defined and additional initialization options are also possible. Extensions supports only init(). deinit() is not supported by the extensions.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span><span class="pln"> sum </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> num1 </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">,</span><span class="pln"> num2 </span><span class="pun">=</span> <span class="lit">200</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span><span class="pln"> diff </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> no1 </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">,</span><span class="pln"> no2 </span><span class="pun">=</span> <span class="lit">100</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span><span class="pln"> mult </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> sum</span><span class="pun">()</span>
+   <span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> diff</span><span class="pun">()</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> calc </span><span class="pun">=</span><span class="pln"> mult</span><span class="pun">()</span><span class="pln">
+println </span><span class="pun">(</span><span class="str">"Inside mult block \(calc.a.num1, calc.a.num2)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Inside mult block \(calc.b.no1, calc.b.no2)"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> memcalc </span><span class="pun">=</span><span class="pln"> mult</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span><span class="pln"> sum</span><span class="pun">(</span><span class="pln">num1</span><span class="pun">:</span> <span class="lit">300</span><span class="pun">,</span><span class="pln"> num2</span><span class="pun">:</span> <span class="lit">500</span><span class="pun">),</span><span class="pln">b</span><span class="pun">:</span><span class="pln"> diff</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">300</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">))</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Inside mult block \(memcalc.a.num1, memcalc.a.num2)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Inside mult block \(memcalc.b.no1, memcalc.b.no2)"</span><span class="pun">)</span><span class="pln">
+
+extension mult </span><span class="pun">{</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">x</span><span class="pun">:</span><span class="pln"> sum</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="pln"> diff</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">let</span><span class="pln"> X </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">num1 </span><span class="pun">+</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">num2
+      </span><span class="kwd">let</span><span class="pln"> Y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">.</span><span class="pln">no1 </span><span class="pun">+</span><span class="pln"> y</span><span class="pun">.</span><span class="pln">no2
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">let</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> sum</span><span class="pun">(</span><span class="pln">num1</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">,</span><span class="pln"> num2</span><span class="pun">:</span> <span class="lit">200</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Inside Sum Block:\( a.num1, a.num2)"</span><span class="pun">)</span>
+
+
+<span class="kwd">let</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> diff</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">200</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Inside Diff Block: \(b.no1, b.no2)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Inside mult block (100, 200)
+Inside mult block (200, 100)
+Inside mult block (300, 500)
+Inside mult block (300, 100)
+Inside Sum Block:(100, 200)
+Inside Diff Block: (200, 100)
+</pre>
+<h2>Methods</h2>
+<p>New instance methods and type methods can be added further to the subclass with the help of extensions.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">extension </span><span class="typ">Int</span> <span class="pun">{</span><span class="pln">
+   func topics</span><span class="pun">(</span><span class="pln">summation</span><span class="pun">:</span> <span class="pun">()</span> <span class="pun">-&gt;</span> <span class="pun">())</span> <span class="pun">{</span>
+      <span class="kwd">for</span><span class="pln"> _ </span><span class="kwd">in</span> <span class="lit">0.</span><span class="pun">.&lt;</span><span class="kwd">self</span> <span class="pun">{</span><span class="pln">
+         summation</span><span class="pun">()</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="lit">4.topics</span><span class="pun">({</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Inside Extensions Block"</span><span class="pun">)</span>       
+<span class="pun">})</span>    
+
+<span class="lit">3.topics</span><span class="pun">({</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Inside Type Casting Block"</span><span class="pun">)</span>       
+<span class="pun">})</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Inside Extensions Block
+Inside Extensions Block
+Inside Extensions Block
+Inside Extensions Block
+Inside Type Casting Block
+Inside Type Casting Block
+Inside Type Casting Block
+</pre>
+<p>topics() function takes argument of type '(summation: () &rarr; ())' to indicate the function does not take any arguments and it won't return any values. To call that function multiple number of times, for block is initialized and call to the method with topic() is initialized.</p>
+<h2>Mutating Instance Methods</h2>
+<p>Instance methods can also be mutated when declared as extensions.</p>
+<p>Structure and enumeration methods that modify self or its properties must mark the instance method as mutating, just like mutating methods from an original implementation.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">extension </span><span class="typ">Double</span> <span class="pun">{</span><span class="pln">
+   mutating func square</span><span class="pun">()</span> <span class="pun">{</span>
+      <span class="kwd">let</span><span class="pln"> pi </span><span class="pun">=</span> <span class="lit">3.1415</span>
+      <span class="kwd">self</span> <span class="pun">=</span><span class="pln"> pi </span><span class="pun">*</span> <span class="kwd">self</span> <span class="pun">*</span> <span class="kwd">self</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span> <span class="typ">Trial1</span> <span class="pun">=</span> <span class="lit">3.3</span>
+<span class="typ">Trial1</span><span class="pun">.</span><span class="pln">square</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Area of circle is: \(Trial1)"</span><span class="pun">)</span>
+
+
+<span class="kwd">var</span> <span class="typ">Trial2</span> <span class="pun">=</span> <span class="lit">5.8</span>
+<span class="typ">Trial2</span><span class="pun">.</span><span class="pln">square</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Area of circle is: \(Trial2)"</span><span class="pun">)</span>
+
+
+<span class="kwd">var</span> <span class="typ">Trial3</span> <span class="pun">=</span> <span class="lit">120.3</span>
+<span class="typ">Trial3</span><span class="pun">.</span><span class="pln">square</span><span class="pun">()</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Area of circle is: \(Trial3)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Area of circle is: 34.210935
+Area of circle is: 105.68006
+Area of circle is: 45464.070735
+</pre>
+<h2>Subscripts</h2>
+<p>Adding new subscripts to already declared instances can also be possible with extensions.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="pln">extension </span><span class="typ">Int</span> <span class="pun">{</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> multtable</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">var</span><span class="pln"> no1 </span><span class="pun">=</span> <span class="lit">1</span>
+      <span class="kwd">while</span><span class="pln"> multtable </span><span class="pun">&gt;</span> <span class="lit">0</span> <span class="pun">{</span><span class="pln">
+         no1 </span><span class="pun">*=</span> <span class="lit">10</span>
+         <span class="pun">--</span><span class="pln">multtable
+      </span><span class="pun">}</span>
+      <span class="kwd">return</span> <span class="pun">(</span><span class="kwd">self</span> <span class="pun">/</span><span class="pln"> no1</span><span class="pun">)</span> <span class="pun">%</span> <span class="lit">10</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="lit">12</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="lit">7869</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="lit">786543</span><span class="pun">[</span><span class="lit">2</span><span class="pun">])</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">2
+6
+5
+</pre>
+<h2>Nested Types</h2>
+<p>Nested types for class, structure and enumeration instances can also be extended with the help of extensions.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="pln">extension </span><span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">enum</span><span class="pln"> calc </span><span class="pun">{</span>
+      <span class="kwd">case</span><span class="pln"> add
+      </span><span class="kwd">case</span> <span class="kwd">sub</span>
+      <span class="kwd">case</span><span class="pln"> mult
+      </span><span class="kwd">case</span><span class="pln"> div
+      </span><span class="kwd">case</span><span class="pln"> anything
+   </span><span class="pun">}</span>
+
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> calc </span><span class="pun">{</span>
+      <span class="kwd">switch</span> <span class="kwd">self</span> <span class="pun">{</span>
+         <span class="kwd">case</span> <span class="lit">0</span><span class="pun">:</span>
+            <span class="kwd">return</span> <span class="pun">.</span><span class="pln">add
+         </span><span class="kwd">case</span> <span class="lit">1</span><span class="pun">:</span>
+            <span class="kwd">return</span> <span class="pun">.</span><span class="kwd">sub</span>
+         <span class="kwd">case</span> <span class="lit">2</span><span class="pun">:</span>
+            <span class="kwd">return</span> <span class="pun">.</span><span class="pln">mult
+         </span><span class="kwd">case</span> <span class="lit">3</span><span class="pun">:</span>
+            <span class="kwd">return</span> <span class="pun">.</span><span class="pln">div
+         </span><span class="kwd">default</span><span class="pun">:</span>
+            <span class="kwd">return</span> <span class="pun">.</span><span class="pln">anything
+       </span><span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+func result</span><span class="pun">(</span><span class="pln">numb</span><span class="pun">:</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">])</span> <span class="pun">{</span>
+   <span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> numb </span><span class="pun">{</span>
+      <span class="kwd">switch</span><span class="pln"> i</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">{</span>
+         <span class="kwd">case</span> <span class="pun">.</span><span class="pln">add</span><span class="pun">:</span><span class="pln">
+            println</span><span class="pun">(</span><span class="str">" 10 "</span><span class="pun">)</span>
+          <span class="kwd">case</span> <span class="pun">.</span><span class="kwd">sub</span><span class="pun">:</span><span class="pln">
+            println</span><span class="pun">(</span><span class="str">" 20 "</span><span class="pun">)</span>
+         <span class="kwd">case</span> <span class="pun">.</span><span class="pln">mult</span><span class="pun">:</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">" 30 "</span><span class="pun">)</span>
+         <span class="kwd">case</span> <span class="pun">.</span><span class="pln">div</span><span class="pun">:</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">" 40 "</span><span class="pun">)</span>
+         <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+         println</span><span class="pun">(</span><span class="str">" 50 "</span><span class="pun">)</span>
+
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span><span class="pln">
+
+result</span><span class="pun">([</span><span class="lit">0</span><span class="pun">,</span> <span class="lit">1</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">,</span> <span class="lit">4</span><span class="pun">,</span> <span class="lit">7</span><span class="pun">])</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">10
+20
+30
+40
+50
+50
+</pre>

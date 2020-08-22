@@ -1,0 +1,69 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Modifier Types</h1>
+ 
+<p>C++ allows the <strong>char, int, </strong> and <strong>double</strong> data types to have modifiers preceding them. A modifier is used to alter the meaning of the base type so that it more precisely fits the needs of various situations.</p>
+<p>The data type modifiers are listed here &minus;</p>
+<ul class="list">
+<li>signed</li>
+<li>unsigned</li>
+<li>long</li>
+<li>short</li>
+</ul>
+<p>The modifiers <strong>signed, unsigned, long,</strong> and <strong>short</strong> can be applied to integer base types. In addition, <strong>signed</strong> and <strong>unsigned</strong> can be applied to char, and <strong>long</strong> can be applied to double.</p>
+<p>The modifiers <strong>signed</strong> and <strong>unsigned</strong> can also be used as prefix to <strong>long</strong> or <strong>short</strong> modifiers. For example, <strong>unsigned long int</strong>.</p>
+<p>C++ allows a shorthand notation for declaring <strong>unsigned, short,</strong> or <strong>long</strong> integers. You can simply use the word <strong>unsigned, short,</strong> or <strong>long,</strong> without <strong>int</strong>. It automatically implies <strong>int</strong>. For example, the following two statements both declare unsigned integer variables.</p>
+<pre class="result notranslate">unsigned x;
+unsigned int y;
+</pre>
+<p>To understand the difference between the way signed and unsigned integer modifiers are interpreted by C++, you should run the following short program &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">/* This program shows the difference between
+   * signed and unsigned integers.
+*/</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">short</span> <span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span>           <span class="com">// a signed short integer</span>
+   <span class="kwd">short</span> <span class="kwd">unsigned</span> <span class="kwd">int</span><span class="pln"> j</span><span class="pun">;</span>  <span class="com">// an unsigned short integer</span><span class="pln">
+
+   j </span><span class="pun">=</span> <span class="lit">50000</span><span class="pun">;</span><span class="pln">
+
+   i </span><span class="pun">=</span><span class="pln"> j</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">" "</span> <span class="pun">&lt;&lt;</span><span class="pln"> j</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When this program is run, following is the output &minus;</p>
+<pre class="result notranslate">-15536 50000
+</pre>
+<p>The above result is because the bit pattern that represents 50,000 as a short unsigned integer is interpreted as -15,536 by a short.</p>
+<h2>Type Qualifiers in C++</h2>
+<p>The type qualifiers provide additional information about the variables they precede.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Qualifier &amp; Meaning</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>const</strong></p>
+<p>Objects of type <strong>const</strong> cannot be changed by your program during execution.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>volatile</strong></p>
+<p>The modifier <strong>volatile</strong> tells the compiler that a variable's value may be changed in ways not explicitly specified by the program.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>restrict</strong></p>
+<p>A pointer qualified by <strong>restrict</strong> is initially the only means by which the object it points to can be accessed. Only C99 adds a new type qualifier called restrict.</p>
+</td>
+</tr>
+</tbody>
+</table>

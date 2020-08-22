@@ -1,0 +1,58 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Characters</h1>
+
+<p>A <strong>character</strong> in Swift is a single character String literal, addressed by the data type <strong>character</strong>. Take a look at the following example. It uses two Character constants &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">let</span><span class="pln"> char1</span><span class="pun">:</span> <span class="typ">Character</span> <span class="pun">=</span> <span class="str">"A"</span>
+<span class="kwd">let</span><span class="pln"> char2</span><span class="pun">:</span> <span class="typ">Character</span> <span class="pun">=</span> <span class="str">"B"</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of char1 \(char1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Value of char2 \(char2)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of char1 A
+Value of char2 B
+</pre>
+<p>If you try to store more than one character in a Character type variable or constant, then Swift will not allow that. Try to type the following example in Swift Playground and you will get an error even before compilation.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="com">// Following is wrong in Swift</span>
+<span class="kwd">let</span> <span class="kwd">char</span><span class="pun">:</span> <span class="typ">Character</span> <span class="pun">=</span> <span class="str">"AB"</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of char \(char)"</span><span class="pun">)</span></pre>
+<h2>Empty Character Variables</h2>
+<p>It is not possible to create an empty Character variable or constant which will have an empty value. The following syntax is not possible &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="com">// Following is wrong in Swift</span>
+<span class="kwd">let</span><span class="pln"> char1</span><span class="pun">:</span> <span class="typ">Character</span> <span class="pun">=</span> <span class="str">""</span>
+<span class="kwd">var</span><span class="pln"> char2</span><span class="pun">:</span> <span class="typ">Character</span> <span class="pun">=</span> <span class="str">""</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of char1 \(char1)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Value of char2 \(char2)"</span><span class="pun">)</span></pre>
+<h2>Accessing Characters from Strings</h2>
+<p>As explained while discussing Swift's Strings, String represents a collection of Character values in a specified order. So we can access individual characters from the given String by iterating over that string with a <strong>for-in</strong> loop &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">for</span><span class="pln"> ch </span><span class="kwd">in</span> <span class="str">"Hello"</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">ch</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">H
+e
+l
+l
+o
+</pre>
+<h2>Concatenating Strings with Characters</h2>
+<p>The following example demonstrates how a Swift's Character can be concatenated with Swift's String.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> varA</span><span class="pun">:</span><span class="typ">String</span> <span class="pun">=</span> <span class="str">"Hello "</span>
+<span class="kwd">let</span><span class="pln"> varB</span><span class="pun">:</span><span class="typ">Character</span> <span class="pun">=</span> <span class="str">"G"</span><span class="pln">
+
+varA</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln"> varB </span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of varC  =  \(varA)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of varC Hello G
+</pre>

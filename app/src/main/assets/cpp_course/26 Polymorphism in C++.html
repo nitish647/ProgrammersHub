@@ -1,0 +1,110 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Polymorphism in C++</h1>
+ 
+<p>The word <strong>polymorphism</strong> means having many forms. Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance.</p>
+<p>C++ polymorphism means that a call to a member function will cause a different function to be executed depending on the type of object that invokes the function.</p>
+<p>Consider the following example where a base class has been derived by other two classes &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span> 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">protected</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span>
+      
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="typ">Shape</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">){</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">int</span><span class="pln"> area</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Parent class area :"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+         <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+<span class="pun">};</span>
+<span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="kwd">public</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="typ">Rectangle</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">):</span><span class="typ">Shape</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span> <span class="pun">}</span>
+      
+      <span class="kwd">int</span><span class="pln"> area </span><span class="pun">()</span> <span class="pun">{</span><span class="pln"> 
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Rectangle class area :"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">class</span> <span class="typ">Triangle</span><span class="pun">:</span> <span class="kwd">public</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="typ">Triangle</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">):</span><span class="typ">Shape</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span> <span class="pun">}</span>
+      
+      <span class="kwd">int</span><span class="pln"> area </span><span class="pun">()</span> <span class="pun">{</span><span class="pln"> 
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Triangle class area :"</span> <span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Shape</span> <span class="pun">*</span><span class="pln">shape</span><span class="pun">;</span>
+   <span class="typ">Rectangle</span><span class="pln"> rec</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">7</span><span class="pun">);</span>
+   <span class="typ">Triangle</span><span class="pln">  tri</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">5</span><span class="pun">);</span>
+
+   <span class="com">// store the address of Rectangle</span><span class="pln">
+   shape </span><span class="pun">=</span> <span class="pun">&amp;</span><span class="pln">rec</span><span class="pun">;</span>
+   
+   <span class="com">// call rectangle area.</span><span class="pln">
+   shape</span><span class="pun">-&gt;</span><span class="pln">area</span><span class="pun">();</span>
+
+   <span class="com">// store the address of Triangle</span><span class="pln">
+   shape </span><span class="pun">=</span> <span class="pun">&amp;</span><span class="pln">tri</span><span class="pun">;</span>
+   
+   <span class="com">// call triangle area.</span><span class="pln">
+   shape</span><span class="pun">-&gt;</span><span class="pln">area</span><span class="pun">();</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Parent class area :
+Parent class area :
+</pre>
+<p>The reason for the incorrect output is that the call of the function area() is being set once by the compiler as the version defined in the base class. This is called <strong>static resolution</strong> of the function call, or <strong>static linkage</strong> - the function call is fixed before the program is executed. This is also sometimes called <strong>early binding</strong> because the area() function is set during the compilation of the program.</p>
+<p>But now, let's make a slight modification in our program and precede the declaration of area() in the Shape class with the keyword <strong>virtual</strong> so that it looks like this &minus;</p>
+<pre class="result notranslate">class Shape {
+   protected:
+      int width, height;
+      
+   public:
+      Shape( int a = 0, int b = 0) {
+         width = a;
+         height = b;
+      }
+      virtual int area() {
+         cout &lt;&lt; "Parent class area :" &lt;&lt;endl;
+         return 0;
+      }
+};
+</pre>
+<p>After this slight modification, when the previous example code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Rectangle class area
+Triangle class area
+</pre>
+<p>This time, the compiler looks at the contents of the pointer instead of it's type. Hence, since addresses of objects of tri and rec classes are stored in *shape the respective area() function is called.</p>
+<p>As you can see, each of the child classes has a separate implementation for the function area(). This is how <strong>polymorphism</strong> is generally used. You have different classes with a function of the same name, and even the same parameters, but with different implementations.</p>
+<h2>Virtual Function</h2>
+<p>A <strong>virtual</strong> function is a function in a base class that is declared using the keyword <strong>virtual</strong>. Defining in a base class a virtual function, with another version in a derived class, signals to the compiler that we don't want static linkage for this function.</p>
+<p>What we do want is the selection of the function to be called at any given point in the program to be based on the kind of object for which it is called. This sort of operation is referred to as <strong>dynamic linkage</strong>, or <strong>late binding</strong>.</p>
+<h2>Pure Virtual Functions</h2>
+<p>It is possible that you want to include a virtual function in a base class so that it may be redefined in a derived class to suit the objects of that class, but that there is no meaningful definition you could give for the function in the base class.</p>
+<p>We can change the virtual function area() in the base class to the following &minus;</p>
+<pre class="result notranslate">class Shape {
+   protected:
+      int width, height;
+
+   public:
+      Shape(int a = 0, int b = 0) {
+         width = a;
+         height = b;
+      }
+      
+      // pure virtual function
+      virtual int area() = 0;
+};
+</pre>
+<p>The = 0 tells the compiler that the function has no body and above virtual function will be called <strong>pure virtual function</strong>.</p>

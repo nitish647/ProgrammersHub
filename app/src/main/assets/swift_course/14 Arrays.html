@@ -1,0 +1,165 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Arrays</h1>
+
+<p>Swift arrays are used to store ordered lists of values of the same type. Swift puts strict checking which does not allow you to enter a wrong type in an array even by mistake.</p>
+<p>If you assign a created array to a variable then its always mutable which means you can change it by adding, removing, or changing its items but if you assign an array to a constant then that array is immutable, and its size and contents cannot be changed.</p>
+<h2>Creating Arrays</h2>
+<p>You can create an empty array of a certain type using the following initializer syntax &minus;</p>
+<pre class="result notranslate">var someArray = [SomeType]()
+</pre>
+<p>Here is the syntax to create an array of a given size a* and initialize it with a value &minus;</p>
+<pre class="result notranslate">var someArray = [SomeType](count: NumbeOfElements, repeatedValue: InitialValue)
+</pre>
+<p>You can use the following statement to create an empty array of <strong>Int</strong> type having 3 elements and the initial value as zero &minus;</p>
+<pre class="result notranslate">var someInts = [Int](count: 3, repeatedValue: 0)
+</pre>
+<p>Following is one more example to create an array of three elements and assign three values to that array &minus;</p>
+<pre class="result notranslate">var someInts:[Int] = [10, 20, 30]
+</pre>
+<h2>Accessing Arrays</h2>
+<p>You can retrieve a value from an array by using <strong>subscript</strong> syntax, passing the index of the value you want to retrieve within square brackets immediately after the name of the array as follows &minus;</p>
+<pre class="result notranslate">var someVar = someArray[index]
+</pre>
+<p>Here, the <strong>index</strong> starts from 0 which means the first element can be accessed using the index as 0, the second element can be accessed using the index as 1 and so on. The following example shows how to create, initialize, and access arrays &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someInts </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">10</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someInts</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of first element is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of second element is \(someInts[1])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of third element is \(someInts[2])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of first element is 10
+Value of second element is 10
+Value of third element is 10
+</pre>
+<h2>Modifying Arrays</h2>
+<p>You can use <strong>append()</strong> method or addition assignment operator (+=) to add a new item at the end of an array. Take a look at the following example. Here, initially, we create an empty array and then add new elements into the same array &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someInts </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">]()</span><span class="pln">
+
+someInts</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">20</span><span class="pun">)</span><span class="pln">
+someInts</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">30</span><span class="pun">)</span><span class="pln">
+someInts </span><span class="pun">+=</span> <span class="pun">[</span><span class="lit">40</span><span class="pun">]</span>
+
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someInts</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of first element is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of second element is \(someInts[1])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of third element is \(someInts[2])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of first element is 20
+Value of second element is 30
+Value of third element is 40
+</pre>
+<p>You can modify an existing element of an Array by assigning a new value at a given index as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someInts </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">]()</span><span class="pln">
+
+someInts</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">20</span><span class="pun">)</span><span class="pln">
+someInts</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">30</span><span class="pun">)</span><span class="pln">
+someInts </span><span class="pun">+=</span> <span class="pun">[</span><span class="lit">40</span><span class="pun">]</span>
+
+<span class="com">// Modify last element</span><span class="pln">
+someInts</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">50</span>
+
+<span class="kwd">var</span><span class="pln"> someVar </span><span class="pun">=</span><span class="pln"> someInts</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln">
+
+println</span><span class="pun">(</span> <span class="str">"Value of first element is \(someVar)"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of second element is \(someInts[1])"</span> <span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span> <span class="str">"Value of third element is \(someInts[2])"</span> <span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value of first element is 20
+Value of second element is 30
+Value of third element is 50
+</pre>
+<h2>Iterating Over an Array</h2>
+<p>You can use <strong>for-in</strong> loop to iterate over the entire set of values in an array as shown in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someStrs </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">String</span><span class="pun">]()</span><span class="pln">
+
+someStrs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Apple"</span><span class="pun">)</span><span class="pln">
+someStrs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Amazon"</span><span class="pun">)</span><span class="pln">
+someStrs </span><span class="pun">+=</span> <span class="pun">[</span><span class="str">"Google"</span><span class="pun">]</span>
+
+<span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> someStrs </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Apple
+Amazon
+Google
+</pre>
+<p>You can use <strong>enumerate()</strong> function which returns the index of an item along with its value as shown below in the following example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> someStrs </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">String</span><span class="pun">]()</span><span class="pln">
+
+someStrs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Apple"</span><span class="pun">)</span><span class="pln">
+someStrs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Amazon"</span><span class="pun">)</span><span class="pln">
+someStrs </span><span class="pun">+=</span> <span class="pun">[</span><span class="str">"Google"</span><span class="pun">]</span>
+
+<span class="kwd">for</span> <span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> item</span><span class="pun">)</span> <span class="kwd">in</span><span class="pln"> enumerate</span><span class="pun">(</span><span class="pln">someStrs</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Value at index = \(index) is \(item)"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Value at index = 0 is Apple
+Value at index = 1 is Amazon
+Value at index = 2 is Google
+</pre>
+<h2>Adding Two Arrays</h2>
+<p>You can use the addition operator (+) to add two arrays of the same type which will yield a new array with a combination of values from the two arrays as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> intsA </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">2</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> intsB </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> intsC </span><span class="pun">=</span><span class="pln"> intsA </span><span class="pun">+</span><span class="pln"> intsB
+
+</span><span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> intsC </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="pln">item</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">2
+2
+1
+1
+1
+</pre>
+<h2>The count Property</h2>
+<p>You can use the read-only <strong>count</strong> property of an array to find out the number of items in an array shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> intsA </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">2</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> intsB </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> intsC </span><span class="pun">=</span><span class="pln"> intsA </span><span class="pun">+</span><span class="pln"> intsB
+
+println</span><span class="pun">(</span><span class="str">"Total items in intsA = \(intsA.count)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Total items in intsB = \(intsB.count)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Total items in intsC = \(intsC.count)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Total items in intsA = 2
+Total items in intsB = 3
+Total items in intsC = 5
+</pre>
+<h2>The empty Property</h2>
+<p>You can use the read-only <strong>empty</strong> property of an array to find out whether an array is empty or not as shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> intsA </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">2</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> intsB </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">](</span><span class="pln">count</span><span class="pun">:</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> repeatedValue</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> intsC </span><span class="pun">=</span> <span class="pun">[</span><span class="typ">Int</span><span class="pun">]()</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"intsA.isEmpty = \(intsA.isEmpty)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"intsB.isEmpty = \(intsB.isEmpty)"</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"intsC.isEmpty = \(intsC.isEmpty)"</span><span class="pun">)</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">intsA.isEmpty = false
+intsB.isEmpty = false
+intsC.isEmpty = true
+</pre>

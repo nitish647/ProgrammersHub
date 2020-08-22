@@ -1,0 +1,209 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Basic Syntax</h1>
+
+<p>We have already seen a piece of Swift program while setting up the environment. Let's start once again with the following <strong>Hello, World!</strong> program created for OS X playground, which includes <strong>import Cocoa</strong> as shown below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="com">/* My first program in Swift */</span>
+<span class="kwd">var</span><span class="pln"> myString </span><span class="pun">=</span> <span class="str">"Hello, World!"</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span></pre>
+<p>If you create the same program for iOS playground, then it will include <strong>import UIKit</strong> and the program will look as follows &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">import</span> <span class="typ">UIKit</span>
+<span class="kwd">var</span><span class="pln"> myString </span><span class="pun">=</span> <span class="str">"Hello, World!"</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span></pre>
+<p>When we run the above program using an appropriate playground, we will get the following result &minus;</p>
+<pre class="result notranslate">Hello, World! 
+</pre>
+<p>Let us now see the basic structure of a Swift program, so that it will be easy for you to understand the basic building blocks of the Swift programming language.</p>
+<h2>Import in Swift</h2>
+<p>You can use the <strong>import</strong> statement to import any Objective-C framework (or C library) directly into your Swift program. For example, the above <strong>import cocoa</strong> statement makes all Cocoa libraries, APIs, and runtimes that form the development layer for all of OS X, available in Swift.</p>
+<p>Cocoa is implemented in Objective-C, which is a superset of C, so it is easy to mix C and even C++ into your Swift applications.</p>
+<h2>Tokens in Swift</h2>
+<p>A Swift program consists of various tokens and a token is either a keyword, an identifier, a constant, a string literal, or a symbol. For example, the following Swift statement consists of three tokens &minus;</p>
+<pre class="result notranslate">println("test!")
+The individual tokens are:
+println (
+   "test!"
+)
+</pre>
+<h2>Comments</h2>
+<p>Comments are like helping texts in your Swift program. They are ignored by the compiler. Multi-line comments start with /* and terminate with the characters */ as shown below &minus;</p>
+<pre class="result notranslate">/* My first program in Swift */
+</pre>
+<p>Multi-line comments can be nested in Swift. Following is a valid comment in Swift &minus;</p>
+<pre class="result notranslate">/* My first program in Swift is Hello, World!
+/* Where as second program is Hello, Swift! */
+</pre>
+<p>Single-line comments are written using // at the beginning of the comment.</p>
+<pre class="result notranslate">// My first program in Swift
+</pre>
+<h2>Semicolons</h2>
+<p>Swift does not require you to type a semicolon (;) after each statement in your code, though it&rsquo;s optional; and if you use a semicolon, then the compiler does not complain about it.</p>
+<p>However, if you are using multiple statements in the same line, then it is required to use a semicolon as a delimiter, otherwise the compiler will raise a syntax error. You can write the above Hello, World! program as follows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+<span class="com">/* My first program in Swift */</span>
+<span class="kwd">var</span><span class="pln"> myString </span><span class="pun">=</span> <span class="str">"Hello, World!"</span><span class="pun">;</span><span class="pln"> println</span><span class="pun">(</span><span class="pln">myString</span><span class="pun">)</span></pre>
+<h2>Identifiers</h2>
+<p>A Swift identifier is a name used to identify a variable, function, or any other user-defined item. An identifier starts with an alphabet A to Z or a to z or an underscore _ followed by zero or more letters, underscores, and digits (0 to 9).</p>
+<p>Swift does not allow special characters such as @, $, and % within identifiers. Swift is a <strong>case sensitive</strong> programming language. Thus, <em>Manpower</em> and <em>manpower</em> are two different identifiers in Swift. Here are some examples of acceptable identifiers &minus;</p>
+<pre class="result notranslate">Azad       zara    abc   move_name  a_123
+myname50   _temp   j     a23b9      retVal
+</pre>
+<p>To use a reserved word as an identifier, you will need to put a backtick (`) before and after it. For example, <strong>class</strong> is not a valid identifier, but <strong>`class`</strong> is valid.</p>
+<h2>Keywords</h2>
+<p>The following keywords are reserved in Swift. These reserved words may not be used as constants or variables or any other identifier names, unless they're escaped with backticks &minus;</p>
+<h3>Keywords used in declarations</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>class</td>
+<td>deinit</td>
+<td>enum</td>
+<td>extension</td>
+</tr>
+<tr>
+<td>func</td>
+<td>import</td>
+<td>init</td>
+<td>internal</td>
+</tr>
+<tr>
+<td>let</td>
+<td>operator</td>
+<td>private</td>
+<td>protocol</td>
+</tr>
+<tr>
+<td>public</td>
+<td>static</td>
+<td>struct</td>
+<td>subscript</td>
+</tr>
+<tr>
+<td>typealias</td>
+<td>var</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h3>Keywords used in statements</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>break</td>
+<td>case</td>
+<td>continue</td>
+<td>default</td>
+</tr>
+<tr>
+<td>do</td>
+<td>else</td>
+<td>fallthrough</td>
+<td>for</td>
+</tr>
+<tr>
+<td>if</td>
+<td>in</td>
+<td>return</td>
+<td>switch</td>
+</tr>
+<tr>
+<td>where</td>
+<td>while</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h3>Keywords used in expressions and types</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>as</td>
+<td>dynamicType</td>
+<td>false</td>
+<td>is</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>self</td>
+<td>Self</td>
+<td>super</td>
+</tr>
+<tr>
+<td>true</td>
+<td>_COLUMN_</td>
+<td>_FILE_</td>
+<td>_FUNCTION_</td>
+</tr>
+<tr>
+<td>_LINE_</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h3>Keywords used in particular contexts</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>associativity</td>
+<td>convenience</td>
+<td>dynamic</td>
+<td>didSet</td>
+</tr>
+<tr>
+<td>final</td>
+<td>get</td>
+<td>infix</td>
+<td>inout</td>
+</tr>
+<tr>
+<td>lazy</td>
+<td>left</td>
+<td>mutating</td>
+<td>none</td>
+</tr>
+<tr>
+<td>nonmutating</td>
+<td>optional</td>
+<td>override</td>
+<td>postfix</td>
+</tr>
+<tr>
+<td>precedence</td>
+<td>prefix</td>
+<td>Protocol</td>
+<td>required</td>
+</tr>
+<tr>
+<td>right</td>
+<td>set</td>
+<td>Type</td>
+<td>unowned</td>
+</tr>
+<tr>
+<td>weak</td>
+<td>willSet</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h2>Whitespaces</h2>
+<p>A line containing only whitespace, possibly with a comment, is known as a blank line, and a Swift compiler totally ignores it.</p>
+<p>Whitespace is the term used in Swift to describe blanks, tabs, newline characters, and comments. Whitespaces separate one part of a statement from another and enable the compiler to identify where one element in a statement, such as int, ends and the next element begins. Therefore, in the following statement &minus;</p>
+<pre class="result notranslate">var age
+</pre>
+<p>there must be at least one whitespace character (usually a space) between <strong>var</strong> and <strong>age</strong> for the compiler to be able to distinguish them. On the other hand, in the following statement &minus;</p>
+<pre class="result notranslate">int fruit = apples + oranges   //get the total fruits
+</pre>
+<p>no whitespace characters are necessary between fruit and =, or between = and apples, although you are free to include some for better readability.</p>
+<h2>Literals</h2>
+<p>A literal is the source code representation of a value of an integer, floating-point number, or string type. The following are examples of literals &minus;</p>
+<pre class="result notranslate">92               // Integer literal
+4.24159          // Floating-point literal
+"Hello, World!"  // String literal
+</pre>

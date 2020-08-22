@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Interfaces</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Interfaces</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>An interface is a reference type in Java. It is similar to class. It is a collection of abstract methods. A class implements an interface, thereby inheriting the abstract methods of the interface.</p>
+        <p>Along with abstract methods, an interface may also contain constants, default methods, static methods, and nested types. Method bodies exist only for default methods and static methods.</p>
+        <p>Writing an interface is similar to writing a class. But a class describes the attributes and behaviors of an object. And an interface contains behaviors that a class implements.</p>
+        <p>Unless the class that implements the interface is abstract, all the methods of the interface need to be defined in the class.</p>
+        <p>An interface is similar to a class in the following ways −</p>
+        <ul class="list">
+            <li><p>An interface can contain any number of methods.</p></li>
+            <li><p>An interface is written in a file with a <b>.java</b> extension, with the name of the interface matching the name of the file.</p></li>
+            <li><p>The byte code of an interface appears in a <b>.class</b> file.</p></li>
+            <li><p>Interfaces appear in packages, and their corresponding bytecode file must be in a directory structure that matches the package name.</p></li>
+        </ul>
+        <p>However, an interface is different from a class in several ways, including −</p>
+        <ul class="list">
+            <li><p>You cannot instantiate an interface.</p></li>
+            <li><p>An interface does not contain any constructors.</p></li>
+            <li><p>All of the methods in an interface are abstract.</p></li>
+            <li><p>An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.</p></li>
+            <li><p>An interface is not extended by a class; it is implemented by a class.</p></li>
+            <li><p>An interface can extend multiple interfaces.</p></li>
+        </ul>
+        <h2>Declaring Interfaces</h2>
+        <p>The <b>interface</b> keyword is used to declare an interface. Here is a simple example to declare an interface −</p>
+        <h3>Example</h3>
+        <p>Following is an example of an interface −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : NameOfInterface.java */</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.*;</span><span class="pln">
+</span><span class="com">// Any number of import statements</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">NameOfInterface</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// Any number of final, static fields</span><span class="pln">
+   </span><span class="com">// Any number of abstract method declarations\</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Interfaces have the following properties −</p>
+        <ul class="list">
+            <li><p>An interface is implicitly abstract. You do not need to use the <b>abstract</b> keyword while declaring an interface.</p></li>
+            <li><p>Each method in an interface is also implicitly abstract, so the abstract keyword is not needed.</p></li>
+            <li><p>Methods in an interface are implicitly public.</p></li>
+        </ul>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : Animal.java */</span><span class="pln">
+</span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Animal</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> eat</span><span class="pun">();</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> travel</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <h2>Implementing Interfaces</h2>
+        <p>When a class implements an interface, you can think of the class as signing a contract, agreeing to perform the specific behaviors of the interface. If a class does not perform all the behaviors of the interface, the class must declare itself as abstract.</p>
+        <p>A class uses the <b>implements</b> keyword to implement an interface. The implements keyword appears in the class declaration following the extends portion of the declaration.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">/* File name : MammalInt.java */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MammalInt</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Animal</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> eat</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Mammal eats"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> travel</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Mammal travels"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> noOfLegs</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">MammalInt</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MammalInt</span><span class="pun">();</span><span class="pln">
+      m</span><span class="pun">.</span><span class="pln">eat</span><span class="pun">();</span><span class="pln">
+      m</span><span class="pun">.</span><span class="pln">travel</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Mammal eats
+Mammal travels
+</pre>
+        <p>When overriding methods defined in interfaces, there are several rules to be followed −</p>
+        <ul class="list">
+            <li><p>Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method.</p></li>
+            <li><p>The signature of the interface method and the same return type or subtype should be maintained when overriding the methods.</p></li>
+            <li><p>An implementation class itself can be abstract and if so, interface methods need not be implemented.</p></li>
+        </ul>
+        <p>When implementation interfaces, there are several rules −</p>
+        <ul class="list">
+            <li><p>A class can implement more than one interface at a time.</p></li>
+            <li><p>A class can extend only one class, but implement many interfaces.</p></li>
+            <li><p>An interface can extend another interface, in a similar way as a class can extend another class.</p></li>
+        </ul>
+        <h2>Extending Interfaces</h2>
+        <p>An interface can extend another interface in the same way that a class can extend another class. The <b>extends</b> keyword is used to extend an interface, and the child interface inherits the methods of the parent interface.</p>
+        <p>The following Sports interface is extended by Hockey and Football interfaces.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// Filename: Sports.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Sports</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setHomeTeam</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setVisitingTeam</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Filename: Football.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Football</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Sports</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> homeTeamScored</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> points</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> visitingTeamScored</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> points</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> endOfQuarter</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> quarter</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Filename: Hockey.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Hockey</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Sports</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> homeGoalScored</span><span class="pun">();</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> visitingGoalScored</span><span class="pun">();</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> endOfPeriod</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> period</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> overtimePeriod</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> ot</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>The Hockey interface has four methods, but it inherits two from Sports; thus, a class that implements Hockey needs to implement all six methods. Similarly, a class that implements Football needs to define the three methods from Football and the two methods from Sports.</p>
+        <h2>Extending Multiple Interfaces</h2>
+        <p>A Java class can only extend one parent class. Multiple inheritance is not allowed. Interfaces are not classes, however, and an interface can extend more than one parent interface.</p>
+        <p>The extends keyword is used once, and the parent interfaces are declared in a comma-separated list.</p>
+        <p>For example, if the Hockey interface extended both Sports and Event, it would be declared as −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Hockey</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Sports</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Event</span></pre>
+        <h2>Tagging Interfaces</h2>
+        <p>The most common use of extending interfaces occurs when the parent interface does not contain any methods. For example, the MouseListener interface in the java.awt.event package extended java.util.EventListener, which is defined as −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">package</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">EventListener</span><span class="pln">
+</span><span class="pun">{}</span></pre>
+        <p>An interface with no methods in it is referred to as a <b>tagging</b> interface. There are two basic design purposes of tagging interfaces −</p>
+        <p><b>Creates a common parent</b> − As with the EventListener interface, which is extended by dozens of other interfaces in the Java API, you can use a tagging interface to create a common parent among a group of interfaces. For example, when an interface extends EventListener, the JVM knows that this particular interface is going to be used in an event delegation scenario.</p>
+        <p><b>Adds a data type to a class</b> − This situation is where the term, tagging comes from. A class that implements a tagging interface does not need to define any methods (since the interface does not have any), but the class becomes an interface type through polymorphism.</p>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

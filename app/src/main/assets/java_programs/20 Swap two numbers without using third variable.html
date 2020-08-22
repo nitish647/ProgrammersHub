@@ -1,0 +1,39 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>//Java program to swap two numbers</span>
+<span style='color:#3f7f59; '>//Swapping without using temporary or third variable</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>util</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Scanner</span><span style='color:#7f0055; '>;</span>
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> SwapNumbers
+{
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+   {
+      <span style='color:#7f0055; font-weight:bold; '>int</span> x, y;
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Enter x and y"</span>);
+      Scanner in = <span style='color:#7f0055; font-weight:bold; '>new</span> Scanner(<span style='color:#7f0055; font-weight:bold; '>System</span>.in);
+ 
+      x = in.nextInt();
+      y = in.nextInt();
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Before Swapping</span><span style='color:#2a00ff; '>\n</span><span style='color:#2a00ff; '>x = "</span>+x+<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>\n</span><span style='color:#2a00ff; '>y = "</span>+y);
+ 
+      x = x + y;
+      y = x - y;
+      x = x - y;
+ 
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"After Swapping</span><span style='color:#2a00ff; '>\n</span><span style='color:#2a00ff; '>x = "</span>+x+<span style='color:#2a00ff; '>"</span><span style='color:#2a00ff; '>\n</span><span style='color:#2a00ff; '>y = "</span>+y);
+   }
+}
+
+
+Output:
+
+Enter x and y
+12
+8
+Before Swapping 
+x = 12 
+y = 8
+After Swapping
+x = 8
+y = 12
+</pre>

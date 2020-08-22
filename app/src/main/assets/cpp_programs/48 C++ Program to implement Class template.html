@@ -1,0 +1,56 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include&lt;iostream&gt;</span>
+<span style="color: #75715e">#include&lt;string&gt;</span>
+<span style="color: #75715e">#include&lt;vector&gt;</span>
+<span style="color: #75715e">#include&lt;cstdlib&gt;</span>
+<span style="color: #75715e">#include&lt;stdexcept&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">template</span> <span style="color: #f92672">&lt;</span><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">T</span><span style="color: #f92672">&gt;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Stack</span>  <span style="color: #f8f8f2">{</span>
+ <span style="color: #f8f8f2">private:</span>
+   <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">T</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">elems;</span>
+ <span style="color: #f8f8f2">public:</span>
+   <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">push</span><span style="color: #f8f8f2">(T</span> <span style="color: #f8f8f2">elem)</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #f8f8f2">elems.push_back(elem);</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">pop</span><span style="color: #f8f8f2">()</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(elems.empty())</span>
+       <span style="color: #66d9ef">throw</span> <span style="color: #f8f8f2">out_of_range(</span><span style="color: #e6db74">&quot;Stack is Empty !!&quot;</span><span style="color: #f8f8f2">);</span>
+     <span style="color: #f8f8f2">elems.pop_back();</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #f8f8f2">T</span> <span style="color: #a6e22e">top</span><span style="color: #f8f8f2">()</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(elems.empty())</span>
+       <span style="color: #66d9ef">throw</span> <span style="color: #f8f8f2">out_of_range(</span><span style="color: #e6db74">&quot;Stack is Empty !!&quot;</span><span style="color: #f8f8f2">);</span>
+     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">elems.back();</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">Empty</span><span style="color: #f8f8f2">()</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">elems.empty();</span>
+   <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">try</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">Stack</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">intstack;</span>
+    <span style="color: #f8f8f2">Stack</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">stringstack;</span>
+    <span style="color: #f8f8f2">intstack.push(</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">intstack.top()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">stringstack.push(</span><span style="color: #e6db74">&quot;Hello&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">stringstack.top()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">stringstack.pop();</span>
+    <span style="color: #f8f8f2">stringstack.pop();</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">(exception</span> <span style="color: #f8f8f2">ex)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">cerr</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Exception : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">ex.what()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #ae81ff">7</span>
+<span style="color: #f8f8f2">Hello</span>
+<span style="color: #f8f8f2">Exception</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">exception</span>
+</pre></div>

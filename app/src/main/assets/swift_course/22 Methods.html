@@ -1,0 +1,215 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Methods</h1>
+
+<p>In Swift language Functions associated with particular types are referred to as Methods. In Objective C Classes are used to define methods, whereas Swift language provides the user flexibility to have methods for Classes, Structures and Enumerations.</p>
+<h2>Instance Methods</h2>
+<p>In Swift language, Classes, Structures and Enumeration instances are accessed through the instance methods.</p>
+<p>Instance methods provide functionality.</p>
+<ul class="list">
+<li>To access and modify instance properties.</li>
+<li>functionality related to the instance's need.</li>
+</ul>
+<p>Instance method can be written inside the {} curly braces. It has implicit access to methods and properties of the type instance. When a specific instance of the type is called it will get access to that particular instance.</p>
+<h3>Syntax</h3>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">func funcname</span><span class="pun">(</span><span class="typ">Parameters</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> returntype </span><span class="pun">{</span>
+   <span class="typ">Statement1</span>
+   <span class="typ">Statement2</span>
+   <span class="pun">---</span>
+   <span class="typ">Statement</span><span class="pln"> N
+   </span><span class="kwd">return</span><span class="pln"> parameters
+</span><span class="pun">}</span></pre>
+<h3>Example</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> calculations </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> a</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> res</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">a </span><span class="pun">=</span><span class="pln"> a
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">b </span><span class="pun">=</span><span class="pln"> b
+      res </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+   </span><span class="pun">}</span><span class="pln">
+ 
+   func tot</span><span class="pun">(</span><span class="pln">c</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> res </span><span class="pun">-</span><span class="pln"> c
+   </span><span class="pun">}</span><span class="pln">
+ 
+   func result</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Result is: \(tot(20))"</span><span class="pun">)</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Result is: \(tot(50))"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> pri </span><span class="pun">=</span><span class="pln"> calculations</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="lit">600</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="lit">300</span><span class="pun">)</span><span class="pln">
+pri</span><span class="pun">.</span><span class="pln">result</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Result is: 880
+Result is: 850
+</pre>
+<p>Class Calculations defines two instance methods &minus;</p>
+<ul class="list">
+<li>init() is defined to add two numbers a and b and store it in result 'res'</li>
+<li>tot() is used to subtract the 'res' from passing 'c' value</li>
+</ul>
+<p>Finally, to print the calculations methods with values for a and b is called. Instance methods are accessed with '.' dot syntax</p>
+<h2>Local and External Parameter Names</h2>
+<p>Swift Functions describe both local and global declarations for their variables. Similarly, Swift Methods naming conventions also resembles as that of Objective C. But the characteristics of local and global parameter name declarations are different for functions and methods. The first parameter in swift are referred by preposition names as 'with', 'for' and 'by' for easy to access naming conventions.</p>
+<p>Swift provides the flexibility in methods by declaring first parameter name as local parameter names and the remaining parameter names to be of global parameter names. Here 'no1' is declared by swift methods as local parameter names. 'no2' is used for global declarations and accessed through out the program.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> division </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">0</span><span class="pln">
+   func incrementBy</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      count </span><span class="pun">=</span><span class="pln"> no1 </span><span class="pun">/</span><span class="pln"> no2
+      println</span><span class="pun">(</span><span class="pln">count</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> counter </span><span class="pun">=</span><span class="pln"> division</span><span class="pun">()</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="lit">1800</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">)</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="lit">1600</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">5</span><span class="pun">)</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="lit">11000</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">600
+320
+3666
+</pre>
+<h2>External Parameter Name with # and _ Symbol</h2>
+<p>Even though Swift methods provide first parameter names for local declarations, the user has the provision to modify the parameter names from local to global declarations. This can be done by prefixing '#' symbol with the first parameter name. By doing so, the first parameter can be accessed globally throughout the modules.</p>
+<p>When the user needs to access the subsequent parameter names with an external name, the methods name is overridden with the help of '_' symbol.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> multiplication </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> count</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">=</span> <span class="lit">0</span><span class="pln">
+   func incrementBy</span><span class="pun">(#</span><span class="pln">no1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      count </span><span class="pun">=</span><span class="pln"> no1 </span><span class="pun">*</span><span class="pln"> no2
+      println</span><span class="pun">(</span><span class="pln">count</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> counter </span><span class="pun">=</span><span class="pln"> multiplication</span><span class="pun">()</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">800</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">)</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">5</span><span class="pun">)</span><span class="pln">
+counter</span><span class="pun">.</span><span class="pln">incrementBy</span><span class="pun">(</span><span class="pln">no1</span><span class="pun">:</span> <span class="lit">15000</span><span class="pun">,</span><span class="pln"> no2</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">2400
+500
+45000
+</pre>
+<h2>Self property in Methods</h2>
+<p>Methods have an implicit property known as 'self' for all its defined type instances. 'Self' property is used to refer the current instances for its defined methods.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> calculations </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> a</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span>
+   <span class="kwd">let</span><span class="pln"> res</span><span class="pun">:</span> <span class="typ">Int</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">a </span><span class="pun">=</span><span class="pln"> a
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">b </span><span class="pun">=</span><span class="pln"> b
+      res </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b
+      println</span><span class="pun">(</span><span class="str">"Inside Self Block: \(res)"</span><span class="pun">)</span>
+   <span class="pun">}</span><span class="pln">
+
+   func tot</span><span class="pun">(</span><span class="pln">c</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> res </span><span class="pun">-</span><span class="pln"> c
+   </span><span class="pun">}</span><span class="pln">
+
+   func result</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Result is: \(tot(20))"</span><span class="pun">)</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Result is: \(tot(50))"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> pri </span><span class="pun">=</span><span class="pln"> calculations</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="lit">600</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="lit">300</span><span class="pun">)</span>
+<span class="kwd">let</span><span class="pln"> sum </span><span class="pun">=</span><span class="pln"> calculations</span><span class="pun">(</span><span class="pln">a</span><span class="pun">:</span> <span class="lit">1200</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span> <span class="lit">300</span><span class="pun">)</span><span class="pln">
+
+pri</span><span class="pun">.</span><span class="pln">result</span><span class="pun">()</span><span class="pln">
+sum</span><span class="pun">.</span><span class="pln">result</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Inside Self Block: 900
+Inside Self Block: 1500
+Result is: 880
+Result is: 850
+Result is: 1480
+Result is: 1450
+</pre>
+<h2>Modifying Value Types from Instance Methods</h2>
+<p>In Swift language structures and enumerations belong to value types which cannot be altered by its instance methods. However, swift language provides flexibility to modify the value types by 'mutating' behavior. Mutate will make any changes in the instance methods and will return back to the original form after the execution of the method. Also, by the 'self' property new instance is created for its implicit function and will replace the existing method after its execution</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">struct</span><span class="pln"> area </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span> <span class="lit">1</span>
+   <span class="kwd">var</span><span class="pln"> breadth </span><span class="pun">=</span> <span class="lit">1</span><span class="pln">
+	
+   func area</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth
+   </span><span class="pun">}</span><span class="pln">
+ 
+   mutating func scaleBy</span><span class="pun">(</span><span class="pln">res</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      length </span><span class="pun">*=</span><span class="pln"> res
+      breadth </span><span class="pun">*=</span><span class="pln"> res
+
+      println</span><span class="pun">(</span><span class="pln">length</span><span class="pun">)</span><span class="pln">
+      println</span><span class="pun">(</span><span class="pln">breadth</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> area</span><span class="pun">(</span><span class="pln">length</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">,</span><span class="pln"> breadth</span><span class="pun">:</span> <span class="lit">5</span><span class="pun">)</span><span class="pln">
+val</span><span class="pun">.</span><span class="pln">scaleBy</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)</span><span class="pln">
+val</span><span class="pun">.</span><span class="pln">scaleBy</span><span class="pun">(</span><span class="lit">30</span><span class="pun">)</span><span class="pln">
+val</span><span class="pun">.</span><span class="pln">scaleBy</span><span class="pun">(</span><span class="lit">300</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">9
+15
+270
+450
+81000
+135000
+</pre>
+<h2>Self Property for Mutating Method</h2>
+<p>Mutating methods combined with 'self' property assigns a new instance to the defined method.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">struct</span><span class="pln"> area </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span> <span class="lit">1</span>
+   <span class="kwd">var</span><span class="pln"> breadth </span><span class="pun">=</span> <span class="lit">1</span><span class="pln">
+
+   func area</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth
+   </span><span class="pun">}</span><span class="pln">
+
+   mutating func scaleBy</span><span class="pun">(</span><span class="pln">res</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">length </span><span class="pun">*=</span><span class="pln"> res
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">*=</span><span class="pln"> res
+      println</span><span class="pun">(</span><span class="pln">length</span><span class="pun">)</span><span class="pln">
+      println</span><span class="pun">(</span><span class="pln">breadth</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> area</span><span class="pun">(</span><span class="pln">length</span><span class="pun">:</span> <span class="lit">3</span><span class="pun">,</span><span class="pln"> breadth</span><span class="pun">:</span> <span class="lit">5</span><span class="pun">)</span><span class="pln">
+val</span><span class="pun">.</span><span class="pln">scaleBy</span><span class="pun">(</span><span class="lit">13</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">39
+65
+</pre>
+<h2>Type Methods</h2>
+<p>When a particular instance of a method is called, it is called as an Instance method; and when the method calls a particular type of a method, it is called as 'Type Methods'. Type methods for 'classes' are defined by the 'func' keyword and structures and enumerations type methods are defined with the 'static' keyword before the 'func' keyword.</p>
+<p>Type methods are called and accessed by '.' syntax where instead of calling a particular instance the whole method is invoked.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Math</span> <span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> func abs</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> number </span><span class="pun">&lt;</span> <span class="lit">0</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="pun">(-</span><span class="pln">number</span><span class="pun">)</span>
+      <span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> number
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">struct</span><span class="pln"> absno </span><span class="pun">{</span>
+   <span class="kwd">static</span><span class="pln"> func abs</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> number </span><span class="pun">&lt;</span> <span class="lit">0</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="pun">(-</span><span class="pln">number</span><span class="pun">)</span>
+      <span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> number
+      </span><span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span> <span class="kwd">no</span> <span class="pun">=</span> <span class="typ">Math</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(-</span><span class="lit">35</span><span class="pun">)</span>
+<span class="kwd">let</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> absno</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(-</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="kwd">no</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">num</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">35
+5
+</pre>

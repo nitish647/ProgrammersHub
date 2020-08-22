@@ -1,0 +1,219 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Data Structures</h1>
+ 
+<p>C/C++ arrays allow you to define variables that combine several data items of the same kind, but <strong>structure</strong> is another user defined data type which allows you to combine data items of different kinds.</p>
+<p>Structures are used to represent a record, suppose you want to keep track of your books in a library. You might want to track the following attributes about each book &minus;</p>
+<ul class="list">
+<li>Title</li>
+<li>Author</li>
+<li>Subject</li>
+<li>Book ID</li>
+</ul>
+<h2>Defining a Structure</h2>
+<p>To define a structure, you must use the struct statement. The struct statement defines a new data type, with more than one member, for your program. The format of the struct statement is this &minus;</p>
+<pre class="result notranslate">struct [structure tag] {
+   member definition;
+   member definition;
+   ...
+   member definition;
+} [one or more structure variables];  
+</pre>
+<p>The <strong>structure tag</strong> is optional and each member definition is a normal variable definition, such as int i; or float f; or any other valid variable definition. At the end of the structure's definition, before the final semicolon, you can specify one or more structure variables but it is optional. Here is the way you would declare the Book structure &minus;</p>
+<pre class="result notranslate">struct Books {
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} book;  
+</pre>
+<h2>Accessing Structure Members</h2>
+<p>To access any member of a structure, we use the <strong>member access operator (.)</strong>. The member access operator is coded as a period between the structure variable name and the structure member that we wish to access. You would use <strong>struct</strong> keyword to define variables of structure type. Following is the example to explain usage of structure &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;cstring&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">struct</span> <span class="typ">Books</span> <span class="pun">{</span>
+   <span class="kwd">char</span><span class="pln">  title</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  author</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  subject</span><span class="pun">[</span><span class="lit">100</span><span class="pun">];</span>
+   <span class="kwd">int</span><span class="pln">   book_id</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book1</span><span class="pun">;</span>        <span class="com">// Declare Book1 of type Book</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book2</span><span class="pun">;</span>        <span class="com">// Declare Book2 of type Book</span>
+ 
+   <span class="com">// book 1 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Learn C++ Programming"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Chand Miyan"</span><span class="pun">);</span><span class="pln"> 
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"C++ Programming"</span><span class="pun">);</span>
+   <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495407</span><span class="pun">;</span>
+
+   <span class="com">// book 2 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Telecom Billing"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Yakit Singha"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"Telecom"</span><span class="pun">);</span>
+   <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495700</span><span class="pun">;</span>
+ 
+   <span class="com">// Print Book1 info</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 1 title : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 1 author : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 1 subject : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 1 id : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+
+   <span class="com">// Print Book2 info</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 2 title : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 2 author : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 2 subject : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book 2 id : "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Book 1 title : Learn C++ Programming
+Book 1 author : Chand Miyan
+Book 1 subject : C++ Programming
+Book 1 id : 6495407
+Book 2 title : Telecom Billing
+Book 2 author : Yakit Singha
+Book 2 subject : Telecom
+Book 2 id : 6495700
+</pre>
+<h2>Structures as Function Arguments</h2>
+<p>You can pass a structure as a function argument in very similar way as you pass any other variable or pointer. You would access structure variables in the similar way as you have accessed in the above example &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;cstring&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">void</span><span class="pln"> printBook</span><span class="pun">(</span> <span class="kwd">struct</span> <span class="typ">Books</span><span class="pln"> book </span><span class="pun">);</span>
+
+<span class="kwd">struct</span> <span class="typ">Books</span> <span class="pun">{</span>
+   <span class="kwd">char</span><span class="pln">  title</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  author</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  subject</span><span class="pun">[</span><span class="lit">100</span><span class="pun">];</span>
+   <span class="kwd">int</span><span class="pln">   book_id</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book1</span><span class="pun">;</span>        <span class="com">// Declare Book1 of type Book</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book2</span><span class="pun">;</span>        <span class="com">// Declare Book2 of type Book</span>
+ 
+   <span class="com">// book 1 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Learn C++ Programming"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Chand Miyan"</span><span class="pun">);</span><span class="pln"> 
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"C++ Programming"</span><span class="pun">);</span>
+   <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495407</span><span class="pun">;</span>
+
+   <span class="com">// book 2 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Telecom Billing"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Yakit Singha"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"Telecom"</span><span class="pun">);</span>
+   <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495700</span><span class="pun">;</span>
+ 
+   <span class="com">// Print Book1 info</span><span class="pln">
+   printBook</span><span class="pun">(</span> <span class="typ">Book1</span> <span class="pun">);</span>
+
+   <span class="com">// Print Book2 info</span><span class="pln">
+   printBook</span><span class="pun">(</span> <span class="typ">Book2</span> <span class="pun">);</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span>
+<span class="kwd">void</span><span class="pln"> printBook</span><span class="pun">(</span> <span class="kwd">struct</span> <span class="typ">Books</span><span class="pln"> book </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book title : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">title </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book author : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">author </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book subject : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book id : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Book title : Learn C++ Programming
+Book author : Chand Miyan
+Book subject : C++ Programming
+Book id : 6495407
+Book title : Telecom Billing
+Book author : Yakit Singha
+Book subject : Telecom
+Book id : 6495700
+</pre>
+<h2>Pointers to Structures</h2>
+<p>You can define pointers to structures in very similar way as you define pointer to any other variable as follows &minus;</p>
+<pre class="result notranslate">struct Books *struct_pointer;
+</pre>
+<p>Now, you can store the address of a structure variable in the above defined pointer variable. To find the address of a structure variable, place the &amp; operator before the structure's name as follows &minus;</p>
+<pre class="result notranslate">struct_pointer = &amp;Book1;
+</pre>
+<p>To access the members of a structure using a pointer to that structure, you must use the -&gt; operator as follows &minus;</p>
+<pre class="result notranslate">struct_pointer-&gt;title;
+</pre>
+<p>Let us re-write above example using structure pointer, hope this will be easy for you to understand the concept &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;cstring&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+<span class="kwd">void</span><span class="pln"> printBook</span><span class="pun">(</span> <span class="kwd">struct</span> <span class="typ">Books</span> <span class="pun">*</span><span class="pln">book </span><span class="pun">);</span>
+
+<span class="kwd">struct</span> <span class="typ">Books</span> <span class="pun">{</span>
+   <span class="kwd">char</span><span class="pln">  title</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  author</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span>
+   <span class="kwd">char</span><span class="pln">  subject</span><span class="pun">[</span><span class="lit">100</span><span class="pun">];</span>
+   <span class="kwd">int</span><span class="pln">   book_id</span><span class="pun">;</span>
+<span class="pun">};</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book1</span><span class="pun">;</span>        <span class="com">// Declare Book1 of type Book</span>
+   <span class="kwd">struct</span> <span class="typ">Books</span> <span class="typ">Book2</span><span class="pun">;</span>        <span class="com">// Declare Book2 of type Book</span>
+ 
+   <span class="com">// Book 1 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Learn C++ Programming"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Chand Miyan"</span><span class="pun">);</span><span class="pln"> 
+   strcpy</span><span class="pun">(</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"C++ Programming"</span><span class="pun">);</span>
+   <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495407</span><span class="pun">;</span>
+
+   <span class="com">// Book 2 specification</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title</span><span class="pun">,</span> <span class="str">"Telecom Billing"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author</span><span class="pun">,</span> <span class="str">"Yakit Singha"</span><span class="pun">);</span><span class="pln">
+   strcpy</span><span class="pun">(</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">,</span> <span class="str">"Telecom"</span><span class="pun">);</span>
+   <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495700</span><span class="pun">;</span>
+ 
+   <span class="com">// Print Book1 info, passing address of structure</span><span class="pln">
+   printBook</span><span class="pun">(</span> <span class="pun">&amp;</span><span class="typ">Book1</span> <span class="pun">);</span>
+
+   <span class="com">// Print Book1 info, passing address of structure</span><span class="pln">
+   printBook</span><span class="pun">(</span> <span class="pun">&amp;</span><span class="typ">Book2</span> <span class="pun">);</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// This function accept pointer to structure as parameter.</span>
+<span class="kwd">void</span><span class="pln"> printBook</span><span class="pun">(</span> <span class="kwd">struct</span> <span class="typ">Books</span> <span class="pun">*</span><span class="pln">book </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book title : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book author : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">-&gt;</span><span class="pln">author </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book subject : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">-&gt;</span><span class="pln">subject </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Book id : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> book</span><span class="pun">-&gt;</span><span class="pln">book_id </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Book title : Learn C++ Programming
+Book author : Chand Miyan
+Book subject : C++ Programming
+Book id : 6495407
+Book title : Telecom Billing
+Book author : Yakit Singha
+Book subject : Telecom
+Book id : 6495700
+</pre>
+<h2>The typedef Keyword</h2>
+<p>There is an easier way to define structs or you could "alias" types you create. For example &minus;</p>
+<pre class="result notranslate">typedef struct {
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} Books;
+</pre>
+<p>Now, you can use <em>Books</em> directly to define variables of <em>Books</em> type without using struct keyword. Following is the example &minus;</p>
+<pre class="result notranslate">Books Book1, Book2;
+</pre>
+<p>You can use <strong>typedef</strong> keyword for non-structs as well as follows &minus;</p>
+<pre class="result notranslate">typedef long int *pint32;
+ 
+pint32 x, y, z;
+</pre>
+<p>x, y and z are all pointers to long ints.</p>

@@ -1,0 +1,237 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Inheritance</h1>
+
+<p>The ability to take than more form is defined as Inheritance. Generally a class can inherit methods, properties and functionalities from another class. Classes can be further categorized in to sub class and super class.</p>
+<ul class="list">
+<li>
+<p><strong>Sub Class &minus;</strong> when a class inherits properties, methods and functions from another class it is called as sub class</p>
+</li>
+<li>
+<p><strong>Super Class &minus;</strong> Class containing properties, methods and functions to inherit other classes from itself is called as a super class</p>
+</li>
+</ul>
+<p>Swift classes contain superclass which calls and access methods, properties, functions and overriding methods. Also, property observers are also used to add a property and modify the stored or computed property methods.</p>
+<h2>Base Class</h2>
+<p>A Class that does not inherit methods, properties or functions from another class is called as 'Base Class'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">StudDetails</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> stname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">!</span>
+   <span class="kwd">var</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">!</span>
+   <span class="kwd">var</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">!</span>
+   <span class="kwd">var</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">!</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">stname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">,</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">,</span><span class="pln"> mark3</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">self</span><span class="pun">.</span><span class="pln">stname </span><span class="pun">=</span><span class="pln"> stname
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark1 </span><span class="pun">=</span><span class="pln"> mark1
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark2 </span><span class="pun">=</span><span class="pln"> mark2
+      </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">mark3 </span><span class="pun">=</span><span class="pln"> mark3
+   </span><span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">let</span><span class="pln"> stname </span><span class="pun">=</span> <span class="str">"swift"</span>
+<span class="kwd">let</span><span class="pln"> mark1 </span><span class="pun">=</span> <span class="lit">98</span>
+<span class="kwd">let</span><span class="pln"> mark2 </span><span class="pun">=</span> <span class="lit">89</span>
+<span class="kwd">let</span><span class="pln"> mark3 </span><span class="pun">=</span> <span class="lit">76</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">stname</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mark1</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mark2</span><span class="pun">)</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">mark3</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">swift
+98
+89
+76
+</pre>
+<p>Class with classname StudDetails are defined as a base class here which is used to contain students name, and three subjects mark as mark1, mark2 and mark3. 'let' keyword is used to initialize the value for the base class and base class value is displayed in the playground with the help of 'println' function.</p>
+<h2>Subclass</h2>
+<p>The act of basing a new class on an existing class is defined as 'Subclass'. The subclass inherits the properties, methods and functions of its base class. To define a subclass ':' is used before the base class name.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">StudDetails</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> mark1</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">;</span>
+   <span class="kwd">var</span><span class="pln"> mark2</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">;</span><span class="pln">
+
+   init</span><span class="pun">(</span><span class="pln">stm1</span><span class="pun">:</span><span class="typ">Int</span><span class="pun">,</span><span class="pln"> results stm2</span><span class="pun">:</span><span class="typ">Int</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      mark1 </span><span class="pun">=</span><span class="pln"> stm1</span><span class="pun">;</span><span class="pln">
+      mark2 </span><span class="pun">=</span><span class="pln"> stm2</span><span class="pun">;</span>
+   <span class="pun">}</span><span class="pln">
+
+   func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Mark1:\(mark1), Mark2:\(mark2)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> display </span><span class="pun">:</span> <span class="typ">StudDetails</span> <span class="pun">{</span><span class="pln">
+   init</span><span class="pun">()</span> <span class="pun">{</span>
+      <span class="kwd">super</span><span class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span class="pln">stm1</span><span class="pun">:</span> <span class="lit">93</span><span class="pun">,</span><span class="pln"> results</span><span class="pun">:</span> <span class="lit">89</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> marksobtained </span><span class="pun">=</span><span class="pln"> display</span><span class="pun">()</span><span class="pln">
+marksobtained</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Mark1:93, Mark2:89
+</pre>
+<p>Class 'StudDetails' is defined as super class where student marks are declared and the subclass 'display' is used to inherit the marks from its super class. Sub class defines students marks and calls the print() method to display the students mark.</p>
+<h2>Overriding</h2>
+<p>Accessing the super class instance, type methods, instance, type properties and subscripts subclass provides the concept of overriding. 'override' keyword is used to override the methods declared in the superclass.</p>
+<h3>Access to Super class Methods, Properties and Subscripts</h3>
+<p>'super' keyword is used as a prefix to access the methods, properties and subscripts declared in the super class.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>Overriding</td>
+<td>Access to methods, properties and subscripts</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>super.somemethod()</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>super.someProperty()</td>
+</tr>
+<tr>
+<td>Subscripts</td>
+<td>super[someIndex]</td>
+</tr>
+</tbody>
+</table>
+<h2>Methods Overriding</h2>
+<p>Inherited instance and type methods can be overridden by the 'override' keyword to our methods defined in our subclass. Here print() is overridden in subclass to access the type property mentioned in the super class print(). Also new instance of cricket() super class is created as 'cricinstance'.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> cricket </span><span class="pun">{</span><span class="pln">
+   func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Welcome to Swift Super Class"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> tennis</span><span class="pun">:</span><span class="pln"> cricket </span><span class="pun">{</span>
+   <span class="kwd">override</span><span class="pln"> func </span><span class="kwd">print</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Welcome to Swift Sub Class"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> cricinstance </span><span class="pun">=</span><span class="pln"> cricket</span><span class="pun">()</span><span class="pln">
+cricinstance</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span>
+
+<span class="kwd">let</span><span class="pln"> tennisinstance </span><span class="pun">=</span><span class="pln"> tennis</span><span class="pun">()</span><span class="pln">
+tennisinstance</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">()</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Welcome to Swift Super Class
+Welcome to Swift Sub Class
+</pre>
+<h2>Property Overriding</h2>
+<p>You can override an inherited instance or class property to provide your own custom getter and setter for that property, or to add property observers to enable the overriding property to observe when the underlying property value changes.</p>
+<h3>Overriding Property Getters and Setters</h3>
+<p>Swift allows the user to provide custom getter and setter to override the inherited property whether it is a stored or computed property. The subclass does not know the inherited property name and type. Therefore it is essential that the user needs to specify in subclass, the name and type of the overriding property specified in super class.</p>
+<p>This can be done in two ways &minus;</p>
+<ul class="list">
+<li>
+<p>When setter is defined for overriding property the user has to define getter too.</p>
+</li>
+<li>
+<p>When we don't want to modify the inherited property getter, we can simply pass the inherited value by the syntax 'super.someProperty' to the super class.</p>
+</li>
+</ul>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> radius </span><span class="pun">=</span> <span class="lit">12.5</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="str">"of rectangle for \(radius) "</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span> <span class="pun">=</span> <span class="lit">7</span>
+   <span class="kwd">override</span> <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="kwd">super</span><span class="pun">.</span><span class="pln">area </span><span class="pun">+</span> <span class="str">" is now overridden as \(print)"</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> rect </span><span class="pun">=</span> <span class="typ">Rectangle</span><span class="pun">()</span><span class="pln">
+rect</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span> <span class="lit">25.0</span><span class="pln">
+rect</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span> <span class="lit">3</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Radius \(rect.area)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius of rectangle for 25.0  is now overridden as 3
+</pre>
+<h2>Overriding Property Observers</h2>
+<p>When a new property needs to be added for an inherited property, 'property overriding' concept is introduced in Swift. This notifies the user when the inherited property value is altered. But overriding is not applicable for inherited constant stored properties and inherited read-only computed properties.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> radius </span><span class="pun">=</span> <span class="lit">12.5</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="str">"of rectangle for \(radius) "</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span> <span class="pun">=</span> <span class="lit">7</span>
+   <span class="kwd">override</span> <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="kwd">super</span><span class="pun">.</span><span class="pln">area </span><span class="pun">+</span> <span class="str">" is now overridden as \(print)"</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">let</span><span class="pln"> rect </span><span class="pun">=</span> <span class="typ">Rectangle</span><span class="pun">()</span><span class="pln">
+rect</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span> <span class="lit">25.0</span><span class="pln">
+rect</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span> <span class="lit">3</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Radius \(rect.area)"</span><span class="pun">)</span>
+
+<span class="kwd">class</span> <span class="typ">Square</span><span class="pun">:</span> <span class="typ">Rectangle</span> <span class="pun">{</span>
+   <span class="kwd">override</span> <span class="kwd">var</span><span class="pln"> radius</span><span class="pun">:</span> <span class="typ">Double</span> <span class="pun">{</span><span class="pln">
+      didSet </span><span class="pun">{</span>
+         <span class="kwd">print</span> <span class="pun">=</span> <span class="typ">Int</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">/</span><span class="lit">5.0</span><span class="pun">)+</span><span class="lit">1</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">let</span><span class="pln"> sq </span><span class="pun">=</span> <span class="typ">Square</span><span class="pun">()</span><span class="pln">
+sq</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span> <span class="lit">100.0</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Radius \(sq.area)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius of rectangle for 25.0  is now overridden as 3
+Radius of rectangle for 100.0  is now overridden as 21
+</pre>
+<h2>Final Property to prevent Overriding</h2>
+<p>When the user need not want others to access super class methods, properties or subscripts swift introduces 'final' property to prevent overriding. Once 'final' property is declared the subscripts won't allow the super class methods, properties and its subscripts to be overridden. There is no provision to have 'final' property in 'super class'. When 'final' property is declared the user is restricted to create further sub classes.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">final</span> <span class="kwd">class</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">final</span> <span class="kwd">var</span><span class="pln"> radius </span><span class="pun">=</span> <span class="lit">12.5</span>
+   <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="str">"of rectangle for \(radius) "</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="typ">Circle</span> <span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span> <span class="pun">=</span> <span class="lit">7</span>
+   <span class="kwd">override</span> <span class="kwd">var</span><span class="pln"> area</span><span class="pun">:</span> <span class="typ">String</span> <span class="pun">{</span>
+      <span class="kwd">return</span> <span class="kwd">super</span><span class="pun">.</span><span class="pln">area </span><span class="pun">+</span> <span class="str">" is now overridden as \(print)"</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> rect </span><span class="pun">=</span> <span class="typ">Rectangle</span><span class="pun">()</span><span class="pln">
+rect</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span> <span class="lit">25.0</span><span class="pln">
+rect</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span> <span class="lit">3</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Radius \(rect.area)"</span><span class="pun">)</span>
+
+<span class="kwd">class</span> <span class="typ">Square</span><span class="pun">:</span> <span class="typ">Rectangle</span> <span class="pun">{</span>
+   <span class="kwd">override</span> <span class="kwd">var</span><span class="pln"> radius</span><span class="pun">:</span> <span class="typ">Double</span> <span class="pun">{</span><span class="pln">
+      didSet </span><span class="pun">{</span>
+         <span class="kwd">print</span> <span class="pun">=</span> <span class="typ">Int</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">/</span><span class="lit">5.0</span><span class="pun">)+</span><span class="lit">1</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> sq </span><span class="pun">=</span> <span class="typ">Square</span><span class="pun">()</span><span class="pln">
+sq</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span> <span class="lit">100.0</span><span class="pln">
+println</span><span class="pun">(</span><span class="str">"Radius \(sq.area)"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">&lt;stdin&gt;:14:18: error: var overrides a 'final' var
+    override var area: String {
+                 ^
+&lt;stdin&gt;:7:9: note: overridden declaration is here
+    var area: String {
+        ^
+&lt;stdin&gt;:12:11: error: inheritance from a final class 'Circle'
+    class Rectangle: Circle {
+          ^
+&lt;stdin&gt;:25:14: error: var overrides a 'final' var
+override var radius: Double {
+             ^
+&lt;stdin&gt;:6:14: note: overridden declaration is here
+   final var radius = 12.5
+</pre>
+<p>Since the super class is declared as 'final' and its data types are also declared as 'final' the program won't allow to create subclasses further and it will throw errors.</p>

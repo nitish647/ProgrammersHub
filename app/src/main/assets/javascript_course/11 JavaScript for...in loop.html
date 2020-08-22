@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.tutorialspoint.com/sql/sql-drop-table.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+    <title>JavaScript for...in loop</title>
+    <meta name="description" content="JavaScript For Loop - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./12_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript <i>for...in</i> loop</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>The <b>for...in</b> loop is used to loop through an object's properties. As we have not discussed Objects yet, you may not feel comfortable with this loop. But once you understand how objects behave in JavaScript, you will find this loop very useful.</p>
+        <h2>Syntax</h2>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">variablename </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">object</span><span class="pun">){</span><span class="pln">
+   statement </span><span class="kwd">or</span><span class="pln"> block to execute
+</span><span class="pun">}</span></pre>
+        <p>In each iteration, one property from <b>object</b> is assigned to <b>variablename</b> and this loop continues till all the properties of the object are exhausted.</p>
+        <h3>Example</h3>
+        <p>Try the following example to implement ‘for-in’ loop. It prints the web browser’s <b>Navigator</b> object.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> aProperty</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Navigator Object Properties&lt;br /&gt; "</span><span class="pun">);</span><span class="pln">
+
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">aProperty in navigator</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">aProperty</span><span class="pun">);</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Exiting from the loop!"</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different object and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Navigator Object Properties
+serviceWorker
+webkitPersistentStorage
+webkitTemporaryStorage
+geolocation
+doNotTrack
+onLine
+languages
+language
+userAgent
+product
+platform
+appVersion
+appName
+appCodeName
+hardwareConcurrency
+maxTouchPoints
+vendorSub
+vendor
+productSub
+cookieEnabled
+mimeTypes
+plugins
+javaEnabled
+getStorageUpdates
+getGamepads
+webkitGetUserMedia
+vibrate
+getBattery
+sendBeacon
+registerProtocolHandler
+unregisterProtocolHandler
+Exiting from the loop!
+Set the variable to different object and then try...
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

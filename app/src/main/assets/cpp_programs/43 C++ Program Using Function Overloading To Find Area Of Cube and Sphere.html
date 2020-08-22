@@ -1,0 +1,44 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #75715e">#include &lt;cmath&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">volume</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">volume</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">float</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">r,ch;</span>
+   <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;***MENU***&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+   <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;1. Cube &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+   <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;2. Sphere &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+   <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Choice: &quot;</span><span style="color: #f8f8f2">;</span>
+   <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">ch;</span>
+   <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(ch</span><span style="color: #f92672">==</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Side:&quot;</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">a;</span>
+     <span style="color: #f8f8f2">volume(a);</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(ch</span><span style="color: #f92672">==</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
+   <span style="color: #f8f8f2">{</span>
+     <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Radius:&quot;</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">r;</span>
+     <span style="color: #f8f8f2">volume(r);</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">volume</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a)</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Volume Of Cube = &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">volume</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">float</span> <span style="color: #f8f8f2">r)</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Volume Of Sphere = &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">4</span><span style="color: #f92672">/</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">*</span><span style="color: #ae81ff">3.14</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">pow(r,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f92672">***</span><span style="color: #f8f8f2">MENU</span><span style="color: #f92672">***</span>
+<span style="color: #ae81ff">1.</span> <span style="color: #f8f8f2">Cube</span>
+<span style="color: #ae81ff">2.</span> <span style="color: #f8f8f2">Sphere</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Choice</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Side</span><span style="color: #f92672">:</span><span style="color: #ae81ff">5</span>
+<span style="color: #f8f8f2">Volume</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Cube</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">125</span>
+</pre></div>

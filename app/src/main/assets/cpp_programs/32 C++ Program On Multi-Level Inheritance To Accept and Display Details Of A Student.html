@@ -1,0 +1,135 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+<span style="color: #75715e">#include &lt;conio.h&gt;</span>
+<span style="color: #75715e">#include &lt;stdio.h&gt;</span>
+<span style="color: #75715e">#include &lt;math.h&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">person</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">age;</span>
+    <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name[</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Age &amp; Name: &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">age;</span>
+      <span style="color: #f8f8f2">cin.ignore();</span>
+      <span style="color: #f8f8f2">cin.getline(name,</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">disp</span><span style="color: #f8f8f2">()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;**Details Of Person**&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Age: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">age</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+      <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Name: &quot;</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">puts</span> <span style="color: #f8f8f2">(name);</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">student</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">person</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rollno,</span> <span style="color: #f8f8f2">clss,</span> <span style="color: #f8f8f2">marks;</span>
+  <span style="color: #f8f8f2">public:</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter The Roll Number, Class &amp; Marks&quot;</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">rollno</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">clss</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">marks;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">disp</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Roll Number: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">rollno</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Class: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">clss</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Marks: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">marks</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">employee</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">person</span>
+<span style="color: #f8f8f2">{</span>
+   <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">id;</span>
+   <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">desig[</span><span style="color: #ae81ff">25</span><span style="color: #f8f8f2">];</span>
+   <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">dept[</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">];</span>
+   <span style="color: #f8f8f2">public:</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter The Employee ID, Department &amp; Designation: &quot;</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">id</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">dept</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">desig;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">disp</span><span style="color: #f8f8f2">()</span>
+     <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Employee ID: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">id</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Department: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">dept</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Designation: &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">desig;</span>
+     <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">student</span> <span style="color: #f8f8f2">S[</span><span style="color: #ae81ff">50</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">person</span> <span style="color: #f8f8f2">P[</span><span style="color: #ae81ff">50</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #f8f8f2">employee</span> <span style="color: #f8f8f2">E[</span><span style="color: #ae81ff">50</span><span style="color: #f8f8f2">];</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">ch;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Limit :&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
+  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;***MENU***&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;1. Student &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;2. Employee &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Enter Your Choice...&quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">ch;</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(ch</span><span style="color: #f92672">==</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+       <span style="color: #f8f8f2">P[i].read();</span>
+       <span style="color: #f8f8f2">S[i].read();</span>
+       <span style="color: #f8f8f2">P[i].disp();</span>
+       <span style="color: #f8f8f2">S[i].disp();</span>
+       <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(ch</span><span style="color: #f92672">==</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+     <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+     <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">P[i].read();</span>
+        <span style="color: #f8f8f2">E[i].read();</span>
+        <span style="color: #f8f8f2">P[i].disp();</span>
+        <span style="color: #f8f8f2">E[i].disp();</span>
+        <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+     <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">else</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Invalid Choice!&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">getch();</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Limit</span> <span style="color: #f92672">:</span><span style="color: #ae81ff">2</span>
+<span style="color: #f92672">***</span><span style="color: #f8f8f2">MENU</span><span style="color: #f92672">***</span>
+<span style="color: #ae81ff">1.</span> <span style="color: #f8f8f2">Student</span>
+<span style="color: #ae81ff">2.</span> <span style="color: #f8f8f2">Employee</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Your</span> <span style="color: #f8f8f2">Choice...</span>
+<span style="color: #ae81ff">1</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Age</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Name</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20</span>
+<span style="color: #f8f8f2">Abhishek</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">Number,</span> <span style="color: #f8f8f2">Class</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Marks150</span>
+<span style="color: #ae81ff">10</span>
+<span style="color: #ae81ff">90</span>
+
+<span style="color: #f92672">**</span><span style="color: #f8f8f2">Details</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Person</span><span style="color: #f92672">**</span>
+<span style="color: #f8f8f2">Age:</span> <span style="color: #ae81ff">20</span>
+<span style="color: #f8f8f2">Name:</span> <span style="color: #f8f8f2">Abhishek</span>
+<span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">Number</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span>
+<span style="color: #f8f8f2">Class:</span> <span style="color: #ae81ff">10</span>
+<span style="color: #f8f8f2">Marks:</span> <span style="color: #ae81ff">90</span>
+
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">Age</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Name</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">21</span>
+<span style="color: #f8f8f2">Rahul</span>
+<span style="color: #f8f8f2">Enter</span> <span style="color: #f8f8f2">The</span> <span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">Number,</span> <span style="color: #f8f8f2">Class</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">Marks160</span>
+<span style="color: #ae81ff">12</span>
+<span style="color: #ae81ff">95</span>
+
+<span style="color: #f92672">**</span><span style="color: #f8f8f2">Details</span> <span style="color: #f8f8f2">Of</span> <span style="color: #f8f8f2">Person</span><span style="color: #f92672">**</span>
+<span style="color: #f8f8f2">Age:</span> <span style="color: #ae81ff">21</span>
+<span style="color: #f8f8f2">Name:</span> <span style="color: #f8f8f2">Rahul</span>
+<span style="color: #f8f8f2">Roll</span> <span style="color: #f8f8f2">Number</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">160</span>
+<span style="color: #f8f8f2">Class:</span> <span style="color: #ae81ff">12</span>
+<span style="color: #f8f8f2">Marks:</span> <span style="color: #ae81ff">95</span>
+</pre></div>

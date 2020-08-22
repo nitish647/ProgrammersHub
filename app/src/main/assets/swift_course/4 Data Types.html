@@ -1,0 +1,145 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Data Types</h1>
+
+<p>While doing programming in any programming language, you need to use different types of variables to store information. Variables are nothing but reserved memory locations to store values. This means that when you create a variable, you reserve some space in memory.</p>
+<p>You may like to store information of various data types like string, character, wide character, integer, floating point, Boolean, etc. Based on the data type of a variable, the operating system allocates memory and decides what can be stored in the reserved memory.</p>
+<h2>Built-in Data Types</h2>
+<p>Swift offers the programmer a rich assortment of built-in as well as user-defined data types. The following types of basic data types are most frequently when declaring variables &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Int or UInt</strong> &minus; This is used for whole numbers. More specifically, you can use Int32, Int64 to define 32 or 64 bit signed integer, whereas UInt32 or UInt64 to define 32 or 64 bit unsigned integer variables. For example, 42 and -23.</p>
+</li>
+<li>
+<p><strong>Float</strong> &minus; This is used to represent a 32-bit floating-point number and numbers with smaller decimal points. For example, 3.14159, 0.1, and -273.158.</p>
+</li>
+<li>
+<p><strong>Double</strong> &minus; This is used to represent a 64-bit floating-point number and used when floating-point values must be very large. For example, 3.14159, 0.1, and -273.158.</p>
+</li>
+<li>
+<p><strong>Bool</strong> &minus; This represents a Boolean value which is either true or false.</p>
+</li>
+<li>
+<p><strong>String</strong> &minus; This is an ordered collection of characters. For example, "Hello, World!"</p>
+</li>
+<li>
+<p><strong>Character</strong> &minus; This is a single-character string literal. For example, "C"</p>
+</li>
+<li>
+<p><strong>Optional</strong> &minus; This represents a variable that can hold either a value or no value.</p>
+</li>
+</ul>
+<p>We have listed here a few important points related to Integer types &minus;</p>
+<ul class="list">
+<li>
+<p>On a 32-bit platform, Int is the same size as Int32.</p>
+</li>
+<li>
+<p>On a 64-bit platform, Int is the same size as Int64.</p>
+</li>
+<li>
+<p>On a 32-bit platform, UInt is the same size as UInt32.</p>
+</li>
+<li>
+<p>On a 64-bit platform, UInt is the same size as UInt64.</p>
+</li>
+<li>
+<p>Int8, Int16, Int32, Int64 can be used to represent 8 Bit, 16 Bit, 32 Bit, and 64 Bit forms of signed integer.</p>
+</li>
+<li>
+<p>UInt8, UInt16, UInt32, and UInt64 can be used to represent 8 Bit, 16 Bit, 32 Bit and 64 Bit forms of unsigned integer.</p>
+</li>
+</ul>
+<h2>Bound Values</h2>
+<p>The following table shows the variable type, how much memory it takes to store the value in memory, and what is the maximum and minimum value which can be stored in such type of variables.</p>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Type</th><th>Typical Bit Width</th><th>Typical Range</th></tr>
+<tr>
+<td>Int8</td>
+<td>1byte</td>
+<td>-127 to 127</td>
+</tr>
+<tr>
+<td>UInt8</td>
+<td>1byte</td>
+<td>0 to 255</td>
+</tr>
+<tr>
+<td>Int32</td>
+<td>4bytes</td>
+<td>-2147483648 to 2147483647</td>
+</tr>
+<tr>
+<td>UInt32</td>
+<td>4bytes</td>
+<td>0 to 4294967295</td>
+</tr>
+<tr>
+<td>Int64</td>
+<td>8bytes</td>
+<td>-9223372036854775808 to 9223372036854775807</td>
+</tr>
+<tr>
+<td>UInt64</td>
+<td>8bytes</td>
+<td>0 to 18446744073709551615</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>4bytes</td>
+<td>1.2E-38 to 3.4E+38 (~6 digits)</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>8bytes</td>
+<td>2.3E-308 to 1.7E+308 (~15 digits)</td>
+</tr>
+</tbody>
+</table>
+<h2>Type Aliases</h2>
+<p>You can create a new name for an existing type using <strong>typealias</strong>. Here is the simple syntax to define a new type using typealias &minus;</p>
+<pre class="result notranslate">typealias newname = type
+</pre>
+<p>For example, the following line instructs the compiler that <strong>Feet</strong> is another name for <strong>Int</strong> &minus;</p>
+<pre class="result notranslate">typealias Feet = Int
+</pre>
+<p>Now, the following declaration is perfectly legal and creates an integer variable called distance &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span><span class="pln">
+
+typealias </span><span class="typ">Feet</span> <span class="pun">=</span> <span class="typ">Int</span>
+<span class="kwd">var</span><span class="pln"> distance</span><span class="pun">:</span> <span class="typ">Feet</span> <span class="pun">=</span> <span class="lit">100</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">distance</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">100
+</pre>
+<h2>Type Safety</h2>
+<p>Swift is a type-safe language which means if a part of your code expects a String, you can't pass it an Int by mistake.</p>
+<p>As Swift is type-safe, it performs type-checks when compiling your code and flags any mismatched types as errors.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> varA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+varA </span><span class="pun">=</span> <span class="str">"This is hello"</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varA</span><span class="pun">)</span></pre>
+<p>When we compile the above program, it produces the following compile time error.</p>
+<pre class="result notranslate">Playground execution failed: error: &lt;EXPR&gt;:6:6: error: cannot assign to 'let' value 'varA'
+varA = "This is hello"
+</pre>
+<h2>Type Inference</h2>
+<p>Type inference enables a compiler to deduce the type of a particular expression automatically when it compiles your code, simply by examining the values you provide. Swift uses type inference to work out the appropriate type as follows.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="com">// varA is inferred to be of type Int</span>
+<span class="kwd">var</span><span class="pln"> varA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varA</span><span class="pun">)</span>
+
+<span class="com">// varB is inferred to be of type Double</span>
+<span class="kwd">var</span><span class="pln"> varB </span><span class="pun">=</span> <span class="lit">3.14159</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varB</span><span class="pun">)</span>
+
+<span class="com">// varC is also inferred to be of type Double</span>
+<span class="kwd">var</span><span class="pln"> varC </span><span class="pun">=</span> <span class="lit">3</span> <span class="pun">+</span> <span class="lit">0.14159</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varC</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">42
+3.14159
+3.14159
+</pre>

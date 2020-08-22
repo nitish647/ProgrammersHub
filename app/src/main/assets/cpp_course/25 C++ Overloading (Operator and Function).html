@@ -1,0 +1,243 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Overloading (Operator and Function)</h1>
+ 
+<p>C++ allows you to specify more than one definition for a <strong>function</strong> name or an <strong>operator</strong> in the same scope, which is called <strong>function overloading</strong> and <strong>operator overloading</strong> respectively.</p>
+<p>An overloaded declaration is a declaration that is declared with the same name as a previously declared declaration in the same scope, except that both declarations have different arguments and obviously different definition (implementation).</p>
+<p>When you call an overloaded <strong>function</strong> or <strong>operator</strong>, the compiler determines the most appropriate definition to use, by comparing the argument types you have used to call the function or operator with the parameter types specified in the definitions. The process of selecting the most appropriate overloaded function or operator is called <strong>overload resolution</strong>.</p>
+<h2>Function Overloading in C++</h2>
+<p>You can have multiple definitions for the same function name in the same scope. The definition of the function must differ from each other by the types and/or the number of arguments in the argument list. You cannot overload function declarations that differ only by return type.</p>
+<p>Following is the example where same function <strong>print()</strong> is being used to print different data types &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span><span class="pln"> printData </span><span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+        cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Printing int: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">double</span><span class="pln">  f</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+        cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Printing float: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> f </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">char</span><span class="pun">*</span><span class="pln"> c</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+        cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Printing character: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> c </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+   printData pd</span><span class="pun">;</span>
+ 
+   <span class="com">// Call print to print integer</span><span class="pln">
+   pd</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+   
+   <span class="com">// Call print to print float</span><span class="pln">
+   pd</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="lit">500.263</span><span class="pun">);</span>
+   
+   <span class="com">// Call print to print character</span><span class="pln">
+   pd</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Hello C++"</span><span class="pun">);</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Printing int: 5
+Printing float: 500.263
+Printing character: Hello C++
+</pre>
+<h2>Operators Overloading in C++</h2>
+<p>You can redefine or overload most of the built-in operators available in C++. Thus, a programmer can use operators with user-defined types as well.</p>
+<p>Overloaded operators are functions with special names the keyword operator followed by the symbol for the operator being defined. Like any other function, an overloaded operator has a return type and a parameter list.</p>
+<pre class="result notranslate">Box operator+(const Box&amp;);
+</pre>
+<p>declares the addition operator that can be used to <strong>add</strong> two Box objects and returns final Box object. Most overloaded operators may be defined as ordinary non-member functions or as class member functions. In case we define above function as non-member function of a class then we would have to pass two arguments for each operand as follows &minus;</p>
+<pre class="result notranslate">Box operator+(const Box&amp;, const Box&amp;);
+</pre>
+<p>Following is the example to show the concept of operator over loading using a member function. Here an object is passed as an argument whose properties will be accessed using this object, the object which will call this operator can be accessed using <strong>this</strong> operator as explained below &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> getVolume</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">void</span><span class="pln"> setBreadth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> bre </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> bre</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> hei </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> hei</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Overload + operator to add two Box objects.</span>
+      <span class="typ">Box</span> <span class="kwd">operator</span><span class="pun">+(</span><span class="kwd">const</span> <span class="typ">Box</span><span class="pun">&amp;</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="typ">Box</span><span class="pln"> box</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">breadth </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">height </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> box</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>      <span class="com">// Length of a box</span>
+      <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>     <span class="com">// Breadth of a box</span>
+      <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>      <span class="com">// Height of a box</span>
+<span class="pun">};</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Box</span> <span class="typ">Box1</span><span class="pun">;</span>                <span class="com">// Declare Box1 of type Box</span>
+   <span class="typ">Box</span> <span class="typ">Box2</span><span class="pun">;</span>                <span class="com">// Declare Box2 of type Box</span>
+   <span class="typ">Box</span> <span class="typ">Box3</span><span class="pun">;</span>                <span class="com">// Declare Box3 of type Box</span>
+   <span class="kwd">double</span><span class="pln"> volume </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>     <span class="com">// Store the volume of a box here</span>
+ 
+   <span class="com">// box 1 specification</span>
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span> 
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">7.0</span><span class="pun">);</span> 
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span>
+ 
+   <span class="com">// box 2 specification</span>
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">12.0</span><span class="pun">);</span> 
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">13.0</span><span class="pun">);</span> 
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+ 
+   <span class="com">// volume of box 1</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box1 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="com">// volume of box 2</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box2 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+
+   <span class="com">// Add two object as follows:</span>
+   <span class="typ">Box3</span> <span class="pun">=</span> <span class="typ">Box1</span> <span class="pun">+</span> <span class="typ">Box2</span><span class="pun">;</span>
+
+   <span class="com">// volume of box 3</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box3</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box3 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+</pre>
+<h2>Overloadable/Non-overloadableOperators</h2>
+<p>Following is the list of operators which can be overloaded &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<td width="16.6%">+</td>
+<td width="16.6%">-</td>
+<td width="16.6%">*</td>
+<td width="16.6%">/</td>
+<td width="16.6%">%</td>
+<td width="16.6%">^</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>|</td>
+<td>~</td>
+<td>!</td>
+<td>,</td>
+<td>=</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&gt;</td>
+<td>&lt;=</td>
+<td>&gt;=</td>
+<td>++</td>
+<td>--</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>&gt;&gt;</td>
+<td>==</td>
+<td>!=</td>
+<td>&amp;&amp;</td>
+<td>||</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>-=</td>
+<td>/=</td>
+<td>%=</td>
+<td>^=</td>
+<td>&amp;=</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>*=</td>
+<td>&lt;&lt;=</td>
+<td>&gt;&gt;=</td>
+<td>[]</td>
+<td>()</td>
+</tr>
+<tr>
+<td>-&gt;</td>
+<td>-&gt;*</td>
+<td>new</td>
+<td>new []</td>
+<td>delete</td>
+<td>delete []</td>
+</tr>
+</tbody>
+</table>
+<p>Following is the list of operators, which can not be overloaded &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<td width="25%">::</td>
+<td width="25%">.*</td>
+<td width="25%">.</td>
+<td width="25%">?:</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Operator Overloading Examples</h2>
+<p>Here are various operator overloading examples to help you in understanding the concept.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="text-align: center;">Sr.No</th>
+<th style="text-align: center;">Operators &amp; Example</th>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Unary Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Binary Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Relational Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Input/Output Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>++ and -- Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>Assignment Operators Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>Function call () Operator Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>Subscripting [] Operator Overloading</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>Class Member Access Operator -&gt; Overloading</a></td>
+</tr>
+</tbody>
+</table>

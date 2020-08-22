@@ -1,0 +1,25 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Comma Operator</h1>
+
+<p>The purpose of comma operator is to string together several expressions. The value of a comma-separated list of expressions is the value of the right-most expression. Essentially, the comma's effect is to cause a sequence of operations to be performed.</p>
+<p>The values of the other expressions will be discarded. This means that the expression on the right side will become the value of the entire comma-separated expression. For example &minus;</p>
+<pre class="result notranslate">var = (count = 19, incr = 10, count+1);
+</pre>
+<p>Here first assigns count the value 19, assigns incr the value 10, then adds 1 to count, and finally, assigns var the value of the rightmost expression, count+1, which is 20. The parentheses are necessary because the comma operator has a lower precedence than the assignment operator.</p>
+<p>To see the effects of the comma operator, try running the following program &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">;</span><span class="pln">
+   
+   j </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln">
+   i </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">j</span><span class="pun">++,</span><span class="pln"> j</span><span class="pun">+</span><span class="lit">100</span><span class="pun">,</span> <span class="lit">999</span><span class="pun">+</span><span class="pln">j</span><span class="pun">);</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> i</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">1010
+</pre>
+<p>Here is the procedure how the value of i gets calculated: j starts with the value 10. j is then incremented to 11. Next, j is added to 100. Finally, j (still containing 11) is added to 999, which yields the result 1010.</p>

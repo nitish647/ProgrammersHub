@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0058)https://www.tutorialspoint.com/sql/sql-select-database.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - While Loops</title>
+    <meta name="description" content="JavaScript while Loops - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+    <meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+
+<link rel="stylesheet" href="./10_files/style-min.css">
+
+
+
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - While Loops</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>While writing a program, you may encounter a situation where you need to perform an action over and over again. In such situations, you would need to write loop statements to reduce the number of lines.</p>
+        <p>JavaScript supports all the necessary loops to ease down the pressure of programming.</p>
+        <h2>The while Loop</h2>
+        <p>The most basic loop in JavaScript is the <b>while</b> loop which would be discussed in this chapter. The purpose of a <b>while</b> loop is to execute a statement or code block repeatedly as long as an <b>expression</b> is true. Once the expression becomes <b>false,</b> the loop terminates.</p>
+        <h3>Flow Chart</h3>
+        <p>The flow chart of <b>while loop</b> looks as follows −</p>
+        <img src="../img/3.PNG" alt="While loop">
+        <h3>Syntax</h3>
+        <p>The syntax of <b>while loop</b> in JavaScript is as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">){</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed </span><span class="kwd">if</span><span class="pln"> expression </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <h3>Example</h3>
+        <p>Try the following example to implement while loop.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> count </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Starting Loop "</span><span class="pun">);</span><span class="pln">
+
+            </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">count </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">){</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Current Count : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> count </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               count</span><span class="pun">++;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Loop stopped!"</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Starting Loop
+Current Count : 0
+Current Count : 1
+Current Count : 2
+Current Count : 3
+Current Count : 4
+Current Count : 5
+Current Count : 6
+Current Count : 7
+Current Count : 8
+Current Count : 9
+Loop stopped!
+Set the variable to different value and then try...
+</pre>
+        <h2>The do...while Loop</h2>
+        <p>The <b>do...while</b> loop is similar to the <b>while</b> loop except that the condition check happens at the end of the loop. This means that the loop will always be executed at least once, even if the condition is <b>false</b>.</p>
+        <h3>Flow Chart</h3>
+        <p>The flow chart of a <b>do-while</b> loop would be as follows −</p>
+        <img src="../img/4.PNG" alt="Do While Loop">
+        <h3>Syntax</h3>
+        <p>The syntax for <b>do-while</b> loop in JavaScript is as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">do</span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> to be executed</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">);</span></pre>
+        <p><b>Note</b> − Don’t miss the semicolon used at the end of the do...while loop.</p>
+        <h3>Example</h3>
+        <p>Try the following example to learn how to implement a <b>do-while</b> loop in JavaScript.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> count </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Starting Loop"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">do</span><span class="pun">{</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Current Count : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> count </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               count</span><span class="pun">++;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">count </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Loop stopped!"</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Starting Loop
+Current Count : 0
+Current Count : 1
+Current Count : 2
+Current Count : 3
+Current Count : 4
+Loop Stopped!
+Set the variable to different value and then try...
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

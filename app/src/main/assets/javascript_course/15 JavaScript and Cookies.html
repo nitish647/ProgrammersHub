@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.tutorialspoint.com/sql/sql-and-or-clauses.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+    <title>JavaScript and Cookies</title>
+    <meta name="description" content="JavaScript Events - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./16_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript and Cookies</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <h2>What are Cookies ?</h2>
+        <p>Web Browsers and Servers use HTTP protocol to communicate and HTTP is a stateless protocol. But for a commercial website, it is required to maintain session information among different pages. For example, one user registration ends after completing many pages. But how to maintain users' session information across all the web pages.</p>
+        <p>In many situations, using cookies is the most efficient method of remembering and tracking preferences, purchases, commissions, and other information required for better visitor experience or site statistics.</p>
+        <h2>How It Works ?</h2>
+        <p>Your server sends some data to the visitor's browser in the form of a cookie. The browser may accept the cookie. If it does, it is stored as a plain text record on the visitor's hard drive. Now, when the visitor arrives at another page on your site, the browser sends the same cookie to the server for retrieval. Once retrieved, your server knows/remembers what was stored earlier.</p>
+        <p>Cookies are a plain text data record of 5 variable-length fields −</p>
+        <ul class="list">
+            <li><p><b>Expires</b> − The date the cookie will expire. If this is blank, the cookie will expire when the visitor quits the browser.</p></li>
+            <li><p><b>Domain</b> − The domain name of your site.</p></li>
+            <li><p><b>Path</b> − The path to the directory or web page that set the cookie. This may be blank if you want to retrieve the cookie from any directory or page.</p></li>
+            <li><p><b>Secure</b> − If this field contains the word "secure", then the cookie may only be retrieved with a secure server. If this field is blank, no such restriction exists.</p></li>
+            <li><p><b>Name=Value</b> − Cookies are set and retrieved in the form of key-value pairs</p></li>
+        </ul>
+        <p>Cookies were originally designed for CGI programming. The data contained in a cookie is automatically transmitted between the web browser and the web server, so CGI scripts on the server can read and write cookie values that are stored on the client.</p>
+        <p>JavaScript can also manipulate cookies using the <b>cookie</b> property of the <b>Document</b> object. JavaScript can read, create, modify, and delete the cookies that apply to the current web page.</p>
+        <h2>Storing Cookies</h2>
+        <p>The simplest way to create a cookie is to assign a string value to the document.cookie object, which looks like this.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">document</span><span class="pun">.</span><span class="pln">cookie </span><span class="pun">=</span><span class="pln"> </span><span class="str">"key1=value1;key2=value2;expires=date"</span><span class="pun">;</span></pre>
+        <p>Here the <b>expires</b> attribute is optional. If you provide this attribute with a valid date or time, then the cookie will expire on a given date or time and thereafter, the cookies' value will not be accessible.</p>
+        <p><b>Note</b> − Cookie values may not include semicolons, commas, or whitespace. For this reason, you may want to use the JavaScript <b>escape()</b> function to encode the value before storing it in the cookie. If you do this, you will also have to use the corresponding <b>unescape()</b> function when you read the cookie value.</p>
+        <h3>Example</h3>
+        <p>Try the following. It sets a customer name in an input cookie.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">WriteCookie</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">myform</span><span class="pun">.</span><span class="pln">customer</span><span class="pun">.</span><span class="pln">value </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">){</span><span class="pln">
+                  alert</span><span class="pun">(</span><span class="str">"Enter some value!"</span><span class="pun">);</span><span class="pln">
+                  </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+               cookievalue</span><span class="pun">=</span><span class="pln"> escape</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">myform</span><span class="pun">.</span><span class="pln">customer</span><span class="pun">.</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">";"</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">cookie</span><span class="pun">=</span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Setting Cookies : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue </span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myform"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;</span><span class="pln">
+         Enter name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"customer"</span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Set Cookie"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="typ">WriteCookie</span><span class="pun">();</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/write_cookie.htm" height="70px" width="600px" style="visibility: visible; height: 50px;"></iframe>
+        <p>Now your machine has a cookie called <b>name</b>. You can set multiple cookies using multiple key=value pairs separated by comma.</p>
+        <h2>Reading Cookies</h2>
+        <p>Reading a cookie is just as simple as writing one, because the value of the document.cookie object is the cookie. So you can use this string whenever you want to access the cookie. The document.cookie string will keep a list of name=value pairs separated by semicolons, where <b>name</b> is the name of a cookie and value is its string value.</p>
+        <p>You can use strings' <b>split()</b> function to break a string into key and values as follows −</p>
+        <h3>Example</h3>
+        <p>Try the following example to get all the cookies.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">ReadCookie</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> allcookies </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">cookie</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"All Cookies : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> allcookies </span><span class="pun">);</span><span class="pln">
+
+               </span><span class="com">// Get all the cookies pairs in an array</span><span class="pln">
+               cookiearray </span><span class="pun">=</span><span class="pln"> allcookies</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">';'</span><span class="pun">);</span><span class="pln">
+
+               </span><span class="com">// Now take key value pair out of this array</span><span class="pln">
+               </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">cookiearray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">
+                  name </span><span class="pun">=</span><span class="pln"> cookiearray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">split</span><span class="pun">(</span><span class="str">'='</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+                  value </span><span class="pun">=</span><span class="pln"> cookiearray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">split</span><span class="pun">(</span><span class="str">'='</span><span class="pun">)[</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+                  document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Key is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" and Value is : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> value</span><span class="pun">);</span><span class="pln">
+               </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myform"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;p&gt;</span><span class="pln"> click the following button and see the result:</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Get Cookie"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="typ">ReadCookie</span><span class="pun">()</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p><b>Note</b> − Here <b>length</b> is a method of <b>Array</b> class which returns the length of an array. We will discuss Arrays in a separate chapter. By that time, please try to digest it.</p>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/reading_cookies.htm" height="130px" width="600px" style="visibility: visible; height: 85px;"></iframe>
+        <p><b>Note</b> − There may be some other cookies already set on your machine. The above code will display all the cookies set on your machine.</p>
+        <h2>Setting Cookies Expiry Date</h2>
+        <p>You can extend the life of a cookie beyond the current browser session by setting an expiration date and saving the expiry date within the cookie. This can be done by setting the <b>‘expires’</b> attribute to a date and time.</p>
+        <h3>Example</h3>
+        <p>Try the following example. It illustrates how to extend the expiry date of a cookie by 1 Month.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">WriteCookie</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> now </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span><span class="pln">
+               now</span><span class="pun">.</span><span class="pln">setMonth</span><span class="pun">(</span><span class="pln"> now</span><span class="pun">.</span><span class="pln">getMonth</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+               cookievalue </span><span class="pun">=</span><span class="pln"> escape</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">myform</span><span class="pun">.</span><span class="pln">customer</span><span class="pun">.</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">";"</span><span class="pln">
+
+               document</span><span class="pun">.</span><span class="pln">cookie</span><span class="pun">=</span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">cookie </span><span class="pun">=</span><span class="pln"> </span><span class="str">"expires="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> now</span><span class="pun">.</span><span class="pln">toUTCString</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">";"</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write </span><span class="pun">(</span><span class="str">"Setting Cookies : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue </span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myform"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;</span><span class="pln">
+         Enter name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"customer"</span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Set Cookie"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="typ">WriteCookie</span><span class="pun">()</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/setting_cookies.htm" height="70px" width="600px" style="visibility: visible; height: 50px;"></iframe>
+        <h2>Deleting a Cookie</h2>
+        <p>Sometimes you will want to delete a cookie so that subsequent attempts to read the cookie return nothing. To do this, you just need to set the expiry date to a time in the past.</p>
+        <h3>Example</h3>
+        <p>Try the following example. It illustrates how to delete a cookie by setting its expiry date to one month behind the current date.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">WriteCookie</span><span class="pun">()</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">var</span><span class="pln"> now </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span><span class="pln">
+               now</span><span class="pun">.</span><span class="pln">setMonth</span><span class="pun">(</span><span class="pln"> now</span><span class="pun">.</span><span class="pln">getMonth</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+               cookievalue </span><span class="pun">=</span><span class="pln"> escape</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">myform</span><span class="pun">.</span><span class="pln">customer</span><span class="pun">.</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">";"</span><span class="pln">
+
+               document</span><span class="pun">.</span><span class="pln">cookie</span><span class="pun">=</span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue</span><span class="pun">;</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">cookie </span><span class="pun">=</span><span class="pln"> </span><span class="str">"expires="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> now</span><span class="pun">.</span><span class="pln">toUTCString</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">";"</span><span class="pln">
+               document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Setting Cookies : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"name="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cookievalue </span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+          </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myform"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;</span><span class="pln">
+         Enter name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"customer"</span><span class="tag">/&gt;</span><span class="pln">
+         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Set Cookie"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="typ">WriteCookie</span><span class="pun">()</span><span class="atv">"</span><span class="tag">/&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <iframe onload="resizeFrame(this)" class="result" src="/javascript/src/deleting_cookies.htm" height="70px" width="600px" style="visibility: visible; height: 50px;"></iframe>
+        <hr>
+    </div></div></div></div></div></div></body></html>

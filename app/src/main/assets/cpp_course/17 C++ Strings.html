@@ -1,0 +1,150 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Strings</h1>
+ 
+<p>C++ provides following two types of string representations &minus;</p>
+<ul class="list">
+<li>The C-style character string.</li>
+<li>The string class type introduced with Standard C++.</li>
+</ul>
+<h2>The C-Style Character String</h2>
+<p>The C-style character string originated within the C language and continues to be supported within C++. This string is actually a one-dimensional array of characters which is terminated by a <strong>null</strong> character '\0'. Thus a null-terminated string contains the characters that comprise the string followed by a <strong>null</strong>.</p>
+<p>The following declaration and initialization create a string consisting of the word "Hello". To hold the null character at the end of the array, the size of the character array containing the string is one more than the number of characters in the word "Hello."</p>
+<pre class="result notranlate">char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+</pre>
+<p>If you follow the rule of array initialization, then you can write the above statement as follows &minus;</p>
+<pre class="result notranlate">char greeting[] = "Hello";
+</pre>
+<p>Following is the memory presentation of above defined string in C/C++ &minus;</p>
+<p><img src="string_representation.jpg" alt="String Presentation in C/C++" /></p>
+<p>Actually, you do not place the null character at the end of a string constant. The C++ compiler automatically places the '\0' at the end of the string when it initializes the array. Let us try to print above-mentioned string &minus;</p>
+<pre class="prettyprint notranlate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+
+   <span class="kwd">char</span><span class="pln"> greeting</span><span class="pun">[</span><span class="lit">6</span><span class="pun">]</span> <span class="pun">=</span> <span class="pun">{</span><span class="str">'H'</span><span class="pun">,</span> <span class="str">'e'</span><span class="pun">,</span> <span class="str">'l'</span><span class="pun">,</span> <span class="str">'l'</span><span class="pun">,</span> <span class="str">'o'</span><span class="pun">,</span> <span class="str">'\0'</span><span class="pun">};</span><span class="pln">
+
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Greeting message: "</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> greeting </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranlate">Greeting message: Hello
+</pre>
+<p>C++ supports a wide range of functions that manipulate null-terminated strings &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Function &amp; Purpose</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>strcpy(s1, s2);</strong></p>
+<p>Copies string s2 into string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>strcat(s1, s2);</strong></p>
+<p>Concatenates string s2 onto the end of string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>strlen(s1);</strong></p>
+<p>Returns the length of string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>
+<p><strong>strcmp(s1, s2);</strong></p>
+<p>Returns 0 if s1 and s2 are the same; less than 0 if s1&lt;s2; greater than 0 if s1&gt;s2.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td>
+<p><strong>strchr(s1, ch);</strong></p>
+<p>Returns a pointer to the first occurrence of character ch in string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td>
+<p><strong>strstr(s1, s2);</strong></p>
+<p>Returns a pointer to the first occurrence of string s2 in string s1.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Following example makes use of few of the above-mentioned functions &minus;</p>
+<pre class="prettyprint notranlate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;cstring&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+
+   <span class="kwd">char</span><span class="pln"> str1</span><span class="pun">[</span><span class="lit">10</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Hello"</span><span class="pun">;</span>
+   <span class="kwd">char</span><span class="pln"> str2</span><span class="pun">[</span><span class="lit">10</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"World"</span><span class="pun">;</span>
+   <span class="kwd">char</span><span class="pln"> str3</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span>
+   <span class="kwd">int</span><span class="pln">  len </span><span class="pun">;</span>
+
+   <span class="com">// copy str1 into str3</span><span class="pln">
+   strcpy</span><span class="pun">(</span><span class="pln"> str3</span><span class="pun">,</span><span class="pln"> str1</span><span class="pun">);</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"strcpy( str3, str1) : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> str3 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// concatenates str1 and str2</span><span class="pln">
+   strcat</span><span class="pun">(</span><span class="pln"> str1</span><span class="pun">,</span><span class="pln"> str2</span><span class="pun">);</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"strcat( str1, str2): "</span> <span class="pun">&lt;&lt;</span><span class="pln"> str1 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// total lenghth of str1 after concatenation</span><span class="pln">
+   len </span><span class="pun">=</span><span class="pln"> strlen</span><span class="pun">(</span><span class="pln">str1</span><span class="pun">);</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"strlen(str1) : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> len </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranlate">strcpy( str3, str1) : Hello
+strcat( str1, str2): HelloWorld
+strlen(str1) : 10
+</pre>
+<h2>The String Class in C++</h2>
+<p>The standard C++ library provides a <strong>string</strong> class type that supports all the operations mentioned above, additionally much more functionality. Let us check the following example &minus;</p>
+<pre class="prettyprint notranlate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;string&gt;</span>
+
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+
+   <span class="kwd">string</span><span class="pln"> str1 </span><span class="pun">=</span> <span class="str">"Hello"</span><span class="pun">;</span>
+   <span class="kwd">string</span><span class="pln"> str2 </span><span class="pun">=</span> <span class="str">"World"</span><span class="pun">;</span>
+   <span class="kwd">string</span><span class="pln"> str3</span><span class="pun">;</span>
+   <span class="kwd">int</span><span class="pln">  len </span><span class="pun">;</span>
+
+   <span class="com">// copy str1 into str3</span><span class="pln">
+   str3 </span><span class="pun">=</span><span class="pln"> str1</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"str3 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> str3 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// concatenates str1 and str2</span><span class="pln">
+   str3 </span><span class="pun">=</span><span class="pln"> str1 </span><span class="pun">+</span><span class="pln"> str2</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"str1 + str2 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> str3 </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// total length of str3 after concatenation</span><span class="pln">
+   len </span><span class="pun">=</span><span class="pln"> str3</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"str3.size() :  "</span> <span class="pun">&lt;&lt;</span><span class="pln"> len </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces result something as follows &minus;</p>
+<pre class="result notranlate">str3 : Hello
+str1 + str2 : HelloWorld
+str3.size() :  10
+</pre>

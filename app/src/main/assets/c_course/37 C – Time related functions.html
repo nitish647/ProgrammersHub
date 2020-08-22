@@ -1,0 +1,917 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C – Time related functions</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:15.0pt;font-family:"Montserrat","serif"'>C – Time
+related functions</span></b></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Time functions in C are used to interact with system time
+routine and formatted time outputs are displayed.&nbsp;Example programs for the
+time functions are given below.</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=555
+ style='width:416.25pt;background:#FBFBFB;border-collapse:collapse;border:none'>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><b><span
+  style='font-size:10.0pt;font-family:"inherit","serif";color:black'>Function</span></b></p>
+  </td>
+  <td valign=bottom style='border:solid black 1.0pt;border-left:none;
+  padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><b><span
+  style='font-size:10.0pt;font-family:"inherit","serif";color:black'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>setdate()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function used to modify the system date</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>getdate()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to get the CPU time</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>clock()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to get current system time</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>time()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to get current system time as structure</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>difftime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to get the difference between two given
+  times</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>strftime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to modify the actual time format</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>mktime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function interprets tm structure as calendar time</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>localtime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function shares the tm structure that contains date and
+  time informations</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>gmtime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function shares the tm structure that contains date and
+  time informations</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>ctime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>This function is used to return string that contains date and
+  time informations</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=bottom style='border:solid black 1.0pt;border-top:none;padding:
+  5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>asctime()</span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;padding:5.25pt 11.25pt 5.25pt 11.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:10.0pt;font-family:"Merriweather","serif";
+  color:#444444'>Tm structure contents are interpreted by this function as
+  calendar time. This time is converted into string.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR SETDATE() FUNCTION IN C</span></b><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>:</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:#FBFBFB;vertical-align:
+baseline'><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>This function is&nbsp;used to modify the system date. Please
+note that other C compilers may not support this setdate() function except
+turbo C.</span><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New";
+color:#444444'> </span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>1</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>2</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>3</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>4</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>5</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>6</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>7</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>8</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>9</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>10</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>11</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>12</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>13</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>14</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>15</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>16</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif"'>17</span></p>
+  </td>
+  <td width=528 style='width:5.5in;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>#include&lt;stdio.h&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>#include&lt;dos.h&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>#include&lt;conio.h&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>int main()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; struct date dt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Enter new date in
+  the format(day month year)&quot;);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; scanf(&quot;%d%d%d&quot;,&amp;dt.da_day,&amp;dt.da_mon,&amp;dt.da_year);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; setdate(&amp;dt);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Now, current system
+  date is %d-%d-%d\n&quot;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; ,dt.da_day,dt.da_mon,dt.da_year);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; return 0;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>OUTPUT</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Enter new date in the format (day month year)<br>
+01 12 2012<br>
+Now, current system date is 01-12-2012</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>EXAMPLE PROGRAM
+FOR GETDATE() FUNCTION IN C</span><strong style='box-sizing: border-box;
+font-style:inherit;font-variant:inherit;font-stretch: inherit;font-size:inherit;
+line-height:inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></strong></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>This
+function is used to get the CPU time.&nbsp;Please note that other C compilers
+may not support this getdate() function except turbo C.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include&lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include&lt;dos.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>int main()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; struct date dt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; getdate(&amp;dt);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Operating system's
+current date is %d-%d-%d\n&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; ,dt.da_day,dt.da_mon,dt.da_year);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; return 0;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'>&nbsp;Operating system’s
+current date is 12-01-2012</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR CLOCK() FUNCTION IN C:</span></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>This
+function is used to get current system time.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;time.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;math.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>int main()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;int i;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;clock_t CPU_time_1
+= clock();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;CPU
+start time is : %d \n&quot;, CPU_time_1);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;for(i = 0; i
+&lt; 150000000; i++);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;clock_t CPU_time_2
+= clock();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;CPU
+end time is : %d&quot;, CPU_time_2);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>&nbsp;</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>OUTPUT:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Merriweather","serif";
+color:#444444;background:#FBFBFB'>CPU start time is : 0</span></p>
+
+<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Merriweather","serif";
+color:#444444'>CPU end time is &nbsp;: 380000</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>EXAMPLE PROGRAM
+FOR TIME() FUNCTION IN C</span><strong style='box-sizing: border-box;
+font-style:inherit;font-variant:inherit;font-stretch: inherit;font-size:inherit;
+line-height:inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></strong></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>This
+function is used to get current system time as structure.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;time.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main ()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    time_t seconds;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    seconds = time (NULL);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    printf (&quot;Number of hours since
+1970 Jan 1st &quot; \</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>            &quot;is %ld \n&quot;,
+seconds/3600);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    return 0;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>}</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Number of hours since 1970 Jan 1st is 374528</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>EXAMPLE PROGRAM
+FOR DIFFTIME() FUNCTION IN C</span><strong style='box-sizing: border-box;
+font-style:inherit;font-variant:inherit;font-stretch: inherit;font-size:inherit;
+line-height:inherit'><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></strong></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>This
+function is used to get the difference between two given times.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;time.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'> int main()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'> {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;time_t begin,end;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;long i;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;begin=
+time(NULL);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;for(i = 0; i
+&lt; 150000000; i++);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;end =
+time(NULL);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;for
+loop used %f seconds to complete the &quot; \</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&quot;execution\n&quot;, difftime(end, begin));</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>OUTPUT:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>for loop used 15.000000 seconds to complete the execution</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR STRFTIME(), ASCTIME()&nbsp;AND
+LOCALTIME() IN C:</span></h1>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline;box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>strftime() &nbsp; &nbsp;– This function is used to modify the
+actual time format.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>asctime() &nbsp; – tm structure contents are interpreted by asctime()
+function as calendar time. This time is converted into string.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>localtime() – This function shares the tm structure that
+contains date and time informations.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;time.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#define LEN 150</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main ()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   char buf[LEN];</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   time_t curtime;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   struct tm *loc_time;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   //Getting current time of system</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   curtime = time (NULL);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   // Converting current time to local time</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   loc_time = localtime (&amp;curtime);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   // Displaying date and time in standard
+format</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   printf(&quot;%s&quot;, asctime (loc_time));</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   strftime (buf, LEN, &quot;Today is %A,
+%b %d.\n&quot;, loc_time);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   fputs (buf, stdout);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   strftime (buf, LEN, &quot;Time is %I:%M
+%p.\n&quot;, loc_time);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   fputs (buf, stdout);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>   return 0;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>}</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>OUTPUT</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Merriweather","serif";
+color:#444444'>Sat Sep 22 01:15:03 2012</span></p>
+
+<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;vertical-align:
+baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:"Merriweather","serif";
+color:#444444'>Today is Saturday, Sep 22.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:106%;
+font-family:"Merriweather","serif";color:#444444'>Time is 01:15 AM.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:106%;
+font-family:"Merriweather","serif";color:#444444'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR MKTIME() AND CTIME() FUNCTIONS IN
+C</span></b><b><span lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";
+color:#222222;text-transform:uppercase'>:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>mktime() function interprets tm structure as calendar time.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>ctime()&nbsp;function is used to return string that contains
+date and time informations.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;      </span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;time.h&gt; </span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    struct tm strtime;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    time_t timeoftheday;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_year = 2008-1900;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_mon = 1;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_mday = 4;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_hour = 02;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_min = 30;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_sec = 38;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    strtime.tm_isdst = 0;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    timeoftheday = mktime(&amp;strtime);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    printf(ctime(&amp;timeoftheday));</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    return 0;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>        }</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>OUTPUT</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Merriweather","serif";
+color:#444444'>Mon Feb 4 02:30:38 2008</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:9.0pt;margin-left:
+0in;text-align:justify;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Montserrat","serif";color:#222222;
+text-transform:uppercase'>EXAMPLE PROGRAM FOR GMTIME() FUNCTION IN C:</span></h1>
+
+<p class=MsoNormal style='margin-bottom:15.0pt;text-align:justify;line-height:
+normal;background:#FBFBFB;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>This function
+shares the tm structure that contains date and time informations.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>#include &lt;time.h&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>int main()</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>{</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    time_t orig_format;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    time(&amp;orig_format);</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    printf (&quot;Universal Time is
+%s&quot;,</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    asctime(gmtime(&amp;orig_format)));</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>    return 0;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>}</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>OUTPUT</span><strong
+style='box-sizing: border-box;font-style:inherit;font-variant:inherit;
+font-stretch: inherit;font-size:inherit;line-height:inherit'><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>:</span></strong></h1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Universal Time is Sat Sep 22 08:11:40 2012</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

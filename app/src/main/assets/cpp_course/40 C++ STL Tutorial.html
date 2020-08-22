@@ -1,0 +1,99 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ STL Tutorial</h1>
+ 
+<p>Hope you have already understood the concept of C++ Template which we have discussed earlier. The C++ STL (Standard Template Library) is a powerful set of C++ template classes to provide general-purpose classes and functions with templates that implement many popular and commonly used algorithms and data structures like vectors, lists, queues, and stacks.</p>
+<p>At the core of the C++ Standard Template Library are following three well-structured components &minus;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Component &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><strong>Containers</strong></p>
+<p>Containers are used to manage collections of objects of a certain kind. There are several different types of containers like deque, list, vector, map etc.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><strong>Algorithms</strong></p>
+<p>Algorithms act on containers. They provide the means by which you will perform initialization, sorting, searching, and transforming of the contents of containers.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><strong>Iterators</strong></p>
+<p>Iterators are used to step through the elements of collections of objects. These collections may be containers or subsets of containers.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>We will discuss about all the three C++ STL components in next chapter while discussing C++ Standard Library. For now, keep in mind that all the three components have a rich set of pre-defined functions which help us in doing complicated tasks in very easy fashion.</p>
+<p>Let us take the following program that demonstrates the vector container (a C++ Standard Template) which is similar to an array with an exception that it automatically handles its own storage requirements in case it grows &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="com">#include</span> <span class="str">&lt;vector&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+
+   <span class="com">// create a vector to store int</span><span class="pln">
+   vector</span><span class="str">&lt;int&gt;</span><span class="pln"> vec</span><span class="pun">;</span> 
+   <span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span>
+
+   <span class="com">// display the original size of vec</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"vector size = "</span> <span class="pun">&lt;&lt;</span><span class="pln"> vec</span><span class="pun">.</span><span class="pln">size</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// push 5 values into the vector</span>
+   <span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      vec</span><span class="pun">.</span><span class="pln">push_back</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span>
+   <span class="pun">}</span>
+
+   <span class="com">// display extended size of vec</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"extended vector size = "</span> <span class="pun">&lt;&lt;</span><span class="pln"> vec</span><span class="pun">.</span><span class="pln">size</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="com">// access 5 values from the vector</span>
+   <span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"value of vec ["</span> <span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span> <span class="str">"] = "</span> <span class="pun">&lt;&lt;</span><span class="pln"> vec</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   <span class="pun">}</span>
+
+   <span class="com">// use iterator to access the values</span><span class="pln">
+   vector</span><span class="str">&lt;int&gt;</span><span class="pun">::</span><span class="pln">iterator v </span><span class="pun">=</span><span class="pln"> vec</span><span class="pun">.</span><span class="kwd">begin</span><span class="pun">();</span>
+   <span class="kwd">while</span><span class="pun">(</span><span class="pln"> v </span><span class="pun">!=</span><span class="pln"> vec</span><span class="pun">.</span><span class="kwd">end</span><span class="pun">())</span> <span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span> <span class="str">"value of v = "</span> <span class="pun">&lt;&lt;</span> <span class="pun">*</span><span class="pln">v </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+      v</span><span class="pun">++;</span>
+   <span class="pun">}</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">vector size = 0
+extended vector size = 5
+value of vec [0] = 0
+value of vec [1] = 1
+value of vec [2] = 2
+value of vec [3] = 3
+value of vec [4] = 4
+value of v = 0
+value of v = 1
+value of v = 2
+value of v = 3
+value of v = 4
+</pre>
+<p>Here are following points to be noted related to various functions we used in the above example &minus;</p>
+<ul class="list">
+<li>
+<p>The push_back( ) member function inserts value at the end of the vector, expanding its size as needed.</p>
+</li>
+<li>
+<p>The size( ) function displays the size of the vector.</p>
+</li>
+<li>
+<p>The function begin( ) returns an iterator to the start of the vector.</p>
+</li>
+<li>
+<p>The function end( ) returns an iterator to the end of the vector.</p>
+</li>
+</ul>

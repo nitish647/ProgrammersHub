@@ -1,0 +1,499 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# Params Keyword
+with Examples</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%'><b><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>C# Params Keyword
+with Examples</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>In
+c#,&nbsp;<b>params</b>&nbsp;keyword is used to specify a method parameter that
+takes a variable number of arguments. The&nbsp;</span><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif;color:#C7254E;background:
+#F9F2F4'>params</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>&nbsp;keyword is useful when we are not sure about
+number of arguments to send as a parameter. In c#, during method declaration
+only one&nbsp;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:#C7254E;background:#F9F2F4'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;keyword
+is allowed and no additional parameters are permitted after the&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#C7254E;background:#F9F2F4'>params</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;keyword in a method
+declaration.              </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;We
+can send an arguments of specified type as a comma-separated list or an array
+to the declared parameter. In case, if we are not sending any arguments to the
+defined parameter, then the length of&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#C7254E;background:#F9F2F4'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;list
+will become a zero.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#00B050'>C# Params Keyword Example</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Following
+is the example of using&nbsp;</span><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#C7254E;background:#F9F2F4'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;keyword
+in c# programming language to specify method parameter accept multiple number
+of arguments.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;System;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>namespace</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Tutlane</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Program</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Main(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+args)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+arr =&nbsp;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:blue'>new</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+{ 1, 2, 3, 4, 5, 6 };</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ParamsMethod(arr);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;ParamsMethod(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+arr)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>for</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;i
+= 0; i &lt; arr.Length; i++)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.Write(arr[i]
++ (i &lt; arr.Length - 1 ?&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#A31515'>&quot;, &quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;:&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;\nPress
+Enter Key to Exit..&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.ReadLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>If
+you observe above example, we are sending a comma separated list of multiple
+arguments of the specified type (integer) to the declared parameter in&nbsp;<b>ParamsMethod</b>&nbsp;function.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>When
+we execute above c# program, we will get the result like as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span><img src="32_files/image001.webp"><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>If
+you observe above result, we are able to send multiple arguments of same data
+type to params keyword parameter in method declaration.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>In
+previous example, we are sending only&nbsp;<b>integer</b>&nbsp;type of
+arguments to the method parameter. In case, if you want to send a list of
+multiple type of arguments, then we need to use&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#C7254E;background:#F9F2F4'>object</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;type parameter in method declaration.</span></p>
+
+<p class=MsoNormal style='margin-top:9.0pt;margin-right:0in;margin-bottom:9.0pt;
+margin-left:0in;line-height:150%'><b><u><span style='font-size:14.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#00B0F0'>C# Params Keyword
+with Object Type</span></u></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Following
+is the example of using&nbsp;</span><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:#C7254E;background:#F9F2F4'>object</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;type
+parameter in method declaration to accept list of multiple type of arguments.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>using</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;System;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:blue'>namespace</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Tutlane</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>class</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Program</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;Main(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+args)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>object</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+arr =&nbsp; { 1, 2,&nbsp;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#A31515'>&quot;suresh&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>,&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;rohini&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>,&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;trishika&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>,
+10.26 };</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ParamsMethod(arr);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>public</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;ParamsMethod(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>object</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>[]
+arr)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>for</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:blue'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;i
+= 0; i &lt; arr.Length; i++)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.Write(arr[i]
++ (i &lt; arr.Length - 1 ?&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#A31515'>&quot;, &quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>&nbsp;:&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.WriteLine(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#A31515'>&quot;\nPress
+Enter Key to Exit..&quot;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#2B91AF'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>.ReadLine();</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+0in;margin-left:0in;margin-bottom:.0001pt;line-height:150%;background:whitesmoke;
+word-break:break-all'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#333333'>&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:-11.25pt;margin-bottom:
+7.5pt;margin-left:0in;line-height:150%;background:whitesmoke;word-break:break-all'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#333333'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>If
+you observe above example, we used&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#C7254E;background:#F9F2F4'>object</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;type
+parameter in method declaration and accepting different data type of arguments
+as a list.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>When
+we execute above c# program, we will get the result like as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><img src="32_files/image002.webp"
+alt="C# Params Keyword with Object Type Example Result"> <img src="32_files/image003.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>If
+you observe above result, we are able to send different data type of arguments
+to the&nbsp;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:#C7254E;background:#F9F2F4'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;keyword
+parameter in method declaration.&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>This
+is how we can&nbsp;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:#C7254E;background:#F9F2F4'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;keyword
+in c# programming language to send a list of arguments to the parameter in
+method declaration based on our requirements.</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

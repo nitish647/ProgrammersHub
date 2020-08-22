@@ -1,0 +1,28 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Inline Functions</h1>
+
+<p>C++ <strong>inline</strong> function is powerful concept that is commonly used with classes. If a function is inline, the compiler places a copy of the code of that function at each point where the function is called at compile time.</p>
+<p>Any change to an inline function could require all clients of the function to be recompiled because compiler would need to replace all the code once again otherwise it will continue with old functionality.</p>
+<p>To inline a function, place the keyword <strong>inline</strong> before the function name and define the function before any calls are made to the function. The compiler can ignore the inline qualifier in case defined function is more than a line.</p>
+<p>A function definition in a class definition is an inline function definition, even without the use of the <strong>inline </strong> specifier.</p>
+<p>Following is an example, which makes use of inline function to return max of two numbers &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">inline</span> <span class="kwd">int</span> <span class="typ">Max</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> y</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="kwd">return</span> <span class="pun">(</span><span class="pln">x </span><span class="pun">&gt;</span><span class="pln"> y</span><span class="pun">)?</span><span class="pln"> x </span><span class="pun">:</span><span class="pln"> y</span><span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Max (20,10): "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Max</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="lit">10</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Max (0,200): "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Max</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Max (100,1010): "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Max</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="lit">1010</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Max (20,10): 20
+Max (0,200): 200
+Max (100,1010): 1010
+</pre>

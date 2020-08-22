@@ -1,0 +1,22 @@
+<ol>
+    <li>
+        Python has a multi-threading package but if you want to multi-thread to
+        speed your code up, then it’s usually not a good idea to use it.
+    </li>
+    <li>
+        Python has a construct called the Global Interpreter Lock (GIL). The
+        GIL makes sure that only one of your ‘threads’ can execute at any one
+        time. A thread acquires the GIL, does a little work, then passes the
+        GIL onto the next thread.
+    </li>
+    <li>
+        This happens very quickly so to the human eye it may seem like your
+        threads are executing in parallel, but they are really just taking
+        turns using the same CPU core.
+    </li>
+    <li>
+        All this GIL passing adds overhead to execution. This means that if you
+        want to make your code run faster then using the threading package
+        often isn’t a good idea.
+    </li>
+</ol>

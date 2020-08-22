@@ -1,0 +1,140 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Enumerations</h1>
+
+<p>An enumeration is a user-defined data type which consists of set of related values. Keyword <strong>enum</strong> is used to defined enumerated data type.</p>
+<h2>Enumeration Functionality</h2>
+<p>Enumeration in swift also resembles the structure of C and Objective C.</p>
+<ul class="list">
+<li>
+<p>It is declared in a class and its values are accessed through the instance of that class.</p>
+</li>
+<li>
+<p>Initial member value is defined using enum intializers.</p>
+</li>
+<li>
+<p>Its functionality is also extended by ensuring standard protocol functionality.</p>
+</li>
+</ul>
+<h3>Syntax</h3>
+<p>Enumerations are introduced with the enum keyword and place their entire definition within a pair of braces &minus;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">enum</span><span class="pln"> enumname </span><span class="pun">{</span>
+   <span class="com">// enumeration values are described here</span>
+<span class="pun">}</span></pre>
+<p>For example, you can define an enumeration for days of week as follows &minus;</p>
+<pre class="result notranslate">enum DaysofaWeek {
+   case Sunday
+   case Monday
+    ---
+   case Saturday
+}
+</pre>
+<h3>Example</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: pointer;"><span class="kwd">enum</span><span class="pln"> names </span><span class="pun">{</span>
+   <span class="kwd">case</span> <span class="typ">Swift</span>
+   <span class="kwd">case</span> <span class="typ">Closures</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> lang </span><span class="pun">=</span><span class="pln"> names</span><span class="pun">.</span><span class="typ">Closures</span><span class="pln">
+lang </span><span class="pun">=</span> <span class="pun">.</span><span class="typ">Closures</span>
+<span class="kwd">switch</span><span class="pln"> lang </span><span class="pun">{</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Swift</span><span class="pun">:</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Welcome to Swift"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Closures</span><span class="pun">:</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Welcome to Closures"</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Introduction"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Welcome to Closures
+</pre>
+<p>Swift enumeration does not assign its members default value like C and Objective C. Instead the members are explicitly defined by their enumeration names. Enumeration name should start with a capital letter (Ex: enum DaysofaWeek).</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">var</span><span class="pln"> weekDay </span><span class="pun">=</span> <span class="typ">DaysofaWeek</span><span class="pun">.</span><span class="typ">Sunday</span> </pre>
+<p>Here the Enumeration name 'DaysofaWeek' is assigned to a variable weekday.Sunday. It informs the compiler that the datatype belongs to Sunday will be assigned to subsequent enum members of that particular class. Once the enum member datatype is defined, the members can be accessed by passing values and further computations.</p>
+<h2>Enumeration with Switch Statement</h2>
+<p>Swift 'Switch' statement also follows the multi way selection. Only one variable is accessed at a particular time based on the specified condition. Default case in switch statement is used to trap unspecified cases.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">enum</span> <span class="typ">Climate</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="typ">India</span>
+   <span class="kwd">case</span> <span class="typ">America</span>
+   <span class="kwd">case</span> <span class="typ">Africa</span>
+   <span class="kwd">case</span> <span class="typ">Australia</span>
+<span class="pun">}</span>
+
+<span class="kwd">var</span><span class="pln"> season </span><span class="pun">=</span> <span class="typ">Climate</span><span class="pun">.</span><span class="typ">America</span><span class="pln">
+season </span><span class="pun">=</span> <span class="pun">.</span><span class="typ">America</span>
+<span class="kwd">switch</span><span class="pln"> season </span><span class="pun">{</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">India</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Climate is Hot"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">America</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Climate is Cold"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Africa</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Climate is Moderate"</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Australia</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Climate is Rainy"</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Climate is not predictable"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Climate is Cold
+</pre>
+<p>The program first defines Climate as the enumeration name. Then its members like 'India', 'America', 'Africa' and 'Australia' are declared belonging to class 'Climate'. Now the member America is assigned to a Season Variable. Further, Switch case will see the values corresponding to .America and it will branch to that particular statement. The output will be displayed as "Climate is Cold". Likewise all the members can be accessed through switch statements. When the condition is not satisfied it prints by default 'Climate is not predictable'.</p>
+<p>Enumeration can be further classified in to associated values and raw values.</p>
+<h2>Difference between Associated Values and Raw Values</h2>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>Associated Values</td>
+<td>Raw Values</td>
+</tr>
+<tr>
+<td>Different Datatypes</td>
+<td>Same Datatypes</td>
+</tr>
+<tr>
+<td>Ex: enum {10,0.8,"Hello"}</td>
+<td>Ex: enum {10,35,50}</td>
+</tr>
+<tr>
+<td>Values are created based on constant or variable</td>
+<td>Prepopulated Values</td>
+</tr>
+<tr>
+<td>Varies when declared each time</td>
+<td>Value for member is same</td>
+</tr>
+</tbody>
+</table>
+<h2>Enum with Associated Values</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">enum</span> <span class="typ">Student</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="typ">Name</span><span class="pun">(</span><span class="typ">String</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="typ">Mark</span><span class="pun">(</span><span class="typ">Int</span><span class="pun">,</span><span class="typ">Int</span><span class="pun">,</span><span class="typ">Int</span><span class="pun">)</span>
+<span class="pun">}</span>
+<span class="kwd">var</span><span class="pln"> studDetails </span><span class="pun">=</span> <span class="typ">Student</span><span class="pun">.</span><span class="typ">Name</span><span class="pun">(</span><span class="str">"Swift"</span><span class="pun">)</span>
+<span class="kwd">var</span><span class="pln"> studMarks </span><span class="pun">=</span> <span class="typ">Student</span><span class="pun">.</span><span class="typ">Mark</span><span class="pun">(</span><span class="lit">98</span><span class="pun">,</span><span class="lit">97</span><span class="pun">,</span><span class="lit">95</span><span class="pun">)</span>
+<span class="kwd">switch</span><span class="pln"> studMarks </span><span class="pun">{</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Name</span><span class="pun">(</span><span class="kwd">let</span><span class="pln"> studName</span><span class="pun">):</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Student name is: \(studName)."</span><span class="pun">)</span>
+   <span class="kwd">case</span> <span class="pun">.</span><span class="typ">Mark</span><span class="pun">(</span><span class="kwd">let</span> <span class="typ">Mark1</span><span class="pun">,</span> <span class="kwd">let</span> <span class="typ">Mark2</span><span class="pun">,</span> <span class="kwd">let</span> <span class="typ">Mark3</span><span class="pun">):</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Student Marks are: \(Mark1),\(Mark2),\(Mark3)."</span><span class="pun">)</span>
+   <span class="kwd">default</span><span class="pun">:</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Nothing"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Swift
+98
+97
+95
+</pre>
+<p>Consider for example to access the students name and marks secured in three subjects enumeration name is declared as student and the members present in enum class are name which belongs to string datatype, marks are represented as mark1, mark2 and mark3 of datatype Integer. To access either the student name or marks they have scored.</p>
+<pre class="result notranslate">var studDetails = Student.Name("Swift")
+var studMarks = Student.Mark(98,97,95)
+</pre>
+<p>Now, the switch case will print student name if that case block is executed otherwise it will print the marks secured by the student. If both the conditions fail, the default block will be executed.</p>
+<h2>Enum with Raw Values</h2>
+<p>Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration. When integers are used for raw values, they auto-increment if no value is specified for some of the enumeration members.</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">enum</span> <span class="typ">Month</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+   <span class="kwd">case</span> <span class="typ">January</span> <span class="pun">=</span> <span class="lit">1</span><span class="pun">,</span> <span class="typ">February</span><span class="pun">,</span> <span class="typ">March</span><span class="pun">,</span> <span class="typ">April</span><span class="pun">,</span> <span class="typ">May</span><span class="pun">,</span> <span class="typ">June</span><span class="pun">,</span> <span class="typ">July</span><span class="pun">,</span> <span class="typ">August</span><span class="pun">,</span> <span class="typ">September</span><span class="pun">,</span> <span class="typ">October</span><span class="pun">,</span> <span class="typ">November</span><span class="pun">,</span> <span class="typ">December</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> yearMonth </span><span class="pun">=</span> <span class="typ">Month</span><span class="pun">.</span><span class="typ">May</span><span class="pun">.</span><span class="pln">rawValue
+println</span><span class="pun">(</span><span class="str">"Value of the Month is: \(yearMonth)."</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Value of the Month is: 5.
+</pre>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>PHP - Form Introduction</title>
+    <meta name="description" content="PHP Environment Setup - A simple and short PHP tutorial and complete reference manual for all built-in PHP functions. This tutorial is designed for beginners to advanced developers. You will learn PHP Built-in Function, Predefined Variables Examples, Object Oriented PHP, Numbers, Scalars, Arrays, Hash File I/O, IF, ELSEIF, Do, While Loops, Operators, Regular Expressions, GET, POST, Subroutines, Coding Standard, Modules, File Management, Socket Communication, Reference, Special Variables, Syntax Overview, Form Validation, Advanced PHP, Library, Web Design, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+    <meta name="keywords" content="Learning, PHP, Programming, Language, Built-in Function, Library, Web Design, Object Oriented PHP, PHP Variables, Scalars, Arrays, Hash, File I/O, Looping, Regular Expressions, Subroutines, Coding Standard, Writing Modules, File Management, Socket, Examples, Reference, Special Variables, Syntax Overview, Advanced PHP, Tutorial, Tutorials, Operators, GET, POST, Predefined, Form Validation, PayPal Integration, MySQL Login, Ajax Search, Ajax XML Parser, Ajax Auto Complete Search, Ajax RSS Feed Example, XML Introduction, Simple XML, Simple XML GET, SAX Parser Example, DOM Parser Example, Frame Works, Core php vs frame works php, Design Patterns.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col" style="height: 3072px;">
+        <h1>PHP - Form Introduction</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <h2>Dynamic Websites</h2>
+        <p>The Websites provide the functionalities that can use to store, update, retrieve, and delete the data in a database.</p>
+        <h2>What is the Form?</h2>
+        <p>A Document that containing black fields, that the user can fill the data or user can select the data.Casually the data will store in the data base</p>
+        <h3>Example</h3>
+        <p>Below example shows the form with some specific actions by using post method.</p>
+        <!--<a href="http://tpcg.io/9iHuKH" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>-->
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;head&gt;</span><span class="pln">
+      </span><span class="tag">&lt;title&gt;</span><span class="pln">PHP Form Validation</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+      </span><span class="pun">&lt;?</span><span class="pln">php
+
+         </span><span class="com">// define variables and set to empty values</span><span class="pln">
+         $name </span><span class="pun">=</span><span class="pln"> $email </span><span class="pun">=</span><span class="pln"> $gender </span><span class="pun">=</span><span class="pln"> $comment </span><span class="pun">=</span><span class="pln"> $website </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$_SERVER</span><span class="pun">[</span><span class="str">"REQUEST_METHOD"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $name </span><span class="pun">=</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"name"</span><span class="pun">]);</span><span class="pln">
+            $email </span><span class="pun">=</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"email"</span><span class="pun">]);</span><span class="pln">
+            $website </span><span class="pun">=</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"website"</span><span class="pun">]);</span><span class="pln">
+            $comment </span><span class="pun">=</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"comment"</span><span class="pun">]);</span><span class="pln">
+            $gender </span><span class="pun">=</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"gender"</span><span class="pun">]);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+
+         </span><span class="kwd">function</span><span class="pln"> test_input</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $data </span><span class="pun">=</span><span class="pln"> trim</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">);</span><span class="pln">
+            $data </span><span class="pun">=</span><span class="pln"> stripslashes</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">);</span><span class="pln">
+            $data </span><span class="pun">=</span><span class="pln"> htmlspecialchars</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> $data</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;h2&gt;</span><span class="pln">Tutorials Point Absolute classes registration</span><span class="tag">&lt;/h2&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">method</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"post"</span><span class="pln"> </span><span class="atn">action</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"/php/php_form_introduction.htm"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="tag">&lt;table&gt;</span><span class="pln">
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">Name:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"name"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">E-mail:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"email"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">Specific Time:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"website"</span><span class="tag">&gt;&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">Class details:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;&lt;textarea</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"comment"</span><span class="pln"> </span><span class="atn">rows</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"5"</span><span class="pln"> </span><span class="atn">cols</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"40"</span><span class="tag">&gt;&lt;/textarea&gt;&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">Gender:</span><span class="tag">&lt;/td&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"female"</span><span class="tag">&gt;</span><span class="pln">Female
+                  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"male"</span><span class="tag">&gt;</span><span class="pln">Male
+               </span><span class="tag">&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+
+            </span><span class="tag">&lt;tr&gt;</span><span class="pln">
+               </span><span class="tag">&lt;td&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">name</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"Submit"</span><span class="tag">&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/td&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/table&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+
+      </span><span class="pun">&lt;?</span><span class="pln">php
+         echo </span><span class="str">"&lt;h2&gt;Your Given details are as :&lt;/h2&gt;"</span><span class="pun">;</span><span class="pln">
+         echo $name</span><span class="pun">;</span><span class="pln">
+         echo </span><span class="str">"&lt;br&gt;"</span><span class="pun">;</span><span class="pln">
+
+         echo $email</span><span class="pun">;</span><span class="pln">
+         echo </span><span class="str">"&lt;br&gt;"</span><span class="pun">;</span><span class="pln">
+
+         echo $website</span><span class="pun">;</span><span class="pln">
+         echo </span><span class="str">"&lt;br&gt;"</span><span class="pun">;</span><span class="pln">
+
+         echo $comment</span><span class="pun">;</span><span class="pln">
+         echo </span><span class="str">"&lt;br&gt;"</span><span class="pun">;</span><span class="pln">
+
+         echo $gender</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">?&gt;</span><span class="pln">
+
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <p>It will produce the following result −</p>
+        <img src="../img/17.PNG" alt="Form Introduction">
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<P style="word-wrap : break-word;">
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>Binary&nbsp;search&nbsp;in&nbsp;c&nbsp;programming<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;</b>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">a[10],i,n,m,c=0,l,u,mid;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;the&nbsp;size&nbsp;of&nbsp;an&nbsp;array:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;n);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;the&nbsp;elements&nbsp;in&nbsp;ascending&nbsp;order:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=0;i&lt;n;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;a[i]);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;the&nbsp;number&nbsp;to&nbsp;be&nbsp;search:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;m);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;l=0,u=n&ndash;1;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">while<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(l&lt;=u){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;mid=(l+u)/2;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(m==a[mid]){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;c=1;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(m&lt;a[mid]){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;u=mid&ndash;1;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;l=mid+1;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(c==0)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;The&nbsp;number&nbsp;is&nbsp;not&nbsp;found.&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;The&nbsp;number&nbsp;is&nbsp;found.&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Enter&nbsp;the&nbsp;size&nbsp;of&nbsp;an&nbsp;array:&nbsp;5</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Enter&nbsp;the&nbsp;elements&nbsp;in&nbsp;ascending&nbsp;order:&nbsp;4&nbsp;7&nbsp;8&nbsp;11&nbsp;21</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Enter&nbsp;the&nbsp;number&nbsp;to&nbsp;be&nbsp;search:&nbsp;11</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">The&nbsp;number&nbsp;is&nbsp;found.</font>
+<br>
+<br>
+</body>
+</html>

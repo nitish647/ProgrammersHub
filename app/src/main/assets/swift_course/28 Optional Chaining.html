@@ -1,0 +1,568 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Optional Chaining</h1>
+
+<p>The process of querying, calling properties, subscripts and methods on an optional that may be 'nil' is defined as optional chaining. Optional chaining return two values &minus;</p>
+<ul class="list">
+<li>
+<p>if the optional contains a 'value' then calling its related property, methods and subscripts returns values.</p>
+</li>
+<li>
+<p>if the optional contains a 'nil' value all its its related property, methods and subscripts returns nil.</p>
+</li>
+</ul>
+<p>Since multiple queries to methods, properties and subscripts are grouped together failure to one chain will affect the entire chain and results in 'nil' value.</p>
+<h2>Optional Chaining as an Alternative to Forced Unwrapping</h2>
+<p>Optional chaining is specified after the optional value with '?' to call a property, method or subscript when the optional value returns some values.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>Optional Chaining '?'</td>
+<td>Access to methods,properties and subscriptsOptional Chaining '!' to force Unwrapping</td>
+</tr>
+<tr>
+<td>? is placed after the optional value to call property, method or subscript</td>
+<td>! is placed after the optional value to call property, method or subscript to force unwrapping of value</td>
+</tr>
+<tr>
+<td>Fails gracefully when the optional is 'nil'</td>
+<td>Forced unwrapping triggers a run time error when the optional is 'nil'</td>
+</tr>
+</tbody>
+</table>
+<h3>Program for Optional Chaining with '!'</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">ElectionPoll</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> candidate</span><span class="pun">:</span> <span class="typ">Pollbooth</span><span class="pun">?</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Pollbooth</span> <span class="pun">{</span>   
+   <span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span> <span class="str">"MP"</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> cand </span><span class="pun">=</span> <span class="typ">ElectionPoll</span><span class="pun">()</span>
+
+<span class="kwd">let</span><span class="pln"> candname </span><span class="pun">=</span><span class="pln"> cand</span><span class="pun">.</span><span class="pln">candidate</span><span class="pun">!.</span><span class="pln">name</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">fatal error: unexpectedly found nil while unwrapping an Optional value
+0  swift                    0x0000000103410b68 llvm::sys::PrintStackTrace(__sFILE*) + 40
+1  swift                    0x0000000103411054 SignalHandler(int) + 452
+2  libsystem_platform.dylib 0x00007fff9176af1a _sigtramp + 26
+3  libsystem_platform.dylib 0x000000000000000b _sigtramp + 1854492939
+4  libsystem_platform.dylib 0x00000001074a0214 _sigtramp + 1976783636
+5  swift                    0x0000000102a85c39 llvm::JIT::runFunction(llvm::Function*, std::__1::vector&lt;llvm::GenericValue, std::__1::allocator&lt;llvm::GenericValue&gt; &gt; const&amp;) + 329
+6  swift                    0x0000000102d320b3 llvm::ExecutionEngine::runFunctionAsMain(llvm::Function*, std::__1::vector&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt; const&amp;, char const* const*) + 1523
+7  swift                    0x000000010296e6ba swift::RunImmediately(swift::CompilerInstance&amp;, std::__1::vector&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt; const&amp;, swift::IRGenOptions&amp;, swift::SILOptions const&amp;) + 1066
+8  swift                    0x000000010275764b frontend_main(llvm::ArrayRef&lt;char const*&gt;, char const*, void*) + 5275
+9  swift                    0x0000000102754a6d main + 1677
+10 libdyld.dylib            0x00007fff8bb9e5c9 start + 1
+11 libdyld.dylib            0x000000000000000c start + 1950751300
+Stack dump:
+0.	Program arguments: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift -frontend -interpret - -target x86_64-apple-darwin14.0.0 -target-cpu core2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -module-name main 
+/bin/sh: line 47: 15672 Done                    cat  &lt;&lt;'SWIFT'
+import Foundation
+</pre>
+<p>The above program declares 'election poll' as class name and contains 'candidate' as membership function. The subclass is declared as 'poll booth' and 'name' as its membership function which is initialized as 'MP'. The call to the super class is initialized by creating an instance 'cand' with optional '!'. Since the values are not declared in its base class, 'nil' value is stored thereby returning a fatal error by the force unwrapping procedure.</p>
+<h3>Program for Optional Chaining with '?'</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span> <span class="typ">ElectionPoll</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> candidate</span><span class="pun">:</span> <span class="typ">Pollbooth</span><span class="pun">?</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Pollbooth</span> <span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span> <span class="str">"MP"</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> cand </span><span class="pun">=</span> <span class="typ">ElectionPoll</span><span class="pun">()</span>
+   
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> candname </span><span class="pun">=</span><span class="pln"> cand</span><span class="pun">.</span><span class="pln">candidate</span><span class="pun">?.</span><span class="pln">name </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Candidate name is \(candname)"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Candidate name cannot be retreived"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Candidate name cannot be retreived
+</pre>
+<p>The program above declares 'election poll' as class name and contains 'candidate' as membership function. The subclass is declared as 'poll booth' and 'name' as its membership function which is initialized as 'MP'. The call to the super class is initialized by creating an instance 'cand' with optional '?'. Since the values are not declared in its base class 'nil' value is stored and printed in the console by the else handler block.</p>
+<h2>Defining Model Classes for Optional Chaining &amp; Accessing Properties</h2>
+<p>Swift language also provides the concept of optional chaining, to declare more than one subclasses as model classes. This concept will be very useful to define complex models and to access the properties, methods and subscripts sub properties.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> street</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> rectname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span>
+
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> rectarea </span><span class="pun">=</span><span class="pln"> rectname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?.</span><span class="pln">cprint </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Area of rectangle is \(rectarea)"</span><span class="pun">)</span>
+<span class="pun">}</span>  <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Rectangle Area is not specified"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Rectangle Area is not specified
+</pre>
+<h2>Calling Methods Through Optional Chaining</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Area of Circle is: \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+   
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span>
+
+<span class="kwd">if</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?.</span><span class="pln">circleprint</span><span class="pun">()</span> <span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Area of circle is specified)"</span><span class="pun">)</span>
+<span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Area of circle is not specified"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Area of circle is not specified
+</pre>
+<p>The function circleprint() declared inside the circle() sub class is called by creating an instance named 'circname'. The function will return a value if it contains some value otherwise it will return some user defined print message by checking the statement 'if circname.print?.circleprint() != nil'.</p>
+<h2>Accessing Subscripts through Optional Chaining</h2>
+<p>Optional chaining is used to set and retrieve a subscript value to validate whether call to that subscript returns a value. '?' is placed before the subscript braces to access the optional value on the particular subscript.</p>
+<h3>Program 1</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+   
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span>
+
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> radiusName </span><span class="pun">=</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">radiusname </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"The first room name is \(radiusName)."</span><span class="pun">)</span>
+<span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is not specified."</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius is not specified.
+</pre>
+<p>In the above program the instance values for the membership function 'radiusName' is not specified. Hence program call to the function will return only else part whereas to return the values we have to define the values for the particular membership function.</p>
+<h3>Program 2</h3>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Diameter"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> printing </span><span class="pun">=</span><span class="pln"> circle</span><span class="pun">()</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Units"</span><span class="pun">))</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Meter"</span><span class="pun">))</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span><span class="pln"> printing
+
+</span><span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> radiusName </span><span class="pun">=</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">radiusname </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is measured in \(radiusName)."</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is not specified."</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius is measured in Units.
+</pre>
+<p>In the above program, the instance values for the membership function 'radiusName' is specified. Hence program call to the function will now return values.</p>
+<h2>Accessing Subscripts of Optional Type</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Diameter"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> printing </span><span class="pun">=</span><span class="pln"> circle</span><span class="pun">()</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Units"</span><span class="pun">))</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Meter"</span><span class="pun">))</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span><span class="pln"> printing
+
+</span><span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="str">"Radius"</span><span class="pun">:</span> <span class="pun">[</span><span class="lit">35</span><span class="pun">,</span> <span class="lit">45</span><span class="pun">,</span> <span class="lit">78</span><span class="pun">,</span> <span class="lit">101</span><span class="pun">],</span> <span class="str">"Circle"</span><span class="pun">:</span> <span class="pun">[</span><span class="lit">90</span><span class="pun">,</span> <span class="lit">45</span><span class="pun">,</span> <span class="lit">56</span><span class="pun">]]</span><span class="pln">
+area</span><span class="pun">[</span><span class="str">"Radius"</span><span class="pun">]?[</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">78</span><span class="pln">
+area</span><span class="pun">[</span><span class="str">"Circle"</span><span class="pun">]?[</span><span class="lit">1</span><span class="pun">]--</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Radius"</span><span class="pun">]?[</span><span class="lit">0</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Radius"</span><span class="pun">]?[</span><span class="lit">1</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Radius"</span><span class="pun">]?[</span><span class="lit">2</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Radius"</span><span class="pun">]?[</span><span class="lit">3</span><span class="pun">])</span><span class="pln">
+
+
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Circle"</span><span class="pun">]?[</span><span class="lit">0</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Circle"</span><span class="pun">]?[</span><span class="lit">1</span><span class="pun">])</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">area</span><span class="pun">[</span><span class="str">"Circle"</span><span class="pun">]?[</span><span class="lit">2</span><span class="pun">])</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Optional(35)
+Optional(78)
+Optional(78)
+Optional(101)
+Optional(90)
+Optional(44)
+Optional(56)
+</pre>
+<p>The optional values for subscripts can be accessed by referring their subscript values. It can be accessed as subscript[0], subscript[1] etc. The default subscript values for 'radius' are first assigned as [35, 45, 78, 101] and for 'Circle' [90, 45, 56]]. Then the subscript values are changed as Radius[0] to 78 and Circle[1] to 45.</p>
+<h2>Linking Multiple Levels of Chaining</h2>
+<p>Multiple sub classes can also be linked with its super class methods, properties and subscripts by optional chaining.</p>
+<p>Multiple chaining of optional can be linked &minus;</p>
+<p>If retrieving type is not optional, optional chaining will return an optional value. For example if String through optional chaining it will return String? Value</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+   
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span>
+
+<span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> radiusName </span><span class="pun">=</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">radiusname </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"The first room name is \(radiusName)."</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is not specified."</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius is not specified.
+</pre>
+<p>In the above program, the instance values for the membership function 'radiusName' is not specified. Hence, the program call to the function will return only else part whereas to return the values we have to define the values for the particular membership function.</p>
+<p>If the retrieving type is already optional, then optional chaining will also return an optional value. For example if String? Is accessed through optional chaining it will return String? Value.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+   
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"The number of rooms is \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+   
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Diameter"</span><span class="pun">)</span>
+
+<span class="kwd">let</span><span class="pln"> printing </span><span class="pun">=</span><span class="pln"> circle</span><span class="pun">()</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Units"</span><span class="pun">))</span><span class="pln">
+printing</span><span class="pun">.</span><span class="pln">area</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">radius</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="str">"Meter"</span><span class="pun">))</span><span class="pln">
+circname</span><span class="pun">.</span><span class="kwd">print</span> <span class="pun">=</span><span class="pln"> printing
+
+</span><span class="kwd">if</span> <span class="kwd">let</span><span class="pln"> radiusName </span><span class="pun">=</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">radiusname </span><span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is measured in \(radiusName)."</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Radius is not specified."</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Radius is measured in Units.
+</pre>
+<p>In the above program, the instance values for the membership function 'radiusName' is specified. Hence, the program call to the function will now return values.</p>
+<h2>Chaining on Methods with Optional Return Values</h2>
+<p>Optional chaining is used to access subclasses defined methods too.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">class</span><span class="pln"> rectangle </span><span class="pun">{</span>
+   <span class="kwd">var</span> <span class="kwd">print</span><span class="pun">:</span><span class="pln"> circle</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circle </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> area </span><span class="pun">=</span> <span class="pun">[</span><span class="pln">radius</span><span class="pun">]()</span>
+   <span class="kwd">var</span><span class="pln"> cprint</span><span class="pun">:</span> <span class="typ">Int</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> area</span><span class="pun">.</span><span class="pln">count
+   </span><span class="pun">}</span><span class="pln">
+
+   subscript</span><span class="pun">(</span><span class="pln">i</span><span class="pun">:</span> <span class="typ">Int</span><span class="pun">)</span> <span class="pun">-&gt;</span><span class="pln"> radius </span><span class="pun">{</span>
+      <span class="kwd">get</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span>
+      <span class="pun">}</span><span class="kwd">set</span> <span class="pun">{</span><span class="pln">
+         area</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> newValue
+      </span><span class="pun">}</span>
+   <span class="pun">}</span><span class="pln">
+   func circleprint</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+      println</span><span class="pun">(</span><span class="str">"Area of Circle is: \(cprint)"</span><span class="pun">)</span>
+   <span class="pun">}</span>
+   <span class="kwd">var</span><span class="pln"> rectarea</span><span class="pun">:</span><span class="pln"> circumference</span><span class="pun">?</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> radius </span><span class="pun">{</span>
+   <span class="kwd">let</span><span class="pln"> radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pln">
+   init</span><span class="pun">(</span><span class="pln">radiusname</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">)</span> <span class="pun">{</span> <span class="kwd">self</span><span class="pun">.</span><span class="pln">radiusname </span><span class="pun">=</span><span class="pln"> radiusname </span><span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span><span class="pln"> circumference </span><span class="pun">{</span>
+   <span class="kwd">var</span><span class="pln"> circumName</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumNumber</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span>
+   <span class="kwd">var</span><span class="pln"> circumarea</span><span class="pun">:</span> <span class="typ">String</span><span class="pun">?</span><span class="pln">
+   
+   func buildingIdentifier</span><span class="pun">()</span> <span class="pun">-&gt;</span> <span class="typ">String</span><span class="pun">?</span> <span class="pun">{</span>
+      <span class="kwd">if</span><span class="pln"> circumName </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumName
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="kwd">if</span><span class="pln"> circumNumber </span><span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> circumNumber
+      </span><span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="kwd">nil</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">let</span><span class="pln"> circname </span><span class="pun">=</span><span class="pln"> rectangle</span><span class="pun">()</span>
+<span class="kwd">if</span><span class="pln"> circname</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">?.</span><span class="pln">circleprint</span><span class="pun">()</span> <span class="pun">!=</span> <span class="kwd">nil</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Area of circle is specified)"</span><span class="pun">)</span>
+<span class="pun">}</span><span class="kwd">else</span> <span class="pun">{</span><span class="pln">
+   println</span><span class="pun">(</span><span class="str">"Area of circle is not specified"</span><span class="pun">)</span>
+<span class="pun">}</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Area of circle is not specified
+</pre>

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.tutorialspoint.com/sql/sql-expressions.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Switch Case</title>
+    <meta name="description" content="JavaScript Switch Case - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+    <!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script src="./7_files/pubads_impl_rendering_170.js.download"></script><script src="./7_files/ads"></script><script src="./7_files/ca-pub-7133395778201029.js.download"></script><script type="text/javascript" src="./7_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./7_files/style-min.css">
+<script async="async" src="./7_files/gpt.js.download"></script>
+
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #57B847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #57B847 !important;}
+.submenu-item{ border-bottom: 2px solid #57B847 !important; border-top: 2px solid #57B847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#57B847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+    border: 1px solid #d6d6d6;
+    background-color: #eee;
+    width: 98%;
+    border-radius: 0;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px; margin-top:15px;
+    font-size: 13px;
+    overflow: auto;
+}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+<link rel="preload" href="./7_files/integrator.js.download" as="script"><script type="text/javascript" src="./7_files/integrator.js.download"></script><link rel="preload" href="./7_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./7_files/integrator.js(1).download"></script><script src="./7_files/pubads_impl_170.js.download" async=""></script></head>
+<body style="">
+
+
+
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Switch Case</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>You can use multiple <b>if...else…if</b> statements, as in the previous chapter, to perform a multiway branch. However, this is not always the best solution, especially when all of the branches depend on the value of a single variable.</p>
+        <p>Starting with JavaScript 1.2, you can use a <b>switch</b> statement which handles exactly this situation, and it does so more efficiently than repeated <b>if...else if</b> statements.</p>
+        <h2>Flow Chart</h2>
+        <p>The following flow chart explains a switch-case statement works.</p>
+        <img src="../img/2.PNG" alt="">
+        <h3>Syntax</h3>
+        <p>The objective of a <b>switch</b> statement is to give an expression to evaluate and several different statements to execute based on the value of the expression. The interpreter checks each <b>case</b> against the value of the expression until a match is found. If nothing matches, a <b>default</b> condition will be used.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">case</span><span class="pln"> condition </span><span class="lit">1</span><span class="pun">:</span><span class="pln"> statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">case</span><span class="pln"> condition </span><span class="lit">2</span><span class="pun">:</span><span class="pln"> statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">...</span><span class="pln">
+
+   </span><span class="kwd">case</span><span class="pln"> condition n</span><span class="pun">:</span><span class="pln"> statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">default</span><span class="pun">:</span><span class="pln"> statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>The <b>break</b> statements indicate the end of a particular case. If they were omitted, the interpreter would continue executing each statement in each of the following cases.</p>
+        <p>We will explain <b>break</b> statement in <i>Loop Control</i> chapter.</p>
+        <h3>Example</h3>
+        <p>Try the following example to implement switch-case statement.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> grade</span><span class="pun">=</span><span class="str">'A'</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering switch block&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">grade</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'A'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Good job&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Pretty good&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'C'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Passed&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'D'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Not so good&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'F'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Failed&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+
+               </span><span class="kwd">default</span><span class="pun">:</span><span class="pln">  document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Unknown grade&lt;br /&gt;"</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting switch block"</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering switch block
+Good job
+Exiting switch block
+Set the variable to different value and then try...
+</pre>
+        <p>Break statements play a major role in switch-case statements. Try the following code that uses switch-case statement without any break statement.</p>
+        <pre class="prettyprint notranslate tryit prettyprinted" style=""><span class="tag">&lt;html&gt;</span><span class="pln">
+   </span><span class="tag">&lt;body&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;!--</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> grade</span><span class="pun">=</span><span class="str">'A'</span><span class="pun">;</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Entering switch block&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">grade</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'A'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Good job&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Pretty good&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'C'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Passed&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'D'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Not so good&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'F'</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Failed&lt;br /&gt;"</span><span class="pun">);</span><span class="pln">
+               </span><span class="kwd">default</span><span class="pun">:</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Unknown grade&lt;br /&gt;"</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">"Exiting switch block"</span><span class="pun">);</span><span class="pln">
+         </span><span class="com">//--&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+      </span><span class="tag">&lt;p&gt;</span><span class="pln">Set the variable to different value and then try...</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+        <h3>Output</h3>
+        <pre class="result notranslate">Entering switch block
+Good job
+Pretty good
+Passed
+Not so good
+Failed
+Unknown grade
+Exiting switch block
+Set the variable to different value and then try...
+</pre>
+        <hr>
+    </div></div></div></div></div></div></body></html>

@@ -1,0 +1,555 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C
+– printf and scanf</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:15.0pt;font-family:"Montserrat","serif";color:#444444'>C
+– printf and scanf</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:15.0pt;font-family:"Montserrat","serif";color:#444444'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:15.0pt;font-family:"Montserrat","serif";color:#444444'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>printf() and scanf() functions are inbuilt library functions in
+C programming language which are available in C library by default.&nbsp;These
+functions are declared and related macros are defined in “stdio.h” which is a
+header file in C language.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>We have to include “stdio.h” file as shown in below C program to
+make use of these printf() and scanf() library functions in C language.</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;
+font-stretch: inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><strong style='box-sizing: border-box;font-style:inherit;font-variant:
+inherit;font-stretch: inherit;font-size:inherit;line-height:inherit'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>1. PRINTF() FUNCTION IN C LANGUAGE:</span></strong></h1>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'><span
+style='box-sizing: border-box'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>In C programming language, printf() function is used to print
+the “character, string, float, integer, octal and hexadecimal values” onto the
+output screen.</span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'><span
+style='box-sizing: border-box'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>We use printf() function with&nbsp;</span></span><code
+style='box-sizing: border-box;font-size:inherit;border-radius: 4px;font-variant:
+inherit;font-stretch: inherit'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"inherit","serif";color:#C7254E;background:#F9F2F4'>%d</span></code><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'><span style='box-sizing: border-box'>&nbsp;format specifier to
+display the value of an integer variable.</span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'><span
+style='box-sizing: border-box'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Similarly&nbsp;</span></span><code style='box-sizing: border-box;
+font-size:inherit;border-radius: 4px;font-variant:inherit;font-stretch: inherit'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"inherit","serif";color:#C7254E;
+background:#F9F2F4'>%c</span></code><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'><span style='box-sizing: border-box'>&nbsp;is
+used to display character,&nbsp;</span></span><code style='box-sizing: border-box;
+font-size:inherit;border-radius: 4px;font-variant:inherit;font-stretch: inherit'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"inherit","serif";color:#C7254E;
+background:#F9F2F4'>%f</span></code><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'><span style='box-sizing: border-box'>&nbsp;for
+float variable,&nbsp;</span></span><code style='box-sizing: border-box;
+font-size:inherit;border-radius: 4px;font-variant:inherit;font-stretch: inherit'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"inherit","serif";color:#C7254E;
+background:#F9F2F4'>%s</span></code><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'><span style='box-sizing: border-box'>&nbsp;for
+string variable,&nbsp;</span></span><code style='box-sizing: border-box;
+font-size:inherit;border-radius: 4px;font-variant:inherit;font-stretch: inherit'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"inherit","serif";color:#C7254E;
+background:#F9F2F4'>%lf</span></code><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'><span style='box-sizing: border-box'>&nbsp;for
+double and&nbsp;</span></span><code style='box-sizing: border-box;font-size:
+inherit;border-radius: 4px;font-variant:inherit;font-stretch: inherit'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"inherit","serif";color:#C7254E;
+background:#F9F2F4'>%x</span></code><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Merriweather","serif";color:#444444'><span style='box-sizing: border-box'>&nbsp;for
+hexadecimal variable.</span></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'><span
+style='box-sizing: border-box'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>To generate a newline,we use “\n” in C printf() statement.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><strong><span lang=EN-IN style='font-size:10.0pt;
+font-family:"inherit","serif";color:#444444'>Note:</span></strong></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>C language is case sensitive.&nbsp;For example, printf() and scanf()
+are different from Printf() and Scanf(). All characters in printf() and scanf()
+functions must be in lower case.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><strong><span lang=EN-IN style='font-size:12.0pt;
+font-family:"inherit","serif";color:#222222;text-transform:uppercase'>EXAMPLE
+PROGRAM FOR C PRINTF() FUNCTION:</span></strong></h1>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='background:#FDFDFD'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>1</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>2</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>3</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>4</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>5</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>6</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>7</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>8</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>9</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>10</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>11</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>12</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>13</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>14</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>15</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>16</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;vertical-align:baseline'><span
+  style='font-size:9.0pt;font-family:"inherit","serif";color:#444444'>17</span></p>
+  </td>
+  <td width=528 style='width:5.5in;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>#include &lt;stdio.h&gt;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>int main()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; char ch = 'A';</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; char str[20] = &quot;fresh2refresh.com&quot;;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; float flt = 10.234;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; int no = 150;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; double dbl = 20.123456;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Character is %c
+  \n&quot;, ch);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;String is %s
+  \n&quot; , str);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Float value is %f
+  \n&quot;, flt);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Integer value is
+  %d\n&quot; , no);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Double value is %lf
+  \n&quot;, dbl);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Octal value is %o
+  \n&quot;, no);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Hexadecimal value is
+  %x \n&quot;, no);</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>&nbsp;&nbsp; return 0;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:9.0pt;font-family:
+  "inherit","serif";color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Montserrat","serif";color:#222222;text-transform:uppercase'>&nbsp;</span></h1>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><strong><span lang=EN-IN style='font-size:12.0pt;
+font-family:"inherit","serif";color:#222222;text-transform:uppercase'>OUTPUT:</span></strong></h1>
+
+<p class=MsoNormal><span lang=EN-IN>Character is A<br>
+String is fresh2refresh.com<br>
+Float value is 10.234000<br>
+Integer value is 150<br>
+Double value is 20.123456<br>
+Octal value is 226<br>
+Hexadecimal value is 96</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:15.0pt;text-align:justify;line-height:
+normal;background:#FBFBFB;vertical-align:baseline'><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:#444444'>You can
+see the output with the same data which are placed within the double quotes of printf
+statement in the program except</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%d
+got replaced by value of an integer variable &nbsp;(no),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%c&nbsp;got
+replaced by value of a character variable &nbsp;(ch),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%f&nbsp;got
+replaced by value of a float variable &nbsp;(flt),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%lf&nbsp;got
+replaced by value of a double variable &nbsp;(dbl),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%s&nbsp;got
+replaced by value of a string variable &nbsp;(str),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%o&nbsp;got
+replaced by a octal value corresponding to integer variable &nbsp;(no),</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>%x&nbsp;got
+replaced by a hexadecimal value corresponding to integer variable</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>\n&nbsp;got
+replaced by a newline.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>2. SCANF() FUNCTION IN C LANGUAGE:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>In
+C programming language, scanf() function is used to read character, string,
+numeric data from keyboard</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Consider
+below example program where user enters a character. This value is assigned to
+the variable “ch” and then displayed.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;vertical-align:baseline'><span lang=EN-IN style='font-size:
+10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Then,
+user enters a string and this value is assigned to the variable&nbsp;“str” and
+then displayed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;vertical-align:baseline'><b><span lang=EN-IN
+style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;text-transform:
+uppercase'>EXAMPLE PROGRAM FOR PRINTF() AND SCANF() FUNCTIONS IN C PROGRAMMING
+LANGUAGE:</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>#include &lt;stdio.h&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>int main()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; char ch;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; char str[100];</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Enter any character
+\n&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; scanf(&quot;%c&quot;, &amp;ch);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Entered character
+is %c \n&quot;, ch);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Enter any string
+( upto 100 character ) \n&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; scanf(&quot;%s&quot;, &amp;str);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>&nbsp;&nbsp; printf(&quot;Entered
+string is %s \n&quot;, str);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;vertical-align:baseline'><span lang=EN-IN style='font-size:9.0pt;
+font-family:"inherit","serif";color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+<h1 style='margin:0in;margin-bottom:.0001pt;text-align:justify;background:#FBFBFB;
+vertical-align:baseline'><strong><span lang=EN-IN style='font-size:12.0pt;
+font-family:"inherit","serif";color:#222222;text-transform:uppercase'>OUTPUT
+:&nbsp;</span></strong></h1>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Merriweather","serif";color:#444444;background:#FBFBFB'>Enter any
+character</span><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Merriweather","serif";color:#444444'><br style='box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'>
+<span style='background:#FBFBFB'><span style='font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;float:none;
+word-spacing:0px'>a</span></span><br style='box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'>
+<span style='background:#FBFBFB'><span style='font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;float:none;
+word-spacing:0px'>Entered character is a</span></span><br style='box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'>
+<span style='background:#FBFBFB'><span style='font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;float:none;
+word-spacing:0px'>Enter any string ( upto 100 character )</span></span><br
+style='box-sizing: border-box;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'>
+<span style='background:#FBFBFB'><span style='font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;float:none;
+word-spacing:0px'>hai</span></span><br style='box-sizing: border-box;
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'>
+<span style='background:#FBFBFB'><span style='font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;float:none;
+word-spacing:0px'>Entered string is hai</span></span></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:106%;
+font-family:"Merriweather","serif";color:#444444;background:#FBFBFB'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>The format specifier %d is used in scanf() statement. So that,
+the value entered is received as an integer and %s for string.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>Ampersand is used before variable name “ch” in scanf() statement
+as &amp;ch.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:Symbol;color:#444444'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>It is&nbsp;just like in a pointer which is used to point to the
+variable.&nbsp;For more information about how pointer works, please&nbsp;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:black'><a href="http://fresh2refresh.com/c/c-pointer/" title="C – Pointer"><span
+style='color:black'>click here</span></a></span><span lang=EN-IN
+style='font-size:10.0pt;font-family:"Merriweather","serif";color:blue'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
+justify;line-height:normal;background:#FBFBFB;vertical-align:baseline'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"inherit","serif";color:#222222;
+text-transform:uppercase'>KEY POINTS TO REMEMBER IN C PRINTF() AND SCANF():</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>printf() is used to display the output and scanf() is used to read
+the inputs.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>printf() and scanf() functions are declared in “stdio.h” header
+file in C library.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:22.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:-.25in;
+line-height:normal;background:#FBFBFB;vertical-align:baseline'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Merriweather","serif";
+color:#444444'>All syntax in C language including printf() and scanf()
+functions are case sensitive.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

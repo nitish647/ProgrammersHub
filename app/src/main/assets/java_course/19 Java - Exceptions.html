@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Exceptions</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Exceptions</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>An exception (or exceptional event) is a problem that arises during the execution of a program. When an <b>Exception</b> occurs the normal flow of the program is disrupted and the program/Application terminates abnormally, which is not recommended, therefore, these exceptions are to be handled.</p>
+        <p>An exception can occur for many different reasons. Following are some scenarios where an exception occurs.</p>
+        <ul class="list">
+            <li><p>A user has entered an invalid data.</p></li>
+            <li><p>A file that needs to be opened cannot be found.</p></li>
+            <li><p>A network connection has been lost in the middle of communications or the JVM has run out of memory.</p></li>
+        </ul>
+        <p>Some of these exceptions are caused by user error, others by programmer error, and others by physical resources that have failed in some manner.</p>
+        <p>Based on these, we have three categories of Exceptions. You need to understand them to know how exception handling works in Java.</p>
+        <ul class="list">
+            <li><p><b>Checked exceptions</b> − A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. These exceptions cannot simply be ignored at the time of compilation, the programmer should take care of (handle) these exceptions.</p></li>
+        </ul>
+        <p>For example, if you use <b>FileReader</b> class in your program to read data from a file, if the file specified in its constructor doesn't exist, then a <i>FileNotFoundException</i> occurs, and the compiler prompts the programmer to handle the exception.</p>
+        <h3>Example</h3>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">File</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">FileReader</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FilenotFound_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">File</span><span class="pln"> file </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">File</span><span class="pun">(</span><span class="str">"E://file.txt"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">FileReader</span><span class="pln"> fr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">(</span><span class="pln">file</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you try to compile the above program, you will get the following exceptions.</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">C:\&gt;javac FilenotFound_Demo.java
+FilenotFound_Demo.java:8: error: unreported exception FileNotFoundException; must be caught or declared to be thrown
+      FileReader fr = new FileReader(file);
+                      ^
+1 error
+</pre>
+        <p><b>Note</b> − Since the methods <b>read()</b> and <b>close()</b> of FileReader class throws IOException, you can observe that the compiler notifies to handle IOException, along with FileNotFoundException.</p>
+        <ul class="list">
+            <li><p><b>Unchecked exceptions</b> − An unchecked exception is an exception that occurs at the time of execution. These are also called as <b>Runtime Exceptions</b>. These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.</p></li>
+        </ul>
+        <p>For example, if you have declared an array of size 5 in your program, and trying to call the 6<sup>th</sup> element of the array then an <i>ArrayIndexOutOfBoundsExceptionexception</i> occurs.</p>
+        <h3>Example</h3>
+         <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Unchecked_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">};</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">num</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>If you compile and execute the above program, you will get the following exception.</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+	at Exceptions.Unchecked_Demo.main(Unchecked_Demo.java:8)
+</pre>
+        <ul class="list">
+            <li><p><b>Errors</b> − These are not exceptions at all, but problems that arise beyond the control of the user or the programmer. Errors are typically ignored in your code because you can rarely do anything about an error. For example, if a stack overflow occurs, an error will arise. They are also ignored at the time of compilation.</p></li>
+        </ul>
+        <h2>Exception Hierarchy</h2>
+        <p>All exception classes are subtypes of the java.lang.Exception class. The exception class is a subclass of the Throwable class. Other than the exception class there is another subclass called Error which is derived from the Throwable class.</p>
+        <p>Errors are abnormal conditions that happen in case of severe failures, these are not handled by the Java programs. Errors are generated to indicate errors generated by the runtime environment. Example: JVM is out of memory. Normally, programs cannot recover from errors.</p>
+        <p>The Exception class has two main subclasses: IOException class and RuntimeException Class.</p>
+        <img src="../img/5.PNG" alt="Exceptions1">
+        <p>Following is a list of most common checked and unchecked Java's Built-in Exceptions.</p>
+        <h2>Exceptions Methods</h2>
+        <p>Following is the list of important methods available in the Throwable class.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th>Sr.No.</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td><p><b>public String getMessage()</b></p>
+                    <p>Returns a detailed message about the exception that has occurred. This message is initialized in the Throwable constructor.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>public Throwable getCause()</b></p>
+                    <p>Returns the cause of the exception as represented by a Throwable object.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>public String toString()</b></p>
+                    <p>Returns the name of the class concatenated with the result of getMessage().</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td><p><b>public void printStackTrace()</b></p>
+                    <p>Prints the result of toString() along with the stack trace to System.err, the error output stream.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td><p><b>public StackTraceElement [] getStackTrace()</b></p>
+                    <p>Returns an array containing each element on the stack trace. The element at index 0 represents the top of the call stack, and the last element in the array represents the method at the bottom of the call stack.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td><p><b>public Throwable fillInStackTrace()</b></p>
+                    <p>Fills the stack trace of this Throwable object with the current stack trace, adding to any previous information in the stack trace.</p>
+                </td>
+            </tr>
+            </tbody></table>
+        <h2>Catching Exceptions</h2>
+        <p>A method catches an exception using a combination of the <b>try</b> and <b>catch</b> keywords. A try/catch block is placed around the code that might generate an exception. Code within a try/catch block is referred to as protected code, and the syntax for using try/catch looks like the following −</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">try {
+   // Protected code
+} catch (ExceptionName e1) {
+   // Catch block
+}
+</pre>
+        <p>The code which is prone to exceptions is placed in the try block. When an exception occurs, that exception occurred is handled by catch block associated with it. Every try block should be immediately followed either by a catch block or finally block.</p>
+        <p>A catch statement involves declaring the type of exception you are trying to catch. If an exception occurs in protected code, the catch block (or blocks) that follows the try is checked. If the type of exception that occurred is listed in a catch block, the exception is passed to the catch block much as an argument is passed into a method parameter.</p>
+        <h3>Example</h3>
+        <p>The following is an array declared with 2 elements. Then the code tries to access the 3<sup>rd</sup> element of the array which throws an exception.</p>
+          <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// File Name : ExcepTest.java</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExcepTest</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">int</span><span class="pln"> a</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">[</span><span class="lit">2</span><span class="pun">];</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Access element three :"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">3</span><span class="pun">]);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">ArrayIndexOutOfBoundsException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Exception thrown  :"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Out of the block"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+Out of the block
+</pre>
+        <h2>Multiple Catch Blocks</h2>
+        <p>A try block can be followed by multiple catch blocks. The syntax for multiple catch blocks looks like the following −</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">try {
+   // Protected code
+} catch (ExceptionType1 e1) {
+   // Catch block
+} catch (ExceptionType2 e2) {
+   // Catch block
+} catch (ExceptionType3 e3) {
+   // Catch block
+}
+</pre>
+        <p>The previous statements demonstrate three catch blocks, but you can have any number of them after a single try. If an exception occurs in the protected code, the exception is thrown to the first catch block in the list. If the data type of the exception thrown matches ExceptionType1, it gets caught there. If not, the exception passes down to the second catch statement. This continues until the exception either is caught or falls through all catches, in which case the current method stops execution and the exception is thrown down to the previous method on the call stack.</p>
+        <h3>Example</h3>
+        <p>Here is code segment showing how to use multiple try/catch statements.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   file </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileInputStream</span><span class="pun">(</span><span class="pln">fileName</span><span class="pun">);</span><span class="pln">
+   x </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">byte</span><span class="pun">)</span><span class="pln"> file</span><span class="pun">.</span><span class="pln">read</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IOException</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   i</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+   </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">FileNotFoundException</span><span class="pln"> f</span><span class="pun">)</span><span class="pln"> </span><span class="com">// Not valid! {</span><span class="pln">
+   f</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+   </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <h2>Catching Multiple Type of Exceptions</h2>
+        <p>Since Java 7, you can handle more than one exception using a single catch block, this feature simplifies the code. Here is how you would do it −</p>
+        <pre class="result notranslate">catch (IOException|FileNotFoundException ex) {
+   logger.log(ex);
+   throw ex;
+</pre>
+        <h2>The Throws/Throw Keywords</h2>
+        <p>If a method does not handle a checked exception, the method must declare it using the <b>throws</b> keyword. The throws keyword appears at the end of a method's signature.</p>
+        <p>You can throw an exception, either a newly instantiated one or an exception that you just caught, by using the <b>throw</b> keyword.</p>
+        <p>Try to understand the difference between throws and throw keywords, <i>throws</i> is used to postpone the handling of a checked exception and <i>throw</i> is used to invoke an exception explicitly.</p>
+        <p>The following method declares that it throws a RemoteException −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> className </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> deposit</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">RemoteException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Method implementation</span><span class="pln">
+      </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">RemoteException</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="com">// Remainder of class definition</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>A method can declare that it throws more than one exception, in which case the exceptions are declared in a list separated by commas. For example, the following method declares that it throws a RemoteException and an InsufficientFundsException −</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> className </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> withdraw</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">RemoteException</span><span class="pun">,</span><span class="pln">
+      </span><span class="typ">InsufficientFundsException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Method implementation</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="com">// Remainder of class definition</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <h2>The Finally Block</h2>
+        <p>The finally block follows a try block or a catch block. A finally block of code always executes, irrespective of occurrence of an Exception.</p>
+        <p>Using a finally block allows you to run any cleanup-type statements that you want to execute, no matter what happens in the protected code.</p>
+        <p>A finally block appears at the end of the catch blocks and has the following syntax −</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">try {
+   // Protected code
+} catch (ExceptionType1 e1) {
+   // Catch block
+} catch (ExceptionType2 e2) {
+   // Catch block
+} catch (ExceptionType3 e3) {
+   // Catch block
+}finally {
+   // The finally block always executes.
+}
+</pre>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExcepTest</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> a</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">[</span><span class="lit">2</span><span class="pun">];</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Access element three :"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">3</span><span class="pun">]);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">ArrayIndexOutOfBoundsException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Exception thrown  :"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">finally</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         a</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pun">;</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"First element value: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"The finally statement is executed"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+First element value: 6
+The finally statement is executed
+</pre>
+        <p>Note the following −</p>
+        <ul class="list">
+            <li><p>A catch clause cannot exist without a try statement.</p></li>
+            <li><p>It is not compulsory to have finally clauses whenever a try/catch block is present.</p></li>
+            <li><p>The try block cannot be present without either catch clause or finally clause.</p></li>
+            <li><p>Any code cannot be present in between the try, catch, finally blocks.</p></li>
+        </ul>
+        <h2>The try-with-resources</h2>
+        <p>Generally, when we use any resources like streams, connections, etc. we have to close them explicitly using finally block. In the following program, we are reading data from a file using <b>FileReader</b> and we are closing it using finally block.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">File</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">FileReader</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">IOException</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ReadData_Demo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">FileReader</span><span class="pln"> fr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">File</span><span class="pln"> file </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">File</span><span class="pun">(</span><span class="str">"file.txt"</span><span class="pun">);</span><span class="pln">
+         fr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">(</span><span class="pln">file</span><span class="pun">);</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">char</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span><span class="pln">
+         fr</span><span class="pun">.</span><span class="pln">read</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln">   </span><span class="com">// reads the content to the array</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">:</span><span class="pln"> a</span><span class="pun">)</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">c</span><span class="pun">);</span><span class="pln">   </span><span class="com">// prints the characters one by one</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IOException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">finally</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            fr</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IOException</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            ex</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p><b>try-with-resources</b>, also referred as <b>automatic resource management</b>, is a new exception handling mechanism that was introduced in Java 7, which automatically closes the resources used within the try catch block.</p>
+        <p>To use this statement, you simply need to declare the required resources within the parenthesis, and the created resource will be closed automatically at the end of the block. Following is the syntax of try-with-resources statement.</p>
+        <h3>Syntax</h3>
+        <pre class="result notranslate">try(FileReader fr = new FileReader("file path")) {
+   // use the resource
+   } catch () {
+      // body of catch
+   }
+}
+</pre>
+        <p>Following is the program that reads the data in a file using try-with-resources statement.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">FileReader</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">IOException</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Try_withDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pun">(</span><span class="typ">FileReader</span><span class="pln"> fr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">(</span><span class="str">"E://file.txt"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">char</span><span class="pun">[</span><span class="lit">50</span><span class="pun">];</span><span class="pln">
+         fr</span><span class="pun">.</span><span class="pln">read</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln">   </span><span class="com">// reads the contentto the array</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">:</span><span class="pln"> a</span><span class="pun">)</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">c</span><span class="pun">);</span><span class="pln">   </span><span class="com">// prints the characters one by one</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IOException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Following points are to be kept in mind while working with try-with-resources statement.</p>
+        <ul class="list">
+            <li><p>To use a class with try-with-resources statement it should implement <b>AutoCloseable</b> interface and the <b>close()</b> method of it gets invoked automatically at runtime.</p></li>
+            <li><p>You can declare more than one class in try-with-resources statement.</p></li>
+            <li><p>While you declare multiple classes in the try block of try-with-resources statement these classes are closed in reverse order.</p></li>
+            <li><p>Except the declaration of resources within the parenthesis everything is the same as normal try/catch block of a try block.</p></li>
+            <li><p>The resource declared in try gets instantiated just before the start of the try-block.</p></li>
+            <li><p>The resource declared at the try block is implicitly declared as final.</p></li>
+        </ul>
+        <h2>User-defined Exceptions</h2>
+        <p>You can create your own exceptions in Java. Keep the following points in mind when writing your own exception classes −</p>
+        <ul class="list">
+            <li><p>All exceptions must be a child of Throwable.</p></li>
+            <li><p>If you want to write a checked exception that is automatically enforced by the Handle or Declare Rule, you need to extend the Exception class.</p></li>
+            <li><p>If you want to write a runtime exception, you need to extend the RuntimeException class.</p></li>
+        </ul>
+        <p>We can define our own Exception class as below −</p>
+        <pre class="result notranslate">class MyException extends Exception {
+}
+</pre>
+        <p>You just need to extend the predefined <b>Exception</b> class to create your own Exception. These are considered to be checked exceptions. The following <b>InsufficientFundsException</b> class is a user-defined exception that extends the Exception class, making it a checked exception. An exception class is like any other class, containing useful fields and methods.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate prettyprinted" id="exception" style=""><span class="com">// File Name InsufficientFundsException.java</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">InsufficientFundsException</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Exception</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">InsufficientFundsException</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">amount </span><span class="pun">=</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getAmount</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>To demonstrate using our user-defined exception, the following CheckingAccount class contains a withdraw() method that throws an InsufficientFundsException.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// File Name CheckingAccount.java</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">CheckingAccount</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">CheckingAccount</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">number </span><span class="pun">=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> deposit</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      balance </span><span class="pun">+=</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> withdraw</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">InsufficientFundsException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">amount </span><span class="pun">&lt;=</span><span class="pln"> balance</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         balance </span><span class="pun">-=</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">double</span><span class="pln"> needs </span><span class="pun">=</span><span class="pln"> amount </span><span class="pun">-</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+         </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">InsufficientFundsException</span><span class="pun">(</span><span class="pln">needs</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getBalance</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getNumber</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>The following BankDemo program demonstrates invoking the deposit() and withdraw() methods of CheckingAccount.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="com">// File Name BankDemo.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">BankDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">CheckingAccount</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CheckingAccount</span><span class="pun">(</span><span class="lit">101</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Depositing $500..."</span><span class="pun">);</span><span class="pln">
+      c</span><span class="pun">.</span><span class="pln">deposit</span><span class="pun">(</span><span class="lit">500.00</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"\nWithdrawing $100..."</span><span class="pun">);</span><span class="pln">
+         c</span><span class="pun">.</span><span class="pln">withdraw</span><span class="pun">(</span><span class="lit">100.00</span><span class="pun">);</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"\nWithdrawing $600..."</span><span class="pun">);</span><span class="pln">
+         c</span><span class="pun">.</span><span class="pln">withdraw</span><span class="pun">(</span><span class="lit">600.00</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InsufficientFundsException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sorry, but you are short $"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">getAmount</span><span class="pun">());</span><span class="pln">
+         e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        <p>Compile all the above three files and run BankDemo. This will produce the following result −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">Depositing $500...
+
+Withdrawing $100...
+
+Withdrawing $600...
+Sorry, but you are short $200.0
+InsufficientFundsException
+         at CheckingAccount.withdraw(CheckingAccount.java:25)
+         at BankDemo.main(BankDemo.java:13)
+</pre>
+        <h2>Common Exceptions</h2>
+        <p>In Java, it is possible to define two catergories of Exceptions and Errors.</p>
+        <ul class="list">
+            <li><p><b>JVM Exceptions</b> − These are exceptions/errors that are exclusively or logically thrown by the JVM. Examples: NullPointerException, ArrayIndexOutOfBoundsException, ClassCastException.</p></li>
+            <li><p><b>Programmatic Exceptions</b> − These exceptions are thrown explicitly by the application or the API programmers. Examples: IllegalArgumentException, IllegalStateException.</p></li>
+        </ul>
+        <hr>
+    </div></div></div></div></div></div>
+
+</body></html>

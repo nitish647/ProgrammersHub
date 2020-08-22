@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Temperature
+Convertor</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:normal;background:white'><span lang=EN-IN
+style='font-size:27.0pt;font-family:"Tahoma","sans-serif";color:#333333'>Temperature
+Convertor</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Modify the temperature conversion program to print a heading
+above the table.</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* Temperature
+Conversion Program, Fahrenheit to Celsius */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;stdio.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* print
+Fahrenheit-Celsius table for fahr = 0,20 ... 300 */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>main</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;A
+program print Fahrenheit-Celsius<b>\n</b>&quot;</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+lower,upper,step;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>
+celsius,fahr;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    lower </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    upper </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>300</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    step </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>20</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    fahr </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> lower;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>while</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>( fahr </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&lt;=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> upper)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    {</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        celsius </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>  </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>5</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>*</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> (fahr </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>32</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>/</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>9</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;%d<b>\t</b>%d<b>\n</b>&quot;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>,fahr,celsius);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>        fahr </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>=</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> fahr </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>+</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> step;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    }</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+</div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>In this program we are going to convert a given Fahrenheit
+temperature to Celsius temperature using the formula C=(5/9)(F-32) To do this
+we declare some variables in the beginning of the program so that they can be
+used in the later stages of the program. The variables in this program are:
+lower,upper,step, celsius,fahr. The variable lower is assigned the value 0
+similarly upper to 300, step to 20, and fahr to lower. So when the program
+enters the while loop it checks whether fahr &lt;= upper is true, if it is true
+then it assigns the variable celsius 5 * (fahr - 32) / 9 and then it prints
+output.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

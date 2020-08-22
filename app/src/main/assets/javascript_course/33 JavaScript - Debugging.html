@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - Debugging</title>
+    <meta name="description" content="JavaScript Debugging - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript - Debugging</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>Every now and then, developers commit mistakes while coding. A mistake in a program or a script is referred to as a <b>bug</b>.</p>
+        <p>The process of finding and fixing bugs is called <b>debugging</b> and is a normal part of the development process. This section covers tools and techniques that can help you with debugging tasks..</p>
+        <h2>Error Messages in IE</h2>
+        <p>The most basic way to track down errors is by turning on error information in your browser. By default, Internet Explorer shows an error icon in the status bar when an error occurs on the page.</p>
+        <img src="../img/9.PNG" alt="Error Icon">
+        <p>Double-clicking this icon takes you to a dialog box showing information about the specific error that occurred.</p>
+        <p>Since this icon is easy to overlook, Internet Explorer gives you the option to automatically show the Error dialog box whenever an error occurs.</p>
+        <p>To enable this option, select <b>Tools → Internet Options → Advanced tab.</b> and then finally check the <b>"Display a Notification About Every Script Error"</b> box option as shown below −</p>
+        <img src="../img/10.PNG" alt="Internet Options">
+        <h2>Error Messages in Firefox or Mozilla</h2>
+        <p>Other browsers like Firefox, Netscape, and Mozilla send error messages to a special window called the <b>JavaScript Console</b> or <b>Error Consol</b>. To view the console, select <b>Tools → Error Consol or Web Development</b>.</p>
+        <p>Unfortunately, since these browsers give no visual indication when an error occurs, you must keep the Console open and watch for errors as your script executes.</p>
+        <img src="../img/11.PNG"" alt="Error Console">
+        <h2>Error Notifications</h2>
+        <p>Error notifications that show up on Console or through Internet Explorer dialog boxes are the result of both syntax and runtime errors. These error notification include the line number at which the error occurred.</p>
+        <p>If you are using Firefox, then you can click on the error available in the error console to go to the exact line in the script having error.</p>
+        <h2>How to debug a Script</h2>
+        <p>There are various ways to debug your JavaScript −</p>
+        <h3>Use a JavaScript Validator</h3>
+        <p>One way to check your JavaScript code for strange bugs is to run it through a program that checks it to make sure it is valid and that it follows the official syntax rules of the language. These programs are called <b>validating parsers</b> or just <b>validators</b> for short, and often come with commercial HTML and JavaScript editors.</p>
+        <p>The most convenient validator for JavaScript is Douglas Crockford's JavaScript Lint, which is available for free at <a rel="nofollow" href="http://www.jslint.com/" target="_blank">Douglas Crockford's JavaScript Lint</a>.</p>
+        <p>Simply visit that web page, paste your JavaScript (Only JavaScript) code into the text area provided, and click the jslint button. This program will parse through your JavaScript code, ensuring that all the variable and function definitions follow the correct syntax. It will also check JavaScript statements, such as if and <b>while,</b> to ensure they too follow the correct format</p>
+        <h3>Add Debugging Code to Your Programs</h3>
+        <p>You can use the <b>alert()</b> or <b>document.write()</b> methods in your program to debug your code. For example, you might write something as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> debugging </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> whichImage </span><span class="pun">=</span><span class="pln"> </span><span class="str">"widget"</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> debugging </span><span class="pun">)</span><span class="pln">
+alert</span><span class="pun">(</span><span class="pln"> </span><span class="str">"Calls swapImage() with argument: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> whichImage </span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> swapStatus </span><span class="pun">=</span><span class="pln"> swapImage</span><span class="pun">(</span><span class="pln"> whichImage </span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> debugging </span><span class="pun">)</span><span class="pln">
+   alert</span><span class="pun">(</span><span class="pln"> </span><span class="str">"Exits swapImage() with swapStatus="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> swapStatus </span><span class="pun">);</span></pre>
+        <p>By examining the content and order of the <b>alert()</b> as they appear, you can examine the health of your program very easily.</p>
+        <h3>Use a JavaScript Debugger</h3>
+        <p>A debugger is an application that places all aspects of script execution under the control of the programmer. Debuggers provide fine-grained control over the state of the script through an interface that allows you to examine and set values as well as control the flow of execution.</p>
+        <p>Once a script has been loaded into a debugger, it can be run one line at a time or instructed to halt at certain breakpoints. Once execution is halted, the programmer can examine the state of the script and its variables in order to determine if something is amiss. You can also watch variables for changes in their values.</p>
+        <p>The latest version of the Mozilla JavaScript Debugger (code-named Venkman) for both Mozilla and Netscape browsers can be downloaded at <a href="http://www.hacksrus.com/~ginda/venkman" target="_blank">http://www.hacksrus.com/~ginda/venkman</a></p>
+        <h2>Useful tips for developers</h2>
+        <p>You can keep the following tips in mind to reduce the number of errors in your scripts and simplify the debugging process −</p>
+        <ul class="list">
+            <li><p>Use plenty of <b>comments</b>. Comments enable you to explain why you wrote the script the way you did and to explain particularly difficult sections of code.</p></li>
+            <li><p>Always use <b>indentation</b> to make your code easy to read. Indenting statements also makes it easier for you to match up beginning and ending tags, curly braces, and other HTML and script elements.</p></li>
+            <li><p>Write <b>modular code</b>. Whenever possible, group your statements into functions. Functions let you group related statements, and test and reuse portions of code with minimal effort.</p></li>
+            <li><p>Be consistent in the way you name your variables and functions. Try using names that are long enough to be meaningful and that describe the contents of the variable or the purpose of the function.</p></li>
+            <li><p>Use consistent syntax when naming variables and functions. In other words, keep them all lowercase or all uppercase; if you prefer Camel-Back notation, use it consistently.</p></li>
+            <li><p><b>Test long scripts</b> in a modular fashion. In other words, do not try to write the entire script before testing any portion of it. Write a piece and get it to work before adding the next portion of code.</p></li>
+            <li><p>Use <b>descriptive variable and function names</b> and avoid using single-character names.</p></li>
+            <li><p><b>Watch your quotation marks</b>. Remember that quotation marks are used in pairs around strings and that both quotation marks must be of the same style (either single or double).</p></li>
+            <li><p><b>Watch your equal signs</b>. You should not used a single = for comparison purpose.</p></li>
+            <li><p>Declare <b>variables explicitly</b> using the <b>var</b> keyword.</p></li>
+        </ul>
+        <hr>
+    </div></div></div></div></div></div></body></html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".viewer">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_viewer"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/lottiel_no_internet"
+        app:lottie_autoPlay="true"
+        android:background="#039BE5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+<WebView
+android:layout_weight="95"
+    android:id="@+id/webview1"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</WebView>
+    <com.google.android.gms.ads.AdView
+        android:layout_margin="5dp"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/viewer_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-5584279718709862/7828896396">
+    </com.google.android.gms.ads.AdView>
+</LinearLayout>

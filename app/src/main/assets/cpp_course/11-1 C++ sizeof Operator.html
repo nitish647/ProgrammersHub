@@ -1,0 +1,32 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ sizeof Operator</h1>
+
+<p>The <strong>sizeof</strong> is a keyword, but it is a compile-time operator that determines the size, in bytes, of a variable or data type.</p>
+<p>The sizeof operator can be used to get the size of classes, structures, unions and any other user defined data type.</p>
+<p>The syntax of using sizeof is as follows &minus;</p>
+<pre class="result notranslate">sizeof (data type)
+</pre>
+<p>Where data type is the desired data type including classes, structures, unions and any other user defined data type.</p>
+<p>Try the following example to understand all the sizeof operator available in C++. Copy and paste following C++ program in test.cpp file and compile and run this program.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of char : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">char</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of short int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">short</span> <span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of long int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">long</span> <span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of float : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">float</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of double : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">double</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of wchar_t : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="typ">wchar_t</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result, which can vary from machine to machine &minus;</p>
+<pre class="result notranslate">Size of char : 1
+Size of int : 4
+Size of short int : 2
+Size of long int : 4
+Size of float : 4
+Size of double : 8
+Size of wchar_t : 4
+</pre>

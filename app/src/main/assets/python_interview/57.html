@@ -1,0 +1,129 @@
+<p>
+    In Python, the term monkey patch only refers to dynamic modifications of a
+    class or module at run-time.
+</p>
+<p>
+    Consider the below example:
+</p>
+<div>
+    <div id="highlighter_123143">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td>
+                    <div>
+                        1
+                    </div>
+                    <div>
+                        2
+                    </div>
+                    <div>
+                        3
+                    </div>
+                    <div>
+                        4
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div>
+                            <code># m.py</code>
+                        </div>
+                        <div>
+                            <code>class</code>
+                            <code>MyClass:</code>
+                        </div>
+                        <div>
+                            <code>def</code>
+                            <code>f(</code>
+                            <code>self</code>
+                            <code>):</code>
+                        </div>
+                        <div>
+                            <code>print</code>
+                            <code>"f()"</code>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p>
+    We can then run the monkey-patch testing like this:
+</p>
+<div>
+    <div id="highlighter_133955">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td>
+                    <div>
+                        1
+                    </div>
+                    <div>
+                        2
+                    </div>
+                    <div>
+                        3
+                    </div>
+                    <div>
+                        4
+                    </div>
+                    <div>
+                        5
+                    </div>
+                    <div>
+                        6
+                    </div>
+                    <div>
+                        7
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <div>
+                            <code>import</code>
+                            <code>m</code>
+                        </div>
+                        <div>
+                            <code>def</code>
+                            <code>monkey_f(</code>
+                            <code>self</code>
+                            <code>):</code>
+                        </div>
+                        <div>
+                            <code>print</code>
+                            <code>"monkey_f()"</code>
+                        </div>
+                        <div>
+                        </div>
+                        <div>
+                            <code>m.MyClass.f </code>
+                            <code>=</code>
+                            <code>monkey_f</code>
+                        </div>
+                        <div>
+                            <code>obj </code>
+                            <code>=</code>
+                            <code>m.MyClass()</code>
+                        </div>
+                        <div>
+                            <code>obj.f()</code>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p>
+    The output will be as below:
+</p>
+<pre>monkey_f()</pre>
+<p>
+    As we can see, we did make some changes in the behavior of<em> f()</em> in    <em>MyClass </em>using the function we defined, <em>monkey_f()</em>,
+    outside of the module <em>m</em>.
+</p>

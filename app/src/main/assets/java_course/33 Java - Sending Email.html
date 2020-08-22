@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>Java - Sending Email</title>
+    <meta name="description" content="Java Environment Setup - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+    <meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI.">
+
+
+
+
+
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>Java - Sending Email</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>To send an e-mail using your Java Application is simple enough but to start with you should have <b>JavaMail API</b> and <b>Java Activation Framework (JAF)</b> installed on your machine.</p>
+        <ul class="list">
+            <li><p>You can download  latest version of <a href="https://java.sun.com/products/javamail/" target="_blank">JavaMail (Version 1.2)</a> from Java's standard website.</p></li>
+            <li><p>You can download  latest version of <a href="https://java.sun.com/products/javabeans/glasgow/jaf.html" target="_blank">JAF (Version 1.1.1)</a> from Java's standard website.</p></li>
+        </ul>
+        <p>Download and unzip these files, in the newly created top level directories you will find a number of jar files for both the applications. You need to add <b>mail.jar</b> and <b>activation.jar</b> files in your CLASSPATH.</p>
+        <h2>Send a Simple E-mail</h2>
+        <p>Here is an example to send a simple e-mail from your machine. It is assumed that your <b>localhost</b> is connected to the Internet and capable enough to send an e-mail.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate">// File Name SendEmail.java
+
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+public class SendEmail {
+
+   public static void main(String [] args) {
+      // Recipient's email ID needs to be mentioned.
+      String to = "abcd@gmail.com";
+
+      // Sender's email ID needs to be mentioned
+      String from = "web@gmail.com";
+
+      // Assuming you are sending email from localhost
+      String host = "localhost";
+
+      // Get system properties
+      Properties properties = System.getProperties();
+
+      // Setup mail server
+      properties.setProperty("mail.smtp.host", host);
+
+      // Get the default Session object.
+      Session session = Session.getDefaultInstance(properties);
+
+      try {
+         // Create a default MimeMessage object.
+         MimeMessage message = new MimeMessage(session);
+
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: header field of the header.
+         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+         // Set Subject: header field
+         message.setSubject("This is the Subject Line!");
+
+         // Now set the actual message
+         message.setText("This is actual message");
+
+         // Send message
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      } catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre>
+        <p>Compile and run this program to send a simple e-mail −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">$ java SendEmail
+Sent message successfully....
+</pre>
+        <p>If you want to send an e-mail to multiple recipients then the following methods would be used to specify multiple e-mail IDs −</p>
+        <pre class="result notranslate">void addRecipients(Message.RecipientType type, Address[] addresses)
+   throws MessagingException
+</pre>
+        <p>Here is the description of the parameters −</p>
+        <ul class="list">
+            <li><p><b>type</b> − This would be set to TO, CC or BCC. Here CC represents Carbon Copy and BCC represents Black Carbon Copy. Example: <i>Message.RecipientType.TO</i></p></li>
+            <li><p><b>addresses</b> − This is an array of e-mail ID. You would need to use InternetAddress() method while specifying email IDs.</p></li>
+        </ul>
+        <h2>Send an HTML E-mail</h2>
+        <p>Here is an example to send an HTML e-mail from your machine. Here it is assumed that your <b>localhost</b> is connected to the Internet and capable enough to send an e-mail.</p>
+        <p>This example is very similar to the previous one, except here we are using setContent() method to set content whose second argument is "text/html" to specify that the HTML content is included in the message.</p>
+        <p>Using this example, you can send as big as HTML content you like.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate">// File Name SendHTMLEmail.java
+
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+public class SendHTMLEmail {
+
+   public static void main(String [] args) {
+      // Recipient's email ID needs to be mentioned.
+      String to = "abcd@gmail.com";
+
+      // Sender's email ID needs to be mentioned
+      String from = "web@gmail.com";
+
+      // Assuming you are sending email from localhost
+      String host = "localhost";
+
+      // Get system properties
+      Properties properties = System.getProperties();
+
+      // Setup mail server
+      properties.setProperty("mail.smtp.host", host);
+
+      // Get the default Session object.
+      Session session = Session.getDefaultInstance(properties);
+
+      try {
+         // Create a default MimeMessage object.
+         MimeMessage message = new MimeMessage(session);
+
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: header field of the header.
+         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+         // Set Subject: header field
+         message.setSubject("This is the Subject Line!");
+
+         // Send the actual HTML message, as big as you like
+         message.setContent("&lt;h1&gt;This is actual message&lt;/h1&gt;", "text/html");
+
+         // Send message
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      } catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre>
+        <p>Compile and run this program to send an HTML e-mail −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">$ java SendHTMLEmail
+Sent message successfully....
+</pre>
+        <h2>Send Attachment in E-mail</h2>
+        <p>Here is an example to send an e-mail with attachment from your machine. Here it is assumed that your <b>localhost</b> is connected to the internet and capable enough to send an e-mail.</p>
+        <h3>Example</h3>
+        <pre class="prettyprint notranslate">// File Name SendFileEmail.java
+
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+public class SendFileEmail {
+
+   public static void main(String [] args) {
+      // Recipient's email ID needs to be mentioned.
+      String to = "abcd@gmail.com";
+
+      // Sender's email ID needs to be mentioned
+      String from = "web@gmail.com";
+
+      // Assuming you are sending email from localhost
+      String host = "localhost";
+
+      // Get system properties
+      Properties properties = System.getProperties();
+
+      // Setup mail server
+      properties.setProperty("mail.smtp.host", host);
+
+      // Get the default Session object.
+      Session session = Session.getDefaultInstance(properties);
+
+      try {
+         // Create a default MimeMessage object.
+         MimeMessage message = new MimeMessage(session);
+
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: header field of the header.
+         message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+
+         // Set Subject: header field
+         message.setSubject("This is the Subject Line!");
+
+         // Create the message part
+         BodyPart messageBodyPart = new MimeBodyPart();
+
+         // Fill the message
+         messageBodyPart.setText("This is message body");
+
+         // Create a multipar message
+         Multipart multipart = new MimeMultipart();
+
+         // Set text message part
+         multipart.addBodyPart(messageBodyPart);
+
+         // Part two is attachment
+         messageBodyPart = new MimeBodyPart();
+         String filename = "file.txt";
+         DataSource source = new FileDataSource(filename);
+         messageBodyPart.setDataHandler(new DataHandler(source));
+         messageBodyPart.setFileName(filename);
+         multipart.addBodyPart(messageBodyPart);
+
+         // Send the complete message parts
+         message.setContent(multipart );
+
+         // Send message
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      } catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre>
+        <p>Compile and run this program to send an HTML e-mail −</p>
+        <h3>Output</h3>
+        <pre class="result notranslate">$ java SendFileEmail
+Sent message successfully....
+</pre>
+        <h2>User Authentication Part</h2>
+        <p>If it is required to provide user ID and Password to the e-mail server for authentication purpose, then you can set these properties as follows −</p>
+        <pre class="result notranslate">props.setProperty("mail.user", "myuser");
+props.setProperty("mail.password", "mypwd");
+</pre>
+        <p>Rest of the e-mail sending mechanism would remain as explained above.</p>
+        <hr>
+    </div></div></div></div></div></div>
+</body></html>

@@ -1,0 +1,334 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>The if statement</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>The if statement</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>One of the single
+most important statements in every programming language is the if statement.
+Being able to set up conditional blocks of code is a fundamental principal of
+writing software. In C#, the if statement is very simple to use. If you have
+already used another programming language, chances are that you can use the if
+statement in C# straight away. In any case, read on to see how it's used. The
+if statement needs a boolean result, that is, true or false. In some
+programming languages, several datatypes can be automatically converted into
+booleans, but in C#, you have to specifically make the result boolean. For
+instance, you can't use if(number), but you can compare a number to something,
+to generate a true or false, like we do later on.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>In the previous
+chapter we looked at variables, so we will expand on one of the examples to see
+how conditional logic can be used.</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>using</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>System</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>namespace</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>ConsoleApplication1</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>class</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Program</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#666600'>{</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'>static</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Main</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+args</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>{</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>int</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> number</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Please
+enter a number between 0 and 10:&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; number </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Parse</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>());</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>if</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&gt;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>10</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>)</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Hey!
+The number should be 10 or less!&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>else</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'>if</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&lt;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>)</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        &nbsp; &nbsp; </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Hey!
+The number should be 0 or more!&quot;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#000088'>else</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>        &nbsp; &nbsp; </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>Console</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Good
+job!&quot;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>);</span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    &nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>}</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#666600'>}</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We use 2 if
+statements to check if the entered number is between 0 and 10, and a companion
+of the if statement: The else keyword. Its meaning should be obvious to anyone
+speaking English - it simply offers an alternative to the code being executed
+if the condition of the if statement is not met.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>As you may have
+noticed, we don't use the { and } characters to define the conditional blocks
+of code. The rule is that if a block only contains a single line of code, the
+block characters are not required. Now, this seems like a lot of lines to
+simply check a number, doesn't it? It can be done with fewer lines of code,
+like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 0in;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>if</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>((</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&gt;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>10</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>)</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>||</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&lt;</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>))</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Hey!
+The number should be 0 or more and 10 or less!&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>else</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Good
+job!&quot;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We put each
+condition in a set of parentheses, and then we use the || operator, which
+simply means &quot;or&quot;, to check if the number is either more than 10 OR
+less than 0. Another operator you will be using a lot is the AND operator, which
+is written like this: &amp;&amp;. Could we have used the AND operator instead?
+Of course, we simply turn it around a bit, like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>if</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>((</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&lt;=</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>10</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>)</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>&amp;&amp;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>&gt;=</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>))</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Good
+job!&quot;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>);</span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>else</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Hey!
+The number should be 0 or more and 10 or less!&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>This introduces a
+couple of new operators, the &quot;less than or equal to&quot; and the
+&quot;greater than or equal to&quot;.</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

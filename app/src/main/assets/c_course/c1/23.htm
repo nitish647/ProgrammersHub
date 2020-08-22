@@ -1,0 +1,1308 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Count
+the Ranges</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-top:15.0pt;margin-right:0in;margin-bottom:
+7.5pt;margin-left:0in;line-height:normal;background:white'><span lang=EN-IN
+style='font-size:27.0pt;font-family:"Tahoma","sans-serif";color:#333333'>Count
+the Ranges</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+white'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Write a program to determine the ranges of char, short, int, and
+long variables, both signed and unsigned, by printing appropriate values from
+standard headers and by direct computation. Harder if you compute them:
+determine the ranges of the various floating-point types.</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* Program to print
+maximum,minimum limits of char,int,long using calculation */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/* The logic used
+is</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>* ~0 will give bits
+in 1s.</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>* (unsigned
+&lt;type&gt;) will cast it unsigned.</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>* &gt;&gt; 1 right
+shifts 1 bit to remove the sign bit.</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>* (&lt;type&gt;)
+casting it the required type again</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><i><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>*/</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#007020'>#include</span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>&lt;stdio.h&gt;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#06287E'>main</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>void</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Minimum
+Signed Char %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#666666'>-</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Signed Char %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>char</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>) ((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Minimum
+Signed Short %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#666666'>-</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>short</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>short</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Signed Short %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>short</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>short</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Minimum
+Signed Int %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#666666'>-</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Signed Int %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>int</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Minimum
+Signed Long %ld<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#666666'>-</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>long</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>long</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>) </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>-</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+signed Long %ld<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>long</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>)((</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>long</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>&gt;&gt;</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>1</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>));</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><i><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#60A0B0'>/*
+Unsigned Maximum Values */</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Unsigned Char %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>char</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Unsigned Short %d<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>short</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Unsigned Int %u<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>int</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    printf(</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#4070A0'>&quot;Maximum
+Unsigned Long %lu<b>\n</b>&quot;</span><span lang=EN-IN style='font-size:10.0pt;
+font-family:Consolas;color:#333333'>,(</span><span lang=EN-IN style='font-size:
+10.0pt;font-family:Consolas;color:#902000'>unsigned</span><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#902000'>long</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>)</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#666666'>~</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>);</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>    </span><b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#007020'>return</span></b><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'> </span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#40A070'>0</span><span
+lang=EN-IN style='font-size:10.0pt;font-family:Consolas;color:#333333'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.5pt;line-height:normal;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-size:10.0pt;font-family:Consolas;color:#333333'>}</span></p>
+
+</div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in'><span
+lang=EN-IN>The execution of the above program will give:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Minimum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Char</span></span> </span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>-</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>128</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Char</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>127</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Minimum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Short</span></span> </span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>-</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>32768</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Short</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>32767</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Minimum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Int</span></span> </span><span style='box-sizing: border-box'><span
+class=o><span lang=EN-IN style='font-family:Consolas;color:#666666'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>2147483648</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Int</span></span> </span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2147483647</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Minimum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Long</span></span> </span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>-</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2147483648</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>signed</span></span> <span class=n><span
+style='box-sizing: border-box'>Long</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>2147483647</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Unsigned</span></span> <span class=n><span
+style='box-sizing: border-box'>Char</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>255</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Unsigned</span></span> <span class=n><span
+style='box-sizing: border-box'>Short</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>65535</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Unsigned</span></span> <span class=n><span
+style='box-sizing: border-box'>Int</span></span> </span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>4294967295</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=n><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>Maximum</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> <span class=n><span
+style='box-sizing: border-box'>Unsigned</span></span> <span class=n><span
+style='box-sizing: border-box'>Long</span></span> </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>4294967295</span></span></span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>In order explain how we calculate the
+maximum values, we will have to do some bit arthimetic. Let’s start by
+calculating the maximum unsigned char.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>Sign bit is usually the left most bit
+of the type. To make it unsigned, we remove the sign bit and store 0 in it’s
+place.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>To represent (unsigned char) 0 =&nbsp;<strong
+style='box-sizing: border-box'>0000 0000</strong>&nbsp;To represent it’s
+complement, (unsigned char) ~0 =&nbsp;<strong style='box-sizing: border-box'>1111
+1111</strong></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>Right Shift 1 will shift that entire
+sequence to the right and insert 0 from the left side, so it will give 0111
+1111</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>Converting 0111 1111 to integer will
+be:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=mi><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'>0</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>7</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>6</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>5</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>3</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>0</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>0</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>0</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>64</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>32</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>16</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>8</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>0</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>64</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>32</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>16</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>8</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>127</span></span></span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>That is the maximum signed char value.
+To get the minimum signed char value, we look for the number in the other end
+of the number line.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>That is got by, multiplying it by -1
+and going one number further to the left in the number line:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>127</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>1</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>128</span></span></span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+box-sizing: border-box'><span lang=EN-IN>So our range is displayed like this:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mf><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>128.</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>.-</span></span></span><span style='box-sizing: border-box'><span
+class=mf><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2.</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>.-</span></span></span><span style='box-sizing: border-box'><span
+class=mf><span lang=EN-IN style='font-family:Consolas;color:#40A070'>1.</span></span><span
+class=o><span style='box-sizing: border-box'><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>.</span></span></span><span class=mi><span
+style='box-sizing: border-box'><span lang=EN-IN style='font-family:Consolas;
+color:#40A070'>0</span></span></span></span><span lang=EN-IN style='font-family:
+Consolas;color:#333333'> </span><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>3</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mf><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4.</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>..</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>127</span></span></span></pre></div>
+
+<h3 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span lang=EN-IN style='font-size:18.0pt;line-height:106%;font-family:
+"Tahoma","sans-serif";color:#333333'>Maximum signed short</span></b></h3>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>To get the maximum signed short number, we start with unsigned
+short type again and repeat the same operations like we did above.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>(short)((unsigned short)~0 &gt;&gt; 1)</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>In our compiler, a short is 2 bytes</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>(unsigned short) 0 means&nbsp;<strong style='box-sizing: border-box'><span
+style='font-family:"Tahoma","sans-serif"'>0000 0000 0000 0000</span></strong>&nbsp;(unsigned
+short) ~0 means&nbsp;<strong style='box-sizing: border-box'><span
+style='font-family:"Tahoma","sans-serif"'>1111 1111 1111 1111</span></strong></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Logical right shift, is we are eliminating the sign bit, which
+is the left most bit in the sequence.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>(unsigned short)~0 &gt;&gt; 1)</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Take this portion&nbsp;</span><span class=pre><span
+style='box-sizing: border-box;hyphens: none'><span lang=EN-IN style='font-size:
+9.5pt;font-family:Consolas;color:#C7254E;background:#F9F2F4'>1111</span></span></span><code><span
+lang=EN-IN style='font-size:9.5pt;font-family:Consolas;color:#C7254E;
+background:#F9F2F4'>&nbsp;</span><span style='box-sizing: border-box;
+hyphens: none'></code><span class=pre><span lang=EN-IN style='font-size:9.5pt;
+font-family:Consolas;color:#C7254E;background:#F9F2F4'>1111</span></span></span><code><span
+lang=EN-IN style='font-size:9.5pt;font-family:Consolas;color:#C7254E;
+background:#F9F2F4'>&nbsp;</span><span style='box-sizing: border-box;
+hyphens: none'></code><span class=pre><span lang=EN-IN style='font-size:9.5pt;
+font-family:Consolas;color:#C7254E;background:#F9F2F4'>1111</span></span></span><code><span
+lang=EN-IN style='font-size:9.5pt;font-family:Consolas;color:#C7254E;
+background:#F9F2F4'>&nbsp;</span><span style='box-sizing: border-box;
+hyphens: none'></code><span class=pre><span lang=EN-IN style='font-size:9.5pt;
+font-family:Consolas;color:#C7254E;background:#F9F2F4'>111</span></span></span><span
+lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>&nbsp;1 and place it as&nbsp;<strong style='box-sizing: border-box'><span
+style='font-family:"Tahoma","sans-serif"'>1111 1111 1111 111</span></strong>&nbsp;And
+then add 0 to the left&nbsp;<strong style='box-sizing: border-box'><span
+style='font-family:"Tahoma","sans-serif"'>0</span></strong>&nbsp;1111 1111 1111
+111 Rearranging we get&nbsp;<strong style='box-sizing: border-box'><span
+style='font-family:"Tahoma","sans-serif"'>0111 1111 1111 1111</span></strong></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>What is value of 0111 1111 1111 1111 ?</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Similar to above:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'>   </span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>0</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>15</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>14</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>13</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>12</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span lang=EN-IN style='font-family:Consolas;
+color:#333333'>    </span><span style='box-sizing: border-box'><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>11</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>10</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>9</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>8</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span lang=EN-IN style='font-family:Consolas;
+color:#333333'>    </span><span style='box-sizing: border-box'><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>7</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>6</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>5</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>4</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span lang=EN-IN style='font-family:Consolas;
+color:#333333'>    </span><span style='box-sizing: border-box'><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>3</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>1</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>*</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>0</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span lang=EN-IN style='font-family:Consolas;
+color:#333333'>&nbsp;</span></pre><pre style='margin-bottom:7.5pt;background:
+whitesmoke;word-break:break-all;border:none;padding:0in'><span lang=EN-IN
+style='font-family:Consolas;color:#333333'>    </span><span style='box-sizing: border-box'><span
+class=o><span lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>16384</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>8192</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4096</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2048</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1024</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>512</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>256</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>128</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>64</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>32</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>16</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>8</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span lang=EN-IN style='font-family:Consolas;
+color:#333333'>    </span><span style='box-sizing: border-box'><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>32767</span></span></span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>So, our maximum unsigned short is 32767</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Mininum unsigned short will be the negative of that number going
+one step further, i.e:</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>32767</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>-</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>32768</span></span></span></pre></div>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>Similarily, we can calculate for int and long types.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>For unsigned types, we do not do the shifting (to remove the
+sign) but simply print the value of all 1s of the type</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>(unsigned char)~0;</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+background:white;box-sizing: border-box;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span lang=EN-IN style='font-size:10.5pt;font-family:"Tahoma","sans-serif";
+color:#333333'>can be represented as (unsigned char) ~0 = 1111 1111</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:7.0pt 7.0pt 7.0pt 7.0pt;
+background:whitesmoke'><pre style='margin-bottom:7.5pt;background:whitesmoke;
+word-break:break-all;border:none;padding:0in;box-sizing: border-box;overflow-wrap: break-word;
+border-radius: 4px;overflow:auto'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>7</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span lang=EN-IN
+style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>6</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>5</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>3</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+style='box-sizing: border-box'><span class=mi><span lang=EN-IN
+style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>*</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+style='box-sizing: border-box'><span class=o><span lang=EN-IN style='font-family:
+Consolas;color:#666666'>^</span></span></span><span style='box-sizing: border-box'><span
+class=mi><span lang=EN-IN style='font-family:Consolas;color:#40A070'>0</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>128</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>64</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>32</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>16</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>8</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>4</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>2</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=o><span
+lang=EN-IN style='font-family:Consolas;color:#666666'><span style='box-sizing: border-box'>+</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>1</span></span></span></pre><pre
+style='margin-bottom:7.5pt;background:whitesmoke;word-break:break-all;
+border:none;padding:0in'><span class=o><span style='box-sizing: border-box'><span
+lang=EN-IN style='font-family:Consolas;color:#666666'>=</span></span></span><span
+lang=EN-IN style='font-family:Consolas;color:#333333'> </span><span class=mi><span
+lang=EN-IN style='font-family:Consolas;color:#40A070'><span style='box-sizing: border-box'>255</span></span></span></pre></div>
+
+<p class=MsoNormal><span lang=EN-IN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

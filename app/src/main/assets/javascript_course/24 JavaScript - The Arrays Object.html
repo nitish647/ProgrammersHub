@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.tutorialspoint.com/sql/sql-update-query.htm -->
+<html style="" class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+    <title>JavaScript - The Arrays Object</title>
+    <meta name="description" content="JavaScript array - Learn Javascript in simple and easy steps. A beginner's tutorial containing complete knowledge of Javascript Syntax Objects Embedding with HTML Validations Cookies Regular Expressions Literals Variables Loops Conditions.">
+    <meta name="keywords" content="Javascript, Tutorials, Learning, Beginners, Javascript Basics, Scripting Language, Javascript Tutorials, Functions, Objects, Usage.">
+
+
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<link rel="stylesheet" href="./17_files/style-min.css">
+
+
+
+
+
+
+
+
+</head>
+<body style="">
+
+
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+    <div class="col-md-7 middle-col">
+        <h1>JavaScript  - The Arrays Object</h1>
+
+        <div class="clearer"></div>
+        <hr>
+        <p>The <b>Array</b> object lets you store multiple values in a single variable. It stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.</p>
+        <h3>Syntax</h3>
+        <p>Use the following syntax to create an <b>Array</b> object −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> fruits </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">(</span><span class="pln"> </span><span class="str">"apple"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"orange"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"mango"</span><span class="pln"> </span><span class="pun">);</span></pre>
+        <p>The <b>Array</b> parameter is a list of strings or integers. When you specify a single numeric parameter with the Array constructor, you specify the initial length of the array. The maximum length allowed for an array is 4,294,967,295.</p>
+        <p>You can create array by simply assigning values as follows −</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="kwd">var</span><span class="pln"> fruits </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="str">"apple"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"orange"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"mango"</span><span class="pln"> </span><span class="pun">];</span></pre>
+        <p>You will use ordinal numbers to access and to set values inside an array as follows.</p>
+        <pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">fruits</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> the first element
+fruits</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> the second element
+fruits</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> the third element</span></pre>
+        <h2>Array  Properties</h2>
+        <p>Here is a list of the properties of the Array object along with their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Property &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> constructor
+                    <p>Returns a reference to the array function that created the object.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td><p><b>index</b></p>
+                    <p>The property represents the zero-based index of the match in the string</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td><p><b>input</b></p>
+                    <p>This property is only present in arrays created by regular expression matches.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> length
+                    <p>Reflects the number of elements in an array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> prototype
+                    <p>The prototype property allows you to add properties and methods to an object.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to illustrate the usage of Array properties.</p>
+        <h2>Array  Methods</h2>
+        <p>Here is a list of the methods of the Array object along with their description.</p>
+        <table class="table table-bordered">
+            <tbody><tr>
+                <th style="text-align:center;">Sr.No</th>
+                <th style="text-align:center;">Method &amp; Description</th>
+            </tr>
+            <tr>
+                <td class="ts">1</td>
+                <td> concat()
+                    <p>Returns a new array comprised of this array joined with other array(s) and/or value(s).</p></td>
+            </tr>
+            <tr>
+                <td class="ts">2</td>
+                <td> every()
+                    <p>Returns true if every element in this array satisfies the provided testing function.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">3</td>
+                <td> filter()
+                    <p>Creates a new array with all of the elements of this array for which the provided filtering function returns true.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">4</td>
+                <td> forEach()
+                    <p>Calls a function for each element in the array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">5</td>
+                <td> indexOf()
+                    <p>Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">6</td>
+                <td> join()
+                    <p>Joins all elements of an array into a string.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">7</td>
+                <td> lastIndexOf()
+                    <p>Returns the last (greatest) index of an element within the array equal to the specified value, or -1 if none is found.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">8</td>
+                <td> map()
+                    <p>Creates a new array with the results of calling a provided function on every element in this array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">9</td>
+                <td> pop()
+                    <p>Removes the last element from an array and returns that element.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">10</td>
+                <td> push()
+                    <p>Adds one or more elements to the end of an array and returns the new length of the array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">11</td>
+                <td> reduce()
+                    <p>Apply a function simultaneously against two values of the array (from left-to-right) as to reduce it to a single value.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">12</td>
+                <td> reduceRight()
+                    <p>Apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">13</td>
+                <td> reverse()
+                    <p>Reverses the order of the elements of an array -- the first becomes the last, and the last becomes the first.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">14</td>
+                <td> shift()
+                    <p>Removes the first element from an array and returns that element.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">15</td>
+                <td> slice()
+                    <p>Extracts a section of an array and returns a new array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">16</td>
+                <td> some()
+                    <p>Returns true if at least one element in this array satisfies the provided testing function.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">17</td>
+                <td> toSource()
+                    <p>Represents the source code of an object</p></td>
+            </tr>
+            <tr>
+                <td class="ts">18</td>
+                <td> sort()
+                    <p>Sorts the elements of an array</p></td>
+            </tr>
+            <tr>
+                <td class="ts">19</td>
+                <td> splice()
+                    <p>Adds and/or removes elements from an array.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">20</td>
+                <td> toString()
+                    <p>Returns a string representing the array and its elements.</p></td>
+            </tr>
+            <tr>
+                <td class="ts">21</td>
+                <td> unshift()
+                    <p>Adds one or more elements to the front of an array and returns the new length of the array.</p></td>
+            </tr>
+            </tbody></table>
+        <p>In the following sections, we will have a few examples to demonstrate the usage of Array methods.</p>
+        <hr>
+    </div></div></div></div></div></div></body></html>

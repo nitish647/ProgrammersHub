@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<P style="word-wrap : break-word;">
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>C&nbsp;program&nbsp;for&nbsp;matrix&nbsp;multiplication</b>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">stdio.h<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&gt;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">a[5][5],b[5][5],c[5][5],<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i,j,k,sum<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0,m,n,o,p;</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;the&nbsp;row&nbsp;and&nbsp;column&nbsp;of&nbsp;first&nbsp;matrix&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;m,&amp;n<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;the&nbsp;row&nbsp;and&nbsp;column&nbsp;of&nbsp;second&nbsp;matrix&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;o,&amp;p<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n!=o){</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Matrix&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">mutiplication<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;is&nbsp;not&nbsp;possible&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nColumn<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;of&nbsp;first&nbsp;matrix&nbsp;must&nbsp;be&nbsp;same&nbsp;as&nbsp;row&nbsp;of&nbsp;second&nbsp;matrix&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">{</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;the&nbsp;First&nbsp;matrix&ndash;&gt;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">m;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;a<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;the&nbsp;Second&nbsp;matrix&ndash;&gt;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">o;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;b<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nThe<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;First&nbsp;matrix&nbsp;is\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">m;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">t&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,a<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nThe<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;Second&nbsp;matrix&nbsp;is\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">o;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">t&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,b<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;}&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">m;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">c[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]=0;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">m;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">//row&nbsp;of&nbsp;first&nbsp;matrix</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">//column&nbsp;of&nbsp;second&nbsp;matrix</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">sum=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">k=0;k&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n;k<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">sum=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">sum+a<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][k]*b[k][j];</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">c[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]=sum;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nThe<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;multiplication&nbsp;of&nbsp;two&nbsp;matrix&nbsp;is\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">m;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\n&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">t&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,c<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">][j]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<br>
+<font face="Courier New" size="5" style="background-color: #FFFFFF" color="#800000"><b>Alogrithm<font face="Courier New" size="5" style="background-color: #FFFFFF" color="#800000">:</b>
+</font>
+</font>
+<br>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>Multiplication&nbsp;of&nbsp;two&nbsp;matrixes:</b>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Rule:&nbsp;Multiplication&nbsp;of&nbsp;two&nbsp;matrixes&nbsp;is&nbsp;only&nbsp;possible&nbsp;if&nbsp;first&nbsp;matrix&nbsp;has&nbsp;size&nbsp;m&nbsp;X<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>n<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">and&nbsp;other&nbsp;matrix&nbsp;has&nbsp;size<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>n<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">x&nbsp;r.&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Where&nbsp;m,&nbsp;n&nbsp;and&nbsp;r&nbsp;are&nbsp;any&nbsp;positive&nbsp;integer.</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"><b>Multiplication&nbsp;of&nbsp;two&nbsp;matrixes&nbsp;is&nbsp;defined&nbsp;as</b>
+</font>
+<br>
+<br>
+<br>
+<p align="center"><img width=333 height=70 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAABFCAIAAAC0SKj6AAAAA3NCSVQICAjb4U/gAAAY00lEQVR4nO2deUBN6RvHv+du3QrRQqnIHhOR7CMlSyWTJGQrGTWIyL4MfszYl+xEstYQktJKUUSyJkl2Wdr35e7n94et5da93S7VzPn8Ve/6nHPf5zzv8pznECRJgoKConFCq28BKCgoZIdSYAqKRgylwBQUjRhKgSkoGjGUAlNQNGIoBaaQDPd1/J+zHYg2M148vLd/id2kP2bZDRq1JjBGWN+CURDUMRKFVAh49gbd1DpZuB1cb6DdAtyCNbaOXTZ6TzJUq2/J/tNQFphCKvg8LvfZy77r1xlotwAABZUZU9udDIwsrm/B/uNQCkwhHaSI023iCF3lbwkiERh0ej1KRAFKgSlqgVAgEH1fcFFLr4YApcAUFI0YSoEppILJUmAwGCwW61sKi8lgMJkK9SgTBUBfu3ZtfctA0dDJfXbHc8f2QwFHC0qEypoG7bWUn14/tmnTDt9bLzkKesON9OpbwP8u1DESBUUjhlHfAlA0JHKeevmFFvMJomIyQRAgviSSJEmS+J5AkqKvNkAkFGh1H2o7srfiTxX6Pw1lgSnK8Sq4Y4fRL+vQwOiVJ0/8NaW53ASikABlgSnKod3f3FDj5aMsi0U+K611SzgCKevR6PT0p4mr5i1kMehElVzeq5v7AuPpdDGDjRQJCJ2Bs8b2Z9b7dqrgo/+Jix+K+LTK848qiARCzcELJvb5KWJJgiwHP/3ZEitVJTXN1t/RBFQOPywkGzNhK/qArVHuolq3aoLWs/6pb7kaIjkPjnUCVAc4JuXXruL7+3E9gbFrfKvWSzi0usYxaPmhkC8n8WWHlxKkXxvFUUGPtcHRhdx6FrvCQ5EAyS3JLc1BaUVZM/K5QNPaXF3DIut1Ajj4+LFiKpdyxReDas9pXrsSzNz3bdw++sQ6O+ntokAgFFWT1dPGIVi7L432pTEaQyHjdsD01XvbO2x0wplVfqHbQl/sGF8r9ZE/zE6Djl4Nz+OKmCLOdZ+Ff5/Pmbfec3Q/Lb6g0mURTFau71p3nxuJa63N4lacP7t6rEo9HqaV12ZBesp8E8Bg/LWnhUIBj/sZDldY4zNAVFa4xU6jeeu2emJo27yl9uGoTMlPkrKPe+cPa6GhLa6RiuhqYuCsu49Ss4o40j6mBDzOl4vh8oVkZvhWAJjhK231/xwZ28b9AmBr1Fvp67y5E9ujGgtchbKL2yYByhuvpGQ+9NEE9K1W1KKnHw7v4pJeQEvvyLTqywhT7h4b1kQVwKA1136eaFUQq8AT4l7xpG9CUJLvplPTM2LmX/6SVa3w9Z+ja/fo6TbGyS9BikdD1a6id1IKXDOcZ1EDAHSc9PR9qZRVXt+O6QyMWnUyV1LJko9vp2oDHSyjn4vI0qwN1oD64PCksjrKLDcEJecW9QTUvUJf11wwM8VfBQA6PqnlckOOiJ8ikbXZmqYrqex8WfYNDofLKct01wdoBv5RCY59cXjf2cfvCiS00lRv9XlOWVkZT0gmHZoIYNKGK6SIX1YZDo9fdCt4p71lr+SLxxyGmPvEZEgvqgxX999EobPpHv+leOFrs8Ingy9VleZqTawnDhvdrUsLSSU/PTx08gMmjZtp2pGAYrN+Y+YiO/ZAyBVuncX+yWh0GXdknh7w4tTF5PqSQT57fwwW+xsKCizO8/O7UoAB48eZGVuZ/YZP/qeSciQ3wlRgs9lMGthMOgA6UwEEg10ZBSajSf9R88+GhB1wd0PpY2ePzTmF1GpW7hC9xyzZYNsm9cScLUGPpKnQvGOv7X6Rrg4S92aLA/YcBtBrjDkAgPXrEAsjJVw8Hk1yq1tEN1w6DbECQGR+qC8Bfsjm/SWvKwAWuTkAsJ88CsCu3Rekr06ChGQ72fIPz9VbJxrj3s7Vga/rICxFNTBU5x06PBzY4fpHUIr8HpGpEetCs2Cybk6fZp8TWB2tplsY4smOTZHZcuvlZ5GXGA+ApqgsseQP4gcocEZC+J3z6Dhj3lAdAET3sdMBhC/2S5V7TxpOs+wARFwMk3vTFACUNUbsOfsnM/u2rfufhRy5rDu4EWGRRcDU6UMVy71KPGr+WACh5y9w5NHHz4N8t+N/9wB0GTmwvkSQuwKTd2+dO30HY6YMa6bOBgCozzw+F0Di5avy7gvKauoAWIVFcm+Z4jNd7NcdW2grjNj4u6ccfj5B9qewcwehMWyKcYVDI90ezvN64E5swJ23de/kZyF4tX+BaxAAhz1TOtWbFPL2xCLJe35bALadpa3K14dDF6OJw5ru2eQf4ORg2kVTnjEc0uITACh36iDHNhsgRW+eBEXfLCMZklyExEEKOc0MZtsPkLl3h+V/hlwIOL3c9bLl3VGGEreoaiIr7d7ZWFg4j/7VoEIkLYaKppWTx26PHVHRMSZOJnXpQn4wWGzxPt2i/I9BwZfjwvdsOfW4tdm8AK8ZP1my8shZgcue+c05C3SYatL3+9m2qoH++OnDr+z2D32/uItmW7l1VvBgk3cQoOw4bYjc2myIiJJuH5/svLUOLZiPIq/IfN8JtV6rvfzihjtYOy5ODt3XVUt2r4VLm6Z8AGbajVWqnMMwMR/cnbbjf+duzHYwaVn/LxnTgPS1riMPtFAQiSqsHQiCxi3IfPTsNQCM2PYhfGH9CPgVOStw/IUIIWC/yLlNhWRVu+EDXHZHbva8Mf+UtAOJIGqc3hc9XOzm6hP3qfusvdP6tJJV3kYBrfuvMwP9jbiQ0QJzm3Su41Oz8zDrDQtNHLZ7T/97ePTeCTK+bFQau+8sB5jmaiXGbUCxh5l5//aPL6/0T503p3uT6lshX173i87X/93GSDYppOdN6qM3NZd4d/eUX5CVlYWqCvMHivEgKDq56fTJpuKzyx8Kf3PkuPlSJhfPopRZQ3UAy5R3BVXy+DOaA2gdI/GYnySfH50EYNzqwPy87IxKZGa+f5my3Kabob4GwLJ2WPui9mIWRO0AKEeO2sEvyHRsB6DprpDnsrUQd2g9APPN0dUVSA9ZCWDo4oAamxEGzQUGecomg1R8deTYdS6xtLgwXwxFhYW3nQeYWpl2BtBKo8/ltz/OJVoUucscmF1dtjwt8NPbVwKj3g9ctEa9dbMqmYwJS/p7r7gdEHh/oJORNOvgc+tszq2rsUTvxf6n17BlFJaidjCaaaw5tCNqhIe7x8Y+/Q4MUGVJrlOe4ndR1w8DSqqFcad9P4iq+E0TBL20pKwtEBWwN2remKHV+vYRBhMvnB7VUYZLqCWEUlMVReWm1Uw3+nnHRQOf9q7aPffvTaN6DT8VFTjZ8Ee8Rkl0MVvqd77KmuMr8lNgkv847MhHMFeaj1ATp6Ddhv/Vd8Uwv0uBc8catauq4FXQ7NS3V0dVoRgPeYLOKLkVciP/3lZj47vzPdZOm2xSy9FEIQvths/bvjRy/OajO/bb+q+yrlXdrLcfI33fAfD/e6V/zUVfJL25mwidHtVkE3oDbfVq1beMkKRIomOJlttfG/VV+cMXbp/isX/y1RU/Qg7d7sMndq82V24KzMt6/Pf2h+hgO8SijdgC2saGk10GuHtdiF0ys13/Gp2nAQAWs/f4zO9bXW/xoaHv0pPWOa+aOSX6YqrXoWUztakwED+YvEe+f28OVbRYenCBVW3r3j86/jpgMWfP70M0eJXf7/kCQWdwnscuW7Vn1aVr9pY9mlbayhIKrvjufVbMZtJpirr9ploaynAJJKfkwkmfDCEDQn7HfjbNc552Nx2mqFCnk5FhHosmrN9+Jmrl2Xcrxlcc+zH/eD/O49FIIbuDmVmzNE4rY/326tK0mfE8OSTyKofG/LzrQdAV9HoONOvTpaqhkpsCvww9kggQH+/OshrB4gqrnPoTNKbwU8pzINv9ZPw0KRRYwK/BN5bVz9KmH2zMLRwXm3c9us5lDkv91HLbJvX+UviP4d3Nc/P/3JYHZZoMu1gkL10wKClmkywbYOXg56e7j5v2CJ3Orl+mplzbG/3swI40YMC6nW59at7u4RhcDz5xzOdw9N/Ov2lV3Mqi03uPsDcgWBkJQU5Ho2VR4Gch5m6+8+bNHtevA43OPL187vzDn/IKTeuowIDmBAfFMwfK3j4vQpuvb90WpHmuWfCpme0S99+EIjwKC7GzcFp2OUlKBW6h3dZyjB1JEABoTIU3vh6rgtkDf6AC87JO+icAIMvSYkPTai6bv39f5j67lvLoVlVLZ09weJrZoMBVW27YDbHQV5VHqw2O7PTkgOj4OjTQOhvQqJMIJf7r7U++wISt++2Na73Se3E2KBDAtNkStBcAu+vCyVbHbvud9nn424pfK+YRLVppA6BrtlJTLKmtDAAiL8frjHQbM7r/53/dvXyMba4qsOSgAqoaHYAkPv/7ax+f3mctiejES578+d/hUx31O7cs0ZD2uISlpKyp9N09k9dKnVUg/uktH5uVcT/68uW7bJtVSa8zs7OzMsWSlZWbl+89oxkQvc9fbn6VSu0HejjbArfP3M2va1tvI4aOdryWmCV7C7y3W+aNP3A6oa6SVKSn9eLszAzxd1UK0nO866a9iL+w3nHHDaMZe7fPHlbryoKcyJthQNdLvw+Spni7cQ5GQMiZvUnVKKlIJOPbZMMtjXOT/K49ycvOysjISM8rwqBRlnU2vwBI34NJALT1vtsPLR2NDUNi90am52ZnZmRkpGcV6PazlNL8VqXSWXR55GKBuTeveScC6yaP+UVPwlAxm7atk7dL2JUQF7vO2nKa8Rob6QN49ToNaF+nhji50cHhc5dvlL0FEedFgr9aG9c6iVEFmoKimka9LfGFL6+7220WwGT7uhna1e6GVkve+7shR68yzGe37dZOmvLKGubz5us7ecY9ufPBwEy71v3VQNfRAXvbnfY+kcRg0Oj0rDsJ3V1Wj+1fxzNy4c3d070ygU5Lbcu7h6roLjoQFnjo+OlU0Om0nIeJukNtrG0s1OXtoyIHBeYXFp5dHoFW/X7t01ti4XbdTWwsm2/zCnjj5qDdXT4OGPn5xQAY9Dofpnf47VO6uUrzOszDFTpsDsqgKUixyd5YKEldMd85HvA4dcS0tSxndm9D9wYXw33k2B5SfoeUrtRvxMqWnlP3XYoebTpFqZZrd15JQSmfJOgM5SZNKji+kMLiwhJFFQMnd4MvKfamGzxmHlM+59S94u9FZzJoNIDGYEgYUTxOadD6UVM2XAP6hJ+aU74VbnGhkN3ExnXO1wTBzb3T5x9VOj7LpJzFJ8uKC7kCkmCymymzZdukkIMC597ZcwYYYLfITE+K0i06jPvNYVvogWURKbFyUeCSTG+/WAAmg6XpvkYYSpqtam9iykMwWqjLZXXfUAjZu2dL8Kupq85umVxLh/28Z75hD5WVlc/tDgbAY3ICA87xhRDyufpmkw01KxcXZD4PufGAK6LR6AzB2ydqqog9dex0D1pzJVbHIVa9NL//LjSC+BqjWgzH7Ju7hmLw3GPBuxzLa5Qw+5W7fmfzRHLSN6Ou1l5fL+finZwvCizMjg6LzSoTskTcmym5ACf+2qUWRa3Eh/oiaKz8l1uXLbmRDQCeMYd/7atbPj94jorPkPhg52/HKIzOvduf3pR8xMXk2xcdRUU5awZrbH0Et4PXPF2HyDiVr+CCIosn1qeN9r0AbIv9IG2NrCsAoDGruvzPnlhTtsRIbkpQGLrHCUCLEStfF0gb2bCqJ1ZazNmZzk6uri42412vJ2ZJ2c43rh7cNm26s4uLi4uLi6vrTNthDr6pUt+NBkx66CYAMJjwQAr/OVLILy4sKON8+RXSLq6tbshNP/C4au2PV49UV956z12SJEsL8rKys3Pz8pPDT/a2WV9cXJidnZ2Vncvjlw/Z9nw4ADQPq3L7BVkv3I2hZ+EWeeVeXl5uTl5B6tXtQ6Ztef/VabC2USkBAG37jvO4/uBj1csJnKOITkO37AwoKMjPzskrehs9fYLjxfsV7mPBhyAjgG085ZGkiDxvfD2s1v1TJC6rzhb4WeKlaw8wbO3s/q2lraJuvnsE5kUc2Hpt52JTMWsCNpMBgCHpu1lp96/47Vq89MRDoPXxTQv0msl+LTqD7b0G2wM4PMM8p1i6EDLlGOq6cGi5Za/PWN0PpTyZhWkgCHITXF2WAT1O7t/ZU4p3kHKTb43sbqK3+PSpLZMUAB0rR58DmiJW5VmokM8xHGVQtbqWsdk/J7yLeahkXIV8svuoLgCeRIdHv/jApNNoTJarlfrhw94AySWbT3Gw09b8amvvhEUCHRZ7j6wyGGlKLawWnFk0zvL5+WPeR2NoECq26nrxuNW3LXVmhz5b/Y6nlwikPKsjhTzV3hNsjcTfms7W3jdWWrd+duHQ4aNMOvg85sIjx36peC6WE+F/H5i9YFkPFQl9EQSEpPitO1kHPa/o4nY3r9tFwpy0+1lQeRc6fvwTFgRCAadp7yk7lkyquucSuPa3g/foikyCRmd8egUAB90tbrdr0qKH9ZqVrrr07H8815y8/p7NVih+dQvAlSOLx9/UqCZWKUEj+c8igpJKAZj5PDg4qqeUCywJCEh6DdMzqRthSQ4O3sDh5Bz0mB6YBueD2yYO1pKmRmEp+MC74oxsAbQZAFPP6Y/abOY1az9hak17kMY2E4wltXH95hvA1MvJtGoWoaQ6YtJ4ADoOc83EVma0sp44TSpRpUDfwgEAtBwXi5HlC6Fhj9HFZZm1ZMPPF8GgiYbYwM4yKjAp5CfdOhEa9OVfbmp8cOrXg8p3nf9ymwDFylP6zIdBYcEVUl4lXnuVCLzTmDvXVZdd9Chyf0jE99z3T2L8n9QoRI/x22aPGT3OobN8lJfiO3d818w9/kRp5LL1jsOlHCIEQdAABiGLs4l84L0Oj9o+Yvm5Ad0agztAUdyRMw+Wnjqk20zS4rcoY59XyoBDf4rNlFGBCcUWC05kOBZxK9srkqSxm7VSFSPTVJ+PI4sFlU0TSdIVmmhoAGizzPfT7FK+tAaQJGlKqq3V6i0W0b+YT/GX5s7YB4xKOLBEpo3neoKpu+hIGqnYqnH41CobXX7/oamq+H3cnOS47XsPZQnYNBqZncVYsGHrwC7i/WdkXjcSys1bKtfGJ4fdQqtNTUspuoqapkoDtqXCnDdXbz8qKRPp/WrRS7NxDBJZKE3e5m5zB7TVFzZ3a1en+Bs/G4Kh2kqyi25DgcbW0q5220it28AN+6WKsyXOl4KgMRj/5o+eMejVTloYdDq9mmtPfxwz1XrMWOd/6j9cxI8k2HPZjnhY/7Hvf7a/1KoigyFTvAGKulFlsBJA3vuYyEu5rVlCEQlAyIfBMKv2TRrxr5P5OOrWm1IGjQBA0JklDx6Xzy3Ny46OCC8Cg8VSuJZwR037HO+NGl/AV9UyHDHk2yAuvf/gUiawdO98fcnmt7EGjk+L8LZbGQR0GWSpExEawq/eg68Sn79OmAvI1XOKQjIVFJgkRXwO8D528e+x5dMXBrzbNkYXjRY/d/P50VVSuV++nclUVO5q2ItH0AnA8EICKRQIRSRJithK5dxCy3ipMefRaay99QCJDqAEjSbPyH0/kU+ZAh4APFtuU8vv3HxFlSdorE+vxkkFBaYpq1nO2d15coWdRAEXpiaN+8E6Zs1xoU0Bq/yXa0UCtPlyGslkK7bX71ZzC4UZKV4XMf3o6t5SbHC+zteaoFBDVKeGi5ZBr32eO0XiPuQrDaRI2Kxd73/rS50NE6Ka82GKCuTc26lu/fDlkyPtVcX4xwp5HK6AJAjQmaxHp7dseap+YONM9Ua85qBoNFAKLAdSwo6djHujwKCRpJCp1m+FW60DVvxrKM1Lvn6r2NKqulAqFHKGUmAK+ZCRHL97976Ud3EXQgeR5PH6Fue/ArVeoZAH+fcP+Jzv5Oh55uCZQR0a30cGGy//5vNeitoiEvCFJECSDBaLAAlIvY5vbrR2qxGA3OQn1YSso/ghUApMAQDgpAeejww8GajTrxtI8nUaMyM2+sTtYE11ylm1QUMpMAUApFw+tyOKERHkr8AkAGQmxS18ef+zXzqvpNjTwyWVbEqvZI9JYQmps2Ht/DbaPyKgOYVUUApMAQCKbIaIFAq/xCFGS4OBJ2Mufv6bpdxkySHf+hONoiYoBaYAgLYjJ29RPuJs/buKDl0k4Ol0Hbtm4XdnLFIkIlHlPTGSJAEajdoHrU8oBaYAADCaDjBdMMD0y38fwrebjVvqeXCToTrBLy3xWrv0NZSqaKqIQ2ou8ZipoyUpogTFD4M6B6YAWZx1Ystuwz/X9WR+N7KRu21OsP866VL9Z3nEkZsca2XtdfvVSXnLSCEeav5DAQi4T6/8tWx9WHYe50tKXmJweIa5oVSRnMujoMCi06hp3c+DutcUIEkRv0xraB/u0SUTUmladJACXqnZ+qApRlK/kpEb5zr3EJoqcbLexr286eamxOOUsdsNWjh3Rtt/UZDsBgg1haagaMRQU2gKikYMpcAUFI0YSoEpKBoxlAJTUDRiKAWmoGjE/B/6gzH39GXQ1QAAAABJRU5ErkJggg==" /><p align="left"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Where<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1&#160;&#8804;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><i>i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></i>&#160;&#8804;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><i>m<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></i>&#160;and&nbsp;1&nbsp;&#8804;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><i>j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></i>&#160;&#8804;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><i>n</i>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">For&nbsp;example:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Suppose&nbsp;two&nbsp;matrixes&nbsp;A&nbsp;and&nbsp;B&nbsp;of&nbsp;size&nbsp;of&nbsp;2&nbsp;x&nbsp;2&nbsp;and&nbsp;2&nbsp;x&nbsp;3&nbsp;respectively:</font>
+<br>
+<br>
+<p align="center"><img width=641 height=495 src="data:image/png;base64,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" /><p align="left"><br>
+<br>
+</body>
+</html>

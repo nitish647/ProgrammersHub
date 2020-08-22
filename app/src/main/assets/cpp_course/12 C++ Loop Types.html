@@ -1,0 +1,82 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Loop Types</h1>
+ 
+<p>There may be a situation, when you need to execute a block of code several number of times. In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on.</p>
+<p>Programming languages provide various control structures that allow for more complicated execution paths.</p>
+<p>A loop statement allows us to execute a statement or group of statements multiple times and following is the general from of a loop statement in most of the programming languages &minus;</p>
+<p><img src="loop_architecture.jpg" alt="Loop Architecture" /></p>
+<p>C++ programming language provides the following type of loops to handle looping requirements.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Loop Type &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>while loop</a>
+<p>Repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>for loop</a>
+<p>Execute a sequence of statements multiple times and abbreviates the code that manages the loop variable.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>do...while loop</a>
+<p>Like a &lsquo;while&rsquo; statement, except that it tests the condition at the end of the loop body.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td>nested loops</a>
+<p>You can use one or more loop inside any another &lsquo;while&rsquo;, &lsquo;for&rsquo; or &lsquo;do..while&rsquo; loop.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Loop Control Statements</h2>
+<p>Loop control statements change execution from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.</p>
+<p>C++ supports the following control statements.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Sr.No</th>
+<th style="text-align: center;">Control Statement &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td>break statement</a>
+<p>Terminates the <strong>loop</strong> or <strong>switch</strong> statement and transfers execution to the statement immediately following the loop or switch.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>continue statement</a>
+<p>Causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>goto statement</a>
+<p>Transfers control to the labeled statement. Though it is not advised to use goto statement in your program.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>The Infinite Loop</h2>
+<p>A loop becomes infinite loop if a condition never becomes false. The <strong>for</strong> loop is traditionally used for this purpose. Since none of the three expressions that form the &lsquo;for&rsquo; loop are required, you can make an endless loop by leaving the conditional expression empty.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="kwd">for</span><span class="pun">(</span> <span class="pun">;</span> <span class="pun">;</span> <span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"This loop will run forever.\n"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the conditional expression is absent, it is assumed to be true. You may have an initialization and increment expression, but C++ programmers more commonly use the &lsquo;for (;;)&rsquo; construct to signify an infinite loop.</p>
+<p><strong>NOTE</strong> &minus; You can terminate an infinite loop by pressing Ctrl + C keys.</p>

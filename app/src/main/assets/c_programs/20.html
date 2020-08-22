@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<P style="word-wrap : break-word;">
+<font face="Arial" size="3" style="background-color: #FFFFFF" color="#333333">REMOVE&nbsp;DUPLICATE&nbsp;ELEMENTS&nbsp;IN&nbsp;AN&nbsp;ARRAY&nbsp;USING&nbsp;C&nbsp;PROGRAM</font>
+<br>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333"></b>&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">stdio.h<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&gt;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>main<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">arr<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[50];</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">*p;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i,j,k,size,n<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;size&nbsp;of&nbsp;the&nbsp;array:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;n<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nEnter<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;%d&nbsp;elements&nbsp;into&nbsp;the&nbsp;array:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,n);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++)</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">scanf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;arr<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">size=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">n;</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;p=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">arr<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">size;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">j=0;j&lt;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">size;j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">==j){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>continue<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>else<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(*(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p+i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">)==*(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p+j<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">)){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;k=j;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">size&ndash;&ndash;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>while<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">k&nbsp;&lt;&nbsp;size){</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&nbsp;*(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">p+k<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">)=<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">*(p+k+1);</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">k<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++;</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;j=0;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;\<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">nThe<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&nbsp;array&nbsp;after&nbsp;removing&nbsp;duplicates&nbsp;is:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">=0;i&nbsp;&lt;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">size;i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">++){</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;&nbsp;%<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,arr<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">[<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">i<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">]);</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055"><b>return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+</body>
+</html>

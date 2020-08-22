@@ -1,0 +1,44 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.5em .5em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include&lt;iostream&gt;</span>
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Cube</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">private:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">length,width,breadth;</span>
+  <span style="color: #f8f8f2">public:</span>
+    <span style="color: #f8f8f2">Cube()</span>
+    <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">Cube(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">w,</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">length</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">l;</span>
+      <span style="color: #f8f8f2">width</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">w;</span>
+      <span style="color: #f8f8f2">breadth</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">b;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">getVolume()</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">length</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">width</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">breadth;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">Cube</span> <span style="color: #66d9ef">operator</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">(Cube</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">c)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">Cube</span> <span style="color: #f8f8f2">cube;</span>
+      <span style="color: #f8f8f2">cube.length</span><span style="color: #f92672">=</span><span style="color: #66d9ef">this</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">length</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">c.length;</span>
+      <span style="color: #f8f8f2">cube.width</span><span style="color: #f92672">=</span><span style="color: #66d9ef">this</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">width</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">c.width;</span>
+      <span style="color: #f8f8f2">cube.breadth</span><span style="color: #f92672">=</span><span style="color: #66d9ef">this</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">breadth</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">c.breadth;</span>
+      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cube;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Cube</span> <span style="color: #f8f8f2">C1(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">Cube</span> <span style="color: #f8f8f2">C2(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">),C3;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Volume of C1 : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">C1.getVolume()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Volume of C2 : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">C2.getVolume()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">C3</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">C1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">C2;</span>
+  <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #e6db74">&quot;Volume of C3 : &quot;</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">C3.getVolume()</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">Output</span> <span style="color: #f92672">:</span>
+<span style="color: #f8f8f2">Volume</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">C1</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">24</span>
+<span style="color: #f8f8f2">Volume</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">C2</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">105</span>
+<span style="color: #f8f8f2">Volume</span> <span style="color: #f8f8f2">of</span> <span style="color: #f8f8f2">C3</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">440</span>
+</pre></div>

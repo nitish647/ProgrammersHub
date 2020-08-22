@@ -1,0 +1,508 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Function parameters</title></head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><span
+style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Function parameters</span></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>In the previous
+chapter, we had a look at functions. We briefly discussed parameters, but only
+briefly. While parameters are very simple and straight forward to use, there
+are tricks which can make them a lot more powerful.  The first thing that we
+will take a look at, is the out and ref modifiers. C#, and other languages as
+well, differ between two parameters: &quot;by value&quot; and &quot;by
+reference&quot;. The default in C# is &quot;by value&quot;, which basically
+means that when you pass on a variable to a function call, you are actually
+sending a copy of the object, instead of a reference to it. This also means
+that you can make changes to the parameter from inside the function, without
+affecting the original object you passed as a parameter.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>With the ref and
+the out keyword, we can change this behavior, so we pass along a reference to
+the object instead of its value.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>The ref modifier</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Consider the
+following example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Main</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+args</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>int</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> number </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>20</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>AddFive</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadKey</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>static</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>AddFive</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; number </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number </span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>5</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>We create an
+integer, assign the number 20 to it, and then we use the AddFive() method,
+which should add 5 to the number. But does it? No. The value we assign to
+number inside the function, is never carried out of the function, because we
+have passed a copy of the number value instead of a reference to it. This is
+simply how C# works, and in a lot of cases, it's the preferred result. However,
+in this case, we actually wish to modify the number inside our function. Enter
+the ref keyword:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Main</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+args</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>int</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> number </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>20</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>AddFive</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>ref</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>);</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>number</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadKey</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>static</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>AddFive</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>ref</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; number </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>=</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+number </span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#006666'>5</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>As you can see, all
+we've done is added the ref keyword to the function declaration as well as to
+the call function. If you run the program now, you will see that the value of
+number has now changed, once we return from the function call.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>The out modifier</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>The out modifier
+works pretty much like the ref modifier. They both ensure that the parameter is
+passed by reference instead of by value, but they do come with two important
+differences: A value passed to a ref modifier has to be initialized before
+calling the method - this is not true for the out modifier, where you can use
+un-initialized values. On the other hand, you can't leave a function call with
+an out parameter, without assigning a value to it. Since you can pass in
+un-initialized values as an out parameter, you are not able to actually use an
+out parameter inside a function - you can only assign a new value to it.</span></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Whether to use out
+or ref really depends on the situation, as you will realize once you start
+using them. Both are typically used to work around the issue of only being able
+to return one value from a function, with C#.  Using the out modifier is just
+like using the ref modifier, as shown above. Simply change the ref keyword to
+the out keyword. In the example above, also remember to remove the value
+assigned to number in the method and declare it in the call function instead.</span></p>
+
+<p class=MsoNormal style='line-height:150%;background:white'><b><u><span
+style='font-size:14.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B0F0'>The params modifier</span></u></b></p>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>So far, all of our
+functions have accepted a fixed amount of parameters. However, in some cases,
+you might need a function which takes an arbitrary number of parameters. This
+could of course be done by accepting an array or a list as a parameter, like
+this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+names</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>However, calling it
+would be a bit clumsy. In the shortest form, it would look like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>new</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>{</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;John&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Jane&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Tarzan&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>});</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>It is acceptable,
+but it can be done even smarter, with the params keyword:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+names</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>{</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Calling it would
+then look like this:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 2.0pt;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;John&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Jane&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Tarzan&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-top:.2in;margin-right:0in;margin-bottom:.2in;
+margin-left:0in;line-height:150%;background:white'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#212529'>Another advantage
+of using the params approach, is that you are allowed to pass zero parameters
+to it as well. Functions with params can even take other parameters as well, as
+long as the parameter with the params keyword are the last one. Besides that, only
+one parameter using the params keyword can be used per function. Here is a last
+and more complete example:</span></p>
+
+<div style='border:solid #888888 1.0pt;padding:2.0pt 2.0pt 2.0pt 0in;
+background:#EEEEEE'>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;background:#EEEEEE;border:none;padding:0in'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>static</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>Main</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+args</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>0</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#006666'>25</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;John&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Jane&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>,</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Tarzan&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#660066'>Console</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>ReadKey</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>();</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+<br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>static</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> </span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#000088'>void</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>GreetPersons</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>int</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+someUnusedParameter</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#666600'>,</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>params</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'> </span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>[]</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+names</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>)</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>{</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>&nbsp; &nbsp; </span><span style='font-size:12.0pt;line-height:
+150%;font-family:Consolas;color:#000088'>foreach</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#000088'>string</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>
+name </span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#000088'>in</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> names</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>)</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>    </span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:#660066'>Console</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>.</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#660066'>WriteLine</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#666600'>(</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#008800'>&quot;Hello,
+&quot;</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'> </span><span style='font-size:12.0pt;line-height:150%;font-family:
+Consolas;color:#666600'>+</span><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas;color:black'> name</span><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:#666600'>);</span><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:#212529'><br>
+</span><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:#666600'>}</span></p>
+
+</div>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

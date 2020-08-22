@@ -1,0 +1,486 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>C# - if...else Statement</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%'><b><span style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>C# - if...else Statement</span></b></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%'><span style='font-family:"Cambria",serif'>An&nbsp;<b>if</b>&nbsp;statement
+can be followed by an optional&nbsp;<b>else</b>&nbsp;statement, which executes
+when the boolean expression is false.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Syntax</span></b></h2>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>The
+syntax of an&nbsp;<b>if...else</b>&nbsp;statement in C# is &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas'>if(boolean_expression) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   /* statement(s) will execute if the boolean expression is true */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>} else {</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   /* statement(s) will execute if the boolean expression is false */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>}</span></pre>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>If
+the boolean expression evaluates to&nbsp;<b>true</b>, then the&nbsp;<b>if block</b>&nbsp;of
+code is executed, otherwise&nbsp;<b>else block</b>&nbsp;of code is executed.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Flow Diagram</span></b></h2>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'><img src="3_files/image001.webp" alt="C# if...else statement"></span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:windowtext'>Example</span></b></h2>
+
+<div style='border:solid #888888 1.0pt;padding:0in 0in 0in 0in'><pre
+style='line-height:150%;border:none;padding:0in'><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>using</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>System</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&nbsp;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>namespace</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>DecisionMaking</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>class</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Program</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>      </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>static</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>void</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Main</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>string</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>[]</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> args</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* local variable definition */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>int</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>100</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* check the boolean condition */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>if</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&lt;</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>20</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if condition is true then print the following */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;a is less than 20&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if condition is false then print the following */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;a is not less than 20&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;value of a is : {0}&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>,</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> a</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>ReadLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>();</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>      </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pun><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre></div>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>When
+the above code is compiled and executed, it produces the following result
+&#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif'>a is not less than 20;</span></b></pre><pre
+style='line-height:150%'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>value of a is : 100</span></b></pre>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#00B050'>The if...else if...else Statement</span></b></h2>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>An&nbsp;<b>if</b>&nbsp;statement
+can be followed by an optional&nbsp;<b>else if...else</b>&nbsp;statement, which
+is very useful to test various conditions using single if...else if statement.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>When
+using if, else if, else statements there are few points to keep in mind.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-indent:-.25in;line-height:150%'><span style='font-size:10.0pt;
+line-height:150%;font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif'>An if can have zero or
+one else's and it must come after any else if's.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-indent:-.25in;line-height:150%'><span style='font-size:10.0pt;
+line-height:150%;font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif'>An if can have zero to
+many else if's and they must come before the else.</span></p>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+38.4pt;text-indent:-.25in;line-height:150%'><span style='font-size:10.0pt;
+line-height:150%;font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Cambria",serif'>Once an else if
+succeeds, none of the remaining else if's or else's will be tested.</span></p>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Syntax</span></b></h2>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>The
+syntax of an&nbsp;<b>if...else if...else</b>&nbsp;statement in C# is &#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas'>if(boolean_expression 1) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   /* Executes when the boolean expression 1 is true */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>} </span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else if( boolean_expression 2) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   /* Executes when the boolean expression 2 is true */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>} </span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else if( boolean_expression 3) {</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>   /* Executes when the boolean expression 3 is true */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>} else {</span></pre><pre style='line-height:150%'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   /* executes when the none of the above condition is true */</span></pre><pre
+style='line-height:150%'><span style='font-size:12.0pt;line-height:150%;
+font-family:Consolas'>}</span></pre>
+
+<h2 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;line-height:150%;color:rgba(0, 0, 0, 0.87);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:windowtext'>Example</span></b></h2>
+
+<div style='border:solid #888888 1.0pt;padding:0in 0in 0in 0in'><pre
+style='line-height:150%;border:none;padding:0in'><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>using</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>System</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&nbsp;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=kwd><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>namespace</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>DecisionMaking</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>class</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Program</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>      </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>static</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>void</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Main</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>string</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>[]</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> args</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* local variable definition */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>int</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>=</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>100</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>;</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* check the boolean condition */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>if</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>==</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>10</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if condition is true then print the following */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;Value of a is 10&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>if</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>==</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>20</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if else if condition is true */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;Value of a is 20&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>if</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>a </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>==</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=lit><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>30</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>)</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if else if condition is true  */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;Value of a is 30&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=kwd><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>else</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>{</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=com><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>/* if none of the conditions is true */</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>            </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;None of the values is matching&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>WriteLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>(</span></span><span
+class=str><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&quot;Exact value of a is: {0}&quot;</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>,</span></span><span
+class=pln><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'> a</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>);</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>         </span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>Console</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>.</span></span><span
+class=typ><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>ReadLine</span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>();</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>      </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pln><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>   </span></span><span
+class=pun><span style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre><pre
+style='line-height:150%;border:none;padding:0in'><span class=pun><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas'>}</span></span></pre></div>
+
+<p style='margin-top:6.0pt;margin-right:2.4pt;margin-bottom:.1in;margin-left:
+2.4pt;line-height:150%;font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><span style='font-family:"Cambria",serif'>When
+the above code is compiled and executed, it produces the following result
+&#8722;</span></p>
+
+<pre style='line-height:150%;padding:0.625rem;overflow-x: auto;color:rgba(0, 0, 0, 0.87);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:
+start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;
+text-decoration-color: initial;word-spacing:0px'><b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif'>None of the values is matching</span></b></pre><pre
+style='line-height:150%'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>Exact value of a is: 100</span></b></pre>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>

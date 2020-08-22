@@ -1,0 +1,79 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Binary Operators Overloading in C++</h1>
+
+<p>The binary operators take two arguments and following are the examples of Binary operators. You use binary operators very frequently like addition (+) operator, subtraction (-) operator and division (/) operator.</p>
+<p>Following example explains how addition (+) operator can be overloaded. Similar way, you can overload subtraction (-) and division (/) operators.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Box</span> <span class="pun">{</span>
+   <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>      <span class="com">// Length of a box</span>
+   <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>     <span class="com">// Breadth of a box</span>
+   <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>      <span class="com">// Height of a box</span>
+   
+   <span class="kwd">public</span><span class="pun">:</span>
+ 
+   <span class="kwd">double</span><span class="pln"> getVolume</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+   <span class="pun">}</span>
+ 
+   <span class="kwd">void</span><span class="pln"> setBreadth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> bre </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      breadth </span><span class="pun">=</span><span class="pln"> bre</span><span class="pun">;</span>
+   <span class="pun">}</span>
+ 
+   <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> hei </span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+      height </span><span class="pun">=</span><span class="pln"> hei</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   
+   <span class="com">// Overload + operator to add two Box objects.</span>
+   <span class="typ">Box</span> <span class="kwd">operator</span><span class="pun">+(</span><span class="kwd">const</span> <span class="typ">Box</span><span class="pun">&amp;</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="typ">Box</span><span class="pln"> box</span><span class="pun">;</span><span class="pln">
+      box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+      box</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">breadth </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span><span class="pln">
+      box</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span> <span class="kwd">this</span><span class="pun">-&gt;</span><span class="pln">height </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span>
+      <span class="kwd">return</span><span class="pln"> box</span><span class="pun">;</span>
+   <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="com">// Main function for the program</span>
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Box</span> <span class="typ">Box1</span><span class="pun">;</span>                <span class="com">// Declare Box1 of type Box</span>
+   <span class="typ">Box</span> <span class="typ">Box2</span><span class="pun">;</span>                <span class="com">// Declare Box2 of type Box</span>
+   <span class="typ">Box</span> <span class="typ">Box3</span><span class="pun">;</span>                <span class="com">// Declare Box3 of type Box</span>
+   <span class="kwd">double</span><span class="pln"> volume </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>     <span class="com">// Store the volume of a box here</span>
+ 
+   <span class="com">// box 1 specification</span>
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span> 
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">7.0</span><span class="pun">);</span> 
+   <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span>
+ 
+   <span class="com">// box 2 specification</span>
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">12.0</span><span class="pun">);</span> 
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">13.0</span><span class="pun">);</span> 
+   <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+ 
+   <span class="com">// volume of box 1</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box1 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="com">// volume of box 2</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box2 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="com">// Add two object as follows:</span>
+   <span class="typ">Box3</span> <span class="pun">=</span> <span class="typ">Box1</span> <span class="pun">+</span> <span class="typ">Box2</span><span class="pun">;</span>
+ 
+   <span class="com">// volume of box 3</span><span class="pln">
+   volume </span><span class="pun">=</span> <span class="typ">Box3</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Volume of Box3 : "</span> <span class="pun">&lt;&lt;</span><span class="pln"> volume </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+ 
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+</pre>

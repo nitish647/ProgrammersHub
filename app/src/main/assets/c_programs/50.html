@@ -1,0 +1,783 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<P style="word-wrap : break-word;">
+<font face="Arial" size="3" style="background-color: #FFFFFF" color="#333333">Check&nbsp;given&nbsp;number&nbsp;is&nbsp;prime&nbsp;number&nbsp;or&nbsp;not&nbsp;using&nbsp;c&nbsp;program</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>Definition&nbsp;of&nbsp;prime&nbsp;number:</b>
+</font>
+<br>
+<p align="justify"><font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">A&nbsp;natural&nbsp;number&nbsp;greater&nbsp;than&nbsp;one&nbsp;has&nbsp;not&nbsp;any&nbsp;other&nbsp;divisors&nbsp;except&nbsp;1&nbsp;and&nbsp;itself.&nbsp;In&nbsp;other&nbsp;word&nbsp;we&nbsp;can&nbsp;say&nbsp;which&nbsp;has&nbsp;only&nbsp;two&nbsp;divisors&nbsp;1&nbsp;and&nbsp;number&nbsp;itself.&nbsp;For&nbsp;example:&nbsp;5<p align="left"></font>
+<br>
+<br>
+<p align="justify"><font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Their&nbsp;divisors&nbsp;are&nbsp;1&nbsp;and&nbsp;5.<p align="left"></font>
+<br>
+<br>
+<p align="justify"><p align="left"><br>
+<br>
+<p align="justify"><font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Note:&nbsp;2&nbsp;is&nbsp;only&nbsp;even&nbsp;prime&nbsp;number.<p align="left"></font>
+<br>
+<br>
+<p align="justify"><p align="left"><br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>Logic&nbsp;for&nbsp;prime&nbsp;number&nbsp;in&nbsp;c</b>
+</font>
+<br>
+<br>
+<p align="justify"><font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">We&nbsp;will&nbsp;take&nbsp;a&nbsp;loop&nbsp;and&nbsp;divide&nbsp;number&nbsp;from&nbsp;2&nbsp;to&nbsp;number/2.&nbsp;If&nbsp;the&nbsp;number&nbsp;is&nbsp;not&nbsp;divisible&nbsp;by&nbsp;any&nbsp;of&nbsp;the&nbsp;numbers&nbsp;then&nbsp;we&nbsp;will&nbsp;print&nbsp;it&nbsp;as&nbsp;prime&nbsp;number.<p align="left"></font>
+<br>
+<p align="justify"><p align="left"><br>
+<p align="justify"><font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>Example&nbsp;of&nbsp;prime&nbsp;numbers<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"></b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">:<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;2,&nbsp;3,&nbsp;5,&nbsp;7,&nbsp;11,&nbsp;13,&nbsp;17,&nbsp;19,&nbsp;23,&nbsp;29,&nbsp;31,&nbsp;37,&nbsp;41,&nbsp;43,&nbsp;47,&nbsp;53,&nbsp;59,&nbsp;61,&nbsp;67,&nbsp;71,&nbsp;73,&nbsp;79,&nbsp;83,&nbsp;89,&nbsp;97,&nbsp;101,&nbsp;103,&nbsp;107,&nbsp;109,&nbsp;113,&nbsp;127,&nbsp;131,&nbsp;137,&nbsp;139,&nbsp;149,&nbsp;151,&nbsp;157,&nbsp;163,&nbsp;167,&nbsp;173,&nbsp;179,&nbsp;181,&nbsp;191,&nbsp;193,&nbsp;197,&nbsp;199&nbsp;etc.<p align="left"></font>
+</font>
+</font>
+</font>
+<br>
+<p align="justify"><p align="left"><br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;1:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;determine&nbsp;prime&nbsp;number</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Determining&nbsp;if&nbsp;a&nbsp;number&nbsp;is&nbsp;prime&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">3.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;find&nbsp;given&nbsp;number&nbsp;is&nbsp;prime&nbsp;or&nbsp;not</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count=0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;a&nbsp;number:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;is&nbsp;a&nbsp;prime&nbsp;number&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">else</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;is&nbsp;not&nbsp;a&nbsp;prime&nbsp;number&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;a&nbsp;number:&nbsp;5</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">5&nbsp;is&nbsp;a&nbsp;prime&nbsp;number</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;2:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>.&nbsp;C&nbsp;program&nbsp;for&nbsp;prime&nbsp;numbers&nbsp;between&nbsp;1&nbsp;to&nbsp;100</b>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">How&nbsp;to&nbsp;find&nbsp;prime&nbsp;numbers&nbsp;from&nbsp;1&nbsp;to&nbsp;100&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">3.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">How&nbsp;to&nbsp;print&nbsp;prime&nbsp;numbers&nbsp;from&nbsp;1&nbsp;to&nbsp;100&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&nbsp;=&nbsp;1;num&lt;=100;num++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2&nbsp;3&nbsp;5&nbsp;7&nbsp;11&nbsp;13&nbsp;17&nbsp;19&nbsp;23&nbsp;29&nbsp;31&nbsp;37&nbsp;41&nbsp;43&nbsp;47&nbsp;53&nbsp;59&nbsp;61&nbsp;67&nbsp;71&nbsp;73&nbsp;79&nbsp;83&nbsp;89&nbsp;97</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;3:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;for&nbsp;prime&nbsp;numbers&nbsp;between&nbsp;1&nbsp;to&nbsp;n</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;find&nbsp;prime&nbsp;numbers&nbsp;up&nbsp;to&nbsp;n</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">3.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;list&nbsp;prime&nbsp;numbers</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">4.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Write&nbsp;a&nbsp;c&nbsp;program&nbsp;to&nbsp;generate&nbsp;n&nbsp;prime&nbsp;numbers</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">5.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;find&nbsp;n&nbsp;prime&nbsp;numbers</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count,n;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;max&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;n);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&nbsp;=&nbsp;1;num&lt;=n;num++){</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;max&nbsp;range:&nbsp;50</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2&nbsp;3&nbsp;5&nbsp;7&nbsp;11&nbsp;13&nbsp;17&nbsp;19&nbsp;23&nbsp;29&nbsp;31&nbsp;37&nbsp;41&nbsp;43&nbsp;47</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;4:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;find&nbsp;prime&nbsp;numbers&nbsp;using&nbsp;while&nbsp;loop</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Wap&nbsp;to&nbsp;find&nbsp;prime&nbsp;numbers&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">3.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Write&nbsp;a&nbsp;c&nbsp;program&nbsp;to&nbsp;generate&nbsp;prime&nbsp;number</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">4.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">How&nbsp;to&nbsp;get&nbsp;prime&nbsp;numbers&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count,min,max;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;min&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;min);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;max&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;max);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;num&nbsp;=&nbsp;min;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">while<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&lt;=max){</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;i=2;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">while<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i&lt;=num/2){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;i++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;num++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;min&nbsp;range:&nbsp;50</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;max&nbsp;range:&nbsp;100</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">53&nbsp;59&nbsp;61&nbsp;67&nbsp;71&nbsp;73&nbsp;79&nbsp;83&nbsp;89&nbsp;97</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;5:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">How&nbsp;to&nbsp;find&nbsp;out&nbsp;prime&nbsp;numbers&nbsp;in&nbsp;c&nbsp;programming</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">2.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Display&nbsp;prime&nbsp;numbers&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">3.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;program&nbsp;to&nbsp;find&nbsp;prime&nbsp;numbers&nbsp;between&nbsp;two&nbsp;numbers</b>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">4.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">C&nbsp;code&nbsp;to&nbsp;display&nbsp;prime&nbsp;numbers&nbsp;within&nbsp;a&nbsp;range</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count,min,max;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;min&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;min);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;max&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;max);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&nbsp;=&nbsp;min;num&lt;=max;num++){</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,num);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;min&nbsp;range:&nbsp;10</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;max&nbsp;range:&nbsp;50</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">11&nbsp;13&nbsp;17&nbsp;19&nbsp;23&nbsp;29&nbsp;31&nbsp;37&nbsp;41&nbsp;43&nbsp;47</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;6:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">1.<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>Sum&nbsp;of&nbsp;prime&nbsp;numbers&nbsp;from&nbsp;1&nbsp;to&nbsp;100&nbsp;in&nbsp;c</b>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count,sum=0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&nbsp;=&nbsp;1;num&lt;=100;num++){</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;sum&nbsp;=&nbsp;sum&nbsp;+&nbsp;num;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Sum&nbsp;of&nbsp;prime&nbsp;numbers&nbsp;is:&nbsp;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,sum);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">&#160;</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Sum&nbsp;of&nbsp;prime&nbsp;numbers&nbsp;is:&nbsp;1060</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#006600">Code&nbsp;7:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000"><b>1.&nbsp;C&nbsp;program&nbsp;to&nbsp;find&nbsp;sum&nbsp;of&nbsp;prime&nbsp;numbers</b>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">#include<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&lt;stdio.h&gt;</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">main(){</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">int<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">num,i,count,min,max,sum=0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;&#160;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;min&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;min);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Enter&nbsp;max&nbsp;range:&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;scanf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;%d&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,&amp;max);</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num&nbsp;=&nbsp;min;num&lt;=max;num++){</font>
+</font>
+</font>
+</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count&nbsp;=&nbsp;0;</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">for<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(i=2;i&lt;=num/2;i++){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(num%i==0){</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;count++;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">break<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">;</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">if<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">(count==0&nbsp;&amp;&amp;&nbsp;num!=&nbsp;1)</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&nbsp;sum&nbsp;=&nbsp;sum&nbsp;+&nbsp;num;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;&#160;&nbsp;printf(<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#2A00FF">&quot;Sum&nbsp;of&nbsp;prime&nbsp;numbers&nbsp;is:&nbsp;%d&nbsp;&quot;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">,sum);</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#7F0055">return<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">&#160;<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">0;</font>
+</font>
+</font>
+</font>
+</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">}</font>
+<br>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#333333">Sample&nbsp;output:</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;min&nbsp;range:&nbsp;50</font>
+<br>
+<font face="Courier New" size="4" style="background-color: #FFFFFF" color="#000000">Enter&nbsp;max&nbsp;range:&nbsp;100</font>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<head><link rel="stylesheet" href="style-min.css"></head><body><h1>Swift - Variables</h1>
+
+<p>A variable provides us with named storage that our programs can manipulate. Each variable in Swift has a specific type, which determines the size and layout of the variable's memory; the range of values that can be stored within that memory; and the set of operations that can be applied to the variable.</p>
+<p>Swift supports the following basic types of variables &minus;</p>
+<ul class="list">
+<li>
+<p><strong>Int or UInt</strong> &minus; This is used for whole numbers. More specifically, you can use Int32, Int64 to define 32 or 64 bit signed integer, whereas UInt32 or UInt64 to define 32 or 64 bit unsigned integer variables. For example, 42 and -23.</p>
+</li>
+<li>
+<p><strong>Float</strong> &minus; This is used to represent a 32-bit floating-point number. It is used to hold numbers with smaller decimal points. For example, 3.14159, 0.1, and -273.158.</p>
+</li>
+<li>
+<p><strong>Double</strong> &minus; This is used to represent a 64-bit floating-point number and used when floating-point values must be very large. For example 3.14159, 0.1, and -273.158.</p>
+</li>
+<li>
+<p><strong>Bool</strong> &minus; This represents a Boolean value which is either true or false.</p>
+</li>
+<li>
+<p><strong>String</strong> &minus; This is an ordered collection of characters. For example, "Hello, World!"</p>
+</li>
+<li>
+<p><strong>Character</strong> &minus; This is a single-character string literal. For example, "C"</p>
+</li>
+</ul>
+<p>Swift also allows to define various other types of variables, which we will cover in subsequent chapters, such as <strong>Optional</strong>, <strong>Array</strong>, <strong>Dictionaries</strong>, <strong>Structures</strong>, and <strong>Classes</strong>.</p>
+<p>The following section will cover how to declare and use various types of variables in Swift programming.</p>
+<h2>Variable Declaration</h2>
+<p>A variable declaration tells the compiler where and how much to create the storage for the variable. Before you use variables, you must declare them using <strong>var</strong> keyword as follows &minus;</p>
+<pre class="result notranslate">var variableName = &lt;initial value&gt;
+</pre>
+<p>The following example shows how to declare a variable in Swift &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> varA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varA</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">42
+</pre>
+<h2>Type Annotations</h2>
+<p>You can provide a <strong>type annotation</strong> when you declare a variable, to be clear about the kind of values the variable can store. Here is the syntax &minus;</p>
+<pre class="result notranslate">var variableName:&lt;data type&gt; = &lt;optional initial value&gt;
+</pre>
+<p>The following example shows how to declare a variable in Swift using Annotation. Here it is important to note that if we are not using type annotation, then it becomes mandatory to provide an initial value for the variable, otherwise we can just declare our variable using type annotation.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> varA </span><span class="pun">=</span> <span class="lit">42</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varA</span><span class="pun">)</span>
+
+<span class="kwd">var</span><span class="pln"> varB</span><span class="pun">:</span><span class="typ">Float</span><span class="pln">
+
+varB </span><span class="pun">=</span> <span class="lit">3.14159</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">varB</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">42
+3.1415901184082
+</pre>
+<h2>Naming Variables</h2>
+<p>The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Swift is a case-sensitive programming language.</p>
+<p>You can use simple or Unicode characters to name your variables. The following examples shows how you can name the variables &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> _var </span><span class="pun">=</span> <span class="str">"Hello, Swift!"</span><span class="pln">
+println</span><span class="pun">(</span><span class="pln">_var</span><span class="pun">)</span>
+
+<span class="kwd">var</span> <span class="pun">你好</span> <span class="pun">=</span> <span class="str">"你好世界"</span><span class="pln">
+println</span><span class="pun">(你好)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Hello, Swift!
+你好世界
+</pre>
+<h2>Printing Variables</h2>
+<p>You can print the current value of a constant or variable with the <strong>println</strong> function. You can interpolate a variable value by wrapping the name in parentheses and escape it with a backslash before the opening parenthesis: Following are valid examples &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">import</span> <span class="typ">Cocoa</span>
+
+<span class="kwd">var</span><span class="pln"> varA </span><span class="pun">=</span> <span class="str">"Godzilla"</span>
+<span class="kwd">var</span><span class="pln"> varB </span><span class="pun">=</span> <span class="lit">1000.00</span><span class="pln">
+
+println</span><span class="pun">(</span><span class="str">"Value of \(varA) is more than \(varB) millions"</span><span class="pun">)</span></pre>
+<p>When we run the above program using playground, we get the following result &minus;</p>
+<pre class="result notranslate">Value of Godzilla is more than 1000.0 millions
+</pre>

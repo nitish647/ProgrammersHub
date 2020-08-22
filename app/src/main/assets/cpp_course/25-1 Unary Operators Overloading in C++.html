@@ -1,0 +1,58 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Unary Operators Overloading in C++</h1>
+
+<p>The unary operators operate on a single operand and following are the examples of Unary operators &minus;</p>
+<ul class="list">
+<li>The increment (++) and decrement (--) operators</a>.</li>
+<li>The unary minus (-) operator.</li>
+<li>The logical not (!) operator.</li>
+</ul>
+<p>The unary operators operate on the object for which they were called and normally, this operator appears on the left side of the object, as in !obj, -obj, and ++obj but sometime they can be used as postfix as well like obj++ or obj--.</p>
+<p>Following example explain how minus (-) operator can be overloaded for prefix as well as postfix usage.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="kwd">class</span> <span class="typ">Distance</span> <span class="pun">{</span>
+   <span class="kwd">private</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> feet</span><span class="pun">;</span>             <span class="com">// 0 to infinite</span>
+      <span class="kwd">int</span><span class="pln"> inches</span><span class="pun">;</span>           <span class="com">// 0 to 12</span>
+      
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// required constructors</span>
+      <span class="typ">Distance</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="typ">Distance</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> f</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span><span class="pln"> f</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// method to display distance</span>
+      <span class="kwd">void</span><span class="pln"> displayDistance</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         cout </span><span class="pun">&lt;&lt;</span> <span class="str">"F: "</span> <span class="pun">&lt;&lt;</span><span class="pln"> feet </span><span class="pun">&lt;&lt;</span> <span class="str">" I:"</span> <span class="pun">&lt;&lt;</span><span class="pln"> inches </span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// overloaded minus (-) operator</span>
+      <span class="typ">Distance</span> <span class="kwd">operator</span><span class="pun">-</span> <span class="pun">()</span> <span class="pun">{</span><span class="pln">
+         feet </span><span class="pun">=</span> <span class="pun">-</span><span class="pln">feet</span><span class="pun">;</span><span class="pln">
+         inches </span><span class="pun">=</span> <span class="pun">-</span><span class="pln">inches</span><span class="pun">;</span>
+         <span class="kwd">return</span> <span class="typ">Distance</span><span class="pun">(</span><span class="pln">feet</span><span class="pun">,</span><span class="pln"> inches</span><span class="pun">);</span>
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span>
+   <span class="typ">Distance</span><span class="pln"> D1</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">),</span><span class="pln"> D2</span><span class="pun">(-</span><span class="lit">5</span><span class="pun">,</span> <span class="lit">11</span><span class="pun">);</span>
+ 
+   <span class="pun">-</span><span class="pln">D1</span><span class="pun">;</span>                     <span class="com">// apply negation</span><span class="pln">
+   D1</span><span class="pun">.</span><span class="pln">displayDistance</span><span class="pun">();</span>    <span class="com">// display D1</span>
+
+   <span class="pun">-</span><span class="pln">D2</span><span class="pun">;</span>                     <span class="com">// apply negation</span><span class="pln">
+   D2</span><span class="pun">.</span><span class="pln">displayDistance</span><span class="pun">();</span>    <span class="com">// display D2</span>
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">F: -11 I:-10
+F: 5 I:-11
+</pre>
+<p>Hope above example makes your concept clear and you can apply similar concept to overload Logical Not Operators (!).</p>

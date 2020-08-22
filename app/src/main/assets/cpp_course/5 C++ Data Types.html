@@ -1,0 +1,189 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C++ Data Types</h1>
+ 
+<p>While writing program in any language, you need to use various variables to store various information. Variables are nothing but reserved memory locations to store values. This means that when you create a variable you reserve some space in memory.</p>
+<p>You may like to store information of various data types like character, wide character, integer, floating point, double floating point, boolean etc. Based on the data type of a variable, the operating system allocates memory and decides what can be stored in the reserved memory.</p>
+<h2>Primitive Built-in Types</h2>
+<p>C++ offers the programmer a rich assortment of built-in as well as user defined data types. Following table lists down seven basic C++ data types &minus;</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;" width="50%">Type</th>
+<th style="text-align: center;">Keyword</th>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>char</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>int</td>
+</tr>
+<tr>
+<td>Floating point</td>
+<td>float</td>
+</tr>
+<tr>
+<td>Double floating point</td>
+<td>double</td>
+</tr>
+<tr>
+<td>Valueless</td>
+<td>void</td>
+</tr>
+<tr>
+<td>Wide character</td>
+<td>wchar_t</td>
+</tr>
+</tbody>
+</table>
+<p>Several of the basic types can be modified using one or more of these type modifiers &minus;</p>
+<ul class="list">
+<li>signed</li>
+<li>unsigned</li>
+<li>short</li>
+<li>long</li>
+</ul>
+<p>The following table shows the variable type, how much memory it takes to store the value in memory, and what is maximum and minimum value which can be stored in such type of variables.</p>
+<table class="table table-bordered" style="text-align: center;">
+<tbody>
+<tr>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Typical Bit Width</th>
+<th style="text-align: center;">Typical Range</th>
+</tr>
+<tr>
+<td>char</td>
+<td>1byte</td>
+<td>-127 to 127 or 0 to 255</td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>1byte</td>
+<td>0 to 255</td>
+</tr>
+<tr>
+<td>signed char</td>
+<td>1byte</td>
+<td>-127 to 127</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4bytes</td>
+<td>-2147483648 to 2147483647</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>4bytes</td>
+<td>0 to 4294967295</td>
+</tr>
+<tr>
+<td>signed int</td>
+<td>4bytes</td>
+<td>-2147483648 to 2147483647</td>
+</tr>
+<tr>
+<td>short int</td>
+<td>2bytes</td>
+<td>-32768 to 32767</td>
+</tr>
+<tr>
+<td>unsigned short int</td>
+<td>Range</td>
+<td>0 to 65,535</td>
+</tr>
+<tr>
+<td>signed short int</td>
+<td>Range</td>
+<td>-32768 to 32767</td>
+</tr>
+<tr>
+<td>long int</td>
+<td>4bytes</td>
+<td>-2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr>
+<td>signed long int</td>
+<td>4bytes</td>
+<td>same as long int</td>
+</tr>
+<tr>
+<td>unsigned long int</td>
+<td>4bytes</td>
+<td>0 to 4,294,967,295</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4bytes</td>
+<td>+/- 3.4e +/- 38 (~7 digits)</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8bytes</td>
+<td>+/- 1.7e +/- 308 (~15 digits)</td>
+</tr>
+<tr>
+<td>long double</td>
+<td>8bytes</td>
+<td>+/- 1.7e +/- 308 (~15 digits)</td>
+</tr>
+<tr>
+<td>wchar_t</td>
+<td>2 or 4 bytes</td>
+<td>1 wide character</td>
+</tr>
+</tbody>
+</table>
+<p>The size of variables might be different from those shown in the above table, depending on the compiler and the computer you are using.</p>
+<p>Following is the example, which will produce correct size of various data types on your computer.</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span> <span class="pun">{</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of char : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">char</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of short int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">short</span> <span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of long int : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">long</span> <span class="kwd">int</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of float : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">float</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of double : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">double</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Size of wchar_t : "</span> <span class="pun">&lt;&lt;</span> <span class="kwd">sizeof</span><span class="pun">(</span><span class="typ">wchar_t</span><span class="pun">)</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+   
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>This example uses <strong>endl</strong>, which inserts a new-line character after every line and &lt;&lt; operator is being used to pass multiple values out to the screen. We are also using <strong>sizeof()</strong> operator to get size of various data types.</p>
+<p>When the above code is compiled and executed, it produces the following result which can vary from machine to machine &minus;</p>
+<pre class="result notranslate">Size of char : 1
+Size of int : 4
+Size of short int : 2
+Size of long int : 4
+Size of float : 4
+Size of double : 8
+Size of wchar_t : 4
+</pre>
+<h2>typedef Declarations</h2>
+<p>You can create a new name for an existing type using <strong>typedef</strong>. Following is the simple syntax to define a new type using typedef &minus;</p>
+<pre class="result notranslate">typedef type newname; 
+</pre>
+<p>For example, the following tells the compiler that feet is another name for int &minus;</p>
+<pre class="result notranslate">typedef int feet;
+</pre>
+<p>Now, the following declaration is perfectly legal and creates an integer variable called distance &minus;</p>
+<pre class="result notranslate">feet distance;
+</pre>
+<h2>Enumerated Types</h2>
+<p>An enumerated type declares an optional type name and a set of zero or more identifiers that can be used as values of the type. Each enumerator is a constant whose type is the enumeration.</p>
+<p>Creating an enumeration requires the use of the keyword <strong>enum</strong>. The general form of an enumeration type is &minus;</p>
+<pre class="result notranslate">enum enum-name { list of names } var-list; 
+</pre>
+<p>Here, the enum-name is the enumeration's type name. The list of names is comma separated.</p>
+<p>For example, the following code defines an enumeration of colors called colors and the variable c of type color. Finally, c is assigned the value "blue".</p>
+<pre class="result notranslate">enum color { red, green, blue } c;
+c = blue;
+</pre>
+<p>By default, the value of the first name is 0, the second name has the value 1, and the third has the value 2, and so on. But you can give a name, a specific value by adding an initializer. For example, in the following enumeration, <strong>green</strong> will have the value 5.</p>
+<pre class="result notranslate">enum color { red, green = 5, blue };
+</pre>
+<p>Here, <strong>blue</strong> will have a value of 6 because each name will be one greater than the one that precedes it.</p>

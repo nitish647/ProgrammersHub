@@ -1,0 +1,49 @@
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>&#xa0;* Print employee details by taking user input using bufferedReader</span>
+<span style='color:#3f7f59; '>&#xa0;* */</span>
+
+<span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> assignments</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>BufferedReader</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>InputStreamReader</span><span style='color:#7f0055; '>;</span>
+
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Employee_details
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span>
+    {
+        <span style='color:#7f0055; font-weight:bold; '>int</span> id,salary;
+        <span style='color:#7f0055; font-weight:bold; '>String</span> fname,job_profile;
+        <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span> bufferedReader = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span>(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>InputStreamReader</span>(<span style='color:#7f0055; font-weight:bold; '>System</span>.in));
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.print(<span style='color:#2a00ff; '>"Enter employee id: "</span>);
+        id = <span style='color:#7f0055; font-weight:bold; '>Integer</span>.parseInt(bufferedReader.readLine());
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.print(<span style='color:#2a00ff; '>"Enter employee full name: "</span>);
+        fname = bufferedReader.readLine();
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.print(<span style='color:#2a00ff; '>"Enter employee job profile: "</span>);
+        job_profile = bufferedReader.readLine();
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.print(<span style='color:#2a00ff; '>"Enter employee salary: "</span>);
+        salary = <span style='color:#7f0055; font-weight:bold; '>Integer</span>.parseInt(bufferedReader.readLine());
+       
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"********************************"</span>); 
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Age: "</span>+ id);
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Salary: "</span>+ fname);
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Age: "</span>+ job_profile);
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Salary: "</span>+ salary);
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"*******************************"</span>);
+    }    
+}
+
+
+Output:
+
+Enter employee id: 12
+Enter employee full name: rushikesh chaudhari
+Enter employee job profile: software enginner
+Enter employee salary: 25000
+********************************
+Age: 12
+Salary: rushikesh chaudhari
+Age: software enginner
+Salary: 25000
+*******************************
+</pre>

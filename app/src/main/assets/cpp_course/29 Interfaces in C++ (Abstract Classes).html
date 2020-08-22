@@ -1,0 +1,85 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>Interfaces in C++ (Abstract Classes)</h1>
+ 
+<p>An interface describes the behavior or capabilities of a C++ class without committing to a particular implementation of that class.</p>
+<p>The C++ interfaces are implemented using <strong>abstract classes</strong> and these abstract classes should not be confused with data abstraction which is a concept of keeping implementation details separate from associated data.</p>
+<p>A class is made abstract by declaring at least one of its functions as <strong>pure virtual</strong> function. A pure virtual function is specified by placing "= 0" in its declaration as follows &minus;</p>
+<pre class="result notranslate">class Box {
+   public:
+      // pure virtual function
+      virtual double getVolume() = 0;
+      
+   private:
+      double length;      // Length of a box
+      double breadth;     // Breadth of a box
+      double height;      // Height of a box
+};
+</pre>
+<p>The purpose of an <strong>abstract class</strong> (often referred to as an ABC) is to provide an appropriate base class from which other classes can inherit. Abstract classes cannot be used to instantiate objects and serves only as an <strong>interface</strong>. Attempting to instantiate an object of an abstract class causes a compilation error.</p>
+<p>Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of the virtual functions, which means that it supports the interface declared by the ABC. Failure to override a pure virtual function in a derived class, then attempting to instantiate objects of that class, is a compilation error.</p>
+<p>Classes that can be used to instantiate objects are called <strong>concrete classes</strong>.</p>
+<h2>Abstract Class Example</h2>
+<p>Consider the following example where parent class provides an interface to the base class to implement a function called <strong>getArea()</strong> &minus;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="com">#include</span> <span class="str">&lt;iostream&gt;</span>
+ 
+<span class="kwd">using</span> <span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span>
+ 
+<span class="com">// Base class</span>
+<span class="kwd">class</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="com">// pure virtual function providing interface framework.</span>
+      <span class="kwd">virtual</span> <span class="kwd">int</span><span class="pln"> getArea</span><span class="pun">()</span> <span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="kwd">void</span><span class="pln"> setWidth</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> w</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   
+      <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> h</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   
+   <span class="kwd">protected</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">int</span><span class="pln"> height</span><span class="pun">;</span>
+<span class="pun">};</span>
+ 
+<span class="com">// Derived classes</span>
+<span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="kwd">public</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> getArea</span><span class="pun">()</span> <span class="pun">{</span> 
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+<span class="pun">};</span>
+
+<span class="kwd">class</span> <span class="typ">Triangle</span><span class="pun">:</span> <span class="kwd">public</span> <span class="typ">Shape</span> <span class="pun">{</span>
+   <span class="kwd">public</span><span class="pun">:</span>
+      <span class="kwd">int</span><span class="pln"> getArea</span><span class="pun">()</span> <span class="pun">{</span> 
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">)/</span><span class="lit">2</span><span class="pun">;</span> 
+      <span class="pun">}</span>
+<span class="pun">};</span>
+ 
+<span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="typ">Rectangle</span> <span class="typ">Rect</span><span class="pun">;</span>
+   <span class="typ">Triangle</span>  <span class="typ">Tri</span><span class="pun">;</span>
+ 
+   <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+   <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">7</span><span class="pun">);</span>
+   
+   <span class="com">// Print the area of the object.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Total Rectangle area: "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Rect</span><span class="pun">.</span><span class="pln">getArea</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span>
+
+   <span class="typ">Tri</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+   <span class="typ">Tri</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">7</span><span class="pun">);</span>
+   
+   <span class="com">// Print the area of the object.</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span> <span class="str">"Total Triangle area: "</span> <span class="pun">&lt;&lt;</span> <span class="typ">Tri</span><span class="pun">.</span><span class="pln">getArea</span><span class="pun">()</span> <span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span> 
+
+   <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">Total Rectangle area: 35
+Total Triangle area: 17
+</pre>
+<p>You can see how an abstract class defined an interface in terms of getArea() and two other classes implemented same function but with different algorithm to calculate the area specific to the shape.</p>
+<h2>Designing Strategy</h2>
+<p>An object-oriented system might use an abstract base class to provide a common and standardized interface appropriate for all the external applications. Then, through inheritance from that abstract base class, derived classes are formed that operate similarly.</p>
+<p>The capabilities (i.e., the public functions) offered by the external applications are provided as pure virtual functions in the abstract base class. The implementations of these pure virtual functions are provided in the derived classes that correspond to the specific types of the application.</p>
+<p>This architecture also allows new applications to be added to a system easily, even after the system has been defined.</p>

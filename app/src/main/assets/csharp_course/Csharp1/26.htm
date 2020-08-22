@@ -1,0 +1,1096 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>StringBuilder in C#</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<h1 style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;margin-left:
+0in;line-height:150%;vertical-align:baseline'><span style='font-size:20.0pt;
+line-height:150%;font-family:"Cambria",serif;color:#0070C0'>StringBuilder in C#</span></h1>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'></header>C#&nbsp;<b>StringBuilder</b>&nbsp;is
+similar to&nbsp;Java StringBuilder. A&nbsp;<i>String</i>&nbsp;object is
+immutable, i.e. a String cannot be changed once created. Every time when you
+use any of the methods of the&nbsp;<b>System.String</b>&nbsp;class, then you
+create a new&nbsp;<b>string object</b>&nbsp;in memory. For example, a string “softecks”
+occupies memory in the heap, now, by changing the initial string “softecks” to
+“<em><span style='font-family:"Cambria",serif'>sts</span></em>” will create a
+new string object on the memory heap instead of modifying the initial string at
+the same memory location. In situations where you need to perform repeated
+modifications to a string, we need&nbsp;<em><span style='font-family:"Cambria",serif'>StringBuilder</span></em>&nbsp;class.
+To avoid string replacing, appending, removing or inserting new strings in the
+initial string C# introduce&nbsp;<b>StringBuilder</b>&nbsp;concept.
+StringBuilder is a&nbsp;<b>dynamic object</b>. It doesn’t create a new object
+in the memory but dynamically expands the needed memory to accommodate the
+modified or new string.</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+line-height:150%;vertical-align:baseline'><img src="26_files/image001.webp"> <img src="26_files/image002.webp"></p>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>                                          
+Declaration and Initialization of StringBuilder</span></h4>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+line-height:150%;vertical-align:baseline'><span style='font-family:"Cambria",serif'>StringBuilder
+can be declared and initialized the same way as class,</span></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline;border-radius: 10px;color:rgba(0, 0, 0, 0.9);overflow:auto'><span
+style='font-size:12.0pt;line-height:150%;font-family:Consolas;color:black'>StringBuilder s = new StringBuilder();</span></pre><pre
+style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>or</span></pre><pre style='margin-bottom:7.5pt;line-height:150%;
+background:#E0E0E0;vertical-align:baseline'><span style='font-size:12.0pt;
+line-height:150%;font-family:Consolas;color:black'>StringBuilder s = new StringBuilder(&quot;</span><span
+style='font-family:Consolas;color:black'>Softecks</span><span style='font-size:
+12.0pt;line-height:150%;font-family:Consolas;color:black'>&quot;);</span></pre>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><b><span style='font-family:"Cambria",serif'>“s”</span></b><span
+style='font-family:"Cambria",serif'>&nbsp;is the object of&nbsp;<b>StringBuilder</b>&nbsp;class.
+Also, we can pass a string value(here “softecks”) as an argument to the
+constructor of StringBuilder.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>Although the&nbsp;<b>StringBuilder</b>&nbsp;is
+a dynamic object that allows you to expand the number of characters in the
+string that it encapsulates, you can specify a value for the maximum number of
+characters that it can hold. This value is called the capacity of the&nbsp;<b>StringBuilder</b>&nbsp;object.</span></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline;border-radius: 10px;color:rgba(0, 0, 0, 0.9);overflow:auto'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>StringBuilder s = new StringBuilder(20);</span></pre><pre
+style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>Or</span></pre><pre style='margin-bottom:7.5pt;line-height:150%;
+background:#E0E0E0;vertical-align:baseline'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:black'>StringBuilder s = new StringBuilder(&quot;</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>softecks</span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:black'>&quot;, 20);</span></pre>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+line-height:150%;vertical-align:baseline'><span style='font-family:"Cambria",serif'>Here,</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>In
+the 1st statement we pass an integer value as an argument to the constructor.
+This is the maximum capacity of character that can hold a string.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>In
+the 2nd statement we pass string value with an integer value (that is the
+maximum capacity of character a string can hold) as an argument to the
+constructor.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><strong><span style='font-family:"Cambria",serif;color:#00B050'>Important
+Methods of StringBuilder Class:</span></strong></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Append(string
+value)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>AppendFormat()</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Insert(int
+index, string value)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Remove(int
+start, int length)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Replace(old_val,
+new|_val)</span></p>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>StringBuilder.Append(string
+value) Method</span></h4>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>The&nbsp;<b>Append</b>&nbsp;method
+can be used to add or&nbsp;<i>append</i>&nbsp;a string value of an object to
+the end of a string represented by the current&nbsp;<b>StringBuilder</b>&nbsp;object.&nbsp;<b>AppendLine()&nbsp;</b>method
+also come under this method. This method append the string with a newline at
+the end.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><strong><span style='font-family:"Cambria",serif'>Example:</span></strong></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=597
+ style='width:447.75pt;border-collapse:collapse'>
+ <tr>
+  <td width=597 style='width:447.75pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>// C# program to demonstrate
+  the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.Append(value) and </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.AppendLine(value) method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>class</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> </span>STS<code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> { </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main Method </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  &quot;20&quot; is capacity </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;HELLO &quot;,
+  20); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Append(&quot;STS&quot;);
+  </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  after printing &quot;TECKS&quot; </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// a
+  new line append </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.AppendLine(&quot;STS&quot;);
+  </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;s.Append(&quot;S</span></code><span
+  style='font-family:Consolas'>oftecks</span><code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&quot;); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(s);
+  </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;vertical-align:
+baseline'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:white'>Output</span></b><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>HELLO STSTECKS</span></pre><pre style='margin-bottom:7.5pt;
+line-height:150%;background:#E0E0E0;vertical-align:baseline'><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>softecks</span></pre>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>StringBuilder.AppendFormat()</span></b></h4>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+line-height:150%;vertical-align:baseline'><span style='font-family:"Cambria",serif'>This
+method uses to format the input string into the specified format and then
+append it. This method also appends text to the end of the StringBuilder object.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=600
+ style='width:6.25in;border-collapse:collapse;border-spacing: 0px;color:rgba(0, 0, 0, 0.84) !important;
+ border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+ box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+ float:none;overflow:hidden;right:auto'>
+ <tr style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'>
+  <td width=600 style='width:6.25in;padding:0in 0in 0in 0in;border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// C# program to demonstrate the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.AppendFormat() method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>class</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> </span>STS<code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> { </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main
+  Method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;Your total
+  amount is &quot;); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  using the method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.AppendFormat(&quot;{0:C}
+  &quot;, 50); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(s);
+  </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;vertical-align:
+baseline'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:white'>Output</span></b><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>Your total amount is Â¤50.00</span></pre>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>StringBuilder.Insert(int
+index, string value) method</span></b></h4>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>This method inserts the
+string at specified index in&nbsp;<b>StringBuilder</b>&nbsp;object.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><strong><span style='font-family:"Cambria",serif'>Example:</span></strong></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=597
+ style='width:447.75pt;border-collapse:collapse'>
+ <tr>
+  <td width=597 style='width:447.75pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>// C# program to demonstrate
+  the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.Insert(int index, </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// string value) method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>class</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> </span>TECKS<code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> { </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main Method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  &quot;20&quot; is capacity </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;HELLO &quot;,
+  20); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// &quot;TECKS&quot;
+  insert after 6th index </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Insert(6,
+  &quot;TECKS&quot;); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(s);
+  </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;vertical-align:
+baseline'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:white'>Output</span></b><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>HELLO TECKS</span></pre>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>&nbsp;</span></b></h4>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;vertical-align:baseline'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif;color:windowtext;font-style:normal'>StringBuilder.Remove(int
+start, int length) Method</span></b></h4>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=597
+ style='width:447.75pt;border-collapse:collapse'>
+ <tr>
+  <td width=597 style='width:447.75pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>// C# program to demonstrate
+  the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.Remove(int index, </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// int length) method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>class</span></code> T</span>ECKS<code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> { </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main Method </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  &quot;20&quot; is capacity </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;Softecks&quot;,
+  20); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  remove starts from index 5 </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// and
+  remove happes 3 index&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  after index 5 </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Remove(5,
+  3); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&nbsp;<code><span
+  style='line-height:150%;font-family:Consolas'>Console.WriteLine(s); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;background:white;
+vertical-align:baseline'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:black'>Output:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:Consolas;
+color:black'>TECKSTECKS</span></pre>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;background:white;vertical-align:baseline;color:rgba(0, 0, 0, 0.84);
+font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;widows: 2;
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><b><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif;color:windowtext;font-style:normal'>&nbsp;</span></b></h4>
+
+<h4 style='margin-top:.25in;margin-right:0in;margin-bottom:.25in;margin-left:
+0in;line-height:150%;background:white;vertical-align:baseline'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black;font-style:normal'>StringBuilder.Replace(old_val, new_val) Method</span></b></h4>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;background:white;
+vertical-align:baseline;color:rgba(0, 0, 0, 0.84);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-family:"Cambria",serif;color:black'>This method is used
+to replace characters within the&nbsp;<b>StringBuilder</b>&nbsp;object with
+another specified character.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;background:white;
+vertical-align:baseline;color:rgba(0, 0, 0, 0.84);font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><strong><span style='font-family:"Cambria",serif;color:black'>Example:</span></strong></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=597
+ style='width:447.75pt;border-collapse:collapse'>
+ <tr>
+  <td width=597 style='width:447.75pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal style='line-height:150%'><code><span style='font-size:
+  12.0pt;line-height:150%;font-family:Consolas'>// C# program to demonstrate
+  the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.Replace(string old_val, </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// string new_val) method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>class</span></code> </span>TECKS<code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> { </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main Method </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  &quot;20&quot; is capacity </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;STS TECKS &quot;,
+  20); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&nbsp;<code><span
+  style='line-height:150%;font-family:Consolas'>// Replace &quot;STS&quot; with
+  &quot;TECKS For&quot; </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Replace(&quot;STS&quot;,
+  &quot;TECKS For&quot;); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(s);
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;background:white;
+vertical-align:baseline'><b><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif;color:black'>Output:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>TECKS For TECKS</span></pre>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;
+line-height:150%;vertical-align:baseline'><span style='font-family:"Cambria",serif'>This
+method removes the specified number of characters from the current
+StringBuilder object. The removing process beginning at a specified index and
+extends up to another specified index.</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><strong><span style='font-family:"Cambria",serif'>Example:</span></strong></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;line-height:150%;vertical-align:
+baseline'><span style='font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=597
+ style='width:447.75pt;border-collapse:collapse;border-spacing: 0px;color:rgba(0, 0, 0, 0.84) !important;
+ border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+ box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+ float:none;overflow:hidden;right:auto'>
+ <tr style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'>
+  <td width=597 style='width:447.75pt;padding:0in 0in 0in 0in;border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// C# program to demonstrate the&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// StringBuilder.Remove(int index, </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>// int length) method </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>using</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>System.Text;
+  </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>class</span></code> STS <code><span
+  style='line-height:150%;font-family:Consolas'>{ </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;// Main Method </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'> <code
+  style='border-radius: 0px !important;bottom: auto !important;outline: 0px !important;
+  box-sizing: content-box !important;box-shadow: none !important;min-height: auto !important;
+  float:none;overflow:hidden;right:auto'><span style='line-height:150%;
+  font-family:Consolas'>static</span></code> <code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='line-height:150%;font-family:Consolas'>void</span></code>
+  <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>Main() </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{ </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  &quot;20&quot; is capacity </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuilder
+  s = new</span></code><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'> <code style='border-radius: 0px !important;bottom: auto !important;
+  outline: 0px !important;box-sizing: content-box !important;box-shadow: none !important;
+  min-height: auto !important;float:none;overflow:hidden;right:auto'><span
+  style='line-height:150%;font-family:Consolas'>StringBuilder(&quot;Softecks&quot;,
+  20); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;</span></code><span style='font-size:12.0pt;
+  line-height:150%;font-family:Consolas'>&nbsp;<code><span style='line-height:
+  150%;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  remove starts from index 5 </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// and
+  remove happes 3 index&nbsp; </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+  after index 5 </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.Remove(5,
+  3); </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><span
+  style='font-size:12.0pt;line-height:150%;font-family:Consolas'>&nbsp;<code><span
+  style='line-height:150%;font-family:Consolas'>Console.WriteLine(s); </span></code></span></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;} </span></code></p>
+  <p class=MsoNormal style='line-height:150%'><code style='border-radius: 0px !important;
+  bottom: auto !important;outline: 0px !important;box-sizing: content-box !important;
+  box-shadow: none !important;min-height: auto !important;float:none;
+  overflow:hidden;right:auto'><span style='font-size:12.0pt;line-height:150%;
+  font-family:Consolas'>} </span></code></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;vertical-align:
+baseline'><b><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:white'>Output</span></b><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>:</span></b></p>
+
+<pre style='margin-bottom:7.5pt;line-height:150%;background:#E0E0E0;vertical-align:
+baseline'><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif;
+color:black'>TECKSTECKS</span></pre>
+
+<p class=MsoNormal style='line-height:150%'><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>img{max-width:100%;}</style>
+
+<title>Partial Classes in C#</title></head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:11.25pt;line-height:150%;vertical-align:
+baseline'><b><span style='font-size:20.0pt;line-height:150%;font-family:"Cambria",serif;
+color:#0070C0'>Partial Classes in C#</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>A partial class is a special feature of C#. It
+provides a special a   bility to implement the functionality of a single class
+into multiple files and all these files are combined into a single class file
+when the application is compiled. A partial class is created by using a&nbsp;<b><i>partial&nbsp;</i></b>keyword.
+This keyword is also useful to split the functionality of methods, interfaces,
+or structure into multiple files.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>Syntax :</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><img src="12_files/image001.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>Important points:</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>When
+you want to chop the functionality of the class, method, interface, or
+structure into multiple files, then you should use&nbsp;<i>partial&nbsp;</i>keyword
+and all the files are mandatory to available at compile time for creating final
+file.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>The&nbsp;<i>partial&nbsp;</i>modifier
+can only present instantly before the keywords like struct, class, and
+interface.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Every
+part of the partial class definition should be in the same assembly and&nbsp;<u><span
+style='color:#EC4E20'>namespace</span></u>, but you can use different source
+file name.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Every
+part of the partial class definition should have the same accessibility like
+private, protected, etc.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>If
+any part of the partial class is declared as an abstract, sealed, or base, then
+the whole class is declared of the same type.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>The
+user is also allowed to use nested partial types.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:150%;
+vertical-align:baseline'><span style='font-size:10.0pt;line-height:150%;
+font-family:Symbol;color:red'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>Dissimilar
+part may have dissimilar base types, but the final type must inherit all the
+base types.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>Example:</span></b><span style='font-size:
+12.0pt;line-height:150%;font-family:"Cambria",serif'>&nbsp;Here, we are taking
+a class named as&nbsp;<i>Geeks&nbsp;</i>and split the definition of Geeks class
+into two different files named as&nbsp;</span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Cambria",serif'>Geeks1.cs</span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Cambria",serif'>,
+and&nbsp;</span><span style='font-size:12.0pt;line-height:150%;font-family:
+"Cambria",serif'>Geeks2.cs</span><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif'>&nbsp;as shown below:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><img src="12_files/image002.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><em><b><span style='font-size:12.0pt;line-height:
+150%;font-family:"Cambria",serif;color:black;background:white;font-style:normal'>Geeks1.cs</span></b></em></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><img src="12_files/image003.webp"></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><span style='font-size:12.0pt;line-height:150%;
+font-family:"Cambria",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+150%;vertical-align:baseline'><em><b><span style='font-family:"Cambria",serif;
+color:black;background:white;font-style:normal'>Geeks2.cs</span></b></em></p>
+
+<p class=MsoNormal><img src="12_files/image004.webp"><span
+class=Heading1Char><span style='font-size:24.0pt;line-height:107%'> </span></span><span
+style='font-size:10.0pt;line-height:107%;font-family:Consolas'>public</span><span
+style='font-size:12.0pt;line-height:107%;font-family:Consolas'> </span><span
+style='font-size:10.0pt;line-height:107%;font-family:Consolas'>partial</span><span
+style='font-size:12.0pt;line-height:107%;font-family:Consolas'> </span><span
+style='font-size:10.0pt;line-height:107%;font-family:Consolas'>class</span><span
+style='font-size:12.0pt;line-height:107%;font-family:Consolas'> </span><span
+style='font-size:10.0pt;line-height:107%;font-family:Consolas'>Geeks { </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>void</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>Display()
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;Author's
+name is : &quot;</span><span style='font-size:12.0pt;font-family:Consolas'> </span><span
+style='font-size:10.0pt;font-family:Consolas'>+ Author_name); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;Total
+number articles is : &quot;</span><span style='font-size:12.0pt;font-family:
+Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>+
+Total_articles); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;}
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>} </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>When we execute the above code, then compiler combines&nbsp;Geeks1.cs&nbsp;and&nbsp;Geeks2.cs&nbsp;into
+a single file, i.e.&nbsp;Geeks&nbsp;as shown below.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>Geeks&nbsp;This class may contain the Main Method. For
+simplicity, here Main() method is not included.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>public</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>class</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>Geeks
+{ </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;private</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>string</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>Author_name;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;private</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>int</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>Total_articles;
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;</span><span
+style='font-size:12.0pt;font-family:Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>Geeks(string</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>a,
+int</span><span style='font-size:12.0pt;font-family:Consolas'> </span><span
+style='font-size:10.0pt;font-family:Consolas'>t) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Authour_name
+= a; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Total_articles
+= t; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;}
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;</span><span
+style='font-size:12.0pt;font-family:Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;public</span><span
+style='font-size:12.0pt;font-family:Consolas'> </span><span style='font-size:
+10.0pt;font-family:Consolas'>void</span><span style='font-size:12.0pt;
+font-family:Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>Display()
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;{
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;Author's
+name is : &quot;</span><span style='font-size:12.0pt;font-family:Consolas'> </span><span
+style='font-size:10.0pt;font-family:Consolas'>+ Author_name); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(&quot;Total
+number articles is : &quot;</span><span style='font-size:12.0pt;font-family:
+Consolas'> </span><span style='font-size:10.0pt;font-family:Consolas'>+
+Total_articles); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;}
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:10.0pt;font-family:Consolas'>} </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+font-family:"Cambria",serif;color:#00B0F0'>Advantages :</span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>With the help of partial class multiple developers can work
+simultaneously on the same class in different files.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>With the help of partial class concept you can split the UI of
+design code and the business logic code to read and understand the code.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>When you were working with automatically generated code, the
+code can be added to the class without having to recreate the source file like
+in Visual studio.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>You can also maintain your application in an efficient manner
+by compressing large classes into small ones.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Cambria",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
