@@ -40,17 +40,61 @@ android:layout_weight="95"
         ads:adUnitId="ca-app-pub-5584279718709862/7828896396">
     </com.google.android.gms.ads.AdView>
 </LinearLayout>
+<!--    android:layout_gravity="start"-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigaion"
-        app:menu="@menu/menu"
+        android:layout_gravity="start"
 app:itemTextColor="#000000"
 
-        android:layout_gravity="start"
+
 
 android:background="#FFFFFF"
-app:headerLayout="@layout/navigation_header"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/navigation_header">
+
+            </include>
+            <ListView
+                android:scrollbars="none"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:id="@+id/main_navigation_list"
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+            </ListView>
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/main_ad_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+android:src="@drawable/line_icon"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp">
+
+                </ImageView>
+            <include
+                android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+               layout="@layout/main_ads">
+
+            </include>
+            </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        </ScrollView>
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

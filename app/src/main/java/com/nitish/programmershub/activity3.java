@@ -1,8 +1,10 @@
 package com.nitish.programmershub;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +32,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.facebook.ads.AbstractAdListener;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdSize;
@@ -46,9 +50,10 @@ import java.util.Collections;
 
 public class
 activity3 extends AppCompatActivity {
-    EditText search;
+    SearchView search;
     AdView fb_adView;
 ListView list;
+com.google.android.gms.ads.AdView google_banner;
 String data;
     private InterstitialAd mInterstitialAd;
 LinearLayout linear_ads_contain ;
@@ -61,8 +66,9 @@ LinearLayout linear_ads_contain ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity3);
+        google_banner =(com.google.android.gms.ads.AdView)findViewById(R.id.act3_google_banner);
         linear_ads_contain =(LinearLayout)findViewById(R.id.activity3_linear_ad_container);
-        search =(EditText)findViewById(R.id.search);
+        search =(SearchView) findViewById(R.id.search);
         list =(ListView)findViewById(R.id.list);
       final ArrayList<String> arrayList = new ArrayList<String>();
         AssetManager assetManager;
@@ -82,6 +88,8 @@ getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","
         //StartAppSDK.enableReturnAds(true);
 
         //google banner
+
+
 //     com.google.android.gms.ads.AdView mAdView = new com.google.android.gms.ads.AdView(this);
 //        mAdView.setAdSize(com.google.android.gms.ads.AdSize.BANNER);
 //        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
@@ -89,12 +97,19 @@ getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","
 //        mAdView.loadAd(adRequest);
 
         //facebook ads
-      fb_adView = new AdView(this, getResources().getString(R.string.fb_test_banner), AdSize.BANNER_HEIGHT_50);
-       linear_ads_contain.addView(fb_adView);
-       fb_adView.loadAd();
+      fb_adView = new AdView(this, getResources().getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
+//       linear_ads_contain.addView(fb_adView);
+//       fb_adView.loadAd();
+
 
 
         try {
+            //showing the bannner ads
+       banner_ads();
+
+
+
+
 
            list1 =getAssets().list(data);
             Arrays.sort(list1);
@@ -159,25 +174,48 @@ getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","
        //     Toast.makeText(this," "+data,Toast.LENGTH_SHORT).show();
             adapter = new ArrayAdapter<String>(this,
                    R.layout.listview_item,list1);
-            search.addTextChangedListener(new TextWatcher() {
+
+
+
+            search.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    (activity3.this).adapter.getFilter().filter(charSequence);
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-
+                public void onClick(View view) {
+                    search.onActionViewExpanded();
                 }
             });
+            search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    (activity3.this).adapter.getFilter().filter(newText);
+                    return true;
+                }
+            });
+
+//            search.addTextChangedListener(new TextWatcher() {
+//                @Override
+//                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//                }
+//
+//                @Override
+//                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                    (activity3.this).adapter.getFilter().filter(charSequence);
+//                }
+//
+//                @Override
+//                public void afterTextChanged(Editable editable) {
+//
+//                }
+//            });
         } catch (IOException e) {
             e.printStackTrace();
-        }
+      }
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             int p =list.getSelectedItemPosition();
@@ -275,6 +313,41 @@ getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","
         }
 
 
+
+    }
+    public void banner_ads()
+    {
+        com.facebook.ads.AdListener adListener = new com.facebook.ads.AdListener() {
+            @Override
+            public void onError(Ad ad, AdError adError) {
+// loading google banner
+                AdRequest adRequest = new AdRequest.Builder().build();
+
+                google_banner.loadAd(adRequest);
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+
+
+                linear_ads_contain.removeAllViews();
+                linear_ads_contain.addView(fb_adView);
+                fb_adView.loadAd();
+
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        };
+
+        fb_adView.loadAd(fb_adView.buildLoadAdConfig().withAdListener(adListener).build());
 
     }
 }

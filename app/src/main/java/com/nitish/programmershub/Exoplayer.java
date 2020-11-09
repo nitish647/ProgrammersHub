@@ -115,6 +115,12 @@ if(!isNetworkAvailable())
     lottieAnimationView2.setVisibility(View.VISIBLE);
 
 
+
+// youtube activity 2  showing the video list of selected playlist
+
+
+
+
 //facebook ads
         AudienceNetworkAds.initialize(this);
 AdView fb_banner = new AdView(this, getResources().getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);

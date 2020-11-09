@@ -101,6 +101,7 @@ Picasso.get().load((String) mImageUrl.get(position)).fit().placeholder(R.drawabl
                 {
  intent = new Intent( view.getContext(), Exoplayer.class);
  intent.putExtra("plid",(String) id.get(position));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     view.getContext().startActivity(intent);
 
                 }

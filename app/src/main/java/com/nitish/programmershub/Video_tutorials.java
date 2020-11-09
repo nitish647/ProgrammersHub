@@ -44,7 +44,6 @@ int millis;
     public TextView textView;
     private com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 YouTubePlayerView youTubePlayerView;
-    String[] videoIds = {"PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al", "LvetJ9U_tVY", "6JYIGclVQdw", "LvetJ9U_tVY", "6JYIGclVQdw", "LvetJ9U_tVY", "6JYIGclVQdw", "LvetJ9U_tVY", "6JYIGclVQdw", "LvetJ9U_tVY", "6JYIGclVQdw", "LvetJ9U_tVY"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +54,12 @@ YouTubePlayerView youTubePlayerView;
 youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtube_tut);
 linearLayout =(LinearLayout)findViewById(R.id.videotut);
 textView = (TextView)findViewById(R.id.txt_title);
+
+
+/// youtube activity 3 playing the youtube videos
+
+
+
 
 //admob inter ads
         mInterstitialAd = new com.google.android.gms.ads.InterstitialAd(this);

@@ -57,7 +57,7 @@ String data;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
      // button background
-      gd = Design_helper.set_Colors("#FF5252","#FF5252", (float) 10, GradientDrawable.Orientation.LEFT_RIGHT);
+      gd = Design_helper.set_Colors("#FF0D0D","#EE4D22", (float) 20, GradientDrawable.Orientation.LEFT_RIGHT);
         AudienceNetworkAds.initialize(this);
         linear_ads_contain =(LinearLayout)findViewById(R.id.activity2_linear_ad_container);
         int fillColor = Color.parseColor("#FB8C00");

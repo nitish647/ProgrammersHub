@@ -2,9 +2,11 @@ package com.nitish.programmershub;
 
 import android.app.Activity;
 import android.app.AppComponentFactory;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
+import android.widget.Toast;
 
 public class Design_helper {
 
@@ -21,4 +23,9 @@ public class Design_helper {
        gd.setCornerRadius(radius);
        return gd;
   }
+  public static void show_toast(Context context,String message)
+  {
+      Toast.makeText(context,message,Toast.LENGTH_LONG).show();
+  }
+
 }

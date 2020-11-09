@@ -79,6 +79,17 @@ LinearLayout linearLayout;
         linearLayout=(LinearLayout)findViewById(R.id.linear_play);
         getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","#00C853", (float) 0, GradientDrawable.Orientation.LEFT_RIGHT));
 
+
+        // youtube activity 1   showoing the playlist names and thumnails
+
+
+
+
+
+
+
+
+
         //checking internet
 if(!isNetworkAvailable())
 {
