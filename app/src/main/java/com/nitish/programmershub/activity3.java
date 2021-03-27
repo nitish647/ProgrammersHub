@@ -97,7 +97,7 @@ getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","
 //        mAdView.loadAd(adRequest);
 
         //facebook ads
-      fb_adView = new AdView(this, getResources().getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
+      fb_adView = new AdView(this, getResources().getString(R.string.fb_banner_nitish), AdSize.BANNER_HEIGHT_50);
 //       linear_ads_contain.addView(fb_adView);
 //       fb_adView.loadAd();
 

@@ -90,7 +90,7 @@ google_banner =(com.google.android.gms.ads.AdView)findViewById(R.id.interview_go
 
 
         //facebook ads
-        fb_adView= new AdView(this, getResources().getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
+        fb_adView= new AdView(this, getResources().getString(R.string.fb_banner_nitish), AdSize.BANNER_HEIGHT_50);
 
 
 banner_ads();

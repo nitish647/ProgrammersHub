@@ -90,7 +90,7 @@ btn_background();
 
 
         //facebook banner
-        fb_adView = new com.facebook.ads.AdView(this, getResources().getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
+        fb_adView = new com.facebook.ads.AdView(this, getResources().getString(R.string.fb_banner_nitish), AdSize.BANNER_HEIGHT_50);
         linear_ads_contain.addView(fb_adView);
         fb_adView.loadAd();
 

@@ -73,8 +73,7 @@ if (mpassstr.toLowerCase().contains("exoplayer"))
     v = LayoutInflater.from(context).inflate(R.layout.recycler_view_item,parent,false);
 else
     v = LayoutInflater.from(context).inflate(R.layout.youtube_adapter,parent,false);
-        Youtube_adapter.ViewHolder vh = new Youtube_adapter.ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override
