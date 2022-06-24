@@ -42,7 +42,6 @@ int millis;
     LottieAnimationView lottieAnimationView;
     private YouTubePlayer YPlayer;
     public TextView textView;
-    private com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 YouTubePlayerView youTubePlayerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +59,6 @@ textView = (TextView)findViewById(R.id.txt_title);
 
 
 
-
-//admob inter ads
-        mInterstitialAd = new com.google.android.gms.ads.InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getResources().getString(R.string.admob_interid));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 //        mInterstitialAd.setAdListener(new AdListener()
 //        {
@@ -202,34 +196,12 @@ if(!isNetworkAvailable())
     }
 
     @Override
-    public void onBackPressed() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-            mInterstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
-//                    finish();
-                    onBackPressed();
-                }
-            });
-        }else{
-            super.onBackPressed();
-        }
-    }
-    @Override
     protected void onPause() {
         super.onPause();
 
 
     }
-    public void displayInterstitial()
-    {
-        // If Interstitial Ads are loaded then show else show nothing.
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
+
 }
 
 

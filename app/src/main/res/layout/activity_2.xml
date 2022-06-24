@@ -7,96 +7,172 @@
 
     android:background="#EEEEEE"
     android:orientation="vertical"
-    tools:context=".Activity2">
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+    tools:context=".StudyMaterialsActivity">
 
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-5584279718709862/7828896396">
-    </com.google.android.gms.ads.AdView>
     <ScrollView
         android:layout_weight="20"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <LinearLayout
-
+    android:id="@+id/courseLinear"
 android:background="#F5F5F5"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/course"
+    <LinearLayout
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="91dp"
-        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/course_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
 
-android:textSize="20sp"
-android:layout_margin="5dp"
-        android:background="@drawable/button_bg3"
+        </ImageView>
+        <Button
+            android:textColor="@android:color/black"
+            android:text="Course"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
 
 
-
-        android:shadowColor="#F5F5F5"
-        android:shadowRadius="4"
-        android:text="Course"
-        android:textColor="#F5F5F5" />
-    <Button
-android:background="@drawable/button_bg3"
-        android:textColor="#F5F5F5"
-        android:layout_gravity="center"
+    <LinearLayout
+        android:id="@+id/interviewLinear"
         android:layout_margin="5dp"
-        android:textSize="20sp"
-        android:id="@+id/interview"
-        android:text="Interview"
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/interview_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
 
-        android:layout_width="match_parent"
-        android:layout_height="91dp"  />
-    <Button
-        android:textSize="20sp"
-        android:textColor="#F5F5F5"
-        android:layout_gravity="center"
-        android:padding="5dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_bg3"
-        android:id="@+id/programs"
-        android:text="Programs"
-        android:layout_width="match_parent"
-        android:layout_height="91dp" />
-    <Button
+        </ImageView>
+        <Button
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:text="Interview Questions"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        android:textSize="20sp"
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/programsLinear"
         android:layout_margin="5dp"
-        android:textColor="#F5F5F5"
-        android:layout_gravity="center"
-        android:background="@drawable/button_bg3"
-        android:id="@+id/compiler"
-        android:text="Compiler/Interpreter"
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="91dp"  />
-    <Button
-        android:textSize="20sp"
-        android:textColor="#F5F5F5"
-        android:layout_gravity="center"
-        android:background="@drawable/button_bg3"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/programming_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+        </ImageView>
+        <Button
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:text="Programming Examples"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/compilerLinear"
         android:layout_margin="5dp"
-        android:id="@+id/eng"
-        android:text="Enlish Video Lectures "
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="91dp"  />
-    <Button
-        android:textSize="20sp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/compiler_icon_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+        </ImageView>
+        <Button
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:text="Programming Examples"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/englishLinear"
         android:layout_margin="5dp"
-        android:textColor="#F5F5F5"
-        android:layout_gravity="center"
-        android:background="@drawable/button_bg3"
-        android:id="@+id/hindi"
-        android:text="Hindi Video Lectures"
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="91dp"  />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/english_lecture"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+        </ImageView>
+        <Button
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:text="English Video Lecture"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hindiLinear"
+        android:layout_margin="5dp"
+        android:elevation="@dimen/material_emphasis_disabled_background"
+        android:background="@drawable/round_background"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:src="@drawable/hindi_lecture"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+        </ImageView>
+        <Button
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:text="Hindi Video Lectures"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".viewer">
+    tools:context=".ContentViewerActivity">
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_viewer"
         app:lottie_loop="true"
         android:visibility="gone"
+        android:layout_centerInParent="true"
         app:lottie_rawRes="@raw/lottiel_no_internet"
         app:lottie_autoPlay="true"
         android:background="#039BE5"
@@ -23,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 <WebView
-android:layout_weight="95"
+android:layout_above="@+id/adView"
     android:id="@+id/webview1"
 
     android:layout_width="match_parent"
@@ -31,13 +32,16 @@ android:layout_weight="95"
 
 </WebView>
     <com.google.android.gms.ads.AdView
-        android:layout_margin="5dp"
         xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/viewer_banner"
-        android:layout_width="match_parent"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+
+        android:layout_alignParentBottom="true"
+
+        android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-5584279718709862/7828896396">
+        ads:adUnitId="@string/admob_bannerid">
+
     </com.google.android.gms.ads.AdView>
-</LinearLayout>
+</RelativeLayout>

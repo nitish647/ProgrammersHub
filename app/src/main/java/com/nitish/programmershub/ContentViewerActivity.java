@@ -25,39 +25,35 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+
 
 import java.io.IOException;
 
 
-public class viewer extends AppCompatActivity {
+public class ContentViewerActivity extends AppCompatActivity {
 WebView webView;
 //PDFView pdfView;
 String url,data;
 LottieAnimationView lottieAnimationView ;
 String position;
-    public AdView admob_banner_AdView;
+
 String course;
 String[] asset_list,python;
 int p;
-    private InterstitialAd mInterstitialAd;
+
+AdView adView;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewer);
         webView = (WebView) findViewById(R.id.webview1);
-       admob_banner_AdView = (AdView)findViewById(R.id.viewer_banner);
+
         lottieAnimationView = (LottieAnimationView)findViewById(R.id.lottie_viewer);
         //    pdfView =(PDFView)findViewById(R.id.pdfview) ;
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress);
         getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","#00C853", (float) 0, GradientDrawable.Orientation.LEFT_RIGHT));
 
-
-        //google ads
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        admob_banner_AdView.loadAd(adRequest);
 
 //admob inter ads
 //        mInterstitialAd = new InterstitialAd(this);
@@ -73,12 +69,13 @@ int p;
 //        });
 
 
+        setAdmobBannerAdView();
 
     //  Toast.makeText(this,"."+getResources().getString(R.string.admob_interid),Toast.LENGTH_LONG).show();
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
         data = intent.getStringExtra("data");
-course = intent.getStringExtra("course");
+        course = intent.getStringExtra("course");
         position = intent.getStringExtra("position");
 
 
@@ -243,11 +240,41 @@ else{
 //            super.onBackPressed();
 //        }
 //    }
-    public void displayInterstitial()
-    {
-        // If Interstitial Ads are loaded then show else show nothing.
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
+
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
         }
     }
+
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
+    public void setAdmobBannerAdView()
+    {
+        adView = findViewById(R.id.adView);
+        // Create an ad request.
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
+    }
+
 }

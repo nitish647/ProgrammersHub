@@ -2,42 +2,26 @@ package com.nitish.programmershub;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ActionMenuView;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.SearchView;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.Html;
-import android.text.TextWatcher;
-import android.text.style.LineHeightSpan;
-import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TableRow;
-import android.widget.Toast;
 
 
 import com.facebook.ads.Ad;
@@ -45,17 +29,10 @@ import com.facebook.ads.AdError;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-
-import javax.sql.StatementEvent;
 
 public class Interview extends AppCompatActivity {
     private Context mContext;
@@ -63,8 +40,8 @@ ListView interview_list;
 String [] ques;
 SearchView search;
 private AdView fb_adView;
+    String course;
 com.google.android.gms.ads.AdView google_banner;
-private InterstitialAd mInterstitialAd;
     ArrayAdapter<String> arrayAdapter;
     String [] sol;
     LinearLayout linearLayout;
@@ -85,7 +62,7 @@ google_banner =(com.google.android.gms.ads.AdView)findViewById(R.id.interview_go
 //                    mInterstitialAd.show();
 //                }
 //                else {
-//                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+//                    Log.d("TAG", "The interstitial wasn'actionBarDrawerToggle loaded yet.");
 //                }
 
 
@@ -96,9 +73,9 @@ google_banner =(com.google.android.gms.ads.AdView)findViewById(R.id.interview_go
 banner_ads();
 
         Intent i = getIntent();
-        final String course = i.getStringExtra("course").toLowerCase();
-        interview_list =(ListView)findViewById(R.id.interview_list);
-        search = (SearchView)findViewById(R.id.filter);
+       course = i.getStringExtra("course").toLowerCase();
+        interview_list =findViewById(R.id.interview_list);
+        search = findViewById(R.id.filter);
         try {
             sol = getAssets().list(course);
             arrayList = new ArrayList<>();
@@ -178,49 +155,8 @@ banner_ads();
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-// i=i+1;
 
-
-// rest of your coding functionality goes here of onClick method.
-
-                WebView webView = new WebView(view.getContext());
-                AlertDialog.Builder builder1 = new AlertDialog.Builder((Context)Interview.this,R.style.Theme_MaterialComponents_BottomSheetDialog);
-
-                webView.getSettings().setJavaScriptEnabled(true);
-                webView.setBackgroundColor(Color.parseColor("#E6EE9C"));
-             //  webView.loadUrl("file:///android_asset/"+course+"/"+i+".html");
-             //   Toast.makeText(view.getContext(), sol[i],Toast.LENGTH_SHORT).show();
-                if(course.contains("javascript_interview"))
-                  webView.loadUrl("file:///android_asset/"+course+"/"+String.valueOf(i+1)+".html");
-              else if (course.contains("python_interview"))
-                    webView.loadUrl("file:///android_asset/"+course+"/"+String.valueOf(i+1)+".html");
-                else
-                     webView.loadUrl("file:///android_asset/"+course+"/"+sol[i]);
-builder1.setTitle("Answer");
-                builder1.setNeutralButton(
-                        "Ok",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-
-            final     AlertDialog alert11 = builder1.create();
-
-               alert11.setView(webView);
-                alert11.show();
-
-           //     alert11.getWindow().setBackgroundDrawableResource(android.R.color.holo_orange_dark);
-                alert11.getWindow().setBackgroundDrawableResource(R.drawable.button_circle);
-
-Button button =  alert11.getButton(AlertDialog.BUTTON_NEUTRAL);
-
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT); //create a new one
-                layoutParams.weight = 1;
-                layoutParams.gravity = Gravity.CENTER; //this is layout_gravity
-                button.setLayoutParams(layoutParams);
-                button.setTextSize(20);
-               // button.setBackgroundColor(Color.parseColor("#D81B60"));
+                showInterviewDialog(i);
             }
         });
 
@@ -246,7 +182,6 @@ Button button =  alert11.getButton(AlertDialog.BUTTON_NEUTRAL);
 // loading google banner
                 AdRequest adRequest = new AdRequest.Builder().build();
 
-                google_banner.loadAd(adRequest);
             }
 
             @Override
@@ -272,5 +207,34 @@ Button button =  alert11.getButton(AlertDialog.BUTTON_NEUTRAL);
 
         fb_adView.loadAd(fb_adView.buildLoadAdConfig().withAdListener(adListener).build());
 
+    }
+    public void showInterviewDialog(int position) {
+        LayoutInflater factory = LayoutInflater.from(Interview.this);
+
+         View interviewDialogLayout = factory.inflate(R.layout.interview_dialog_layout, null);
+
+         AlertDialog interviewDialog = new AlertDialog.Builder(Interview.this).create();
+
+
+        interviewDialog.setView(interviewDialogLayout);
+        interviewDialog.show();
+
+
+        Button closeButton = interviewDialogLayout.findViewById(R.id.closeButton);
+        WebView interviewWebView = interviewDialogLayout.findViewById(R.id.interviewWebView);
+        interviewDialog.getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
+        if(course.contains("javascript_interview"))
+            interviewWebView.loadUrl("file:///android_asset/"+course+"/"+String.valueOf(position+1)+".html");
+        else if (course.contains("python_interview"))
+            interviewWebView.loadUrl("file:///android_asset/"+course+"/"+String.valueOf(position+1)+".html");
+        else
+            interviewWebView.loadUrl("file:///android_asset/"+course+"/"+sol[position]);
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                interviewDialog.dismiss();
+            }
+        });
     }
 }

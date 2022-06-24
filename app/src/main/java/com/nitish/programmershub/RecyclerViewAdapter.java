@@ -6,15 +6,11 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -56,13 +52,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
 
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder,  int position) {
 
         //holder.image.getLayoutParams().height = getRandomIntInRange(650,375);
 
-        holder.text.setText(mNames.get(position));
+        holder.text.setText(mNames.get(holder.getAbsoluteAdapterPosition()));
 
-        holder.image.setImageResource(mImageUrl.get(position));
+        holder.image.setImageResource(mImageUrl.get(holder.getAbsoluteAdapterPosition()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
 
 
@@ -70,8 +66,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
 
-Intent intent = new Intent(view.getContext(), Activity2.class);
-intent.putExtra("course",mNames.get(position));
+Intent intent = new Intent(view.getContext(), StudyMaterialsActivity.class);
+intent.putExtra("course",mNames.get(holder.getAbsoluteAdapterPosition()));
                 context.startActivity(intent);
 //Toast.makeText(context,mNames.get(position),Toast.LENGTH_SHORT).show();
 
@@ -88,7 +84,7 @@ intent.putExtra("course",mNames.get(position));
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder
+    public static  class ViewHolder extends RecyclerView.ViewHolder
     {
         ImageView image;
         TextView text;

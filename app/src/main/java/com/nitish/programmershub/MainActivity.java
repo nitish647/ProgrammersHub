@@ -8,32 +8,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
-import android.icu.lang.UCharacter;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,16 +33,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.facebook.ads.AudienceNetworkAds;
 import com.facebook.ads.InterstitialAd;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.navigation.NavigationView;
-import com.onesignal.OneSignal;
+
 import com.squareup.picasso.Picasso;
 
 
@@ -65,48 +53,45 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    public AdView mAdView;
-    ActionBarDrawerToggle t;
+
+    ActionBarDrawerToggle actionBarDrawerToggle;
   static   Context context;
   static String string;
   static HashMap hashMap = new HashMap();
 
     ListView navigaton_list;
  static   AsyncTask<Void,Void, HashMap> asyncTask;
-    private com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 //
     ArrayList mImageUrl = new ArrayList<>();
     ArrayList mNames= new ArrayList<>();
 
     private InterstitialAd fb_interstitialAd;
-
+    public AdView adView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        mAdView = (AdView)findViewById(R.id.main_banner);
+
 navigaton_list =(ListView)findViewById(R.id.main_navigation_list);
 context = getApplicationContext();
 setNavigaton_listview();
-        String appid = (String) getResources ().getText(R.string.startapps);
 
-//set_asynctask();
-        set_data();
-//admob ads
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
 
-        //admob banner
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
-        //facebook ads
-        AudienceNetworkAds.initialize(this);
+        setAdmobBannerAdView();
+
+        // set navigation bar promotion
+        set_data();
+
+
+
 
 //        fb_interstitialAd = new InterstitialAd(this,   getResources().getString(R.string.fb_interid));
 //        fb_interstitialAd.loadAd();
@@ -123,17 +108,13 @@ setNavigaton_listview();
 //        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
-        // OneSignal Initialization
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+
         ActionBar bar = getSupportActionBar();
         final DrawerLayout dl = (DrawerLayout) findViewById(R.id.main_drawer);
-        t = new ActionBarDrawerToggle(this, dl, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, dl, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        dl.addDrawerListener(t);
-        t.syncState();
+        dl.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationView nv = (NavigationView) findViewById(R.id.navigaion);
 
@@ -237,7 +218,7 @@ setNavigaton_listview();
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(t.onOptionsItemSelected(item))
+        if(actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
@@ -256,21 +237,7 @@ setNavigaton_listview();
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
 
-//        if(mInterstitialAd != null) {
-//            mInterstitialAd.setAdListener(null);
-//        }
-    }
-    public void displayInterstitial()
-    {
-        // If Interstitial Ads are loaded then show else show nothing.
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
     public void setNavigaton_listview()
 
     {
@@ -457,5 +424,39 @@ Picasso.get().load(img_file).into(ad_img);
         requestQueue.add(stringRequest);
 
 
+    }
+    /** Called when leaving the activity */
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+    public void setAdmobBannerAdView()
+    {
+        adView = findViewById(R.id.adView);
+        // Create an ad request.
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
     }
 }
