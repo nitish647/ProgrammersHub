@@ -1,34 +1,23 @@
 package com.nitish.programmershub;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.android.youtube.player.YouTubeStandalonePlayer;
-import com.google.android.youtube.player.YouTubeThumbnailLoader;
-import com.google.android.youtube.player.YouTubeThumbnailView;
+import com.nitish.programmershub.Activity.VideoViewerActivity;
+import com.nitish.programmershub.Activity.YoutubePlaylistActivity;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
-import com.squareup.picasso.Target;
 
 
 import java.util.ArrayList;
@@ -47,7 +36,7 @@ private  ArrayList id;
 
     private Context context;
     private Random mRandom = new Random();
-    Youtube_adapter(ArrayList mNames, ArrayList mImageUrl, Context context, String passstr,ArrayList mid,ArrayList videoid,ArrayList mitemcount) {
+    public Youtube_adapter(ArrayList mNames, ArrayList mImageUrl, Context context, String passstr, ArrayList mid, ArrayList videoid, ArrayList mitemcount) {
         this.mtitle = mNames;
         this.mImageUrl= mImageUrl;
         this.context = context;
@@ -98,14 +87,14 @@ Picasso.get().load((String) mImageUrl.get(position)).fit().placeholder(R.drawabl
 
                 if (mpassstr.contains("youtube_play"))
                 {
- intent = new Intent( view.getContext(), Exoplayer.class);
+ intent = new Intent( view.getContext(), YoutubePlaylistActivity.class);
  intent.putExtra("plid",(String) id.get(position));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     view.getContext().startActivity(intent);
 
                 }
                 if (mpassstr.contains("exoplayer"))
-                {   intent = new Intent(view.getContext(),Video_tutorials.class);
+                {   intent = new Intent(view.getContext(), VideoViewerActivity.class);
             //    Toast.makeText(view.getContext(),"passing "+videoid.get(position),Toast.LENGTH_LONG).show();
                 intent.putExtra("videoid", String.valueOf(videoid.get(position )));
                 intent.putExtra("title", String.valueOf(mtitle.get(position)));

@@ -10,6 +10,8 @@ repositories {
     maven { url 'https://maven.google.com' }
 }
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion 32
     defaultConfig {
@@ -22,9 +24,14 @@ android {
         }
         applicationId "com.nitish.programmershub"
         minSdkVersion 21
+//     com.google.android.gms.ads.AdView mAdView = new com.google.android.gms.ads.AdView(this);
+//        mAdView.setAdSize(com.google.android.gms.ads.AdSize.BANNER);
+//        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
         targetSdkVersion 32
-        versionCode 23
-        versionName "3.2"
+        versionCode 25
+        versionName "3.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -53,7 +60,18 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     testImplementation 'junit:junit:4.13.2'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
 
 
     androidTestImplementation 'androidx.test:runner:1.4.0'

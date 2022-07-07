@@ -17,7 +17,7 @@
 
 
 
-<LinearLayout
+<RelativeLayout
     android:background="#E0E0E0"
     android:orientation="vertical"
     android:layout_width="wrap_content"
@@ -25,15 +25,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
-      android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+
+        android:layout_height="match_parent"
+        android:layout_above="@+id/adView">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.gms.ads.AdView
+        android:layout_alignParentBottom="true"
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -41,7 +44,7 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/admob_bannerid">
     </com.google.android.gms.ads.AdView>
-</LinearLayout>
+</RelativeLayout>
 <!--    android:layout_gravity="start"-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigaion"

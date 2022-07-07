@@ -6,7 +6,7 @@
 
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CourseListActivity">
+    tools:context=".Activity.CourseListActivity">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search"
@@ -44,15 +44,14 @@
     </ListView>
 </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
 
-       android:layout_gravity="center"
+        android:layout_gravity="center"
 
         ads:adSize="BANNER"
         ads:adUnitId="@string/admob_bannerid">
