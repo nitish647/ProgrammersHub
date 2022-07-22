@@ -8,15 +8,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.IntentSender;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -51,12 +49,20 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.InstallStatus;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.Task;
 import com.google.firebase.FirebaseApp;
-import com.nitish.programmershub.Activity.Utils.NotificationHelper;
+import com.nitish.programmershub.CommonMethods;
+import com.nitish.programmershub.Utils.NotificationHelper;
 import com.nitish.programmershub.Design_helper;
 import com.nitish.programmershub.R;
 import com.nitish.programmershub.Adapter.MainPageAdapter;
-import com.nitish.programmershub.Services.NotificationService;
 import com.squareup.picasso.Picasso;
 
 
@@ -67,18 +73,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import io.paperdb.Paper;
+
 public class MainActivity extends AppCompatActivity {
 
     ActionBarDrawerToggle actionBarDrawerToggle;
-  static   Context context;
-  static String string;
-  static HashMap hashMap = new HashMap();
+    static Context context;
+    static String string;
+    int APP_UPDATE_REQUEST_CODE = 11232;
+    static HashMap hashMap = new HashMap();
 
     ListView navigaton_list;
- static   AsyncTask<Void,Void, HashMap> asyncTask;
-//
+    static AsyncTask<Void, Void, HashMap> asyncTask;
+    //
     ArrayList mImageUrl = new ArrayList<>();
-    ArrayList mNames= new ArrayList<>();
+    ArrayList mNames = new ArrayList<>();
 
     private InterstitialAd fb_interstitialAd;
     public AdView adView;
@@ -89,13 +98,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Paper.init(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         FirebaseApp.initializeApp(MainActivity.this);
-        Intent myIntent = new Intent(MainActivity.this, NotificationService.class);
-        startService(myIntent);
-navigaton_list =(ListView)findViewById(R.id.main_navigation_list);
-context = getApplicationContext();
-setNavigaton_listview();
+
+        navigaton_list = (ListView) findViewById(R.id.main_navigation_list);
+        context = getApplicationContext();
+        setNavigaton_listview();
+
+        // initializing the paper library keys
+        initThePaper();
+        reQuestAppForUpdate();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -107,15 +120,12 @@ setNavigaton_listview();
         NotificationHelper.generateFcmToken(MainActivity.this);
 
 
-
         setAdmobBannerAdView();
-        
+
         loadInterstitialAd();
 
         // set navigation bar promotion
         set_data();
-
-
 
 
 //        fb_interstitialAd = new InterstitialAd(this,   getResources().getString(R.string.fb_interid));
@@ -133,7 +143,6 @@ setNavigaton_listview();
 //        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
-
         ActionBar bar = getSupportActionBar();
         final DrawerLayout dl = (DrawerLayout) findViewById(R.id.main_drawer);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, dl, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -149,27 +158,25 @@ setNavigaton_listview();
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 WebView webView = new WebView(getApplicationContext());
-        if(id ==R.id.policy) {
-            webView.loadUrl("file:///android_asset/privacy_policy_ph.html");
+                if (id == R.id.policy) {
+                    webView.loadUrl("file:///android_asset/privacy_policy_ph.html");
 
-            final AlertDialog alertDialog = new AlertDialog.Builder(
-                    MainActivity.this).create();
-            alertDialog.setView(webView);
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "ok", new android.content.DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(android.content.DialogInterface dialogInterface, int i) {
-                    alertDialog.dismiss();
+                    final AlertDialog alertDialog = new AlertDialog.Builder(
+                            MainActivity.this).create();
+                    alertDialog.setView(webView);
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "ok", new android.content.DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(android.content.DialogInterface dialogInterface, int i) {
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.show();
                 }
-            });
-            alertDialog.show();
-        }
-        if(id==R.id.more_apps)
-        {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=GLASSWEB"));
-            startActivity(intent);
-        }
-                if(id==R.id.share)
-                {
+                if (id == R.id.more_apps) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=GLASSWEB"));
+                    startActivity(intent);
+                }
+                if (id == R.id.share) {
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT,
@@ -179,7 +186,7 @@ setNavigaton_listview();
                 }
 
 
-                if(id ==R.id.about_us) {
+                if (id == R.id.about_us) {
                     webView.loadUrl("file:///android_asset/about_us.html");
 
                     final AlertDialog alertDialog = new AlertDialog.Builder(
@@ -195,16 +202,12 @@ setNavigaton_listview();
                 }
                 dl.closeDrawers();
 
-                        return false;
-                }});
+                return false;
+            }
+        });
 
 
-
-
-
-
-
-        bar.setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","#00C853", (float) 0, GradientDrawable.Orientation.LEFT_RIGHT));
+        bar.setBackgroundDrawable(Design_helper.set_Colors("#00BFA5", "#00C853", (float) 0, GradientDrawable.Orientation.LEFT_RIGHT));
 
         mImageUrl.add((R.drawable.c1));
         mImageUrl.add(R.drawable.cpp4);
@@ -230,7 +233,7 @@ setNavigaton_listview();
         MainPageAdapter MainPageAdapter =
                 new MainPageAdapter(mNames, mImageUrl, this);
 
-      GridLayoutManager GridLayoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager GridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(GridLayoutManager);
 
         recyclerView.setAdapter(MainPageAdapter);
@@ -240,14 +243,16 @@ setNavigaton_listview();
         recyclerView.getAdapter().notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(actionBarDrawerToggle.onOptionsItemSelected(item))
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
 //        mInterstitialAd.setAdListener(new AdListener()
@@ -262,25 +267,21 @@ setNavigaton_listview();
     }
 
 
-
-    public void setNavigaton_listview()
-
-    {
+    public void setNavigaton_listview() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("Share");
         arrayList.add("More Apps");
         arrayList.add("Privacy policy");
         arrayList.add("About us");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(),R.layout.listview_text,arrayList);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.listview_text, arrayList);
         navigaton_list.setAdapter(arrayAdapter);
-navigaton_list.setScrollContainer(false);
+        navigaton_list.setScrollContainer(false);
         navigaton_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WebView webView = new WebView(view.getContext());
 
-                if(i==0)
-                {
+                if (i == 0) {
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT,
@@ -288,13 +289,11 @@ navigaton_list.setScrollContainer(false);
                     sendIntent.setType("text/plain");
                     startActivity(sendIntent);
                 }
-                if(i==1)
-                {
+                if (i == 1) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=GLASSWEB"));
                     startActivity(intent);
                 }
-                if(i==2)
-                {
+                if (i == 2) {
                     webView.loadUrl("file:///android_asset/privacy_policy_ph.html");
 
                     final AlertDialog alertDialog = new AlertDialog.Builder(
@@ -308,8 +307,7 @@ navigaton_list.setScrollContainer(false);
                     });
                     alertDialog.show();
                 }
-                if(i==3)
-                {
+                if (i == 3) {
                     webView.loadUrl("file:///android_asset/privacy_policy_ph.html");
 
                     final AlertDialog alertDialog = new AlertDialog.Builder(
@@ -328,13 +326,12 @@ navigaton_list.setScrollContainer(false);
             }
         });
     }
-    public static void  set_asynctask()
-    {
-       final String url = "https://5eebcc365e298b0016b6946c.mockapi.io/nitish/ads";
-        final String[] text = new String[1];
-        hashMap.put("hjsdfhdsf","kjsdfkjs");
-        asyncTask= new AsyncTask<Void,Void, HashMap>() {
 
+    public static void set_asynctask() {
+        final String url = "https://5eebcc365e298b0016b6946c.mockapi.io/nitish/ads";
+        final String[] text = new String[1];
+        hashMap.put("hjsdfhdsf", "kjsdfkjs");
+        asyncTask = new AsyncTask<Void, Void, HashMap>() {
 
 
             @Override
@@ -343,23 +340,22 @@ navigaton_list.setScrollContainer(false);
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONArray  jsonArray = new JSONArray(response);
+                            JSONArray jsonArray = new JSONArray(response);
                             string = jsonArray.toString();
-                            hashMap.put("urdl","aajad");
-                            hashMap.put("url",jsonArray.toString());
+                            hashMap.put("urdl", "aajad");
+                            hashMap.put("url", jsonArray.toString());
 
                         } catch (JSONException e) {
-                            Design_helper.show_toast(context,"exception "+e.toString());
+                            Design_helper.show_toast(context, "exception " + e.toString());
                             e.printStackTrace();
                         }
-                 }
+                    }
 
-                }, new Response.ErrorListener()
-                {
+                }, new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                      Design_helper.show_toast(context,"volley error "+error.getMessage());
+                        Design_helper.show_toast(context, "volley error " + error.getMessage());
 
                     }
                 });
@@ -372,39 +368,37 @@ navigaton_list.setScrollContainer(false);
             }
 
 
-
             @Override
             protected void onPostExecute(HashMap hashMap2) {
 
                 super.onPostExecute(hashMap2);
-                Toast.makeText(context,hashMap2.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(context, hashMap2.toString(), Toast.LENGTH_LONG).show();
             }
         }.execute();
     }
-    public void intentForStudyMaterials()
-    {
+
+    public void intentForStudyMaterials() {
 
         if (interstitialAd != null) {
             interstitialAd.show(this);
-        }else {
+        } else {
 
             Intent intent = new Intent(this, StudyMaterialsActivity.class);
             intent.putExtra("course", MainPageAdapter.courseName);
             startActivity(intent);
         }
     }
-    public void set_data()
-    {
+
+    public void set_data() {
 
 
+        View view = getLayoutInflater().inflate(R.layout.main_ads, null);
 
-        View view= getLayoutInflater().inflate(R.layout.main_ads,null);
-
-      final ImageView ad_img = (ImageView)findViewById(R.id.ads_img);
-        final TextView text_name=(TextView)findViewById(R.id.ads_name) ;
-        final TextView text_description=(TextView)findViewById(R.id.ads_description) ;
-        final Button button =(Button)findViewById(R.id.ads_install_btn);
-        final ConstraintLayout ads_constraintLayout =(ConstraintLayout)findViewById(R.id.ads_contatint);
+        final ImageView ad_img = (ImageView) findViewById(R.id.ads_img);
+        final TextView text_name = (TextView) findViewById(R.id.ads_name);
+        final TextView text_description = (TextView) findViewById(R.id.ads_description);
+        final Button button = (Button) findViewById(R.id.ads_install_btn);
+        final ConstraintLayout ads_constraintLayout = (ConstraintLayout) findViewById(R.id.ads_contatint);
         ad_img.setImageResource(R.drawable.java7);
         final String url = "https://5eebcc365e298b0016b6946c.mockapi.io/nitish/ads";
 
@@ -412,45 +406,44 @@ navigaton_list.setScrollContainer(false);
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONArray  jsonArray = new JSONArray(response);
-JSONObject jsonObject = new JSONObject();
-JSONObject jsonObject1 ;
-jsonObject = jsonArray.getJSONObject(0);
-jsonObject1 = jsonObject.getJSONArray("main").getJSONObject(0);
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = new JSONObject();
+                    JSONObject jsonObject1;
+                    jsonObject = jsonArray.getJSONObject(0);
+                    jsonObject1 = jsonObject.getJSONArray("main").getJSONObject(0);
 
-final String url = jsonObject1.getString("url");
-final String img_file = jsonObject1.getString("img_file");
-String name = jsonObject1.getString("name");
-String desc = jsonObject1.getString("description");
-button.setBackground(Design_helper.set_Colors("#2CA839","#27B636", (float) 20, GradientDrawable.Orientation.LEFT_RIGHT));
-button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-    }
-});
+                    final String url = jsonObject1.getString("url");
+                    final String img_file = jsonObject1.getString("img_file");
+                    String name = jsonObject1.getString("name");
+                    String desc = jsonObject1.getString("description");
+                    button.setBackground(Design_helper.set_Colors("#2CA839", "#27B636", (float) 20, GradientDrawable.Orientation.LEFT_RIGHT));
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(Uri.parse(url));
+                            startActivity(intent);
+                        }
+                    });
 
-text_name.setText(name);
-text_description.setText(desc);
-Picasso.get().load(img_file).into(ad_img);
+                    text_name.setText(name);
+                    text_description.setText(desc);
+                    Picasso.get().load(img_file).into(ad_img);
                     string = jsonArray.toString();
 
-                    hashMap.put("url",jsonObject.getJSONArray("main").getJSONObject(0).get("url"));
+                    hashMap.put("url", jsonObject.getJSONArray("main").getJSONObject(0).get("url"));
                 } catch (JSONException e) {
-                    Design_helper.show_toast(context,"exception "+e.toString());
+                    Design_helper.show_toast(context, "exception " + e.toString());
                     e.printStackTrace();
                 }
             }
 
-        }, new Response.ErrorListener()
-        {
+        }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
                 ads_constraintLayout.setVisibility(View.GONE);
-                Design_helper.show_toast(context,"welcome  ");
+                Design_helper.show_toast(context, "welcome  ");
 
             }
         });
@@ -462,7 +455,10 @@ Picasso.get().load(img_file).into(ad_img);
 
 
     }
-    /** Called when leaving the activity */
+
+    /**
+     * Called when leaving the activity
+     */
     @Override
     public void onPause() {
         if (adView != null) {
@@ -471,7 +467,9 @@ Picasso.get().load(img_file).into(ad_img);
         super.onPause();
     }
 
-    /** Called when returning to the activity */
+    /**
+     * Called when returning to the activity
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -480,7 +478,9 @@ Picasso.get().load(img_file).into(ad_img);
         }
     }
 
-    /** Called before the activity is destroyed */
+    /**
+     * Called before the activity is destroyed
+     */
     @Override
     public void onDestroy() {
         if (adView != null) {
@@ -488,8 +488,8 @@ Picasso.get().load(img_file).into(ad_img);
         }
         super.onDestroy();
     }
-    public void setAdmobBannerAdView()
-    {
+
+    public void setAdmobBannerAdView() {
         adView = findViewById(R.id.adView);
         // Create an ad request.
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -504,6 +504,7 @@ Picasso.get().load(img_file).into(ad_img);
             interstitialAd.show(this);
         }
     }
+
     public void loadInterstitialAd() {
 
 
@@ -533,7 +534,7 @@ Picasso.get().load(img_file).into(ad_img);
 
                                         Intent intent = new Intent(MainActivity.this, StudyMaterialsActivity.class);
                                         intent.putExtra("course", MainPageAdapter.courseName);
-                                      startActivity(intent);
+                                        startActivity(intent);
 
                                     }
 
@@ -558,16 +559,63 @@ Picasso.get().load(img_file).into(ad_img);
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         // Handle the error
-                        Log.i("gInterstitialAd", "ad loading failed : "+loadAdError.getMessage());
+                        Log.i("gInterstitialAd", "ad loading failed : " + loadAdError.getMessage());
                         interstitialAd = null;
 
                         String error = String.format(
                                 "domain: %s, code: %d, message: %s",
                                 loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
 
-                        Log.d("gInterstitialAd","Ad loading failed : "+error);
+                        Log.d("gInterstitialAd", "Ad loading failed : " + error);
                     }
                 });
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == APP_UPDATE_REQUEST_CODE) {
+            if (resultCode != RESULT_OK) {
+
+
+                // If the update is cancelled or fails,
+                // you can request to start the update again.
+            }
+        }
+    }
+
+    public void reQuestAppForUpdate()
+    {
+
+        AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(context);
+
+// Returns an intent object that you use to check for an update.
+        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+
+
+        appUpdateManager
+                .getAppUpdateInfo()
+                .addOnSuccessListener(
+                        appUpdateInfo -> {
+
+                            // Checks that the platform will allow the specified type of update.
+                            if ((appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE)
+                                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE))
+                            {
+                                // Request the update.
+                                try {
+                                    appUpdateManager.startUpdateFlowForResult(
+                                            appUpdateInfo,
+                                            AppUpdateType.FLEXIBLE,
+                                            this,APP_UPDATE_REQUEST_CODE
+                                    );
+                                } catch (IntentSender.SendIntentException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+
+
+
     }
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -578,5 +626,18 @@ Picasso.get().load(img_file).into(ad_img);
                 }
             });
 
+
+    public void initThePaper()
+    {
+        // will initialize the paper keys only for the first time
+
+        if(!Paper.book().contains(CommonMethods.FAVOURITE_COURSE))
+        {
+            ArrayList<String> favouriteCourseUrl = new ArrayList<>();
+            Paper.book().write(CommonMethods.FAVOURITE_COURSE,favouriteCourseUrl);
+
+
+        }
+    }
 
 }

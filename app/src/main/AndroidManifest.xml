@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.Utils.NotificationHelper"
+            android:name=".Utils.NotificationHelper"
             android:exported="false" />
         <activity
             android:name=".Activity.SplashActivity"
@@ -39,9 +39,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".Activity.ContentViewerActivity" />
         <activity android:name=".Activity.InterviewActivity" />
-        <activity android:name=".Activity.CourseListActivity" />
+        <activity android:name=".Activity.CourseListActivity"
+            android:theme="@style/LightTheme"/>
         <activity android:name=".Activity.StudyMaterialsActivity" />
-        <activity android:name=".Activity.MainActivity"></activity>
+        <activity android:name=".Activity.MainActivity">
+
+        </activity>
 
         <service
             android:name=".Services.MyFirebaseMessagingService"
@@ -50,7 +53,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".Services.NotificationService"></service>
 
         <meta-data
             android:name="com.startapp.sdk.APPLICATION_ID"

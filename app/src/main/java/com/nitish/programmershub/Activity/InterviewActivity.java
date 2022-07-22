@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,21 +21,19 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.nitish.programmershub.Adapter.CourseListAdapter;
 import com.nitish.programmershub.Design_helper;
 import com.nitish.programmershub.R;
+import com.nitish.programmershub.Utils.AnimationHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +42,8 @@ import java.util.Arrays;
 public class InterviewActivity extends AppCompatActivity {
     private Context mContext;
 ListView interview_list;
-String [] ques;
+String [] quesArray;
+ArrayList<String> questionArrayList= new ArrayList<>();
 SearchView search;
 
     String course;
@@ -53,27 +54,19 @@ SearchView search;
     ArrayList<String> arrayList;
     public com.google.android.gms.ads.AdView adView;
 
+    RecyclerView interviewListRecycler;
     private InterstitialAd interstitialAd;
+    CourseListAdapter courseListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interview);
+        interviewListRecycler = findViewById(R.id.interviewListRecycler);
         getSupportActionBar().setBackgroundDrawable(Design_helper.set_Colors("#00BFA5","#00C853", (float) 0, GradientDrawable.Orientation.LEFT_RIGHT));
 
         //google ads
         loadInterstitialAd();
         setAdmobBannerAdView();
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId(getResources().getString(R.string.admob_interid));
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//
-//                if (mInterstitialAd.isLoaded()) {
-//                    mInterstitialAd.show();
-//                }
-//                else {
-//                    Log.d("TAG", "The interstitial wasn'actionBarDrawerToggle loaded yet.");
-//                }
-
 
 
 
@@ -92,47 +85,43 @@ SearchView search;
         }
 
         if(course.contains("java"))
-        {  ques = getResources().getStringArray(R.array.java_interview);
+        {  quesArray = getResources().getStringArray(R.array.java_interview);
         }
         if(course.contains("python"))
-        {  ques = getResources().getStringArray(R.array.python_interview);}
+        {  quesArray = getResources().getStringArray(R.array.python_interview);}
             if(course.contains("c_interview"))
-            {  ques = getResources().getStringArray(R.array.c_interview);
+            {  quesArray = getResources().getStringArray(R.array.c_interview);
             }
         if(course.contains("cpp_interview"))
-        {  ques = getResources().getStringArray(R.array.cpp_interview);
+        {  quesArray = getResources().getStringArray(R.array.cpp_interview);
         }
         if(course.contains("php_interview"))
-        {  ques = getResources().getStringArray(R.array.php_interview);
+        {  quesArray = getResources().getStringArray(R.array.php_interview);
         }
         if(course.contains("javascript_interview"))
-        {  ques = getResources().getStringArray(R.array.javascript_interview);
+        {  quesArray = getResources().getStringArray(R.array.javascript_interview);
 
         }
         if(course.contains("swift_interview"))
-        {  ques = getResources().getStringArray(R.array.swift_interview);
+        {  quesArray = getResources().getStringArray(R.array.swift_interview);
         }
         if(course.contains("csharp_interview"))
-        {  ques = getResources().getStringArray(R.array.csharp_interview);
+        {  quesArray = getResources().getStringArray(R.array.csharp_interview);
         }
-        arrayAdapter = new ArrayAdapter<String>(this,R.layout.listview_item,ques);
+
+
+        arrayAdapter = new ArrayAdapter<String>(this,R.layout.listview_item, quesArray);
         interview_list.setAdapter(arrayAdapter);
-//        search.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                (Interview.this).arrayAdapter.getFilter().filter(charSequence);
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//
-//            }
-//        });
+
+        questionArrayList = new ArrayList<String>(Arrays.asList(quesArray));
+        courseListAdapter = new CourseListAdapter(InterviewActivity.this,course,questionArrayList);
+        interviewListRecycler.setAdapter(courseListAdapter);
+        interviewListRecycler.startAnimation(AnimationHelper.topToButtonAnimation(InterviewActivity.this));
+        interviewListRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
 
 
         search.setOnClickListener(new View.OnClickListener() {
@@ -149,14 +138,13 @@ SearchView search;
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                arrayAdapter.getFilter().filter(newText);
+                courseListAdapter.getFilter().filter(newText);
                 return false;
             }
         });
-        Animation anim = null;
-        anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_top_to_bottom);
-        anim.setDuration(1000);
-        interview_list.startAnimation(anim);
+
+
+
         interview_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

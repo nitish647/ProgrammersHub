@@ -234,14 +234,20 @@ else{
     }
 
 
+//    @Override
+//    public void onBackPressed() {
+//        if (interstitialAd != null) {
+//            interstitialAd.show(this);
+//
+//        }else{
+//            super.onBackPressed();
+//        }
+//    }
     @Override
     public void onBackPressed() {
-        if (interstitialAd != null) {
-            interstitialAd.show(this);
-        
-        }else{
+
             super.onBackPressed();
-        }
+
     }
 
 
@@ -304,7 +310,9 @@ else{
                                         // show it a second time.
                                         ContentViewerActivity.this.interstitialAd = null;
 
-                                        loadInterstitialAd();
+                                  //      loadInterstitialAd();
+
+
                                         // go to back when the ad is dismissed
                                         onBackPressed();
 

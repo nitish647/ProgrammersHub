@@ -32,6 +32,8 @@ import java.util.Map;
 public class CommonMethods {
 
 
+    public static String FAVOURITE_COURSE = "FAVOURITE_COURSE";
+
     // this class is just contains the common methods  so that are users can copy paste the methods from here
     Context context;
 

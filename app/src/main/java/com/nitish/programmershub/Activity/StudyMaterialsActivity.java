@@ -93,7 +93,7 @@ String data;
             public void onClick(View view) {
 
 
-                Intent  intent = new Intent(StudyMaterialsActivity.this, InterviewActivity.class);
+                Intent  intent = new Intent(StudyMaterialsActivity.this, CourseListActivity.class);
                 intent.putExtra("course",""+data.toLowerCase()+"_interview");
                 startActivity(intent);
 

@@ -4,6 +4,7 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="#EEEEEE"
+    android:weightSum="10"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -11,19 +12,27 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_splash"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="10dp"
         android:layout_gravity="top"
+        android:tint="@color/materialGreedColor"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/splash_anim4" />
+        app:lottie_rawRes="@raw/programmers_splash"
+        android:layout_weight="7"
+        />
 
     <TextView
-android:gravity="center"
+
+android:gravity="center_horizontal"
         android:id="@+id/splash_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-android:textStyle="bold"
+
+        android:fontFamily="sans-serif-black"
+        android:layout_weight="3"
         android:textColor="#5C6BC0"
-        android:text="Welcome"
-        android:textSize="40dp" />
+        android:text="Programmers Hub"
+        android:textSize="40sp" />
     </LinearLayout>
 
